@@ -1,0 +1,1812 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>学习汇报(0810-0816)</title>
+    <url>/2020/08/16/31Study-Report(0810-0816)/</url>
+    <content><![CDATA[<p>本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。</p>
+<a id="more"></a>
+<h2 id="一、研究生素养提升公益课"><a href="#一、研究生素养提升公益课" class="headerlink" title="一、研究生素养提升公益课"></a>一、研究生素养提升公益课</h2><p>此系列讲座持续了3天，各个学校的老师和教授们从研究生入学要求、到论文的写作、到研究生学习规划，全方位的扩展了我们的认知，记录了其中一些重点内容，总结如下</p>
+<p><strong>北京印刷学院 魏超 学术训练和论文体裁</strong></p>
+<p>魏老师从一个比较宽泛、基础性的概念讲解了研究生的培养目标、学习条件等等，以及一些与期刊相关的常识。下图是期刊的类型，我们研究生发表的大部分都是学术期刊，不同学校对发表文章有不同的毕业或答辩要求。</p>
+<p><img src="/assets/5c2eb28d00589bc4cc66780729f5aeb0.png" alt=""></p>
+<p><strong>清华大学 王媛教授 中外文数据库的使用</strong></p>
+<p>王媛教授主要是通过一些例子，讲解了文献检索的过程和技巧，并带领我们全面认识学术信息资源。其中一些知识点如下</p>
+<ul>
+<li><p>利用信息创造新知识，合理参与学习社区</p>
+</li>
+<li><p>一个高信息素养的人避免以下行为</p>
+</li>
+</ul>
+<ol>
+<li><p>在课程论文中引用来自“百度百科”或“Wikipedia”的词条</p>
+</li>
+<li><p>把搜索引擎当做唯一的信息检索工具</p>
+</li>
+<li><p>对信息的生产者和发布者不加以区分</p>
+</li>
+</ol>
+<ul>
+<li><p>科技期刊Science、Nature、Cell</p>
+</li>
+<li><p>学术发现工具：FirstSearch/Worldcat</p>
+</li>
+</ul>
+<p><img src="/assets/30f2b67002584b92b3bd4b8ff0b2ebd5.jpg" alt=""></p>
+<p><strong>中国知网 徐铭梓 如何利用中国知网高效检索文献、阅读和写作</strong></p>
+<p>在听这节课之前，我对知网的认知还仅限于查重和搜索。在完整的听完徐铭梓老师的细致讲解之后，才发现知网提供了如此多的功能。包括高级搜索、趋势图标、论文写作、论文发表等一系列的平台，很开阔我的视野。下面是知网研学的写作界面，右侧是摘录的笔记或参考文献，可以随时查看和引用。不知道学校是否开通了这个服务，如果能用可就太舒服了。</p>
+<p><img src="/assets/c2a475dfbbe6735bc5e028e4325e3ab2.png" alt=""></p>
+<p><strong>北京化工大学 张杰  论文写作技巧与投稿发表</strong></p>
+<p>张杰老师讲解了科技论文构成要素及写作要点，并带领我们阅读了几篇论文，教我们如何去快速获取论文的核心观点和结论，以及阅读或写作时要注意的一些细节问题，下图是在投稿之前要注意到的一些技巧。</p>
+<p><img src="/assets/3b8037cdcf04a4a842adf5aacfee3e83.png" alt=""></p>
+<p>经过几天的学习，我收获了很多有用的知识，同时也非常感谢知网平台提供给我这样一个结课证书，希望能在以后将上面的知识应用到实践中去。</p>
+<p><img src="/assets/003d860e20e8f15870553899f690235b.jpg" alt=""></p>
+<p><strong>层次树结构酉张量网络的机器学习       </strong></p>
+<p><img src="/assets/e35a58d3867ee8c1559ef037ff1dc992.png" alt=""></p>
+<p>这篇英文论文涵盖了非常多的内容，并且附有代码。在读论文和读代码时遇到各种各样的问题，但是能够相互印证自行解决。论文中不明白的公式演化过程，都能在代码中得到明确的体现。在代码中看不懂的变量和参数，在论文中也有部分体现。总之，这套代码基于python库<a href="https://github.com/andrewdarmawan/tncontract" target="_blank" rel="noopener">tncontract</a>来进行张量网络的缩并操作，重难点都已经写在PPT里了。数据集也已经修复，详细的内容见PPT和<br><a href="https://github.com/YuleZhang/Tree-Tensor-Networks-in-Machine-Learning" target="_blank" rel="noopener"></a></p>
+]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习汇报(0802-0809)</title>
+    <url>/2020/08/09/30Study-Report(0802-0809)/</url>
+    <content><![CDATA[<h3 id="矩阵乘积态MPS表达多体系统基态"><a href="#矩阵乘积态MPS表达多体系统基态" class="headerlink" title="矩阵乘积态MPS表达多体系统基态"></a>矩阵乘积态MPS表达多体系统基态</h3><a id="more"></a>
+<p>TT分解的过程： 已知一个基态对应的高阶张量的样子，然后经过TT分解得到MPS态。<br>而MPS的关键在于，我们在不知道<strong>指数复杂的量子态系数是什么</strong>，也不需要TT分解，而是直接<strong>假设基态具有MPS的形式，直接处理MPS中的局域张量，</strong>从而绕过了指数墙的问题。</p>
+<h3 id="MPS的形式可以进行变换"><a href="#MPS的形式可以进行变换" class="headerlink" title="MPS的形式可以进行变换"></a>MPS的形式可以进行变换</h3><p>同一个量子态可以用不同的tensor进行表达，这种变换称为<strong>规范变换</strong></p>
+<p><img src="/assets/2df48437508948713ffb813501230b8b.png" alt=""></p>
+<p><strong>如何验证不同的规范变换表示同一个量子态呢？</strong></p>
+<p>答：将两者都变换成中心正交形式的MPS态，两者变换结果一致说明同一个量子态</p>
+<h3 id="如何将图片映射为张量网络"><a href="#如何将图片映射为张量网络" class="headerlink" title="如何将图片映射为张量网络"></a>如何将图片映射为张量网络</h3><p>视频中使用的代码和示例都是采用的<strong>虚拟数据</strong>（无实际含义），通过<strong>裁减误差</strong>来刻画算法的性能。而将该算法实际运用到生活中时则涉及到很多的表示问题，我们对图片过去的印象是它是一个<strong>四阶张量，</strong>即（samples,<br>height, width,<br>channels），以此为输入可以完成很多的工作。可是当我们对单张图片进行张量网络优化时，就会出现表示难题。仍可以从图片各个指标的角度逐步将其拆解，组合成各种各样结构的网络。如下图</p>
+<p><img src="./assets/ad43d1a92637073d925cf710f68b50d3.png" alt=""></p>
+<p><img src="/assets/b52e0e04b41996b2f80efbd6341c76e5.png" alt=""></p>
+<h3 id="TEBD算法："><a href="#TEBD算法：" class="headerlink" title="TEBD算法："></a>TEBD算法：</h3><p>对于一个W*H的张量网络，在规定求和的顺序后可以将它严格求出。当W或H比较大的时候，这个张量网络的复杂度就呈指数级别增长，传统计算机不能在有效时间内给出结果。而TEBD就是一种基于矩阵乘积态的、近似收缩张量网络的数值算法。</p>
+<p>主要思路：从处于边界的张量构成的MPS开始，一行一行（或一列一列）地收缩张量网络。</p>
+<p><img src="/assets/4df70ce5f5596569ebffc5edb23c92b5.png" alt=""></p>
+<p><img src="/assets/6d3020c3b66f0a65b26f7a381fd2cbbe.png" alt=""></p>
+<p>TEBD的计算方案并不唯一，它可以采用MPO的形式，逐层进行求和。也可以采用张量</p>
+<p>TEBD算法计算基态的思路是退火，而密度矩阵重整化（DMRG）采取的是另一种思路：</p>
+<p><strong>基于最大本征态求解对应的最优化问题，</strong>即求解如下<strong>极小化问题</strong></p>
+<h3 id="DMRG算法"><a href="#DMRG算法" class="headerlink" title="DMRG算法"></a>DMRG算法</h3><p>DMRG的策略是<strong>更新各个张量，使能量达到极小</strong>，具体的更新策略不唯一。在单点（one-site）DMRG中，每次更新MPS中的一个张量，其余张量看成是给定的参数。单个张量的优化问题可以等价为局域矩阵的最大本征值问题。</p>
+<p><img src="/assets/1e88c0c1114804d85411c8a82aac0a28.png" alt=""></p>
+<p><img src="/assets/ce70bc9a0007fc1827b7bd40826c251d.png" alt=""></p>
+<p><img src="/assets/10ef8e487ea1097d3d92ab7d54aa83f0.png" alt=""></p>
+<p>有效哈密顿量h2的能量就能用如上的公式和张量网络图来表示。由于它采用的是（Alternating<br>Least Square,<br>ALS的方法），故需要反复的迭代更新A1，A2….各个张量，这个地方一般迭代50多次就可以收敛了，计算复杂度线性增加，不会出现指数爆炸问题。同时在计算过程中，可以通过移动正交中心简化计算。</p>
+<p><img src="/assets/96e6b943dcdbf857cb383b269e341c43.png" alt=""></p>
+<h3 id="张量网络态与深度学习的交融"><a href="#张量网络态与深度学习的交融" class="headerlink" title="张量网络态与深度学习的交融"></a>张量网络态与深度学习的交融</h3><p>深度学习在物理方面的应用：</p>
+<ul>
+<li><p>表示量子多体波函数：RBM</p>
+</li>
+<li><p>探测相位过渡</p>
+</li>
+<li><p>蒙特卡罗模拟加速：Self-learning</p>
+</li>
+<li><p>辅助材料的合成</p>
+</li>
+<li><p>张量网络的优化</p>
+</li>
+</ul>
+<p>量子多体物理在DL中的应用</p>
+<ul>
+<li><p>发掘神经网络的新结构</p>
+</li>
+<li><p>生成模型新的表示方法</p>
+</li>
+<li><p>光学神经网络</p>
+</li>
+</ul>
+<p>一般性的深度神经网络结构图如下所示，包含了<strong>输入层、多个隐藏层、输出层。</strong>中间通过各种各样的<strong>线性变换和非线性变换。
+</strong>最终不断地训练参数，从而找到某个问题的最优近似解。这里有两个定理</p>
+<ol>
+<li><p>神经网络能够以任意精度逼近所求问题的解，也就是神经网络层数或者神经元个数可以无限延伸</p>
+</li>
+<li><p>没有免费午餐理论，虽然能够有很强的表示能力，但不一定能找到最优结构</p>
+</li>
+</ol>
+<p><img src="/assets/5cb19173f8a2bdddc73f8e10dd315d1d.png" alt=""></p>
+<p><strong>神经网络结构和张量网络的对应，请看下图，张量网络毫无压力的可以表示多层神经网络结构！</strong>通过对MPS态的进一步优化就可以实现对网络结构的优化，这种方式极大的减少了神经网络的<strong>权重参数</strong>。</p>
+<p><img src="/assets/7378baf0b60c1e8445a0e7e38e15e22b.png" alt=""></p>
+<p>同时作者通过大量的实验表示通过MPS结构进行的训练准确率与原神经网络结构基本一致，但是极大地减少了参数个数，优化了网络结构。</p>
+<h3 id="算法代码实现"><a href="#算法代码实现" class="headerlink" title="算法代码实现"></a>算法代码实现</h3><p>本周实现了基于约化密度矩阵的K2DPCA算法处理图像数据，并且在原先水平方向等距约化的基础上增加了垂直方向的处理。</p>
+<p>其中水平方向处理如下图所示</p>
+<p><img src="/assets/79b69b753ae09e28ddbf1bf3a61efd3a.png" alt=""></p>
+<p>垂直方向处理如下图所示</p>
+<p><img src="/assets/49c06a504b39d94c5b1ea7f0fc3b4080.png" alt=""></p>
+<p>综合水平与垂直方向的处理如下图所示</p>
+<p><img src="/assets/da6583c32cf8c10e6cc136b6a1956265.png" alt=""></p>
+<p>接下来的实现思路就是通过2-3次这样的矩阵约化，来降低图片的维数，最后通过张量平均的方式代入运算，降低误差。</p>
+]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考研总结</title>
+    <url>/2020/06/05/29PGEE-Summary/</url>
+    <content><![CDATA[<p><img src="/images/boat.jpg" alt="cover"></p>
+<a id="more"></a>
+<p>距离西南大学拟录取已经大约一周了，想着做个总结，记录一下从考研到上岸中成长的点滴。</p>
+<p>这次考研也是准备了很长时间，仅仅是全天复习就持续了起码半年，并且早睡早起没敢懈怠，只为北大这个名字，也值得血气方刚的自己为之自豪了。现在回想起来，没有过线的原因一方面是没有经验，另一方面是学习方法有问题。</p>
+<p>考完等成绩的那段时间是比较煎熬的，无数次回想自己考试的细节，总是忍不住去看关于题目的讨论和答案，一次次的估计自己的分数区间。尤其是当了解到成绩公布要推迟，更是恨不得时间再走快一些，让我赶紧迎接这审判。2月22日，北大公布了考生的分数。当我查到自己考研成绩的那一刻，我是非常失望的，政治英语我竟然连平均分都没有。我仍心存侥幸，希望能复查。复查无误之后，我又希望分数线不要画的那么高，我好好准备复试还可能逆袭。总之，当时唯一能让我振作的就是这一丝丝弱小的微光了。我不知道怎么跟父母交代，每次他们问我成绩我就生气，没有结果，不想跟他们讨论，希望能把最后的光明给他们就好了。</p>
+<p>在等分数线的时候，我也开始动手找调剂，那时候很无助，看到个学校就像发邮件，想给自己点信心。当没有收到几封像样的邮件时，又迷茫了。这个时候尽管我非常清楚自己这个阶段该做什么（一边准备复试，一边调剂），但我早已没了当初考研的那份自信，这些天我是没有学进多少东西。</p>
+<p>4月29日，软微公布了分数线，智能科技方向350的线，我以4分之差与软微无缘。尽管有所预料，但还是止不住的失望，那时我的心情就更加沉重，漫无目的，不知所措。于是我开始留意调剂，除了做毕业设计，就是每天找几个学校发发邮件，为了抓住救命稻草，我发了100多封邮件，有给研招办的，有给教授的。后来陆陆续续有一些老师开始回复我，身边的亲人、老师也帮我问帮我联系，我渐渐的有了一些选择和意向学校。可就是当选择多了之后，我也开始提高自己的要求，从最开始迷失时一本的标准，到最后想去211双一流。</p>
+<p>5月29日，在各路老师的帮助和自己的努力下，终于调剂到了较为中意的西南大学。这个学校确实名气不高，但实力还是挺强的，还可以接受，联系的老师也很给力，最后如愿以偿。</p>
+<p>6月5日，也就是今天，完成了毕业设计答辩，无论结果如何，本科阶段的学习也算画上了句号。</p>
+<p>总结起来就是，拼了一把自己的理想，还调了一个相对不错的211的电子信息专业，也该知足了。</p>
+<p>今年由于疫情的原因，各种通知和招生工作都进行了推迟，再加上没过线，电子信息调剂炸的厉害，真的是举步维艰，不过还好都走过来了，也成长了许多。</p>
+<p>另外还有一点感受就是做好自己的规划和预期，不要跟别人盲目攀比，也不要轻易动摇自己的想法。调剂期间陆陆续续有人上岸，异常难熬。西大已经符合我的预期和未来就业的基本要求了，尽管跟其他同学的一志愿比起来略有不足，不过也没什么好羡慕的，已经有敲门砖了，是有机会发光的。二战的冲动仅仅是因为看到了别人更好的学校而产生的，所以我觉得这就是自己不服气了，不能太冲动。比较是无上限的、痛苦的，最重要要有自己的方向和定位，学会一步一个脚印，看得到自己的成长和进步！</p>
+<p>确实也有朋友劝我二战，觉得这分数有点可惜。我考虑了一下这个问题，确实北大二战非常值得，而且事实上70%的学生都是二战上的北大，可是对我而言要花费一笔钱家庭会有很大负担，要花费一年程序员的青春，而且今年由于疫情形势不是很妙，所以我没有选择继续刚。</p>
+<p>总之大家都说选择比努力重要，我承认确实是这样子的，这句话一点毛病都没有。但当时准备考研时，我是非常坚定的要考北大，非常努力，丝毫没有胆怯和动摇。年轻气盛也好、不顾后果也罢，搏一搏让我发现我还是完全有能力、有机会去上北大的。所以，这就是青春无悔，是一种随性中的理性的追求，即使再选一次，我还是想选择北大！</p>
+]]></content>
+      <categories>
+        <category>转折点</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>决策树</title>
+    <url>/2020/04/03/27Decision-Tree/</url>
+    <content><![CDATA[<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><blockquote>
+<p>本文部分图片、材料来自于课程<a href="https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms" target="_blank" rel="noopener">Python3 入门机器学习</a> </p>
+</blockquote>
+<p>先来看一个招聘的例子，这就是一颗决策树，根据不同的问题进行一步步划分，最终将结果氛围录用和考察两类</p>
+<a id="more"></a>
+<p><img src="/assets/1585905261759.png" alt="1585905261759"></p>
+<h3 id="决策树实例"><a href="#决策树实例" class="headerlink" title="决策树实例"></a>决策树实例</h3><p>采用sklearn的决策树算法包，见<a href="https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms/blob/master/12-Decision-Tree/01-What-is-Decision-Tree/01-What-is-Decision-Tree.ipynb" target="_blank" rel="noopener"><strong>What-is-Decision-Tree</strong></a></p>
+<h3 id="决策树的特点"><a href="#决策树的特点" class="headerlink" title="决策树的特点"></a>决策树的特点</h3><ul>
+<li><p>非参数学习方法</p>
+</li>
+<li><p>可以解决分类问题</p>
+</li>
+<li><p>天然可以解决多分类问题</p>
+</li>
+<li><p>也可以解决回归问题</p>
+</li>
+<li><p>具有非常好的可解释性</p>
+</li>
+</ul>
+<h3 id="关键问题"><a href="#关键问题" class="headerlink" title="关键问题"></a>关键问题</h3><ul>
+<li><p>每个节点在哪个维度做划分</p>
+</li>
+<li><p>某个维度在哪个值上做划分</p>
+</li>
+</ul>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><p>熵在信息论中代表随机变量不确定度的度量</p>
+<ul>
+<li>熵越大，数据的不确定性越高</li>
+<li><p>熵越小，数据的不确定性越低</p>
+<p>$Entropy(S) = -\sum p_ilog(p_i)$</p>
+</li>
+</ul>
+<p>二分类问题的信息熵效果图，当两个分类的p都为0.5时，信息熵最大，数据越不稳定</p>
+<p><img src="/assets/1585912118170.png" alt="1585912118170"></p>
+<h3 id="基尼系数"><a href="#基尼系数" class="headerlink" title="基尼系数"></a>基尼系数</h3><p>$G = 1 - \sum_{i=1}^{k}p^2_{i}$</p>
+<p>同信息熵类似，G越大表示样本的不确定性越强，反之则表示样本的分类没有任何不确定，最小值为0</p>
+<p>以二分类为例，其函数图像为开口向下的抛物线</p>
+<blockquote>
+<p>np.argsort()将np.array中的值从小到大进行排序，按照此顺序依次返回元素在元数组中的index</p>
+<p>Counter参数为list，求出列表中值的出现次数</p>
+</blockquote>
+<h3 id="信息熵VS基尼系数"><a href="#信息熵VS基尼系数" class="headerlink" title="信息熵VS基尼系数"></a>信息熵VS基尼系数</h3><ul>
+<li>信息熵的计算比基尼系数稍慢</li>
+<li>scikit-learn包中默认参数为基尼系数</li>
+<li>大多数时候二者没有特别的效果优劣</li>
+</ul>
+<h3 id="CART-Classification-And-Regression-Tree"><a href="#CART-Classification-And-Regression-Tree" class="headerlink" title="CART(Classification And Regression Tree)"></a>CART(Classification And Regression Tree)</h3><blockquote>
+<p>scikit-learn的决策树实现：CART</p>
+</blockquote>
+<p><strong>复杂度</strong></p>
+<ul>
+<li>预测： $O(logm)$</li>
+<li>训练： $O(n<em>m</em>logm)$</li>
+<li>剪支： 降低复杂度，解决过拟合</li>
+</ul>
+<p><strong>超参数</strong></p>
+<p>避免过拟合、欠拟合</p>
+<ul>
+<li>max_depth： 限制最大深度为2</li>
+<li>min_samples_split： 至少要有多少个样本数据才继续拆分下去</li>
+<li>min_samples_leaf： 对于叶子结点来说最少要有几个样本</li>
+<li>max_leaf_nodes：最多有多少个叶子节点</li>
+</ul>
+<p>可以用网格搜素寻找合适的参数</p>
+<h3 id="决策树解决回归问题"><a href="#决策树解决回归问题" class="headerlink" title="决策树解决回归问题"></a>决策树解决回归问题</h3><h3 id="决策树的局限性"><a href="#决策树的局限性" class="headerlink" title="决策树的局限性"></a>决策树的局限性</h3><ul>
+<li>决策边界只能是横平竖直，不能倾斜</li>
+<li>不能学习参数</li>
+<li>对个别样本比较敏感，可能会很大影响决策树</li>
+</ul>
+<p>每天都汇报投了哪几个单位</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>421总结</title>
+    <url>/2020/04/03/28GraduateSummary/</url>
+    <content><![CDATA[<h1 id="421总结"><a href="#421总结" class="headerlink" title="421总结"></a>421总结</h1><p>今天这个日期让我联想到了8421~~~</p>
+<a id="more"></a>
+<p>交流电是挺好的一个APP，它在我迷茫的时候拯救了我，却好像又因为我没有把握好度将我拉下了水。距离北大公布校线已经一星期了，可是软微的线却还是迟迟没有公布，加上群里谣言四起，让我有时抑郁有时坚强。再加上我又没有在认真学习，更是让我一直陷入一种诡异的泥潭之中，越陷越深。我似乎跟大家一样迷茫了起来。</p>
+<p>可是再仔细想想，这也许是因为我没有长期规划吧。考研的结果确实能影响未来几年的安排计划，它能决定我走向哪里开始我新时期的生活。也正是因为分出现迟迟不出，本就没有自信的我更是不知如何是好。</p>
+<p>不过今天，我终于又写起总结，希望能够依靠自己的力量走出泥沼。细细想来，读研究生也是为了日后找个好的工作，那么好工作需要的不仅仅是一个学历，还有能力，也许我可以提前为几年后的岗位最准备，它终归是要派上用场的，并且它跟复试也并不冲突。如果从这个角度来看，无论此次研究生考试结果如何，我都需要去认真学习数据分析、深度学习等方向的知识和技能。</p>
+<p>想到这里，我长长的舒了一口气，我终于不用再整天的陷入这种悔恨却又无力改变的泥沼了。我看过很多从逆境中走出来的故事，道理也都十分明白，可当我成为局中人时就很难认识到自己的处境，如果什么都不做，只能原地踏步然后等待失败的来临。如果每天做一点，即使很慢，最终还是能走出来，那就是时间问题了。</p>
+<p>我真的接受不了自己什么也不做，我真是非常害怕未来给我一巴掌，所以现在我要开始写算法了。</p>
+]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>复试之C/C++系列问题</title>
+    <url>/2020/04/02/26Pku-Interview-C/</url>
+    <content><![CDATA[<h2 id="复试之C-C-系列问题"><a href="#复试之C-C-系列问题" class="headerlink" title="复试之C/C++系列问题"></a>复试之C/C++系列问题</h2><h3 id="C-C-中为什么有引用"><a href="#C-C-中为什么有引用" class="headerlink" title="C/C++中为什么有引用"></a>C/C++中为什么有引用</h3><p>C++之所以增加引用类型, 主要是把它作为函数参数,以扩充函数传递数据的功能。</p>
+<p>引用是一个常量指针占四个字节，编译器在编译时对引用作了更严格的限制，与普通指针相比更加安全。详细见<a href="https://www.cnblogs.com/ronny/p/3662556.html" target="_blank" rel="noopener">C++的那些事：你真的了解引用吗</a></p>
+<a id="more"></a>
+<h3 id="指针和引用的区别"><a href="#指针和引用的区别" class="headerlink" title="指针和引用的区别"></a>指针和引用的区别</h3><p>（1）指针：指针是一个变量，只不过这个变量存储的是一个地址，指向内存的一个存储单元；而引用跟原来的变量实质上是同一个东西，只不过是原变量的一个别名而已。<br>（2）指针可以有多级，但是引用只能是一级（int **p；合法 而 int &amp;&amp;a是不合法的）<br>（3）指针的值可以为空，但是引用的值不能为NULL，并且引用在定义的时候必须初始化<br>（4）指针的值在初始化后可以改变，即指向其它的存储单元，而引用初始化后就不会再改变。<br>（5）”sizeof引用”得到的是所指向的变量(对象)的大小，而”sizeof指针”得到的是指针本身的大小。<br>（6）作为参数传递时，二者有本质不同：指针传参本质是值传递，被调函数的形参作为局部变量在栈中开辟内存以存放由主调函数放进来的实参值，从而形成实参的一个副本。而引用传递时，被调函数对形参的任何操作都会通过一个间接寻址的方式影响主调函数中的实参变量。</p>
+<h3 id="指针数组、数组指针"><a href="#指针数组、数组指针" class="headerlink" title="指针数组、数组指针"></a>指针数组、数组指针</h3><p>（1）指针数组：首先它是一个数组，数组的元素都是指针，数组占多少个字节由数组本身的大小决定，每一个元素都是一个指针，在32 位系统下任何类型的指针永远是占4 个字节。它是“储存指针的数组”的简称。<br>（2）数组指针：首先它是一个指针，它指向一个数组。在32 位系统下任何类型的指针永远是占4 个字节，至于它指向的数组占多少字节，不知道，具体要看数组大小。它是“指向数组的指针”的简称。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *arr[<span class="number">4</span>] = &#123;<span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="string">"shannxi"</span>, <span class="string">"xian"</span>&#125;; </span><br><span class="line"><span class="comment">//arr[4]是一个定义的数组。把它对应到对应到内存中，arr是一个在栈区,有四个元素的数组，而每一个元素又是一个指针，所以说它的四个元素各占四个字节，所以变量arr的大小是16个字节。arr+1会跳过四个字节。也就是一个指针的大小 。</span></span><br><span class="line"><span class="keyword">char</span> (*pa)[<span class="number">4</span>]; <span class="comment">//pa是一个指针指向一个char [4]的数组</span></span><br></pre></td></tr></table></figure>
+<h3 id="C-内存布局"><a href="#C-内存布局" class="headerlink" title="C++内存布局"></a>C++内存布局</h3><p>（1）栈区（stack）：由编译器自动分配释放，存放函数的参数值，局部变量值等，其操作方法类似数据结构中的栈。<br>（2）堆区（heap）：一般由程序员分配释放，与数据结构中的堆毫无关系，分配方式类似于链表。<br>（3）全局/静态区（static）：全局变量和静态变量的存储是放在一起的，在程序编译时分配。<br>（4）文字常量区：存放常量字符串。<br>（5）程序代码区：存放函数体（类的成员函数、全局函数）的二进制代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">0</span>; <span class="comment">//全局初始化区</span></span><br><span class="line"><span class="keyword">char</span> *p1; <span class="comment">//全局未初始化区</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> b; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> s[]=<span class="string">"bb"</span>; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p2; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p3=<span class="string">"123"</span>; <span class="comment">//其中，“123\0”常量区，p3在栈区</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> c=<span class="number">0</span>; <span class="comment">//全局区</span></span><br><span class="line">	p1=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">10</span>); <span class="comment">//10个字节区域在堆区</span></span><br><span class="line">	<span class="built_in">strcpy</span>(p1,<span class="string">"123"</span>); <span class="comment">//"123\0"在常量区，编译器 可能 会优化为和p3的指向同一块区域</span></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<h3 id="C-C-内存分配有三种方式："><a href="#C-C-内存分配有三种方式：" class="headerlink" title="C/C++内存分配有三种方式："></a>C/C++内存分配有三种方式：</h3><p>（1）从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，static变量。<br>（2）在栈上创建。在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。<br>（3）从堆上分配，亦称动态内存分配。程序在运行的时候用malloc或new申请任意多少的内存，程序员自己负责在何时用free或delete释放内存。<br>动态内存的生存期由程序员决定，使用非常灵活，但如果在堆上分配了空间，就有责任回收它，否则运行的程序会出现内存泄漏。另外频繁地分配和释放不同大小的堆空间将会产生堆内碎块。</p>
+<h3 id="malloc-free-、new-delete区别"><a href="#malloc-free-、new-delete区别" class="headerlink" title="malloc/free 、new/delete区别"></a>malloc/free 、new/delete区别</h3><p>（1）malloc与free是C++/C语言的标准库函数，new/delete是C++的运算符。它们都可用于申请动态内存和释放内存。<br>（2）对于非内部数据类型的对象而言，光用malloc/free无法满足动态对象的要求。对象在创建的同时要自动执行构造函数，对象在消亡之前要自动执行析构函数。由于malloc/free是库函数而不是运算符，不在编译器控制权限之内，不能够把执行构造函数和析构函数的任务强加于malloc/free。因此C++语言需要一个能完成动态内存分配和初始化工作的运算符new，以一个能完成清理与释放内存工作的运算符delete。注意new/delete不是库函数。<br>（3）C++程序经常要调用C函数，而C程序只能用malloc/free管理动态内存。<br>（4）new可以认为是malloc加构造函数的执行。new出来的指针是直接带类型信息的。而malloc返回的都是void指针。</p>
+<h3 id="字节对齐问题"><a href="#字节对齐问题" class="headerlink" title="字节对齐问题"></a>字节对齐问题</h3><p>字节对齐是C/C++编译器的一种技术手段，主要是在可接受空间浪费的前提下，尽可能地提高对相同元素过程的快速处理（比如32位系统，4字节对齐能使CPU访问速度提高）</p>
+<p>字节对齐的原则</p>
+<p>（1）结构体中每个成员相对于结构体首地址的偏移量都是成员大小的整数倍，如有需要编译器会填充字节</p>
+<p>（2）结构体的总大小为结构体最宽基本类型成员大小的整数倍，如有需要，编译器会填充字节。</p>
+<h3 id="内联函数有什么优点？内联函数和宏定义的区别"><a href="#内联函数有什么优点？内联函数和宏定义的区别" class="headerlink" title="内联函数有什么优点？内联函数和宏定义的区别"></a>内联函数有什么优点？内联函数和宏定义的区别</h3><p><strong>优点：</strong></p>
+<p>函数会在它所调用的位置上展开。这么做可以消除函数调用和返回所带来的开销（寄存器存储和恢复），而且，由于编译器会把调用函数的代码和函数本身放在一起优化，所以也有进一步优化代码的可能。<br>内联函数使用的场合：对于简短的函数并且调用次数比较多的情况，适合使用内联函数。</p>
+<p>内联函数和宏定义区别：</p>
+<p>1)<strong>内联函数在编译时展开，而宏在预编译时展开</strong><br>2)在编译的时候，内联函数直接被嵌入到目标代码中去，而宏只是一个简单的文本替换。<br>3)内联函数可以进行诸如类型安全检查、语句是否正确等编译功能，宏不具有这样的功能。<br>4)宏不是函数，而inline是函数</p>
+<p><strong>以下情况不宜使用内联：</strong></p>
+<p>（1）如果函数体内的代码比较长，使用内联将导致内存消耗代价较高。</p>
+<p>（2）如果函数体内出现循环，那么执行函数体内代码的时间要比函数调用的开销大。</p>
+<h3 id="覆盖、重载、隐藏的区别"><a href="#覆盖、重载、隐藏的区别" class="headerlink" title="覆盖、重载、隐藏的区别"></a>覆盖、重载、隐藏的区别</h3><p>（1）重载：重载翻译自overload，是指同一可访问区内被声明的几个具有不同参数列表（参数的类型，个数，顺序不同）的同名函数，根据参数列表确定调用哪个函数，重载不关心函数返回类型。<br>（2）覆盖：重写翻译自override，是指派生类中存在重新定义的函数。其函数名，参数列表，返回值类型，所有都必须同基类中被重写的函数一致，只有函数体不同。</p>
+<p>（3）重定义(隐藏)是指派生类的函数屏蔽了与其同名的基类函数，规则如下：</p>
+<ul>
+<li>如果派生类的函数和基类的函数同名，但是参数不同，此时不管有无virtual，基类的函数被隐藏；</li>
+<li>如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual关键字，此时基类函数被隐藏。</li>
+</ul>
+<h3 id="虚函数有什么作用？"><a href="#虚函数有什么作用？" class="headerlink" title="虚函数有什么作用？"></a>虚函数有什么作用？</h3><p>（1）虚函数的功能是使子类可以用同名的函数对父类函数进行覆盖，并且在通过父类指针调用时，如果有覆盖则自动调用子类覆盖函数，如果没有覆盖则调用父类中的函数，从而实现<strong>灵活扩展和多态性</strong>；</p>
+<p>（2）如果是纯虚函数，则纯粹是为了在子类覆盖时有个统一的命名而已，子类必须覆盖纯虚函数，则否子类也是抽象类；</p>
+<p>（3）含有纯虚函数的类称为抽象类，不能实例化对象，主要用作接口类。</p>
+<p>更详细的讲解见<a href="https://blog.csdn.net/haoel/article/details/1948051" target="_blank" rel="noopener">C++虚函数表解析</a></p>
+<h3 id="虚析构函数有什么作用？"><a href="#虚析构函数有什么作用？" class="headerlink" title="虚析构函数有什么作用？"></a>虚析构函数有什么作用？</h3><p>（1）析构函数的工作方式是：最底层的派生类的析构函数最先被调用，然后调用每一个基类的析构函数；</p>
+<p>（2）在C++中，当一个派生类对象通过使用一个基类指针删除，而这个基类有一个非虚的析构函数，则可能导致运行时派生类不能被销毁。然而基类部分很有可能已经被销毁，这就导致“部分析构”现象，造成内存泄漏；</p>
+<p>（3）给基类一个虚析构函数，删除一个派生类对象的时候就将销毁整个对象，包括父类和全部的派生类部分。</p>
+<h3 id="构造函数与析构函数的异同点"><a href="#构造函数与析构函数的异同点" class="headerlink" title="构造函数与析构函数的异同点"></a>构造函数与析构函数的异同点</h3><h4 id="构造函数特点"><a href="#构造函数特点" class="headerlink" title="构造函数特点"></a>构造函数特点</h4><p>（1）构造函数的名字必须与类名相同；</p>
+<p>（2）构造函数<strong>可以有任意类型的参数，但不能有返回类型</strong>；</p>
+<p>（3）定义对象时，编译系统会自动调用构造函数；</p>
+<p>（4）构造函数是<strong>特殊的成员函数</strong>，函数体可以在类体内也可以在类体外；</p>
+<p>（5）构造函数被声明为公有函数，但它不能像其他成员函数那样被显式调用，它是在定义对象的同时被调用的。</p>
+<h4 id="析构函数特点"><a href="#析构函数特点" class="headerlink" title="析构函数特点"></a>析构函数特点</h4><p>（1）析构函数的名字必须与类名相同，但它<strong>前面必须加一个波浪号</strong>；</p>
+<p>（2）析构函数没有参数，也没有返回值，而且不能被重载，因此<strong>在一个类中只能有一个析构函数</strong>；</p>
+<p>（3）当撤销对象时，编译系统会自动调用析构函数；</p>
+<p>（4）析构函数<strong>可以是virtual</strong>，而<strong>构造函数不能是虚函数</strong>。</p>
+<h3 id="成员函数和友元函数的区别"><a href="#成员函数和友元函数的区别" class="headerlink" title="成员函数和友元函数的区别"></a>成员函数和友元函数的区别</h3><p>相同点：</p>
+<ol>
+<li>对类的存取方式相同，可以直接存取类的任何存取控制属性的成员</li>
+<li>可以通过对象存取形参、函数体中该类类型对象的所有成员</li>
+</ol>
+<p>不同点：</p>
+<ol>
+<li>成员函数有this指针，而友元函数没有</li>
+<li>友元函数不能被继承</li>
+</ol>
+<h3 id="vector迭代器的几种失效的情况"><a href="#vector迭代器的几种失效的情况" class="headerlink" title="vector迭代器的几种失效的情况"></a><strong>vector迭代器的几种失效的情况</strong></h3><p>1.当插入（push_back）一个元素后，end操作返回的迭代器肯定失效。</p>
+<p>2.当插入(push_back)一个元素后，capacity返回值与没有插入元素之前相比有改变，则需要重新加载整个容器，此时first和end操 作返回的迭代器都会失效。</p>
+<p>3.当进行删除操作（erase，pop_back）后，指向删除点的迭代器全部失效；指向删除点后面的元素的迭代器也将全部失效。</p>
+<h3 id="有哪些东西是编译期间确定的，哪些是运行期间确定的？"><a href="#有哪些东西是编译期间确定的，哪些是运行期间确定的？" class="headerlink" title="有哪些东西是编译期间确定的，哪些是运行期间确定的？"></a>有哪些东西是编译期间确定的，哪些是运行期间确定的？</h3><p>考察编译和运行的了解。编译期间确定数组大小空间，宏定义，内联函数展开，extern变量等。运行期间确定new大小，多态类对象的函数调用，未赋值全局指针的指向等。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/hsq1596753614/article/details/80249605" target="_blank" rel="noopener">C/C++ 经典面试题总结</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>C/C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>澳洲之行</title>
+    <url>/2020/03/31/25Australia-Trip/</url>
+    <content><![CDATA[<p><img src="/images/Australia.jpg" alt="cover"><br><a id="more"></a></p>
+<h2 id="澳洲之行"><a href="#澳洲之行" class="headerlink" title="澳洲之行"></a>澳洲之行</h2><p>距离开澳洲已经两个多月了，由于最近要交材料、做总结，才让我想起来还没有给这趟旅途画上一个完美的句号，让我沿着日志集再回忆一下</p>
+<p>那是我第一次坐飞机，惊叹于那狭小的座椅提供给我丰富的功能，也是第一次感受飞机上升、下坠的不适感，让我难以忘怀。到了悉尼，还没下飞机就感受到那扑面而来的热风，果然跟书上写的一样，南半球的1月是夏天，我好奇的打量着周围的一切，看到了与我们国内相反的驾驶员位置、靠左行驶、过马路拍按钮等各种新鲜事。</p>
+<p>第一周的生活是围绕<strong>International house</strong>和<strong>卧龙岗大学</strong>展开的，我们每天在Internation house吃饭(一天两顿)，到卧龙岗大学听课+参观。吃了将近一周的三明治，最后大家闻面包色变哈哈，并且那的菜经常是土豆和烤肉，偶尔还会有Spaghetti，没有筷子，都是刀叉，每天有水果有热饮，总的来说不算太糟糕(佩服常住的国人)。</p>
+<p>至于听课内容，我觉得主要是在锻炼我们的听力和口语，内容不是很复杂，浅显易懂，还是挺适合我们的，Helen老师亲切友善，给个赞！另外我在交流学习的过程中，也感受到国外的课堂氛围，很轻松，老师同学互动频繁。同时也认识到了自己的局限与不足，从Belinda博士那里了解到我们<strong>不应该局限于工作本身</strong>，而是经常思考<strong>我们未来从事的工作如何能贡献世界</strong>。周五进行了Presentation，感觉很糟糕，虽然做了长时间，但稿子还是不熟练，磕磕绊绊，场面十分尴尬，不过Helen老师还是给了每个人不错的成绩，我意识到是我把成绩看的太重要了，而一定程度上忽略了在准备过程中的提升。</p>
+<p><img src="/assets/1585663552586.png" alt="1585663552586"></p>
+<p>每个人都获得了一份结业证书，如图</p>
+<p>在周六日我们坐了轮渡，去了动物园，目睹了可爱的考拉和袋鼠的风采</p>
+<p><img src="/assets/1585664083920.png" alt="1585664083920"></p>
+<p>后来又去逛商场，看着一件件衣服也没标多少，可想想1：5的汇率就谨慎了很多哈哈，期间我疯狂的想办法冲上去跟店员chat，迫切的想提高自己的英语口语水平，事实情况就是问了一句之后，就疯狂点头然后撤(因为听不懂回了)，因为这个闹了不少笑话。</p>
+<p>在整个旅途中，我不得不吐槽澳洲的饭店，多倒是挺多的，就是去哪都得用手抓(筷子、勺子、刀叉啥都没有)，而且坐的地方还很少，还得想尽办法给店员指想要的东西，那段时间我天天练英语口语来安慰自己。</p>
+<p>第二周就丰富多了，先是住进了豪华总统套房，超大的客厅、超全的配置，简直是VIP的体验。</p>
+<p><img src="assets/Australia_Room.jpg" alt=""></p>
+<p>期间，我们参观了悉尼大学，看到了哈利波特取景的那栋大楼，真的是非常美了，参观了悉尼大学的图书馆、博物馆，看到了很多新颖的设计以及一些珍贵的文物。</p>
+<p><img src="assets/Australia_Sydney.jpg" alt=""></p>
+<p>此行是Elieen Zhang 老师给我们做介绍，她是悉尼大学的毕业生，在参观即将结束时，Elieen老师针对我们当前即将毕业的困惑谈了谈自己的经历和看法，真的是收益匪浅。</p>
+<p>后来，我们又有幸见到了各行各业的大佬(包括owen老师)，他们讲述了自己创业的经历，有中国人也有外国人，让我或者说我们印象最深刻的还是Iron Fish的终极boss周华先生，他能给我们做演讲是大家都没有意料到的，他是俞敏洪的同窗室友，早些年放弃了翻译官的岗位来到澳洲从零开始，从小职员做起，一步一步创建了建立了自己的事业。</p>
+<p>他简单给我们讲述了他的传奇经历，告诫我们人所赚到的钱和他给社会所带来的便利和服务是成正比的，我总结了出了以下几点</p>
+<ul>
+<li>有高的目标</li>
+<li>思想开放，积极听取别人的意见，博采众长</li>
+<li>做自己喜欢做的、擅长做的，做的事情要对别人有价值、对社会有价值</li>
+</ul>
+<p>多向优秀的人靠拢，他们对你的影响远远大于你的工资收入。</p>
+<p>学校只是一个好的起点，不要盲目追求学历，学的越多越会分析事情为什么不可能发生，限制自己的想象。不要那么焦躁，把该学的东西学好了，在各个领域都会起到作用。还有就是<strong>要多看新闻、政治热点、要兴趣广泛，多谈别人感兴趣的，做一个专心的listener。不管做什么，即使是自己不喜欢的，但也一定把它做好，因为这些都是暂时的，这是一个好的习惯</strong>。选择比努力重要，走的越远偏离的方向越远，小刀磨得再锋利也不实用，要善于把握机遇。</p>
+<p>一句座右铭送给大家<strong>有事做，有人爱，有所期待！</strong></p>
+<p><img src="/assets/Australia_Speech.jpg" alt=""></p>
+<p>在此次交流学习的最后，我们每个人进行了汇报，分享了此次交流学习的感想，认真的进行了自我反思，大家都有一定程度的提高，我也成长了不少，感谢李老师、owen老师和小姐姐一路上的照顾，感谢企业大亨们的分享，感谢学校精心的安排，相信我能走的更远！</p>
+]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据挖掘学习笔记</title>
+    <url>/2020/02/15/24DataMining/</url>
+    <content><![CDATA[<p><img src="/images/data-mining.jpg" alt="cover"><br><a id="more"></a></p>
+<h1 id="数据挖掘学习笔记"><a href="#数据挖掘学习笔记" class="headerlink" title="数据挖掘学习笔记"></a>数据挖掘学习笔记</h1><blockquote>
+<p>记笔记的方式，先听课程，然后回忆复述课程里的重要知识点及相关概念，将其写到笔记上，随后看PPT核对</p>
+<p>通过这三轮的反复强化一定可以把知识学牢！</p>
+</blockquote>
+<p>数据挖掘在高校内没有对应的课程或者方向，它是一个融合了数学、统计学、计算机、以及各领域知识的综/合性方向，它涵盖范围很广，遍及互联网的各个角落。它能够实现”数据-&gt;信息-&gt;知识-&gt;决策支持“的转变。</p>
+<h2 id="走进数据科学"><a href="#走进数据科学" class="headerlink" title="走进数据科学"></a>走进数据科学</h2><p>相关资料<a href="/download/Introduction.pptx">点击下载</a> </p>
+<p><img src="/assets/1581220990738.png" alt="1581220990738"></p>
+<h3 id="大数据的三个特征"><a href="#大数据的三个特征" class="headerlink" title="大数据的三个特征"></a>大数据的三个特征</h3><ul>
+<li>高容量：从TB到ZB</li>
+<li>多样性：从结构化数据到结构与非结构数据的混合</li>
+<li>高速度：从批处理到如今的实时流数据处理</li>
+</ul>
+<h3 id="应用领域"><a href="#应用领域" class="headerlink" title="应用领域"></a>应用领域</h3><ul>
+<li>公共安全：美国各地区犯罪预测</li>
+<li>健康医疗：根部人不同的DNA开出个性化药方</li>
+<li>城市规划：哪些地方是人口密集区、交通、市场如何部署</li>
+<li>零售行业：针对性广告投放</li>
+<li>运动：美国小棒球社如何挑选潜力球员</li>
+</ul>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>交叉验证：将数据分为训练集和测试集</li>
+<li>混淆矩阵：分为TP(True Positive)、FP(False Positive)、FT和TN，用来评估模型准确率</li>
+<li>ROC曲线：AUC是ROC曲线与x轴围成的面积，用来评估模型的准确率</li>
+</ul>
+<p><img src="/assets/1581221686688.png" alt="1581221686688"></p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>缺失值处理—–&gt;重复值处理—–&gt;类型转换与采样—–&gt;数据描述与可视化</p>
+<h3 id="异常值与重复值检测"><a href="#异常值与重复值检测" class="headerlink" title="异常值与重复值检测"></a>异常值与重复值检测</h3><p>数据缺失的原因</p>
+<ul>
+<li>设备故障</li>
+<li>隐私数据没有提供</li>
+<li>数据不适用</li>
+</ul>
+<p>数据缺失的种类</p>
+<ul>
+<li>完全随机的缺失</li>
+<li>跟属性相关的缺失</li>
+<li>不是随机的缺失</li>
+</ul>
+<p><strong>离群点（Outliers）</strong>：跟整体数据差异比较大</p>
+<p><strong>异常点（Anomaly）</strong>：数据由于某种特定的原因导致异常</p>
+<p><strong>LOF（Local Outlier Factor）</strong>：离群点检测算法</p>
+<p>当一个点距离周围的点越近$lrd$的值就会越大，$lrd$的分母相当于平均距离。</p>
+<p><img src="/assets/1582771321867.png" alt="1582771321867"></p>
+<p>LOF的值表示的是相对距离的概念，当$lrd(B)$远大于$lrd(A)$就说明A的近邻B到它附近的点的距离远小于A到它近邻的距离，那么就是表明A是一个离群点了。LOF值越大表明是离群点可能越大</p>
+<p><strong>重复数据（Duplicate Data）</strong>：不同统计方式的列名不同、统计方式不同、存储方式也可能不同，但是统计的都是同类数据，解决方法是先排序(需要根据背景知识用key排序)再用滑动窗口进行比较去重。</p>
+<h3 id="类型转换与采样"><a href="#类型转换与采样" class="headerlink" title="类型转换与采样"></a>类型转换与采样</h3><p>对于某个属性的不同类别，不能采用简单的012的方式进行编码，因为这改变了不同属性之间的距离，从而可能改变问题复杂度。例子如下</p>
+<p><img src="/assets/1582773085533.png" alt="1582773085533"></p>
+<p>仅仅是将绿色和蓝色交换了位置，分界线就从两条曲线变成了两条直线，问题求解的方式就发生了改变。</p>
+<p>因此在处理这些数据时，往往采用one-hot独热编码，解决了分类器不好处理属性数据的问题，让特征之间的距离计算更加合理</p>
+<p><strong>One-Hot和word2vec</strong></p>
+<p>One-Hot</p>
+<ul>
+<li>优点：一是解决了分类器不好处理离散数据的问题，二是在一定程度上也起到了扩充特征的作用</li>
+<li>缺点：在文本特征表示上有些缺点就非常突出了。首先，它是一个词袋模型，不考虑词与词之间的顺序（文本中词的顺序信息也是很重要的）；其次，它假设词与词相互独立（在大多数情况下，词与词是相互影响的）；最后，它得到的特征是离散稀疏的</li>
+</ul>
+<p>word2vec</p>
+<p><strong>采样的原因：</strong>1.数据量非常大计算机处理不过来   2.没有办法得到完整的用户数据</p>
+<p>采样的优点：能够用于调整类别比例，例如理工科男女比例，如果采用完整数据集，则明显男生比例很高，不利于模型处理</p>
+<p><strong>不平衡数据：</strong>不同类别的样本数相差较大，尽管分类器A的准确率高，但是其误判了很重要的5%的数据，并不合理</p>
+<p><img src="/assets/1582773995499.png" alt="1582773995499"></p>
+<p>解决办法</p>
+<ul>
+<li>扩充数据集</li>
+<li>对数据集进行重采样，包括过采样和欠采样</li>
+<li>改变分类算法</li>
+<li>改变评价指标，如PR曲线</li>
+</ul>
+<p>在实际中可以采用除了Acc以外的其它的度量方式如G-mean、F-measure、Recall等等</p>
+<p><strong>边缘采样</strong>：对于几百万的数据，其中有很多数据都是作用不大的，提取其中的边缘点进行计算更有价值，能够节约计算资源</p>
+<h3 id="数据描述与可视化"><a href="#数据描述与可视化" class="headerlink" title="数据描述与可视化"></a>数据描述与可视化</h3><p>Norlization：Min-max norlization、Z-score</p>
+<p><strong>数据描述</strong>：平均值、中位数、变化程序</p>
+<p><strong>数据可视化</strong>：一维数据直方图、二位数据坐标系、三维数据三维坐标系、高维数据Parallel<br>Coordinates </p>
+<h3 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h3><p>从多个属性中，找出与问题有一定关联性的属性。</p>
+<p><strong>信息增益</strong></p>
+<p>怎么评价属性好不好？</p>
+<p>答：查看该属性对结果的区分度，用熵Entropy衡量</p>
+<p>信息增益ID3（Information gain）越大属性越好，表示它的跟结果越有关联，通常应用在决策树中</p>
+<p><strong>特征子集搜索</strong></p>
+<p><img src="/assets/1585473917480.png" alt="1585473917480"></p>
+<p><strong>优化算法</strong></p>
+<ul>
+<li>模拟退火</li>
+<li>禁忌搜索</li>
+<li>遗传算法</li>
+</ul>
+<h3 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h3><p><strong>特征选择和特征提取的区别</strong></p>
+<p><strong>特征提取</strong>的方法主要是通过属性间的关系，如<strong>组合</strong>不同的属性<strong>得到</strong>新的属性，这样就<strong>改变</strong>了原来的特征空间。<br><strong>特征选择</strong>的方法是从原始特征数据集中<strong>选择</strong>出子集，是一种<strong>包含</strong>的关系，<strong>没有</strong>更改原始的特征空间。</p>
+<p><strong>PCA（Principal Component Analysis）</strong></p>
+<p>无监督学习，不考虑label，将高维数据降维，将其投影到可以分类的方向上（可以通过坐标旋转），数据在该方向上分布越分散越好</p>
+<p>将样本点到投影线的距离表示成$J(\theta)$，$J(\theta)$越小表明从高维投影到低维损失的信息越少</p>
+<p>因此对$J(\theta)$使用拉格朗日乘数法，最后发现要最大化的值就是特征值</p>
+<p>描述：将数据的协方差矩阵（covariance matrix）进行特征分解，找到特征值最大的特征向量上，投影到该方向上即可在满足最少损失的条件下，将数据降维到n-1、n-2、…、2、1维</p>
+<p><strong>LDA（Linear Discriminant Analysis）</strong></p>
+<p>针对有标签数据，基本思路也是降维，但是要保留的是类的区分属性。LDA在投影时的思想类似于PCA，都是进行坐标旋转，并使得目标函数最大</p>
+<p>目标：令$J$最大化</p>
+<p><img src="/assets/1582795035267.png" alt="1582795035267"></p>
+<p><strong>LDA和PCA例子</strong></p>
+<p><img src="/assets/1582795709134.png" alt="1582795709134"></p>
+<p><strong>LDA的缺点</strong></p>
+<ul>
+<li>$S_w$可能是奇异矩阵，即行数不等于列数时，逆矩阵不存在</li>
+<li>当不同类的中心点重合时，目标函数$J(\theta)$为0，不work</li>
+</ul>
+<h2 id="从贝叶斯到决策树"><a href="#从贝叶斯到决策树" class="headerlink" title="从贝叶斯到决策树"></a>从贝叶斯到决策树</h2><p><a href="NB-DT.pptx">课件下载</a></p>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>一种从数据推测函数的技术，输入是一系列的特征，输出是一个bool值(二分类)或者整数(多分类)</p>
+<h3 id="贝叶斯分类-Naive-Bayes-Classifier"><a href="#贝叶斯分类-Naive-Bayes-Classifier" class="headerlink" title="贝叶斯分类(Naive Bayes Classifier)"></a>贝叶斯分类(Naive Bayes Classifier)</h3><p>一些贝叶斯应用实例</p>
+<p><strong>癌症</strong>：人群中检测出得癌症的概率是千分之八，人们往往容易产生恐慌</p>
+<p>而从贝叶斯的角度分析，在得癌症的人群中假阳性的概率远大于真正癌症阳性的概率</p>
+<p>这意味着即使体检报告上说得了癌症阳性，但其实上只有百分之20的概率是阳性。</p>
+<p><strong>头疼和流感</strong>：不同的先验概率得到的结果不同</p>
+<p>$H=$“Having a headache”           $F=$“Coming down with flu”</p>
+<p>设$P(H)=1/10;  P(F)=1/40;   P(H|F)=1/2$，这意味着患流感人中有50%会头疼，这听起来不可思议。</p>
+<p>但从另一个角度来看头疼的人中只有$1/8$的人患了流感，而现实人们往往将其混为一谈，误以为头疼有50%是得了流感</p>
+<p><strong>贝叶斯公式</strong></p>
+<p>​                            $  P(A|B)=\frac{P(B|A)P(A)}{P(B)} $</p>
+<p><strong>朴素贝叶斯</strong></p>
+<p>在贝叶斯公式基础上assumpt各个事件是<strong>条件独立</strong>的</p>
+<p>​                             $ P (A,B|G) = P(A|G)P(B|G)          \leftrightarrows                       P(A|G,B) = P(A|G)$ </p>
+<p>在实际中的例子</p>
+<p>$P(Cancer│Male,Smoking)=P(Cancer|Smoking)$</p>
+<p>即抽烟男性得肺癌得概率等于抽烟者得肺癌的概率，跟性别无关</p>
+<p><strong>肺癌</strong></p>
+<p><strong>应用领域</strong></p>
+<p>文本分类，提取文本中的关键词，作为分类属性，使用贝叶斯分类器计算不同用户感兴趣的类别</p>
+<p>在提取文本关键词时，并不是将文本简单分成词，随后将每一组词都参与运算，这样计算量很大并且效果也不明显，可以提取文章中出现最多的词语来为文章分类标签，那么就只需要统计每个词的频率，简化了公式，也就能够构建词袋模型，每个用户都会有自己的词袋，里面装满了用户的阅读喜好</p>
+<p><img src="/assets/1581422114618.png" alt="1581422114618"></p>
+<h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><p>决策树的优点是<strong>可解释性好</strong>，侯选属性在决策树中可以使用多次</p>
+<p>决策树中建树的基本规则：信息增益大的属性应放在上层</p>
+<p>当<strong>当前数据子集的标签一致</strong>、<strong>没有更多可用属性</strong>以及<strong>当前数据子集为空</strong>时必须停止树的增长</p>
+<p>决策树剪支从<strong>叶节点</strong>开始</p>
+<p>一些基本概念：</p>
+<ul>
+<li><p>熵(Entropy)：最大值是1，熵越大表示越难分类，即分类更倾向于靠猜</p>
+<p>​                     $Entropy(S) = -\sum p_ilog(p_i)$</p>
+</li>
+<li><p>信息增益(Information Gain)：表示经过分类后对熵的优化程度，值越大表示效果越好，每次选取信息增益最大的分类属性作为根节点，以此类推。但当Information Gain接近于1时表明该属性将每个样本都分成一个类别，容易出现过拟合。</p>
+<p>​                    $Gain(S,A)=Entropy(S)-\sum\frac{\vline S_V\vline}{\vline S\vline}Entropy(S_v)$</p>
+</li>
+<li><p>奥卡姆的剃刀：如无必要，勿增实体，常用于两种或两种以上假说的取舍上，如果对于同一现象有两种或多种不同的假说，我们应该采取比较简单或可证伪的那一种，世界客观存在即是建立在客观实践之上，正所谓<strong>实践是检验真理的唯一标准</strong></p>
+</li>
+<li><p>过拟合：训练集效果好，可是测试集效果差</p>
+</li>
+</ul>
+<p><strong>ID3决策树</strong></p>
+<p>ID3是比较早期的一种决策树算法，分别对样本的所有属性计算信息增益， 找出信息增益最大的属性作为结点，并将该属性从候选属性中去除，以此类推最终得到一颗决策树。</p>
+<p>但是ID3的缺点也比较明显，当Information Gain每次都接近于1时，很容易造成过拟合，即某个属性将单个样本分到一个个叶节点，这对新来的样本不能进行有效的预测。因此人们在此基础上进行了改进，出现了C4.5</p>
+<p><strong>C4.5决策树</strong></p>
+<p>C4.5算法不直接使用信息增益作为划分样本的主要依据，而是提出了另外一个概念————增益率，它在信息增益的基础上加入了惩罚项Penalized</p>
+<p>$Gainratio(D,a) = \frac{Gain(D,a)}{IV(a)}$</p>
+<p>$IV(A)=-\sum_{v=1}^V\frac{\vline D^v\vline}{\vline D\vline}log_2\frac{\vline D^v\vline}{\vline D\vline}$</p>
+<p>但是同样的这个增益率对可取值数目较少的属性有所偏好，因此C4.5决策树先从候选划分属性中找出信息增益高于平均水平的属性，在从中选择增益率最高的。</p>
+<p><strong>CART决策树</strong></p>
+<p>CART决策树的全称为Classification and Regression Tree,可以应用于分类和回归。采用基尼系数来划分属性</p>
+<p>基尼值</p>
+<p>$Gini(D)=\sum_{k=1}^{\vline y\vline}\sum_{k’}p_kp_{k’}=1-\sum_{k=1}^{\vline y\vline}p_k^2$</p>
+<p>基尼系数</p>
+<p>$GiniIndex (D,a)=\sum_{v=1}^{V}\frac{\vline D^v\vline}{\vline D\vline}Gini(D^v)$</p>
+<p>因此在候选属性中选择基尼系数最小的属性作为最优划分属性。</p>
+<p><strong>剪支</strong></p>
+<p>树不能太复杂了，会过学习，当然也不能太简单了，否则不足以描述数据的分布</p>
+<p>决策树数据集三个部分：训练集、训练集、验证集(validation set)</p>
+<p>剪一点看一点盯着验证集的误差，在拐点的地方收手，不能再减了</p>
+<p><strong>连续型属性（Continuous Attributes）</strong></p>
+<p>取阈值进行离散化，阈值一般都出现在结果发生变化的地方</p>
+<p>如何取阈值，还要用信息增益评估</p>
+<p>扩展阅读<a href="https://blog.csdn.net/jiaoyangwm/article/details/79525237" target="_blank" rel="noopener">https://blog.csdn.net/jiaoyangwm/article/details/79525237</a></p>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a><strong>神经</strong>网络</h2><p><a href="39.106.111.188/download/Neural_Networks.pptx">课件下载</a></p>
+<h3 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h3><p>无法解决线性不可分问题</p>
+<p><strong>梯度下降（Gradient Descent）</strong></p>
+<p>误差沿着每次梯度的方向移动，从而不断调整权重大小，最终能找到解决问题的最佳权重组合</p>
+<p><img src="/assets/1582970841376.png" alt="1582970841376"></p>
+<p>图中学习率$\eta$限制权重调整的快慢，通常取0.001。$t_d$表期望输出，$O_d$表示实际输出。$E(w)$中的$\frac{1}{2}$则是为了便于平方求导消掉。$\Delta W_i&lt;0$则是由于要减小误差，要使$w_i$不断向误差减小的方向调整</p>
+<p><strong>Delta Rule公式</strong></p>
+<p>$\Delta W_i = \eta \sum_{d\in D}(t_d - o_d)x_{id}$</p>
+<p>当期望输出$t_d=1$时，假设$o_d$没有那么大，那么$t_d-o_d&gt;0$，那么$\Delta W_i$和$x_{id}$同号，这意味着当输入一个正数$x$时，权重会增加，进而增大输出，进而使实际输出$o_d$接近$t_d$</p>
+<p><strong>batch learning</strong></p>
+<p>在batch learning模式下，权重调整出现在学习一批样本之后，即将每个样本的$\Delta w_i$累加起来，最终再修改$w_i$</p>
+<p><strong>stochastic learning</strong></p>
+<p>知错就改，每个样本都会更新$w_i$</p>
+<h3 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h3><p>可以解决线性不可分问题，如XOR，原理是将原始问题在隐含层映射成线性可分问题</p>
+<p><img src="/assets/1582972473943.png" alt="1582972473943"></p>
+<p><strong>Sigmoid函数</strong></p>
+<p><img src="/assets/1582972522129.png" alt="1582972522129"></p>
+<h3 id="BP反向传播"><a href="#BP反向传播" class="headerlink" title="BP反向传播"></a>BP反向传播</h3><p><strong>对输出层权重的调整</strong></p>
+<p><img src="/assets/1582972912130.png" alt="1582972912130"></p>
+<p>BP算法在误差对输入求偏导的过程同感知机基本一致，唯一不同的是不在假设输出等于输入，而是更换了激活函数sigmoid。由于隐含层不知道期望输出$t_j$因此不能直接套。</p>
+<p><strong>输入对隐含层的误差分析</strong></p>
+<p>采用反向传播的方式，从输出层倒着向输入层过过渡</p>
+<p><img src="/assets/1582973246391.png" alt="1582973246391"></p>
+<p>从图中可以看到，隐含层的第$j$个神经元的权重修改量$\Delta w_{ji}$是由它指向的各个输出的权重加权和</p>
+<p><strong>延伸</strong></p>
+<p>BP算法是一种更新权重的方法，容易掉到局部最优点，解决方案从不同的起始点出发。</p>
+<p>在权重更新公式中引入冲量有助于摆脱平缓区域</p>
+<p>Elman Network：第T时刻网络的输出取决于当前的网络输入和第T-1时刻网络的内部状态</p>
+<p>Hopfield Network：在一定程度上模拟人脑的联想记忆功能，是<strong>基于内容的检索</strong>，含噪声的模式识别</p>
+<h2 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h2><p><a href="39.106.111.188/download/Support_Vector_Machines.ppdx">资源下载</a></p>
+<p>线性SVM</p>
+<p>线性分类器</p>
+<p>支持向量(support vector):确定了分界面可以平移范围的数据点，margin越大容错能力越强</p>
+<p>超平面$w*x+b=0$的margin大小为$\frac{2}{\vline w\vline}$</p>
+<p><img src="/assets/1581757370434.png" alt="1581757370434"></p>
+<p>Soft Margin:有些点$wx+b\not\geq1$，即噪声点使得无法优化margin，于是放宽条件，在求解时加入了惩罚量$\varepsilon$</p>
+<p>但在实际推倒之后发现目标函数(objective function)并没有发生很大变化。</p>
+<h3 id="非线性SVM"><a href="#非线性SVM" class="headerlink" title="非线性SVM"></a>非线性SVM</h3><p>映射到feature space，高维空间得特点是容易分类，可是问题在于计算量很大</p>
+<p><img src="/assets/1581760041535.png" alt="1581760041535"></p>
+<p>kernel trick：利用向量的特性，将高维空间得计算与低维空间得计算等价，巧妙地绕开了高维空间的计算</p>
+<p>String Kernel：专门处理字符串的和函数</p>
+<h3 id="发展过程"><a href="#发展过程" class="headerlink" title="发展过程"></a>发展过程</h3><p><img src="/assets/1581765589562.png" alt="1581765589562"></p>
+<ul>
+<li><strong>VC Dimension</strong></li>
+</ul>
+<p>一个分类模型的Capacity是指不论怎么分配标签，都能将多少个点分开，也就是VC Dimension</p>
+<p><a href="39.106.111.188/download/SVM_Explained.pdf">拓展</a></p>
+<h2 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h2><p>一个好的聚类算法能够<strong>处理非球形的数据分布</strong>、<strong>能够处理噪点和离群点</strong>、<strong>对样本输入序列不敏感</strong>、<strong>对海量数据的可扩展性</strong> </p>
+<p>分割聚类(Partitioning Methods)    </p>
+<p>K-means</p>
+<p>Sequential Leader Cluster:处理流数据，迭代一次，不需要初始k</p>
+<p>层次聚类(Hierarchial  Methods)</p>
+<p>EM算法：Model Para和latent Para，迭代收敛求模型参数</p>
+<h3 id="Density-Based-Methods"><a href="#Density-Based-Methods" class="headerlink" title="Density Based Methods"></a>Density Based Methods</h3><p><strong>DBSCAN</strong> </p>
+<h3 id="Hierarchical-Clustering"><a href="#Hierarchical-Clustering" class="headerlink" title="Hierarchical Clustering"></a><strong>Hierarchical Clustering</strong></h3><p>Agglomerative Methods</p>
+<h2 id="推荐算法"><a href="#推荐算法" class="headerlink" title="推荐算法"></a>推荐算法</h2><p>PageRank：在Googlez中用的比较多，评价网页重要性的指标</p>
+<h3 id="协同过滤-Collaborative-Filtering"><a href="#协同过滤-Collaborative-Filtering" class="headerlink" title="协同过滤(Collaborative Filtering)"></a>协同过滤(Collaborative Filtering)</h3><p><strong>Memory-Based CF</strong>：求不同用户或者商品的相似性来预测分数</p>
+<p><strong>Model-Based CF</strong>：将问题转化为分类问题，例如Naive classifier</p>
+<p>三个经常遇到的问题</p>
+<ul>
+<li>Gray Shape：兴趣跟别人不一样，找不到类似的参考</li>
+<li>Shilling Attack：恶意好评或者坏评，水军</li>
+<li>Cold start：一个新用户或者新商品往往还没有数据难以打分</li>
+</ul>
+<p>求不同用户的相关性系数，求出用户对某商品的评分，进而进行适当推荐</p>
+<p>也可以从不同的商品的相关性考虑，进而得到不同商品之间的关系</p>
+<p><strong>TF-IDF的机理</strong></p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>集成学习是按照一定策略的将不同的模型组合到一起，从而能更好的解决机器学习问题。</p>
+<p>集成学习是一类算法的统称，包含Bagging和Boosting，这两类各自又包含了很多的算法。</p>
+<p>集成学习主要解决两个问题：</p>
+<ol>
+<li>单个模型效果不佳</li>
+<li>解决多个模型的Model Selection问题</li>
+</ol>
+<p>集成学习在机器学习中的位置</p>
+<p><img src="/assets/1582511583363.png" alt="1582511583363"></p>
+<p><strong>Divide and Conquer</strong></p>
+<p>集成学习可以将复杂问题简化为多个简单分类问题，来求的近似解，即分而治之。</p>
+<h3 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h3><p><strong>Majority Voting</strong>：统计不同分类器的投票结果，选出票数最多的结果作为最终answer</p>
+<p><strong>Weighted Majority Voting</strong>：按照权重投票，不同的分类器的效果不一样，选择加权最大的类别作为answer</p>
+<p><strong>Diversity</strong>：Bagging的前提是各个分类器都不同，不同主要包含三个方面</p>
+<ul>
+<li><p>不同的训练算法：SVM、LinearRegression、DeepLearning等等</p>
+</li>
+<li><p>不同的训练过程：1.不同的初始参数   2.不同的训练集   3.不同的Feature Selection</p>
+</li>
+</ul>
+<p><strong>Bootstrap Samples</strong>：随机抽样，有放回的随机抽取</p>
+<p><strong>Bagging的思想</strong>：Bootstrap Aggregation，对不同的分类器进行Majority Voting</p>
+<p><strong>Ramdom Forest</strong></p>
+<p>随机森林算法是Bagging的一种，这个森林是由多颗决策树构成的，并且这些决策树互不相同。为了保证生成不同的决策树，随机森林算法进行了以下的处理</p>
+<ul>
+<li>Bootstrap Samples：随机抽样，选取一部分数据集</li>
+<li>Ramdom Feature Selection：随机选区一定数量的特征</li>
+</ul>
+<p>因此随机森林的优点也很明显</p>
+<ul>
+<li>随机森林的Cross-Validation不再是传统的divide，而是将随机抽样中一次都没有被选中的样本Out of Bag（大概1/3）作为测试集</li>
+<li>随机森林巧妙地化解了特征选择问题、过拟合问题</li>
+<li>随机森林支持分类和回归问题，只有少量的参数，却有很高的Accuracy</li>
+</ul>
+<h3 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h3><p><strong>Stacking</strong>：bagging升级版，其工作过程如下图所示，在原有基础分类器上增加了权重，这些权重通过训练器C的训练进行调节，最终利用权重和来决策最终结果。</p>
+<p><img src="/assets/1582517309628.png" alt="1582517309628"></p>
+<p><strong>Boosting思想</strong>：串行训练分类器，对样本引入了权重。当前面的分类器总是将一个样本分错的时候，其权重就会越来越大，那么最新的分类器总是着重训练这些权重较大的样本，从而提高算法的accuracy。下面是boosting的一些特点</p>
+<ul>
+<li>分类器串行生成</li>
+<li>集中训练权重较大的数据点</li>
+<li>输出结合权重进行投票</li>
+<li>可以通过多个弱分类器（accuracy&gt;50%）来训练出强分类器</li>
+</ul>
+<p><strong>boosting算法流程</strong></p>
+<p><img src="/assets/1582517747859.png" alt="1582517747859"></p>
+<p><strong>AdaBoost</strong></p>
+<p>数据挖掘十大算法之一，运用了boosting的思想，每次分类后对样本权重进行调节，输出不同准确率加权和。<br>如下如是一个Demo演示训练过程，第一个分类器分出了两个，分错了四个，那么下一次就会在第一个分错的基础上进行二次分类，以此类推，最终得到黑色的不规则图形，完美的将数据分开。可以看出多个弱分类器是完全可以生成一个强分类器的。</p>
+<p><img src="/assets/1582517968500.png" alt="1582517968500"> </p>
+<p>公式推导过程：详见<a href="39.106.111.188/download/Ensemble_Learning.pptx">集成学习</a></p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>简单容易使用</li>
+<li>几乎没有需要调整的参数</li>
+<li>训练集可证明误差边界</li>
+<li>不会出现过拟合</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>每次选则的不是最优的$\alpha$ ，只是采用贪心策略取的近似值</li>
+<li>不能根据测试样本进行自适应调整</li>
+<li>对噪声比较敏感</li>
+</ul>
+<p><strong>固定权重和动态权重：</strong></p>
+<p>在adaboost中各个样本的权重都是固定的，不会根据输入发生变化，但是实际上有些模型对样本的估计结果并不好。在ReginBoost中引入了动态权重，解决了这个问题</p>
+<p><strong>ReginBoost</strong></p>
+<p>在基础分类器之上添加置信度的预测器，该置信度预测器实际上采用了k近邻的方式评估置信度</p>
+<p><img src="/assets/1582536785047.png" alt="1582536785047"></p>
+<p>对比RegionBoost和Adaboost的训练效果，如下图，左侧为训练误差，右侧为测试误差</p>
+<p><img src="/assets/1582536927758.png" alt="1582536927758"></p>
+<p>很明显可以看到尽管Adaboost的训练误差比较小，最后甚至趋于0，但是其测试误差很大，也就是说它预测的并不可靠。而相反ReginBoost虽然训练误差最终趋于平缓，但是其测试误差越来越小，这才是我们需要的模型。</p>
+<h2 id="进化计算"><a href="#进化计算" class="headerlink" title="进化计算"></a>进化计算</h2><h3 id="全局优化"><a href="#全局优化" class="headerlink" title="全局优化"></a>全局优化</h3><p><strong>旅行商问题（tsp）</strong></p>
+<p>假设有一个旅行商人要拜访n个城市，他必须选择所要走的路径，路径的限制是每个城市只能拜访一次，而且最后要回到原来出发的城市。路径的选择目标是要求得的路径路程为所有路径之中的最小值。</p>
+<p>关键概念</p>
+<ul>
+<li>基于人口的随机优化算法</li>
+<li>内在并行，不容易陷入局部最优点</li>
+</ul>
+<p>经典算法</p>
+<ul>
+<li><strong>GA：Genetic Algorithm</strong></li>
+<li><strong>GP：Genetic Proramming</strong></li>
+<li>ES：Evolution Strategies</li>
+<li>EP：Evoluntionary Programming</li>
+</ul>
+<ul>
+<li>EDA：Estimation of Distribution Algorithm</li>
+<li>PSO：Particle Swarm Optimization</li>
+<li>ACO：Ant Colony Optimization</li>
+<li>DE：Differencial Evoluntion</li>
+</ul>
+<p><strong>并行搜索：</strong> </p>
+<h3 id="遗传算法-Genetic-Algorithms"><a href="#遗传算法-Genetic-Algorithms" class="headerlink" title="遗传算法(Genetic Algorithms)"></a>遗传算法(Genetic Algorithms)</h3><p>每个问题的解决方案表示为染色体向量，初始随机生成多个染色体，然后一代代发生进化，基于自然进化的方式一代代进行改良。主要包含以下三方面的内容</p>
+<ol>
+<li><strong>表示</strong><ul>
+<li>Individual（chromesome）</li>
+<li>Population：a set of individuals</li>
+<li>Offspring：通过基因生成器生成的individuals</li>
+<li>Encoding：Binary Or Gray</li>
+</ul>
+</li>
+<li><strong>生成基因</strong><ul>
+<li>杂交：在两个染色体之间交换遗传物质</li>
+<li>变异：随机修改选定位置的基因值</li>
+</ul>
+</li>
+<li><p><strong>选择</strong></p>
+<ul>
+<li>Roulette Wheel Selection：轮盘选择法，就是通过丢飞镖选择性状，值越大概率越大，缺点是没法处理负值或有单个值特别高就会漏选较好的变异体</li>
+<li>Rank Selection：利用排名减小值的差距</li>
+<li>Tournament Selection：两个或多个人相互PK，人数越多presure越大</li>
+<li>Elitism Selection：精英选择，后代不一定比双亲好，可能由于变异或者杂交损失一些染色体，复制最好的性状到下一代。</li>
+<li>Offspring Selection：用最老的染色体代替子孙染色体</li>
+</ul>
+</li>
+</ol>
+<p><strong>选择VS杂交VS变异</strong></p>
+<ul>
+<li>选择<ul>
+<li>可视为搜索资源分配的调节机制</li>
+<li>进化初期Selection Pressure过大易导致不成熟收敛</li>
+</ul>
+</li>
+<li>杂交<ul>
+<li>从好的个体基因生成更好的个体</li>
+<li>是GA的主要搜索方式</li>
+<li>体现出对现有搜索结果的精细利用（Exploitation）</li>
+<li>不影响基因的多样性</li>
+</ul>
+</li>
+<li>变异<ul>
+<li>增加基因多样性</li>
+<li>体现出对解空间的各个区域的探索（Exploration）</li>
+<li>通常独立作用于个体的某一位基因</li>
+</ul>
+</li>
+</ul>
+<p>上述过程总的来说是Exploration vs. Exploitation，前者意为探险，即探索不同的区域，主要从基因多样性角度考虑，后者Exploitation则指在某个区域进行更深层次的勘探（Choice）</p>
+<p><strong>GA 框架</strong></p>
+<p><img src="/assets/1582683540858.png" alt="1582683540858"></p>
+<h3 id="遗传编程-Genetic-Programming"><a href="#遗传编程-Genetic-Programming" class="headerlink" title="遗传编程(Genetic Programming)"></a>遗传编程(Genetic Programming)</h3><h3 id="可进化硬件-Evolvable-Things"><a href="#可进化硬件-Evolvable-Things" class="headerlink" title="可进化硬件(Evolvable Things)"></a>可进化硬件(Evolvable Things)</h3>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>数据挖掘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo部署博客到云服务器ECS</title>
+    <url>/2020/02/07/23DeployToECS/</url>
+    <content><![CDATA[<p><img src="/images/aliyunPlan.jpg" alt="cover"></p>
+<a id="more"></a>
+<h1 id="Hexo部署博客到云服务器ECS"><a href="#Hexo部署博客到云服务器ECS" class="headerlink" title="Hexo部署博客到云服务器ECS"></a>Hexo部署博客到云服务器ECS</h1><h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>在新型肺炎盛极一时的寒假，只能呆在家里，所以可不能一直堕落下去，否则就浪费太多时间了。正好这会各个机构都尽其所能提供<strong>免费</strong>资源，还有免费6个月的阿里云服务器可以用(详见<a href="https://developer.aliyun.com/adc/student/" target="_blank" rel="noopener">阿里云高校学生“在家实践计划”</a>)，还不赶紧趁这个机会好好冲冲电！</p>
+<p>租了服务器可以用来运行一些网站，应用还有一些小工具，还可以做内网穿透，总之极大的方便了与其他同学的分享和交流，所以决定先把我本地的hexo部署到服务器上(原先部署在github上)。</p>
+<h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><p>要有hexo,node.js,git，详情见<a href="http://39.106.111.188/2018/08/07/02Blog-Build/" target="_blank" rel="noopener">第一次建网站</a></p>
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>需要一台服务器，这里用的是阿里云的ECS ubuntu 18.04.1，能够正常登陆实例</p>
+<h2 id="安装Git和Nginx"><a href="#安装Git和Nginx" class="headerlink" title="安装Git和Nginx"></a>安装Git和Nginx</h2><p>git用于版本管理和部署，Nginx用于静态博客托管</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install git nginx -y</span><br></pre></td></tr></table></figure>
+<h2 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h2><p>将本地公钥复制，一般在(C:\Users\Administrator\.ssh)下，如果没有的话，在git bash中用<code>ssh-ken -t rsa</code>生成ssh公钥</p>
+<p><img src="/assets/1581063553702.png" alt="1581063553702"></p>
+<ul>
+<li>在云服务器上创建一个git用户，用来运行git服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adduser git #创建用户</span><br><span class="line">passwd git  #设置密码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>切换至git用户，添加SSH Key</li>
+</ul>
+<p>在服务器端，切换至刚刚创建好的git用户下，创建<code>.ssh文件</code>和<code>authorized_keys</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">su git</span><br><span class="line">mkdir ~/.ssh</span><br><span class="line">vim ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改权限</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~</span><br><span class="line">chmod 600 .ssh/authorzied_keys # 将文件设置为可读可写</span><br><span class="line">chmod 700 .ssh #将该文件夹设置为可读可写可执行，注意文件夹的可执行是指能访问</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试git连接</li>
+</ul>
+<p>切换到本地机器上，在本地机器上测试是否能连接到你的远程git用户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -v git@SERVER_IP   #你的服务器IP</span><br></pre></td></tr></table></figure>
+<p>测试成功（中间可能让输入密码，不要慌就是你的git user的密码或者试试远程）</p>
+<p><img src="/assets/1581064070477.png" alt="1581064070477"></p>
+<h2 id="创建Git仓库"><a href="#创建Git仓库" class="headerlink" title="创建Git仓库"></a>创建Git仓库</h2><p>在<code>/var/repo/</code>下创建名为hexo_website的裸仓库。用如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir /var/repo/   #创建目录</span><br><span class="line">sudo chown -R $USER:$USER /var/repo/  #文件拥有着</span><br><span class="line">sudo chmod -R 755 /var/repo/	#可读可写可执行</span><br><span class="line"> </span><br><span class="line">cd /var/repo/ </span><br><span class="line">git init --bare hexo_static.git  #初始化仓库</span><br></pre></td></tr></table></figure>
+<h2 id="配置Nginx托管文件目录"><a href="#配置Nginx托管文件目录" class="headerlink" title="配置Nginx托管文件目录"></a>配置Nginx托管文件目录</h2><p>创建<code>/var/www/hexo</code>目录，用于Nginx托管，修改目录所有权和权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /var/www/hexo</span><br><span class="line"></span><br><span class="line">sudo chown -R $USER:$USER /var/www/hexo</span><br><span class="line">sudo chmod -R 755 /var/www/hexo</span><br></pre></td></tr></table></figure>
+<p>随后修改Nginx的<code>default</code>设置，使<code>root</code>指向<code>hexo</code>目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
+<p>修改文件中对应的项，vim操作见<a href="https://blog.csdn.net/wuyuefei3/article/details/81139343" target="_blank" rel="noopener">linux下使用vim编辑文件并保存</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80 default_server;</span><br><span class="line">    listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">    root /var/www/hexo; # 需要修改的部分</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>重启Nginx服务，使得改动生效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<h2 id="创建Git钩子"><a href="#创建Git钩子" class="headerlink" title="创建Git钩子"></a>创建Git钩子</h2><blockquote>
+<p><a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">git钩子</a>在此处命名为<code>post-receive</code>也就是该挂钩在git提交之后自动执行文件里的内容。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vim /var/repo/hexo_static.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+<p>在该文件中添加代码，指定Git的工作树（源代码）和Git目录（配置文件等）的位置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">git --work-tree=/var/www/hexo --git-dir=/var/repo/hexo_static.git checkout -f</span><br></pre></td></tr></table></figure>
+<p>保存并退出文件，并将该文件变成可执行文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x /var/repo/hexo_static.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+<h2 id="回到本地配置"><a href="#回到本地配置" class="headerlink" title="回到本地配置"></a>回到本地配置</h2><p>在站点_config.yml中修改博客url地址</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line"></span><br><span class="line">url: http://server-ip # 没有绑定域名时填写服务器的实际 IP 地址。</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+<h2 id="通过Git部署"><a href="#通过Git部署" class="headerlink" title="通过Git部署"></a>通过Git部署</h2><p>先在任意位置处打开cmd, 从服务器上把<code>hexo_static</code>仓库克隆下来, 以此来将服务器地址添加到受信任的站点中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git@server_ip:/var/repo/hexo_static.git</span><br></pre></td></tr></table></figure>
+<p>注意在第一次进行这一步时会提示是否继续，选yes即可。</p>
+<p>再编辑Hexo的<code>config.yml</code>文件，找到Deployment, 修改为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo:</span><br><span class="line"> 	#同步部署到服务器和github</span><br><span class="line">    github: https://github.com/GithubName/GithubName.github.com </span><br><span class="line">    hexo: git@server_ip:/var/repo/hexo_static.git</span><br><span class="line"> branch: master</span><br></pre></td></tr></table></figure>
+<p>于是就可用<code>hexo d</code>命令来部署了到服务器了。</p>
+<h2 id="外部访问服务器网站"><a href="#外部访问服务器网站" class="headerlink" title="外部访问服务器网站"></a>外部访问服务器网站</h2><p>部署到服务器之后，需要开启80端口(与Nginx配置文件中同步)，详情见<a href="https://www.aliyunfuwuqi.com/ecs/2254/" target="_blank" rel="noopener">https://www.aliyunfuwuqi.com/ecs/2254/</a>开启了80端口并成功部署网站之后，就可以通过<a href="http://xx.xx.xx.xx来访问你的网站啦！" target="_blank" rel="noopener">http://xx.xx.xx.xx来访问你的网站啦！</a></p>
+<p>欢迎大家访问<a href="http://39.106.111.188/" target="_blank" rel="noopener">我的网站主页</a>。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><em>用Hexo部署博客到Ubuntu服务器：<a href="https://www.jianshu.com/p/16b89f4f7136" target="_blank" rel="noopener">https://www.jianshu.com/p/16b89f4f7136</a></em></p>
+<p><em>阿里云服务器远程连接：<a href="https://www.cnblogs.com/chenyablog/p/10281995.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenyablog/p/10281995.html</a></em></p>
+<p><em>linux下使用vim编辑文件并保存：<a href="https://blog.csdn.net/wuyuefei3/article/details/81139343" target="_blank" rel="noopener">https://blog.csdn.net/wuyuefei3/article/details/81139343</a></em></p>
+<p><em>linux下chmod +x的意思？<a href="https://blog.csdn.net/u012106306/article/details/80436911" target="_blank" rel="noopener">https://blog.csdn.net/u012106306/article/details/80436911</a></em></p>
+<p><em>Git钩子的使用<a href="https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git-%E9%92%A9%E5%AD%90</a></em></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>ECS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考研总结</title>
+    <url>/2019/12/24/22PostGraduate_Exam/</url>
+    <content><![CDATA[<p><img src="/assets/timg-1577170860481.jpg" alt="timg"></p>
+<a id="more"></a>
+<h1 id="考研总结"><a href="#考研总结" class="headerlink" title="考研总结"></a>考研总结</h1><p>长达半年的考研生活结束了，转瞬即逝，百感交集，喜忧参半。</p>
+<p>考试结果成了心里的一片禁地，不敢去过多思考，也许只有成绩出来的那一刻，才敢正面结果吧。</p>
+<p>全天复习考研从7月15号持续到了考研最后一天12月20日，共持续了五个多月的时间。为了考研慢慢的也戒掉了自己爱玩的游戏，慢慢的适应了高强度的学习生活。想把自己与校园生活隔离开来，却又不得已卷入其中。为了考研想尽了办法，买了平板、冲了网盘会员，每天都跟数学题周旋较量。平时生活也是一团糟，事能少就少，跟同学朋友都些疏远。可每每想起我所向往的学堂，我就又充满了力量，觉得有得必有失。</p>
+<p>这中间也要感谢室友伙伴给我的支持、为我打气。每天起床、晚上熬夜，磨磨蹭蹭动静很大，可是室友却没怎么说过我。复习不顺利，题目做不出来的时候，爸妈也会给我很多的鼓励。还有我的研友，也是互帮互助一起加油，希望你们都能顺利上岸。还要感谢在图书馆帮忙占座的学姐，跟我一块在楼梯间、图书馆门口大声背书、互相提问，考前还及时提醒我们提前订好房间。这段时光很充实、很美好，但也很短暂。</p>
+<p>在学校里呆惯了，没有见过世面，没有经历过什么大的挫折。这使得我的承受能力并不强，平时做题犯错很懊恼，一旦没达到要求的标准就怀疑自己，否定自己。考完试后，也心烦意乱一团糟，有种半年白忙活了的感觉。可同时我也看到了更多人的坚持，很多人比我努力的多得多，比如B站上的白稚卿，每天就睡4个小时，坚持了五个月，无论她最后考的怎么样，她的努力和心态很令人钦佩。今年报名北大70%都是二战已经说明了考研没有那么简单，大部分人都经历过一次失败，我也还年轻又有什么可过度担忧的呢。最糟糕的情况无非就是来年再战，不过北大确实值得。</p>
+<p>简单估了下分，应该有机会参加复试，简单看了下复试的内容，跟找工作也不冲突，就好好准备算法和英语口语了。这样等成绩出来之后还可以再进行调整，不过初试就算过了分数也很低，不占优势，所以复试得花大功夫。</p>
+<p>真正的勇士，敢于直面惨淡的人生，敢于正视淋漓的鲜血！</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>考研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>考研复习回顾总结</title>
+    <url>/2019/08/07/21NextPlan/</url>
+    <content><![CDATA[<p><img src="/images/21NextPlan.jpg" alt="cover"><br><a id="more"></a></p>
+<h1 id="考研复习回顾总结"><a href="#考研复习回顾总结" class="headerlink" title="考研复习回顾总结"></a>考研复习回顾总结</h1><p><strong>数学</strong>：</p>
+<p>截至到目前为止，已经完成了高数部分的二轮回顾，以及660高数选择部分，正在进行线代的二轮强化，本月目标</p>
+<ul>
+<li>8.07-8.15  完成线性代数的二刷，同时完成高数前三章的李范全书。</li>
+<li>8.15-8.31 完成概率论的二轮复习，继续刷李范全书。</li>
+</ul>
+<p>在此期间同时不定期的回顾分阶训练及660错题的回顾分析。</p>
+<p><strong>英语</strong>：</p>
+<p>英语已经完成了1998-2015中十年左右的真题阅读部分，阅读能力、对题目的理解有所提高，但也发现对自己来说单词是弱项，本月目标</p>
+<ul>
+<li>8.07-8.15  每日阅读+完成list21-list30的单词，完成恋恋有词一刷</li>
+<li>8.16-8.31  翻译训练+二刷恋恋有词+主攻单词本积累</li>
+</ul>
+<p><strong>专业课</strong></p>
+<p>专业课到目前为止已经完成了操作系统及数据结构的大部分内容，第一遍过的时候比较费劲，但一定要都啃一遍。本月目标</p>
+<ul>
+<li>8.07-8.10  完成数据结构的复习及回顾</li>
+<li>8.11-8.21 完成计算机网络的一轮复习，同时刷完一遍操作系统网课</li>
+</ul>
+<p><strong>政治</strong></p>
+<ul>
+<li>8.07-8.31  完成徐涛强化班学习，并且学完一科，刷一科的1000题</li>
+</ul>
+<p><strong>总结</strong></p>
+<p>​    整体来说进度适中，专业课进度有些慢，在中旬之前抽出晚上部分英语时间补补专业课进度。争取在计划之内完成专业课一轮，然后在对英语进行其他题型的专项训练，现阶段主要以积累词汇为主。</p>
+<p><strong>感受</strong>：习惯了考研的节奏以后，发现每天还都过的挺充实的，有时候做题不顺会心急，需要克服。看了很多经验帖，也得到很多高人指点了，剩下的就剩把方法论运用于实践了！此梦必圆！</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>考研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>西安交大&amp;百度竞赛总结</title>
+    <url>/2019/07/01/20Baidu-XJTU_BigData_Contest/</url>
+    <content><![CDATA[<p><img src="/images/BaiDuContest.jpg" alt="cover"><br><a id="more"></a></p>
+<h1 id="西安交大-amp-百度竞赛总结"><a href="#西安交大-amp-百度竞赛总结" class="headerlink" title="西安交大&amp;百度竞赛总结"></a>西安交大&amp;百度竞赛总结</h1><p>比赛的相关介绍见：<a href="https://dianshi.baidu.com/competition/30/rule" target="_blank" rel="noopener">百度点石竞赛总结</a> ，数据分为遥感图像和用户访问数据两部分，要求参赛者根据这两部分数据预测新地点的标签，分类内容如下图</p>
+<p><img src="/assets/1561900835759.png" alt="1561900835759"> </p>
+<h3 id="第一版思路"><a href="#第一版思路" class="headerlink" title="第一版思路"></a>第一版思路</h3><p>这是第一次参加接触相关领域的知识，作为一个小白，很想从这个竞赛入手来学习深度学习相关的知识技能。起初分别对遥感图像和用户访问数据建立单网进行深度学习，整体使用的是keras框架，考虑到keras易于学习和使用，且能够以较快的尝试更多的创意。</p>
+<p><img src="/assets/1561952095923.png" alt="1561952095923"></p>
+<h4 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h4><p>对图像部分的数据尝试了Inception系列、VGG系列、NasNet及Xception等，构建模型时，初始采用各个模型在imgnet网络上的训练权重，在各网的基础结构后添加9个神经元的Dense层，用于最后的分类。经过实验，发现NASNet的Accuracy的结果较好，在0.42左右。</p>
+<h4 id="用户访问数据处理"><a href="#用户访问数据处理" class="headerlink" title="用户访问数据处理"></a>用户访问数据处理</h4><p>对用户数据部分试验了Rnn、Xgboost及Lightgbm等网络</p>
+<h4 id="数据融合"><a href="#数据融合" class="headerlink" title="数据融合"></a>数据融合</h4><p>数据融合实际上一开始用了权重相加，效果不好，只有0.71左右，后来认为为什么不将不同所求的概率作为输入，用验证集作为最后的一个xgboost的训练集来训练融合模型，最后效果为0.7240，比直接通过加权相加的效果好了很多，可以调节xgboost的参数来提高效果。</p>
+<h3 id="第二版思路"><a href="#第二版思路" class="headerlink" title="第二版思路"></a>第二版思路</h3><h4 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h4><p>经队员提醒，发现所给的遥感图像中有很多脏数据，如下图所示</p>
+<p><img src="/assets/1561964040175.png" alt="1561964040175"> </p>
+<p>有一部分图块是全黑的，还有一部分图块是被云朵遮盖的，剩下的就是只能看到部分区域图，这也许会影响到模型的质量，我们第二版的思路就是将这些图片剔除掉之后再使用NasNet进行建模。</p>
+<p>随后又对图像做了一些预处理，包括去雾、旋转等，后来还使用GNN对图片进行了增强，从100×100的小矩阵增强到了224×224的矩阵形式，随后送入到神经网络中进行训练，最后的得到的实验结果是…。</p>
+<h4 id="尝试用户访问数据新模型思路"><a href="#尝试用户访问数据新模型思路" class="headerlink" title="尝试用户访问数据新模型思路"></a>尝试用户访问数据新模型思路</h4><p>虽然用户的访问数据比较适合序列的训练方式，我们团队尝试将访问数据按照不同的特征问题归类，如一些人数、假期等等。归类之后将其作为24维的输入即7×26×24，送到NasNet等卷积神经网络中进行训练，通过将图片数据和用户数据送到同一个网络中进行训练，得到了的0.68的效果。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过参加此次竞赛，我基本了解了大数据相关竞赛的参赛思路，如何去构建模型，如何去调整参数，如何从loss及accuracy等的变化中读取模型构建的情况，是否产生了过拟合等等。也了解了当前<a href="http://baijiahao.baidu.com/s?id=1599943447101946075&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">比较流行的几个深度学习框架</a>同时，我也认识到了讨论区的重要性，有些大佬会把最初的demo分享在github上， 通过学习、讨论及复现能够了解别人的思路，能够发现自己忽略的问题。竞赛是了解相关知识的较好途径，大佬们分享的代码简直就是宝物。</p>
+<p>下面附上几版代码以便自己和别人后续的学习使用：</p>
+<ol>
+<li><a href="https://github.com/czczup/UrbanRegionFunctionClassification" target="_blank" rel="noopener">baseline</a></li>
+<li><a href="https://github.com/SeaEagleI/2019_Baidu-XJTU_BigData_Contest" target="_blank" rel="noopener">69.4成绩</a> </li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/qq_34919792/article/details/93976813" target="_blank" rel="noopener">第五届百度&amp;西安交通大学大数据竞赛初赛思路总结</a> </p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>deep learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K-means与MeanShift</title>
+    <url>/2019/04/04/18K-means&amp;MeanShift/</url>
+    <content><![CDATA[<p><img src="/images/machine.jpg" alt="cover"><br><a id="more"></a></p>
+<h1 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h1><p>k-means算法是机器学习中的一种常见聚类算法。聚类算法属于无监督学习，相比于回归、朴素贝叶斯等少了标签y的信息。K-means算法是将样本聚成k个簇，具体执行步骤如下</p>
+<p>（1）      随机选区k个对象作为初始聚类中心</p>
+<p>（2）      计算每一个样本到簇的距离来划分</p>
+<p>（3）      再次计算每个聚类中心</p>
+<p>（4）      计算标准测度函数，直到达到最大迭代次数，则停止，否则，继续操作</p>
+<p>通过不断地调整聚类中心的位置，使得聚类中心逐渐转移到与附近样本距离和最小的位置，这里通过标准测度函数进行计算。这里的距离有很多种计算方式，常见的有欧式距离和曼哈顿距离。</p>
+<p>​       该算法通过调用sklearn.cluster的Kmeans类实现模型的训练，再通过简单的绘图来表示聚类中心与样本的关系，如图所示。</p>
+<p><img src="/assets/20180228115245278-1554340564954.gif" alt="20180228115245278"></p>
+<p>图6-1 K-means算法确定的4个聚类中心</p>
+<p><strong>算法优点：</strong></p>
+<ul>
+<li><p>速度快，计算简便</p>
+</li>
+<li><p>聚类效果较优</p>
+</li>
+<li><p>算法的可解释度比较强</p>
+</li>
+</ul>
+<p><strong>算法缺点：</strong></p>
+<ul>
+<li><p>必须提前知道数据有多少类/组</p>
+</li>
+<li><p>对于不是凸的数据集比较难收敛</p>
+</li>
+<li><p>采用迭代方法，得到的结果只是局部最优</p>
+</li>
+<li><p>初始聚类中心的选择</p>
+</li>
+<li><p>对于离群点和噪声点比较敏感，模型受影响较大</p>
+</li>
+</ul>
+<p><strong>算法延伸：</strong></p>
+<p>​             对初始聚类中心的选择进行改进，有了K-means++、二分K-means等等<br>  采用MeanShift避开对数据集聚类中心K的选择</p>
+<h1 id="MeanShift均值漂移"><a href="#MeanShift均值漂移" class="headerlink" title="MeanShift均值漂移"></a>MeanShift均值漂移</h1><p>​       MeanShift均值漂移算法也是一种常见的聚类算法，它的工作方式跟K-means很相似，两者都是通过不断地调整位置，进而逼近样本密度最大的区域中心。它常被用在图像识别中的目标跟踪，数据聚类、分类等场景，前者的核函数使用了Epannechnikov核函数，后者使用了Gaussian(高斯核函数)</p>
+<p>​       <strong>算法执行步骤：</strong></p>
+<ul>
+<li><p>确定滑动窗口半径r，以随机选取的中心点C半径为r的圆形滑动窗口开始滑动。均值漂移类似一种爬山算法，在每一次迭代中向密度更高的区域移动，直到收敛。</p>
+</li>
+<li><p>每一次滑动到新的区域，计算滑动窗口内的均值来作为中心点，滑动窗口内的点的数量为窗口内的密度。在每一次移动中，窗口会想密度更高的区域移动。</p>
+</li>
+<li><p>移动窗口，计算窗口内的中心点以及窗口内的密度，知道没有方向在窗口内可以容纳更多的点，即一直移动到圆内密度不再增加为止。</p>
+</li>
+<li><p>步骤一到三会产生很多个滑动窗口，当多个滑动窗口重叠时，保留包含最多点的窗口，然后根据数据点所在的滑动窗口进行聚类</p>
+</li>
+</ul>
+<p>迭代过程如下图</p>
+<p>   <img src="/assets/201802281615434.gif" alt="201802281615434"></p>
+<p>图6-2 MeanShift算法迭代过程</p>
+<p><strong>算法优点：</strong></p>
+<ul>
+<li><p>不同于K-Means算法，均值漂移聚类算法不需要我们知道有多少类/组</p>
+</li>
+<li><p>基于密度的算法相比于K-Means受均值影响较小</p>
+</li>
+</ul>
+<p><strong>算法缺点：</strong></p>
+<ul>
+<li>窗口半径r的选择可能是不重要的</li>
+</ul>
+<h1 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h1><p>​    随机森林就是通过集成学习的思想将多棵树集成的一种算法，它的基本单元是决策树，而它的本质属于机器学习的一大分支——集成学习（Ensemble Learning）方法。</p>
+<p>​    其实从直观角度来解释，每棵决策树都是一个分类器（假设现在针对的是分类问题），那么对于一个输入样本，N棵树会有N个分类结果。而随机森林集成了所有的分类投票结果，将投票次数最多的类别指定为最终的输出，这就是一种最简单的 Bagging 思想。</p>
+<p><strong>每棵树的按照如下规则生成：</strong></p>
+<p>（1）   如果训练集大小为N，对于每棵树而言，随机且有放回地从训练集中的抽取N个训练样本（这种采样方式称为bootstrap sample方法），作为该树的训练集；</p>
+<p>（2）   如果每个样本的特征维度为M，指定一个常数m&lt;&lt;M，随机地从M个特征中选取m个特征子集，每次树进行分裂时，从这m个特征中选择最优的;</p>
+<p>（3）   每棵树都尽最大程度的生长，并且没有剪枝过程</p>
+<p><strong>算法优点：</strong></p>
+<ul>
+<li><p>在当前所有算法中，具有极好的准确率</p>
+</li>
+<li><p>能够有效地运行在大数据集上</p>
+</li>
+<li><p>能够处理具有高维特征的输入样本，而且不需要降维</p>
+</li>
+<li><p>对于缺省值问题也能够获得很好得结果</p>
+</li>
+</ul>
+<p><strong>错误率影响：</strong></p>
+<ul>
+<li><p>森林中任意两棵树的相关性：相关性越大，错误率越大</p>
+</li>
+<li><p>森林中每棵树的分类能力：每棵树的分类能力越强，整个森林的错误率越低</p>
+</li>
+</ul>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://blog.csdn.net/Katherine_hsr/article/details/79382249" target="_blank" rel="noopener">常见的六大类聚类算法</a></p>
+<p><a href="https://www.cnblogs.com/gczr/p/7097704.html" target="_blank" rel="noopener">随机森林</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>machine learning</tag>
+        <tag>k-means</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅谈深度学习</title>
+    <url>/2019/04/04/19Deep-Learning/</url>
+    <content><![CDATA[<p><img src="/images/nuralNetwork.jpg" alt="cover"></p>
+<a id="more"></a>
+<h2 id="浅谈深度学习"><a href="#浅谈深度学习" class="headerlink" title="浅谈深度学习"></a>浅谈深度学习</h2><p>这几年深度学习真的很火，其热门程度渐渐超过了传统的机器学习算法。很多学校都专门开设了深度学习这样一门学科，通过了解后才渐渐感受到其思想。</p>
+<p>我最初对深度学习的印象一步步的发生了变化，这个变化通常是当下学习新东西的整体脉络。每当我一搜深度学习，总是会有很多资料铺天盖地迎面而来，水文好文参差不齐，总之给我的印象就是繁杂。繁杂到我不知道从哪里入手，不知道如何迈出我的第一步。资料确实是太多了，我看到有推荐Coursera上deeplearning.ai的视频，有推荐AlexNet、GooleNet等网络的专业论文，还有推荐的其他各种各样的文档资料及培训课。正是这些东西让我难以下手，其实我只想一窥其全貌，看看适不适合我，决定深入多深。</p>
+<p>于是我自己找了本书，在图书馆简单的浏览了一遍，就是下面这本。我不能说它有多好，因为这是我看的第一本深度学习书籍。但我觉得对入门还是比较有帮助的。</p>
+<p><img src="/assets/1561272851686.png" alt="1561272851686"> </p>
+<p>在看完这本书后，我感叹科学家的伟大，深度学习模拟人脑的工作方式，搭建出了一个神经网络。举个例子：当我们在看到一只猫时，我们是如何判断出它是一直猫的。在这个过程中，我们的眼睛把看到的景象通过一层一层的神经元传到大脑，在大脑又拿出其对各类动物体态特征的记忆进行对比，通过不断的比较验证，最终判断出它是一只猫。而神经网络的工作方式也很类似，为了量化我们的输入的各维特征，才出现了权重，同时为了能够更深入的分析各个神经元的内在关系，出现了激活函数等。</p>
+<p>我是通过百度电石上的一个大数据比赛来入手深度学习的，身边有几位大佬，很少但很宝贵。我通过学习他们的源代码，渐渐明白了在python语言中，神经网络的搭建过程。我看到他们设计的一百多层的网络都惊呆了，感觉这没有个三五年功夫是很难弄出来的，问他们也都说是经验，让人无从下手，难以琢磨。</p>
+<p>但事实上，要想一窥其全貌还是比较容易的，因为有很多经过多层封装的深度学习函数库，如keras、pytorch、caffe等等，他们的使用就会相对容易一些。在这里要介绍一下网络，常用的网络组成有全连接层、池化层、压平层等等，而我们经常见到的AlexNet、GoogleNet、NasNet则大多数都是在比赛中提出来的已经设计层次结构的神经网络，对于我们小白而言，只需要将他们设计好的神经网络拿过来用一用就能学到不少东西了，而我们只需要修改一下输入输出。有一份大佬的代码真是非常宝贵，如果你也想入门，建议你到大数据平台上看看题目，下载几份源码学习。认真的把每个函数搞懂，每个参数的意思搞清楚，再慢慢深入去研究原理公式，我觉得这才是学习的正确思路。我觉得一上来就学习深层的理论知识很容易磨灭人的兴趣和意志，不利于长期学习。</p>
+<p>深度学习如今的应用也是很广泛，新的网络结构和技术也是层出不穷，进入这行确实需要勇气，但是在深入学习理论知识之前，一定要先学习工具包怎么用，然后尝试自己写，最后再去推倒公式。大佬们由于都已经经历过这个过程，所以他们听说要学习深度学习一上来就推荐看西瓜书、花书等等，这些书确实囊括了很多精华知识点，却不一定适合当下的我们。</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>deep learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自我反思总结</title>
+    <url>/2019/04/02/17SelfSummary/</url>
+    <content><![CDATA[<p><img src="/images/summary.jpg" alt="cover"><br><a id="more"></a></p>
+<p>今天，我对生活有了新的理解，并且借此延伸出了很多想法，我想把他们写出来，作为自己成长的探索与印记。</p>
+<p>其实从小到大，在那样的中考、高考环境里，家人懂的知识不多，他们不怎么插手我学习上的事情，甚至他们从来不知道我什么时候考试，考了多少分。因此，相对于其他同学来说，<strong>我可以做所有我想做的事情，前提是这些事情不触犯大的规则，那时候的我以为这就是幸福，我对幸福的定义就是做自己喜欢的事</strong>。从而使得我的目光聚焦在了小说和游戏上面，这是我在不触犯规则的情况下最喜欢做的两件事了。眼睛很早就近视了，学习成绩也一直是中等偏下，性格很内向，朋友很少，总是被人欺负。</p>
+<p>这样昏昏沉沉的过了好久好久，直到初三的一天，老师一个个点名叫班级的中等以上的同学出去谈话，最后一个点到了我，这让我很意外。出去之后，老师跟我们说如何准备下一次考试，对我们的要去等等，也是那时候起，我知道已经初三了，考不上就没学上了。那时候我第一次慌了，我好像知道了点什么东西，但又懵懵懂懂，开始学习。虽然我的高中学校不怎么样，但也让我松了一口气，不至于没有学上。</p>
+<p>上了高中，我好似变了一个人，性格开朗了起来，交了很多朋友，学习也开始认真了起来，还当上了班长。不过我不是电影或小说的那样，修为一日千里，我基础很差。甚至于历史、地理总是学不明白，知识点也总记不住，月考成绩也很不理想。<strong>但是思想终归是有所转变，我发现我不仅需要遵守规则，而且还要听老师的，认真学习知识，否则还是会面临大学没学上的风险，而我绝不愿那么被动，重蹈覆辙</strong>。</p>
+<p>这时正好伴随着文理分科，尽管理科人很少，但我仍毫不犹豫，因为文科实在是学不明白，比较喜欢理科。随后就一直进步，高二那时还拿了几次全校第一。随后都是在老师们的指导鼓励下，努力冲进大学，冲到大学就可以歇了。</p>
+<p>到了大学，我一如既往，很虚心，虚心到别人说什么，我一想觉得合理，就会去接受。从同学到老师都是这样，我虚心的接受着一切到来的东西，我觉得这些东西会让我的生活变得更美好，更精彩。<strong>确实，这些思想和知识让我的判断力、想法等有很大的改善和提高，我看到的世界似乎更大了</strong>一些。可是一学期之后，我有些慌了，我学的东西我没有半点兴趣在上面，平时的活动参加完也就过去了。很少有留下来的东西，我忽然觉得这好像不是我想要的东西。我请教了很多人，看了很多书，暂时压下了内心的冲动。</p>
+<p>到了现在，我了解的越来越多，想得到的越来越多，我越来越发现自己的不足。于是，我争取把每一天都利用起来，我想推掉所有的社团活动，把自己关起来，潜心修炼，努力提高自己的本领。没错，我跟同学的交集也越来越少，我把时间扣的很紧很紧，我不想再在社团上多花一分时间，也没时间给同学讲题，因为我总觉得自己还差很多很多，还有很多知识没掌握，还有很多事情没做好。</p>
+<p>为此引发的矛盾和冲突比比皆是，每次矛盾发生，我都会很犹豫、很纠结、很困惑，我感觉自己没有浪费时间，如果我有时间，我肯定时愿意去做这些活动的。这次反思总结便是因为运动会要出人参与的矛盾，同学跟我说这是党员的责任，老师跟我说这是要求，我就顿时有很多不满，我想说我们都参加过了，不感兴趣，而且我们都有自己的计划安排，没有时间。</p>
+<p>对于上面的矛盾，今天我想了很多，其实只要你真的全身心在做一件事情，这些活动、琐事是无法阻拦你的动机的，因为总的来说，在不断的选择之后，现在的自己有很多空余时间。把这些时间利用起来了，达成只是迟早的事情，即使没有达成也不后悔。<strong>而活着，也不全是为了生存、不全是为了追逐，还是为了开心，为了幸福</strong>。我能看到这些东西，还是因为我看到了很多如今IT界的大佬，他们中大部分靠的不是优异的成绩和名校的出身，而是对现状的不甘，因此他们在自己生命的不同时期实现了自己的价值和理想。</p>
+<p>总结一下，就是<strong>学习不要太着急，认清自己，把握生活，做我自己，这样就最好</strong>。</p>
+<p>我就是把快乐留给别人，把悲伤留给自己的<strong><a href="https://baijiahao.baidu.com/s?id=1613658810137448480&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">双子座</a></strong>。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯和软微</title>
+    <url>/2019/03/25/16LanQiao&amp;SS/</url>
+    <content><![CDATA[<p><img src="/images/contest.jpg" alt="cover"><br><a id="more"></a></p>
+<p>时隔一月，尤其是在考完蓝桥杯之后又有一些体会，在此记录，整理思路。</p>
+<h2 id="第十届蓝桥杯初赛"><a href="#第十届蓝桥杯初赛" class="headerlink" title="第十届蓝桥杯初赛"></a>第十届蓝桥杯初赛</h2><p>为这个蓝桥杯，准备了将近一个月的时间，这一个月数学没看、英语没背、课也没有好好上，将历年的题大部分都敲了一遍，视频也过了一遍。可是在那天的发挥却不尽人意，找不到问题出在哪，考试的时候就是不知道什么原因就自己绕进去了，丢了两道很简单的题的分数，这让我郁闷了好久。</p>
+<p>其实，这应该是很正常的事情，就像孙兰昌学长跟我说的那样，付出并不一定有回报，有些事情就不是自己想的那样。但是不付出，肯定是一点机会都没有的，其实这一个月自我感觉编程能力还是有一定程度的提高的。然而由于一部分原因，让我没有完全发挥出自己的水平，这可能是因为紧张的缘故？其实我自己考完试都难以相信，自己怎么会在那么简单的问题上兜圈子（没错，就是那个BYQ）。</p>
+<p>我起初的想法是，这次可能是最后一次参加蓝桥杯了，我希望能够突破一下自我，能够进一次决赛，我相信大学到现在的积累应该给我尝试的机会，可是现在看来，多半是没希望了。不过我也不应该在这件事上纠结太久，毕竟还有其他的事情等着我去做。</p>
+<h2 id="本学期课程吐槽"><a href="#本学期课程吐槽" class="headerlink" title="本学期课程吐槽"></a>本学期课程吐槽</h2><p>接下来在聊聊对这学期课程的感受，这学期从开学到现在，让我最期待的无非就是机器学习课程了，可是当我听了一节课、两节课之后，失望的表情溢于言表。老师只是很简单很简单的介绍了一下概念性的知识，这些东西去了解是很快的、毫不费力的，我不理解这样授课有什么价值。外聘的老师都这么水，更不用提专业的老师了，除了马丽老师的课（不爱听），再找个有水准的就很难了。</p>
+<p>可能这仅仅是我的体会，不过这种体会预示着我应该做出一些改变，而不是按部就班的跟着浪费时间，我觉得应该用这些时间做些更有价值的事情。但其实这些课程的初衷是非常好的，计算机英语无处不在、操作系统是考研必考课程、机器学习当下非常流行等等，可是我从我们专业的老师那里体会不到半点水平。所以我还不能直接略过这些课、考虑到又不能听，所以解决办法只有一个，那就是上课自学或者上课补作业，然后课下按照自己的复习计划进行，这是我目前想到让自己感觉好一些的解决措施。</p>
+<h2 id="软微复试交流"><a href="#软微复试交流" class="headerlink" title="软微复试交流"></a>软微复试交流</h2><p>在3月19日下午，我跟董慧芹一同去了趟北大的软微学院，那天是复试的第一天，我们打算去碰碰运气，看能不能认识一两个大佬。软微距离北石化也就三公里，坐公交十多分钟就到。到了那，先冷静的观察了一波，问了问，才知道技术组在一层面试。于是在一层门口观望，正好遇到了一个提前来打探情况的复试大佬，他是化学专业跨考，还是二战考生。</p>
+<p>他跟我分享了很多自己准备软微的体会，还跟我聊了面试老师的问题以及需要注意的事项，他跟我说了好几个专业方向的面试问题，我竟然一个都答不上来。虽然有一部分知识是还没学，但另一部分知识确实是没接触过！学校的课程里从来就没有提过，自己也没用过，因为没有那样的需求，平时接触到的都是很简单的操作，基本都没有优化问题。后来那个师兄还跟我讲了很多自己复习的经验，以及复试群里讨论的内容，我真的十分庆幸，我认识了这样一个师兄，我特别希望他能顺利上岸，也能给我树立个榜样，让我更有动力去准备。</p>
+<p>这让我意识到，我之前学的东西都太shallow了，其实自己能接收的知识还能再多一些，可是课堂上却给不了了，在课下又想着做各种各样的事情，于是就被死死的限制而出不来，并且无论是学分绩还是在同学中的威望，让我很难去摆脱这样的瓶颈。这是我近期一度困惑的问题，我不知道该怎么去调整了。</p>
+<h2 id="继续考研复习规划"><a href="#继续考研复习规划" class="headerlink" title="继续考研复习规划"></a>继续考研复习规划</h2><p>现在都已经三月底了，已经耽误了不少复习时间了，下面我要开始认真的复习考研内容了。对于放下的数学，我目前的想法是将寒假讲的知识先过一遍，做做例题。过完一遍之后，再从微分方程那块继续往后复习，得赶紧把高数先整体过一遍，然后再选择重复或者是看线代。</p>
+<p>对于英语，要开始背单词，回到高中那会手写纸上两排，捂着复习、重复的记忆。我在这种方式下记单词的效率还是挺高的，为期21天，如果不能坚持，那就刷题。专业课上课时间补，就这些了，希望自己继续坚持，继续加油！！！</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>京东手机评论爬虫</title>
+    <url>/2019/02/26/15JDComment-Spider/</url>
+    <content><![CDATA[<p><img src="/images/jdSpider.jpg" alt="cover"><br><a id="more"></a></p>
+<h2 id="所用工具"><a href="#所用工具" class="headerlink" title="所用工具"></a>所用工具</h2><ul>
+<li>Chrome 版本 72.0.3626.109（正式版本） （64 位）</li>
+<li>Python 3.5.2 :: Anaconda 4.2.0 (64-bit)</li>
+</ul>
+<h2 id="数据采集"><a href="#数据采集" class="headerlink" title="数据采集"></a>数据采集</h2><h3 id="确定待采集数据"><a href="#确定待采集数据" class="headerlink" title="确定待采集数据"></a>确定待采集数据</h3><p>对评论所含内容进行简单的分析，初步确定所需要抓取的内容。首先，在京东商城手机信息界面的用户评价中含有昵称、会员等级、评价星级，评价内容、手机型号、购买时间等等。</p>
+<p>其中通过分析会员等级与购买的关系，可以给为不同会员提供不同的产品做参考。分析评价内容可以大概可以推断出消费者对该产品的态度、以及哪些回复关注度比较高等等。分析购买时间可以了解到消费者集中的购买时间段。<strong>这些分析对商品广告的精准投放以及为消费者提供更个性化的服务提供了重要参考</strong>。 </p>
+<h3 id="确定采集对象"><a href="#确定采集对象" class="headerlink" title="确定采集对象"></a>确定采集对象</h3><p>选择按评论数降序排列的手机型号，选择Apple iPhone 8 Plus(A1864) 64GB的评论数据进行采集</p>
+<h3 id="采集准备"><a href="#采集准备" class="headerlink" title="采集准备"></a>采集准备</h3><p>（robots协议说明：robots是网站对爬虫的限定规则，它规定了那些爬虫可以爬，那些数据可以爬）</p>
+<p>因此在采集之前，查看京东商城的robots协议，如下图</p>
+<p><img src="/assets/1551319945219.png" alt="1551319945219"> </p>
+<p>参考robots协议规则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-agent: 指定对哪些爬虫生效</span><br><span class="line">Disallow: 指定不允许访问的网址</span><br><span class="line">Allow: 指定允许访问的网址</span><br></pre></td></tr></table></figure>
+<p>通过分析robots协议的内容，而下面即将采集的目录在根目录的comment的子目录下，不涉及到用户的个人隐私，因此可以继续进行采集。</p>
+<p>但是在采集过程中，添加sleep函数，既为了防止频繁访问ip被封，也防止高频度访问对网站带来的负荷。</p>
+<h3 id="开始采集数据"><a href="#开始采集数据" class="headerlink" title="开始采集数据"></a>开始采集数据</h3><h4 id="分析网页"><a href="#分析网页" class="headerlink" title="分析网页"></a>分析网页</h4><p>首先选择一款评论数目多的手机，按照评论数降序排列</p>
+<p><img src="/assets/1551163850458.png" alt="1551163850458"></p>
+<p>点击进入手机信息页面，在默认手机参数选择下</p>
+<p>按F12打开调试界面，打开network面板并在过滤器中填入“comment”，如下图<img src="/assets/1551164094744.png" alt="1551164094744"></p>
+<p>此时，点击商品评价，筛选到如下结果</p>
+<p><img src="/assets/1551164279099.png" alt="1551164279099"></p>
+<p>含有pageComment字段的即为服务器返回的页面评论数据，右键该文件-&gt;copy-&gt;Copy link address复制url并在url地址栏进行访问。访问结果如下图</p>
+<p><img src="/assets/1551164441005.png" alt="1551164441005"></p>
+<p>可以很容易的看到，服务器返回给页面的数据是JSON格式的数据。</p>
+<p>可以先使用<a href="http://www.bejson.com/jsoneditoronline/" target="_blank" rel="noopener">JSON在线编辑器</a>进行json解析，在解析时发生错误，这是由于页面的数据的头部和尾部有一些其他的字符使得页面内容不完全是json数据，去掉第一个’(‘以及其之前的字符，同时去掉最后一个’)’以及其之后的字符即可。整理之后的结果如下图<img src="/assets/1551164892027.png" alt="1551164892027"> </p>
+<p>从图中可以清楚的看到，评论共有100页，每页的comment有10条。单独点开其中一条评论数据如下图</p>
+<p><img src="/assets/1551164975991.png" alt="1551164975991"> </p>
+<p>可以清楚的看到我们所需要的数据。</p>
+<p>那么新的问题来了，京东界面所写评论有163万+条，那其他的数据都去哪了？查看一下第100页后面，看有没有发现</p>
+<p><img src="/assets/1551165225666.png" alt="1551165225666"> </p>
+<p>看了之后才发现，还有114万+用户给了默认评价，为了分析更准确，加上这部分数据(其实点开也就100页，其他的可能服务器就没留着)。按照同样得方式，获取这部分评论的通用url<img src="/assets/1551165875856.png" alt="1551165875856"> </p>
+<p>尽管如此，也才仅有1500条左右的数据，不过在评论的菜单中还有追评、好评、中评、差评等，把这些也算进来，对比比较差异</p>
+<p><img src="/assets/1551167389012.png" alt="1551167389012"></p>
+<p>发现不同评价的score不同，综合大约有4000~5000条数据</p>
+<p>继续统计手机不同参数所含的评论。在这里我将手机颜色从“金色”改为了“深空灰色”，按照同样的方式查看url。并与之前获取的进行对比。如下图</p>
+<p><img src="/assets/1551166489422.png" alt="1551166489422"></p>
+<p>对比之后发现，不同颜色的产品ID(productid)发生了变化。但其实评论区域还是各种颜色都有，所以这也是手机评论数据，只不过为了美观，在每次更改手机参数选择时进行了刷新(动态生成)。</p>
+<p>根据这些url参数，就可以尽可能多的爬取该款手机的评论数据，具体代码请移步<a href="https://github.com/YuleZhang/JDComment_Spider" target="_blank" rel="noopener"><strong>JDComment_Spider</strong></a>，里面的SpiderScript是一个完整的京东评论爬虫脚本，并且采用了随机浏览器和延时访问来防止爬虫被封，为了获取完整的数据，加入了try…except防止程序中断崩溃。</p>
+<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><p>​    经过上面的分析，可以看到数据量非常有限，远远没有达到163万条。经分析，有以下两种可能：</p>
+<ol>
+<li>出现了数据造假，这个数字可能是刷出来的（机器或者水军）</li>
+<li>真的有这么多的评论，但这时候系统可能只显示其中比较新的评论，而对比较旧的评论进行了存档。</li>
+</ol>
+<h3 id="拓展采集"><a href="#拓展采集" class="headerlink" title="拓展采集"></a>拓展采集</h3><p>通过采集之后发现京东的评论数据没有达到要求，于是到淘宝上看同款产品的评价进行搜集。</p>
+<p><img src="/assets/1551336637383.png" alt="1551336637383"> </p>
+<p>能找到包含json格式的评论数据，但是使用python进行访问时，却没有跳转到应该有的数据界面，而且跳到了其他界面，如下图</p>
+<p><img src="/assets/1551336746478.png" alt="1551336746478"> </p>
+<p>这意味着，没有登陆授权，无法查看评论信息(上面能看到评论信息，也是因为事先登陆过了)。因此只能采取selenium模拟浏览器行为来先登录，然后再获取这部分评论信息。</p>
+<p>python+selenium+webdriver的探索及问题：</p>
+<p>通过一系列的碰壁探索，发现selenium无法绕过淘宝登陆界面的验证，淘宝网应该是有识别自动化脚本登陆的反爬机制，根本无法获取登陆状态，无法登陆。</p>
+<p>通过伪造请求头来获取淘宝数据：</p>
+<p>登陆淘宝后，在淘宝主界面刷新，来获取登陆的cookies信息，如下图</p>
+<p><img src="/assets/1552033319705.png" alt="1552033319705"></p>
+<p>随后用这部分cookies来构造请求头，如下图所示</p>
+<p><img src="/assets/1552033572299.png" alt="1552033572299"></p>
+<p>这样，就能访问淘宝上需要登陆才能获取的页面信息，不过当你尝试就会发现，即使这样，在短时间连续访问多次，也很容易被检测到，从而限制页面的获取数量。我使用该爬虫在不同的时间段爬了六七次，每次requests到第17次就会出错了，有待完善。详细代码见<a href="https://github.com/YuleZhang/JDComment_Spider/blob/master/Taobao_Spider.ipynb" target="_blank" rel="noopener">淘宝数据爬取</a> （预览不了的可以下载看）。</p>
+<p>参考：</p>
+<p><a href="https://www.cnblogs.com/whatisfantasy/p/6440585.html" target="_blank" rel="noopener">搞定python多线程和多进程</a></p>
+<p><a href="http://www.bejson.com/oldbejson/jsoneditoronline/" target="_blank" rel="noopener">JSON在线编辑器</a> </p>
+<p><a href="https://www.cnblogs.com/qun542110741/p/9221040.html" target="_blank" rel="noopener">Python爬虫，抓取淘宝商品评论内容</a></p>
+<p><a href="https://github.com/lining0806/PythonSpiderNotes" target="_blank" rel="noopener">Python入门网络爬虫之精华版</a> </p>
+<p><a href="https://www.cnblogs.com/taceywong/p/6602736.html" target="_blank" rel="noopener">Selenium Python文档：四、元素定位</a> </p>
+<p><a href="https://www.cnblogs.com/junrong624/p/5533655.html" target="_blank" rel="noopener">为何大量网站不能抓取?爬虫突破封禁的6种常见方法</a>  </p>
+<p><a href="https://blog.csdn.net/LaoChengZier/article/details/80705298" target="_blank" rel="noopener">处理Jupyter Notebook报错：IOPub data rate exceeded</a></p>
+]]></content>
+      <tags>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于日记</title>
+    <url>/2019/01/20/13Diary/</url>
+    <content><![CDATA[<p><img src="/images/diary.jpg" alt="cover"><br><a id="more"></a></p>
+<p>我想这可能是我在博客上的第一篇日记，跟技术没有半毛钱联系，但是算是个人的一些总结记录。</p>
+<p>其实我开始很纠结要不要写日记，我看了很多文章，从要不要写到怎么写，写的话写电子版的还是纸质版的，由于之前没有经常写日记的习惯，让我在众说纷纭的解释中差点淹没了自己。</p>
+<p>我比较善于捕捉生活中的一些看似没有逻辑的事件，我将捕捉到的这些东西称之为“缘分”，当然这里说的缘分不单单指人与人之间，还可能与某些事物有关。</p>
+<p>今天，原本打算做计划的我，在找本子时，无意发现了自己之前写的几篇日记，零零散散的记录了一些去年发生的事情，实话说，我看了之后感触并不大，而且有些记录的事情是我不愿再看到的，我当时就有撕掉它的冲动，但是事实上我并没有这么做。犹豫再三，我把这个本子拿到了图书馆，准备写日记。</p>
+<p>我很多时候做事情总是一阵一阵的，我觉得日记应该也是这样。遇到一些事情有感而发就可以记录下来，作为图片的补充，其实我在看几年前的图片的时候最有感觉，会想起四五年前那精彩的瞬间感觉很不一样，那是我的过去，可能有喜有悲，但在现在的我看来，那些都是我最珍贵的回忆，我还是舍不得它们，所以最终我选择写日记，来作为图片的一个补充，补充照片无法描述的事情，补充我生活的其他部分，我相信这些东西在几年之后，同样会成为我最宝贵的部分，而且我确实感觉到，在写过这写文章之后，我的思路比以前清晰了很多，这样能够提高我的表述能力——有些时候，我总是很难把一件事情表述清楚。</p>
+<p>其实，为什么要有日记，这对一个工科的同学，尤其像我这样陷的比较深的，应该很少有人写日记，我也觉得这是大部分女生的做法，它们情感部分的内容更多一些。后来我想明白了，在生活中我可能遇到的事情的维度实在太多了，数不胜数，知乎、网页查询、读书体会、朋友圈、新闻、旅游、好吃的等等，我没有办法将它们全都记录在朋友圈或者滴答清单这样的平台上，没有统一的管理会让你一团糟，而且这些内容的公开性总是会让你犹豫，很多时候，一两句话也无法表达内心的感受，所以我越来越坚定我的想法，我要把它们记录下来，频率可以不多，但不可或缺。</p>
+<p>关于写在本子上还是写在电脑上，我同样纠结，尽管我每天都在使用电脑，我打字速度会快一些，但我觉得纸质的翻起来更有感觉一些，因此，起初我决定把这些东西记在本子上。然而在我理了理思路之后，我最终决定将日记放在博客里，我觉得这会是一个不错的方式。经过梳理后我决定使用不同的平台，做不同类别的事情，这样看起来更有条理一些，在以后做记录时也可以少一些纠结。</p>
+<ol>
+<li>CSDN博客——算法、做实验过程中遇到的问题（局部）</li>
+<li>github page个人网站——课设、实验、择校等总结（全局）+随笔</li>
+<li>github——实际项目或实验的资料</li>
+</ol>
+<p>这样github page才更像我个人的网站，放一些我个人的心得体会或实验资料这些，我并不打算宣传它，它是我的一部分，主要来记录我的点滴。当然如果我的朋友需要相关方面的帮助，我会很乐意把这些东西分享给他们看。但是，我会尽可能少的在网络上留接口并宣传它。同时，在写文章时，也可能不会考虑到从其他人的角度写一些理解方面的东西，这些纯粹是给自己的，嘿嘿。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记——福尔摩斯思考术(2)</title>
+    <url>/2019/01/20/14HolmesThinking/</url>
+    <content><![CDATA[<p><img src="/images/HolmesThinking.jpg" alt="cover"><br><a id="more"></a></p>
+<h4 id="福尔摩斯思考术（2）——如何形成深具洞察力及自我认知的思维模式"><a href="#福尔摩斯思考术（2）——如何形成深具洞察力及自我认知的思维模式" class="headerlink" title="福尔摩斯思考术（2）——如何形成深具洞察力及自我认知的思维模式"></a>福尔摩斯思考术（2）——如何形成深具洞察力及自我认知的思维模式</h4><p>每件事情不是只有继续和放弃两个选项，还可以选择“暂时放弃”</p>
+<p>人生的岔路千千万万，走错一步太正常了，没必要在更窄的方案里做选择，当发现走的很难的时候，不如试试后退一步重新来过，或许就有新的解法。</p>
+<p>做各种各样别的事情，能让我们有更大概率获取到相关的弱连接提示。(后台运行)</p>
+<p>你永远不知道什么样的若连接可以触动正确解题的开关，你只能做到<strong>让尽可能多的弱连接进来</strong>。</p>
+<p>把脑子里的单纯的抽象推理转化为视觉，就能让脑子有更多空余进程去思考别的事情。例如写题要把式子列出来一步步计算、福尔摩斯往往会在现场根据蛛丝马迹进行推理都是这个意思。</p>
+<p>尤其是结论“好”的时候，我们尤其会让大脑放松在过程审视上的警惕性。会导致的后果是，无法分辨好的结恶果究竟是不是运气导致的，因此结果越好，反而越难以学到东西。</p>
+<p>关于过程和结果举例：</p>
+<ol>
+<li>所有植物都需要水</li>
+<li>玫瑰需要水</li>
+<li>所以玫瑰是植物</li>
+</ol>
+<p>如果没有看出这个推理哪有问题，就说大脑关注结论太久，所以“玫瑰是植物”这个正确结论对他们有太大的影响。</p>
+<p>换几个字之后</p>
+<ol>
+<li>所有动物都需要水</li>
+<li>玫瑰需要水</li>
+<li>所以玫瑰是动物</li>
+</ol>
+<p>一对比就知道问题，在第二个例子中，发现结果不对，才会去思考整个推理过程，而第一个例子，则往往让人们忽视其逻辑中的漏洞。</p>
+<p>所以你会发现算命的除非能确定引发你的焦虑，让你掏钱消灾，否则通常之说好话，不是我们认不清，是我们不愿意认(不愿去思考过程)，因为如果他说了不好的呢？你就突然变“聪明”了， 开始会去抓他的逻辑漏洞了。</p>
+<p><strong>大脑在推理时一直有一种倾向，就是试图抓住与之相关的所有信息，并尽可能将其合理化从而应用到自己的推理过程之中。</strong></p>
+<p>思维训练导致的个人思维能力的提升本身就已经是一种回报，只是很难被感知力差的人量化而已。</p>
+<p>衡量学习和实践性价比的“性”的一端最好的标不是能得到多少显而易见的收益，而是自身能力有多大程度的提高，这才是最大的隐形收益。</p>
+<p>有些人总能在学习新鲜事物的时候得到多巴胺的反馈，因为进步的够快，因此这些人对新的东西就保持可一种习惯性渴望——潜意识告诉它们，又可以获得奖赏中枢分泌的奖赏物质了；而另一些人学东西相对较慢，他们的进度就会落后于别人。如此，它们就没有这种渴望。</p>
+<p>值得一提的是：</p>
+<ol>
+<li>想坚持做一件事，就要尽快<strong>试图从中获取到多巴胺的奖励</strong>，慢了就没动力</li>
+<li>坚持做1，能让自己<strong>对新事物保持旺盛的好奇心，从而获得更多的红利</strong>。</li>
+</ol>
+<p>我们曾经说过“分享是最好的学习”，大抵也是如此，尤其是当你要把一件事跟一些基础较弱的人讲明白时，你就不得不将那些原本显而易见的、自以为理所当然不需要思考的道理拉出来重新审视，在这个过程中，往往你会发现，其实那些最基础的概念你并没有全弄明白。</p>
+<p><strong>挑战，是最大限度地激活我们思维的方式</strong></p>
+<p>信息了解的多，一般情况下是只好不坏，最多就是无用，但由于他会影响到一个人的正常决策信息，因此如果是无用的话，反而就是累赘了，这会让一个一无所知的人对形式产生错判，从而进行非理性的下注。</p>
+<p>有时候，我们的大脑会可以忘记自己在大多数情况下都很愚蠢的事实，只救助几次正确的不放，除此以外，大脑也很擅长将自己的推理往合理化的方向靠。此时，做笔记或记录的习惯会将自己的思维过程记录下来，来认清自己。</p>
+<h4 id="自己的体会："><a href="#自己的体会：" class="headerlink" title="自己的体会："></a>自己的体会：</h4><p>在跟同学将程序的时候就发现，很多函数的参数自己也并不明白，完全是所见即所得，从网上找到的东西执行的通，就很少再去思考它的参数以及用法等等，这会让我忽视很多细节语法。然而在跟同学讲时，就发现了盲区。</p>
+<p>然而对于这件事情，我却有自己的想法，尽管我不知道它是否客观。我觉得再程序这方面上，每个函数都有很多的参数，有各种各样的用法， 如果例子的用法就能满足我的当下需求，我就不需要再分散注意力去纠结那个东西，因为是否搞清它的所有用法对我当前追求的东西并没有联系。并且，这些东西在网上都可以轻易的获取到。我追求<strong>“所需即所得”</strong> ，即我在做项目或者东西时接触到需求，会让我选择性的了解项目的部分或者整体，界面或者原理等等。</p>
+<p>并且在生活中，我也不是一个事无巨细的人，这就让我更难关注那些细节，那些基础的，不需要思考的东西，尽管我知道这是大脑在偷懒，不过我觉得它是该适当休息。不过在应对<strong>考试</strong>、<strong>比赛</strong>以及<strong>重大决策</strong>等事件上，我觉得应该还是遵循“<strong>分享是最好的学习</strong>”的原则，因为这些事件都需要细节、基础作为支撑。</p>
+<hr>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机考研备考规划</title>
+    <url>/2019/01/13/12CS-Preparation/</url>
+    <content><![CDATA[<p><img src="/images/cs-preparation.jpg" alt="cover"><br><a id="more"></a></p>
+<h2 id="院校选择"><a href="#院校选择" class="headerlink" title="院校选择"></a>院校选择</h2><h3 id="个人期望"><a href="#个人期望" class="headerlink" title="个人期望"></a>个人期望</h3><p>自己喜欢的方向或者专业方面，哪个学校的实力比较强，相关方向的老师比较多</p>
+<h3 id="地域"><a href="#地域" class="headerlink" title="地域"></a>地域</h3><p>不同的地域在就业时会有不同的优势</p>
+<p>在大城市接触到的人脉资源会很有用，但相应考试难度会相对较大</p>
+<h3 id="考试难度"><a href="#考试难度" class="headerlink" title="考试难度"></a>考试难度</h3><p>统考</p>
+<p>专业课</p>
+<h3 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h3><ol>
+<li>招生简章</li>
+<li>保研名单</li>
+<li>夏令营名单</li>
+<li>录取名单</li>
+</ol>
+<p>通过集中的分析，对比不同学校的考试难度和自身的水平，认真理性的选择学校</p>
+<h3 id="院校排名"><a href="#院校排名" class="headerlink" title="院校排名"></a>院校排名</h3><p>这个不是很重要</p>
+<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><p>学校歧视</p>
+<p>这个问题不用担心，只要你初试成绩够，可以有不同的情况，可以在校绩点高一些，可以有很多小项目，即使跨考也不用担心。</p>
+<p>选好大方向：人工智能还是网络，具体做什么跟导师有关    。</p>
+<p>关于调剂</p>
+<p>985院校不接受外校调剂，因此优先考虑该学校的其他相关专业。</p>
+<h2 id="复习计划"><a href="#复习计划" class="headerlink" title="复习计划"></a>复习计划</h2><p><img src="/assets/复习计划-1547368635395.png" alt="复习计划"></p>
+<p><img src="/assets/复习建议-1547368635395.png" alt="复习建议"></p>
+<p>英语：注重阅读</p>
+<p>政治：不同的科目对症下药，一定给时间给非主观题。</p>
+<p>专业课：把基础打好，王道的复习书，如果是自主命题，早点开始复习把基础打好。必须做的几类题：</p>
+<ol>
+<li><p>历年真题。</p>
+</li>
+<li><p>买一些本科或研究生期末测试题。</p>
+</li>
+</ol>
+<p><img src="/assets/1547368876265.png" alt="1547368876265"> </p>
+<p>一定不要影响大的安排计划，养成一个固定的习惯。</p>
+<p><img src="/assets/1547369569475.png" alt="1547369569475"> </p>
+<p>第一轮以教材为主、第二轮慢慢以王道书为主，结合教程，多练习</p>
+<p>每月有个大的计划，最后再进行细化到每天。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>考研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络学习笔记</title>
+    <url>/2018/11/18/11Computer-Neterwork/</url>
+    <content><![CDATA[<p><img src="/images/network-note.jpg" alt="network-note"></p>
+<a id="more"></a>
+<h2 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h2><p><strong>局域网</strong> 覆盖范围小 自己花钱购买设备 宽带固定 自己维护<br><strong>Internet</strong> ISP  有自己的机房  对网民提供访问Internet连接<br><strong>广域网</strong> 距离较远 花钱买带宽、租服务 不用自己维护</p>
+<p><img src="/assets/1542502423577.png" alt="1542502423577"> </p>
+<h3 id="1-1数据包和数据帧"><a href="#1-1数据包和数据帧" class="headerlink" title="1.1数据包和数据帧"></a>1.1数据包和数据帧</h3><p><img src="/assets/1542503369329.png" alt="1542503369329"><br>​                                                          url解析过程实例</p>
+<p>数据修改mac地址，一步一步转到目标ip<br>每台路由器的路由表中都记录有连接到同一台交换机的不同主机的ip、mac地址等等，在数据帧从源主机发送过程中，其包含的mac当前地址和下一跳地址会不断修改，在到达不同的路由时，路由器能够根据目标ip所在网段来给数据包指定mac地址，最终实现与目标主机的交互。</p>
+<h3 id="1-2OSI参考模型"><a href="#1-2OSI参考模型" class="headerlink" title="1.2OSI参考模型"></a>1.2OSI参考模型</h3><p><strong>应用层</strong>  所有能产生网络流量的程序<br><strong>表示层</strong>  在传输之前是否进行加密 或 压缩处理  二进制 ASCII<br>表示层错误举例:</p>
+<p><img src="/assets/1542504269207.png" alt="1542504269207"> </p>
+<p>在更改语言之后，会看到网页出现乱码，这就是出现了表示层问题。服务器发送过来的编码格式与我当前网页的解码格式不一致，就会导致网页乱码问题。</p>
+<p><strong>会话层</strong> 查看木马</p>
+<p>cmd中使用<code>netstat -n</code>命令查看当前会话<br><code>netstat -nb</code>能够看到建立会话的程序，一下就能找出来木马。</p>
+<p><strong>传输层</strong> 可靠传输 流量控制 不可靠传输</p>
+<p>主机访问DNS服务器，只需要一个包就够了，不需要建立会话，这种类型称为不可靠传输。<br>qq聊天时也是使用的不可靠传输</p>
+<p><strong>网络层</strong> 负责选择最佳路径 规划ip地址</p>
+<p><strong>数据链路层</strong> 定义了帧的开始和结束     透明传输      差错校验(不纠正)</p>
+<p><strong>物理层</strong> 接口标准   电器标准    如何在物理链路层传输更快的速度</p>
+<p>每一层较为独立，每一层的变化不会影响其他层，从物理层到应用层，每一层都为上一层提供服务。</p>
+<h3 id="1-3OSI参考模型和网络排错"><a href="#1-3OSI参考模型和网络排错" class="headerlink" title="1.3OSI参考模型和网络排错"></a>1.3OSI参考模型和网络排错</h3><ol>
+<li>物理层故障   查看连接状态   发送和接收的数据包</li>
+<li>数据链路层故障   MAC地址冲突   ADSL欠费    网速协商一致   计算机连接到错误的VLAN</li>
+<li>网络层故障   配置了错误的ip地址   子网掩码   配置错误网关    路由器没有配置到达目标网络的路由</li>
+<li>应用层故障    应用程序配置错误</li>
+</ol>
+<h3 id="1-4OSI参考模型和网络安全"><a href="#1-4OSI参考模型和网络安全" class="headerlink" title="1.4OSI参考模型和网络安全"></a>1.4OSI参考模型和网络安全</h3><ol>
+<li>物理层安全    外面的网线接到内部交换机</li>
+<li>数据链路层安全   ADSL账号密码    VLAN   交换机端口绑定MAC地址</li>
+<li>网络层安全    在路由器上使用ACL控制数据流量包</li>
+<li>应用层安全    开发的应用程序没有漏洞</li>
+</ol>
+<h3 id="1-5TCP-IP协议和OSI参考模型"><a href="#1-5TCP-IP协议和OSI参考模型" class="headerlink" title="1.5TCP/IP协议和OSI参考模型"></a>1.5TCP/IP协议和OSI参考模型</h3><p><img src="/assets/1542510257412.png" alt="1542510257412"> </p>
+<p><img src="/assets/1542510441573.png" alt="1542510441573"> </p>
+<p>FCS为校验核</p>
+<p><img src="/assets/1542510552860.png" alt="1542510552860"> </p>
+<h2 id="第二章物理层"><a href="#第二章物理层" class="headerlink" title="第二章物理层"></a>第二章物理层</h2><h3 id="2-1物理层基本概念"><a href="#2-1物理层基本概念" class="headerlink" title="2.1物理层基本概念"></a>2.1物理层基本概念</h3><ol>
+<li>机械特性</li>
+<li>电气特性</li>
+<li>功能特性</li>
+<li>过程特性</li>
+</ol>
+<h3 id="2-2数据通信的基础知识"><a href="#2-2数据通信的基础知识" class="headerlink" title="2.2数据通信的基础知识"></a>2.2数据通信的基础知识</h3><p><img src="/assets/1543143563956.png" alt="1543143563956"> </p>
+<p>信道一般表示向一个方向传送信息的媒体。所以平常的通信线路往往包含一条发送信息的信道和一条接收信息的信道</p>
+<h4 id="信道"><a href="#信道" class="headerlink" title="信道"></a>信道</h4><p><strong>单向通信</strong> 只能由一个方向的通信而没有反方向的交互</p>
+<p><strong>双向交替通信</strong> （半双工通信）通信的双方都可以发送信息，但不能双方同时发送</p>
+<p><strong>双向同时通信</strong> （全双工通信）通信的双方可以同时发送和接收信息。例：打电话</p>
+<h4 id="基带信号和带通信号"><a href="#基带信号和带通信号" class="headerlink" title="基带信号和带通信号"></a>基带信号和带通信号</h4><p><strong>基带信号</strong> 像计算机输出的代表各种文字或图像的数据信号都属于基带信号。它直接表达了要传输的信息的信号，比如说话的声音也是基带信号。</p>
+<p><strong>带通信号</strong> 把基带信号经过载波调制后，把信号的频率范围搬移到较高的频段以便再信道中传输。</p>
+<p>因此，距离近用基带信号，如从计算机到监视器、打印机等外设的信号都是基带传输。</p>
+<h4 id="调制方法"><a href="#调制方法" class="headerlink" title="调制方法"></a>调制方法</h4><p>调幅    调频    调相</p>
+<h4 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h4><p>单极性不归零   双极性不归零   单极性归零码   双极性归零码   曼彻斯特编码</p>
+<p><img src="/assets/1543146978208.png" alt="1543146978208"> </p>
+<h4 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h4><p>香奈法则：没有信号干扰的情况下，码元的传输速率有上限</p>
+<p><img src="/assets/1543147043150.png" alt="1543147043150"> </p>
+<p>香农公式：有信号干扰   无差错传输速率，S/N为信噪比</p>
+<p><img src="/assets/1543147112449.png" alt="1543147112449"> </p>
+<h3 id="2-3物理层下面的传输媒体"><a href="#2-3物理层下面的传输媒体" class="headerlink" title="2.3物理层下面的传输媒体"></a>2.3物理层下面的传输媒体</h3><p>光纤的分类及工作原理。</p>
+<p><img src="/assets/1543148711827.png" alt="1543148711827"> <img src="/assets/1543149062538.png" alt="1543149062538"></p>
+<h3 id="2-4信道复用技术"><a href="#2-4信道复用技术" class="headerlink" title="2.4信道复用技术"></a>2.4信道复用技术</h3><p><strong>1.频分复用FDM（Frequency Division Multiplexing）</strong></p>
+<p><img src="/assets/1543149527457.png" alt="1543149527457"></p>
+<p><img src="/assets/1543149501357.png" alt="1543149501357"> 电话通信中的频分复用技术，通过一级一级的汇总，最终能产生更多的语音信号。</p>
+<p><img src="/assets/1543149577579.png" alt="1543149577579"> <strong>2.时分复用 （Time Division Multiplexing）</strong></p>
+<p>线路上的数据按照一定的顺序来发送数据</p>
+<p><img src="/assets/1543149772049.png" alt="1543149685293"> 可能会造成资源浪费，如下图</p>
+<p><img src="/assets/1543149905181.png" alt="1543149905181"> <strong>3.统计时分复用</strong></p>
+<p>发的时候没有规律，凑够一个帧就发，但在内容上加上标记 </p>
+<p><img src="/assets/1543149926590.png" alt="1543149926590"> <strong>4.波分复用WDM（Wavelength Division Multiplexing）</strong> </p>
+<p><img src="/assets/1543150024141.png" alt="1543150024141"> </p>
+<h3 id="2-5数字传输系统"><a href="#2-5数字传输系统" class="headerlink" title="2.5数字传输系统"></a>2.5数字传输系统</h3><p>脉码调制PCM也就是我们所说的广域网，已经提前铺设好了，这样在两个相距较远的局域网直接通信时，可以通过两个局域网的路由器接到广域网中，实现远距离通信。</p>
+<p>PCM有两个互不兼容的国际标准，即北美的24路PCM（简称T1）和欧洲的30路PCM（简称E1）采用时分复用，我国采用E1标准。</p>
+<p><img src="/assets/1543150295488.png" alt="1543150295488"> </p>
+<h3 id="2-6宽带接入技术"><a href="#2-6宽带接入技术" class="headerlink" title="2.6宽带接入技术"></a>2.6宽带接入技术</h3><p>ADSL（用数字技术对现有的模拟电话用户线进行改造）</p>
+<p>使用DMT技术，将频率主要分为三个部分，一部分用传统电话，一部分用于上行信道（向服务器请求数据），一部分用于下行信道（从服务器下载数据），下行信道最多，其特性是流量非对称。</p>
+<p><img src="/assets/1543151033236.png" alt="1543151033236"> </p>
+<p><img src="/assets/1543151225030.png" alt="1543151225030"> </p>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h2><h3 id="3-1数据链路层基本概念"><a href="#3-1数据链路层基本概念" class="headerlink" title="3.1数据链路层基本概念"></a>3.1数据链路层基本概念</h3><p>下图是数据链路层的简单模型</p>
+<p>应用层准备数据—&gt;运输层将其分段—&gt;网络层加ip地址—&gt;链路层加数据帧头帧尾<br>到了物理层之后，如何频分多路复用、时分多路复用等等、充分利用线路带宽，这是上面物理层已经解决的问题。 </p>
+<p><img src="/assets/1543715662916.png" alt="1543715662916"> </p>
+<p>数据链路层不关心物理层速度，不关心是模拟信号还是数字信号，不关心是光纤、铜线，带宽是1M还是10M。</p>
+<p>数据链路层在上图中的作用概述起来是这样的：</p>
+<p>物理层将数据传到数据链路层之后，数据链路层判断是否数据出错，如果数据正确，拆掉帧头帧尾，传到路由器的网络层，网络层根据ip地址选择路径，决定从路由器的哪个出口出去。随后再传到数据链路层，数据链路层修改MAC地址等信息，加上帧头帧尾，最后发给物理层进行传输。</p>
+<p><strong>数据链路层的信道类型</strong></p>
+<p>点对点信道：使用一对一的点对点通信方式</p>
+<p>广播信道：使用一对多的广播通信方式，过程较复杂。广播信道上的主机数目多，必须使用专用的共享信道协议来协调这些主机的数据发送。</p>
+<p><strong>链路与数据链路</strong></p>
+<p>链路：点到点的物理线路段，中间没有其他任何的交换结点</p>
+<p>数据链路：除了物理线路，还有通信协议控制数据的传输。</p>
+<p><strong>帧</strong></p>
+<p>把网络层信息加上帧头帧尾，加上物理层地址，加上校验值</p>
+<p><img src="/assets/1543716980510.png" alt="1543716980510"> </p>
+<h3 id="3-2数据链路层解决的三个基本问题"><a href="#3-2数据链路层解决的三个基本问题" class="headerlink" title="3.2数据链路层解决的三个基本问题"></a>3.2数据链路层解决的三个基本问题</h3><h4 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1. 封装成帧"></a>1. 封装成帧</h4><p><img src="/assets/1543717172357.png" alt="1543717172357"> </p>
+<h4 id="2-透明传输"><a href="#2-透明传输" class="headerlink" title="2. 透明传输"></a>2. 透明传输</h4><p>在数据段中出现了与帧头帧尾同样的二进制串，会造成误判。</p>
+<p><img src="/assets/1543717298498.png" alt="1543717298498"> </p>
+<p>ESC相当于转义字符，在收到数据之后去掉这些标识，跟没加一样。</p>
+<h4 id="3-差错控制"><a href="#3-差错控制" class="headerlink" title="3. 差错控制"></a>3. 差错控制</h4><p>针对传输过程中可能发生的比特差错，不纠错，有错误就丢，没错误就发。</p>
+<p>加上额外的帧检验序列CRC（循环冗余检验）。</p>
+<p>CRC的计算过程如下图，除数是随机选取的一个值，在被除数后要补上比除数位数少一位数目的0，在下面例子中就是4位除数，补3个0.。之后在计算时，进行的不是减法，而是做异或运算，最终求出循环冗余码001</p>
+<p><img src="/assets/1543718500043.png" alt="1543718500043"></p>
+<p>在数据链路层收到这样的数据时，再进行除法的异或运算，但此时被除数后补上的不再是000，而是之前求出来并发送过来的CRC（001），判断最终余数是否为0即可确定数据是否发生了错误。</p>
+<p><strong>帧检验序列FCS</strong></p>
+<p>CRC是一种常用的检错方法，而FCS时添加在数据后面的冗余码</p>
+<p>FCS可以用CRC方法的出，也可以用其他检验方法得出</p>
+<p><img src="/assets/1543718652258.png" alt="1543718652258"></p>
+<h3 id="3-3两种情况下的数据链路层"><a href="#3-3两种情况下的数据链路层" class="headerlink" title="3.3两种情况下的数据链路层"></a>3.3两种情况下的数据链路层</h3><h4 id="使用点对点信道的数据链路层-PPP"><a href="#使用点对点信道的数据链路层-PPP" class="headerlink" title="使用点对点信道的数据链路层 PPP"></a>使用点对点信道的数据链路层 PPP</h4><p>广域网使用PPP协议，通常用在用户拨号接入因特网，全世界使用最多的协议</p>
+<p><img src="/assets/1543719271035.png" alt="1543719271035"> </p>
+<p><img src="/assets/1543719458006.png" alt="1543719458006"> </p>
+<p>PPP协议的透明传输：转义法、零比特填充法（只要发现5个连续1，就立即填入一个0）</p>
+<h4 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h4><p>局域网  使用广播信道的数据链路层  什么协议？</p>
+<p>下图中是总线型连接的拓扑结构，数据包发送到各个主机，主机判断目的MAC地址不是本机MAC地址后自动丢弃，是本机MAC地址则接受，当然也可以通过抓包工具捕获到这些数据包，因此说这种网络是不安全的。</p>
+<p><img src="/assets/1543720760948.png" alt="1543720760948"> </p>
+<p>当然，这样的方式也使得广播特性的总线实现了一对一的通信。</p>
+<p>使用CSMA/CS（载波监听多点接入/碰撞检测）协议</p>
+<p>多点接入：表示许多计算机以多点接入的方式连接在一根总线上</p>
+<p>载波监听：就是用电子技术检测总线上有没有其他计算机发送的数据信号以免发生碰撞。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TCP/IP协议数据包分析</title>
+    <url>/2018/11/17/10Network-Package-Capture/</url>
+    <content><![CDATA[<p><img src="/images/network.jpg" alt="cover"></p>
+<a id="more"></a>
+<h3 id="Wireshark抓包实验"><a href="#Wireshark抓包实验" class="headerlink" title="Wireshark抓包实验"></a><strong>Wireshark抓包实验</strong></h3><p><strong>1.1</strong>  <strong>学习Wireshark工具的基本操作</strong></p>
+<p>学习捕获选项的设置和使用，如考虑源主机和目的主机，正确设置 Capture Filter；捕获后设置 Display Filter。</p>
+<p><strong>1.2</strong>  <strong>PING</strong>命令的网络包捕获分析</p>
+<p>PING命令是基于ICMP协议而工作的，发送4个包，正常返回四个包。以主机210.31.40.41为例，主要实验步骤为：</p>
+<p>（1）设置“捕获过滤”：在 Capture Filter 中填写 host 210.31.40.41；</p>
+<p>（2）开始抓包；</p>
+<p>（3）在 DOS 下执行 PING 命令；</p>
+<p>（4）停止抓包。</p>
+<p>（5）设置“显示过滤”: IP.Addr=210.31.40.41</p>
+<p><img src="/assets/clip_image002.jpg" alt="img"></p>
+<p>（6）选择某数据包，重点分析其协议部分，特别是协议首部内容，点开所有带+号的内容。</p>
+<p>（7）针对重要内容截屏，并解析协议字段中的内容，一并写入 WORD 文档中。</p>
+<p><img src="/assets/1542435725203.png" alt="1542435715945"></p>
+<p>​       通过简单的分析我们可以看到，Ping命令使用ICMP协议，每发送一个包到210.31.40.41后都会收到一个包，一共发送了四个包，收到四个包如所示。分析其中的一个包，可以看到其类型长度为8，数据长度为32byte，见图</p>
+<p><strong>1.3</strong>  <strong>TRACERT</strong> <strong>命令数据捕获</strong></p>
+<p>观察路由跳步过程。分别自行选择校内外 2 个目标主机。比如，</p>
+<p>（1）校内：tracert    210.31.32.8</p>
+<p>首先，在执行tracert命令之前，先在Wireshark中过滤选择出210.31.32.8的相关请求。之后，win+r打开cmd界面执行tracert命令</p>
+<p><img src="/assets/clip_image005.png" alt="img"></p>
+<p>​       截获到的数据如下图，</p>
+<p><img src="/assets/clip_image007.jpg" alt="img"></p>
+<p>通过对该抓包结果的简单分析，可以看出，抓到的协议类型主要有两种即ICMP和DNS协议，选择不同类型的协议来查看其具体内容。</p>
+<p>DNS协议：</p>
+<p><img src="/assets/clip_image009.jpg" alt="img"></p>
+<p>通过上图简单的分析查看可以得知，DNS协议从10.10.215.246到210.31.32.8，同时包含了UDP协议，源端口为61149，目标端口为53。DNS对域名210.31.40.41进行了84次标准查询，可以看到在DNS的事务ID为：0xc39f，在DNS服务器中的查询结果在第185行。</p>
+<p>ICMP协议：</p>
+<p><img src="/assets/clip_image011.jpg" alt="img"></p>
+<p>ICMP的内容在之前已经分析过了，在这里不在赘述，从图中对比可以看到，data的数据长度变为了64bytes。</p>
+<p>（2）校外：tracert    <a href="http://www.sogou.com" target="_blank" rel="noopener">www.sogou.com</a></p>
+<p><img src="/assets/clip_image013.jpg" alt="img"></p>
+<p><img src="/assets/clip_image015.jpg" alt="img"></p>
+<p>​       通过简单的分析可以看出，在对搜狗进行抓包时出现了两种协议即ICMP和NBNS协议，其中NBNS协议是 TCP/IP 上的 NetBIOS (NetBT) 协议族的一部分，它在基于 NetBIOS 名称访问的网络上提供<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA%E5%90%8D/2836107" target="_blank" rel="noopener">主机名</a>和<a href="https://baike.baidu.com/item/%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84/7205014" target="_blank" rel="noopener">地址映射</a>方法。</p>
+<p><img src="/assets/clip_image017.jpg" alt="img"></p>
+<p><strong>1.4</strong>  <strong>端口扫描数据捕获与分析</strong></p>
+<p>（1）各组自行下载和安装某个端口扫描工具，比如 NMAP、SUPERSCAN、SCANPORT、</p>
+<p>SSPORT、TCPVIEW。</p>
+<p>（2）扫描对方的主机，获得开放的端口号。捕获其所有相关信息和协议内容。显示过滤举例：</p>
+<p>在这里，使用Zenmap对本机进行端口扫描，扫描结果如下图。</p>
+<p><img src="/assets/clip_image019.jpg" alt="img"></p>
+<p>可以看到，本机开放了6个端口，不同端口提供不同的服务，可以看到其中的80端口为Http服务，说明在本机上部署了自己的网站，用80作为端口。</p>
+<p>查看Wireshark对该端口的抓包情况</p>
+<p><img src="/assets/clip_image021.jpg" alt="img"></p>
+<p>从图中看到两种协议，TCP和HTTP，这也印证了我之前部署网站的说法。</p>
+<p>（3）关闭某一开放的端口，重新扫描，观察捕获效果。</p>
+<p><img src="/assets/1542500979517.png" alt="1542500979517"></p>
+<p>​       关闭端口后进行扫描，可以看到被关闭的端口扫描不到了。</p>
+<p><strong>1.5</strong>  <strong>FTP</strong> <strong>协议包捕获与分析</strong></p>
+<p>登录FTP 服务器：<a href="ftp://ftp.scene.org" target="_blank" rel="noopener">ftp.scene.org</a>，重点捕获其 3 个关键过程：</p>
+<p>（1）FTP 服务器的登录</p>
+<p>捕获 USER 和 PWD 的内容，分析 FTP、TCP、IP 协议的首部信息。FTP 服务器的端口号为 21，用于控制连接。</p>
+<p><img src="/assets/clip_image025.jpg" alt="img"></p>
+<p>在这里使用的是filezilla登陆的FTP服务器，通过对登陆过程的捕获可以看到，登陆的账号为anonymous，密码为<a href="mailto:anonymous@example.com" target="_blank" rel="noopener">anonymous@example.com</a>（默认）。</p>
+<p>用Wireshark查看FTP、TCP、IP协议的首部信息，如下图。</p>
+<p><img src="/assets/clip_image027.jpg" alt="img"></p>
+<p>（2）FTP 文件的下载过程</p>
+<p>要求分别下载三个大小不同的文件（小于 1MB、1MB—10MB、10MB 以上），观察 FTP、TCP 和 IP 协议中的数据分片过程。</p>
+<p><img src="/assets/clip_image029.jpg" alt="img"></p>
+<p>从图5-3中可以简单看出，下载文件的请求命令为”RETA ”，文件字节大小也不一样。</p>
+<p>从发送时间也可以看出来一些差别。介于1MB—10MB的文件可能由于其格式或其他原因，没有正常显示出包的大小和传输时间。不过，通过对比不同的大小的文件，可以得出文件越大TCP切片长度越小，传输的字节越多，所用的传输时间越长。</p>
+<p>（3）FTP 服务的退出过程</p>
+<p>分析 FTP、TCP、IP 协议的不同内容。</p>
+<p>FTP的退出过程在Wireshark的抓包过程中没有捕获到。</p>
+<p><strong>1.6</strong>  <strong>HTTP</strong> <strong>协议包的捕获与分析</strong></p>
+<p>登录到国内外的一些门户网站上，将主页浏览过程捕获下来，分析其 HTTP、TCP、UDP、</p>
+<p>IP 协议的内容。注意 TCP 协议中的端口号。</p>
+<p>补充一下HTTP的工作流程：</p>
+<p>（1）    客户端通过TCP三次握手与服务器建立连接。</p>
+<p>（2）    TCP建立连接成功后，向服务器发送http请求</p>
+<p>（3）    服务器收到客户端的http请求后，将返回应答，并向客户端发送数据。</p>
+<p>（4）    客户端通过TCP四次握手，与服务器断开TCP连接。</p>
+<p>国内网站：</p>
+<p>国内这里以京东商城为列jd.com（111.13.28.118），捕获主页浏览过程，抓包结果如图。从图中可以看出，No分别为1950、1951、1958时进行了TCP三次握手，此时使用的是TCP协议的80端口。（说明：Wireshark抓包仅限于http，对于https其无法解密识别，国内大部分网站主页都是http，只有在登陆界面或者少数主页是https加密，不过为了掩盖性，大部分网站的头部都以https开头，尽管他们没有发挥任何作用。）</p>
+<p><img src="/assets/clip_image031.jpg" alt="img"></p>
+<p><img src="/assets/clip_image033.jpg" alt="img"></p>
+<p>从包的数据中可以分析得出(见图6-2)，本机地址10.10.215.246，捕获端口为19651。目标地址为111.13.28.118，开放端口为80，TCP协议数据切片长度为382。在看看HTTP协议，其中http请求头为Mozilla/5.0（Windows NT 10.0；Win64; X64）…以及它的接受语言为中文等等，是正常访问url时向服务器发送的一些数据信息。</p>
+<p><strong>1.7</strong>  <strong>EMAIL</strong> <strong>协议包的捕获与分析</strong></p>
+<p>登录到校内外的邮件系统，捕获自己的登录信息，重点分析其 SMTP、POP3 协议的内容。注意其端口号分别是 25 和 110。</p>
+<p>国内外大部分邮箱采用ssl加密，即https协议，其中http常用端口为80，https常用端口号为443。下面我使用的是foxmail客户端来进行EMAIL协议包的捕获，捕获内容如下图</p>
+<p><img src="/assets/clip_image035.jpg" alt="img"></p>
+<p>在Protocol列中可以看到显示的协议有TCP和SMTP。由于SMTP是基于TCP协议的，所以在使用SMTP协议发送邮件之前，首先要通过TCP三次握手建立连接。从图中倒数第三个SMTP包的后面可以看到我发送邮件的邮箱账号。第75帧表示成功登陆邮箱，第78帧表示发送邮件的账户，本例中是<a href="mailto:yulezhang321@qq.com" target="_blank" rel="noopener">yulezhang321@qq.com</a>。第81帧表示接受邮件的账户，本例中是<a href="mailto:2592879772@qq.com" target="_blank" rel="noopener">2592879772@qq.com</a>。第83帧是客户端发送的内容，84帧使用<cr><lf>接收了文本的内容。</lf></cr></p>
+<p><img src="/assets/clip_image037.jpg" alt="img"></p>
+<p>该界面较为清晰的展示了邮件信息（右键一个SMTP包，选择follow-&gt;TCP Stream查看），红色部分为客户端发送的信息，蓝色部分是服务器相应信息。在该界面可以看到客户端的主机名、邮件账户、使用的邮件客户端、邮件内容类型和传输格式等等。也可以看见发送的信息内容，由于内容被转换为base64位格式的信息，进行了加密。</p>
+<h2 id="四、-思考题"><a href="#四、-思考题" class="headerlink" title="四、 思考题"></a>四、 思考题</h2><p>（1）在 FTP 服务中，FTP 数据长度为什么是 1460 字节？</p>
+<p>最大传输单元是1460字节是TCP层的报文段(segment)的长度限制。</p>
+<p>（2）如何捕获 FTP 服务的结束数据包？</p>
+<p>在过滤器中输入ftp，会看到在Information信息列中出现Request：QUIT的内容，表示为ftp的结束包</p>
+<p>（3）在端口扫描中，对应的协议有 TCP 和 UDP。应该如何查找某端口对应的服务类型？</p>
+<p>在cmd命令行中使用netstat -a -n命令查看。 </p>
+<p>（4）不指定 IP 地址时，为什么有的邻近主机捕获不到？</p>
+<p>每个信息包能够通过网络不同的路径发送，信息包能按照与它们发送时的不同顺序到达。网络协议（IP）仅仅是递送他们，TCP才是能够将它们按照正确顺序组合回原样。IP是一个无连接协议，这就意味着在通信的终点之间没有连续的线路连接。这就导致了会有一些主机捕获不到信息。</p>
+<p>（5）PING 命令操作时，为什么会捕获 ARP 协议的数据包？</p>
+<p>因为ARP协议是“Address Resolution Protocol” 的缩写。在局域网中，网络中实际传输的是帧，帧里面是有目标主机的MAC地址的。ARP协议的基本功能就是通过目标设备的IP地址，查询目标设备的MAC地址以保证通信的顺利进行。</p>
+<p>参考文章：</p>
+<p><a href="https://jingyan.baidu.com/article/d621e8da0abd192865913f1f.html" target="_blank" rel="noopener">如何关闭139端口及445端口等危险端口</a></p>
+<p><a href="https://segmentfault.com/a/1190000006199237" target="_blank" rel="noopener">聊一聊HTTPS那些事</a></p>
+<p><a href="https://blog.csdn.net/lalalahaitang/article/details/81119336" target="_blank" rel="noopener">TCP协议(1)–TCP首部</a></p>
+<p><a href="https://blog.csdn.net/wojiaopanpan/article/details/69944970" target="_blank" rel="noopener">wireshark过滤规则及使用方法</a></p>
+<p><a href="https://jingyan.baidu.com/article/c35dbcb0866b698916fcbc81.html" target="_blank" rel="noopener">wireshark抓包教程</a></p>
+<p><a href="https://www.cnblogs.com/superdo/p/4712787.html" target="_blank" rel="noopener">电子邮件抓包分析</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>Wireshark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>局域网通信</title>
+    <url>/2018/10/21/09LAN-Communicate/</url>
+    <content><![CDATA[<p><img src="/images/communication.jpg" alt="cover"></p>
+<a id="more"></a>
+<h3 id="主机相互发送消息"><a href="#主机相互发送消息" class="headerlink" title="主机相互发送消息"></a>主机相互发送消息</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>本学期的计算机网络课非常有意思，它与我们的生活息息相关，曾经我也为电脑发生的网络问题而困惑，总是没有根据的瞎尝试来试图解决问题。但是在老师的一些简单指导之后，有了一个基本的ip之间通信以及局域网的概念。于是就想，既然局域网内部不用通过路由器就能发送数据，那我就可以给同学的电脑发消息了呀，带着这样的兴趣，我开始了本次尝试。</p>
+<h4 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h4><ol>
+<li>关掉发送消息电脑及接受电脑360安全卫士等杀毒软件</li>
+<li>关掉两电脑域防火墙、专用网络防火墙、公用网络防火墙等，如图1</li>
+</ol>
+<p><img src="/assets/1540101899894.png" alt="1540101899894"></p>
+<ol start="3">
+<li>打开控制面板-&gt;凭据管理器-&gt;Windows凭据<br> 单击添加Windows凭据，输入要连接的ip以及用户名密码（每台主机可以同时拥有多个用户，尽量不要用Adminsitrator用户）<br><img src="/assets/1540102133297.png" alt="1540102133297"></li>
+<li>添加之后，点击确定即可。同时按住win+r打开运行界面，输入cmd后回车</li>
+<li>在cmd命令行中输入<code>msg server:(ip) * &quot;消息内容&quot;</code>如下图所示<br><img src="/assets/1540102455111.png" alt="1540102455111"></li>
+<li>目标电脑收到所发送的消息，如图<br><img src="/assets/1540102669781.png" alt="1540102669781"><h4 id="可能存在的一些问题"><a href="#可能存在的一些问题" class="headerlink" title="可能存在的一些问题"></a>可能存在的一些问题</h4><h5 id="获取会话名称时的错误1722"><a href="#获取会话名称时的错误1722" class="headerlink" title="获取会话名称时的错误1722"></a>获取会话名称时的错误1722</h5></li>
+</ol>
+<p>这种情况说明RPC服务器不可用，win+r运行regedit.exe，找到”计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server”把AllowRemoteRPC的值从0改为1就能接受信息了。</p>
+<h5 id="获取会话名称时的错误5"><a href="#获取会话名称时的错误5" class="headerlink" title="获取会话名称时的错误5"></a>获取会话名称时的错误5</h5><p>尝试以管理员身份运行cmd，或者就是没有添加用户凭据，或者是用户凭据添加出错了，重新添加一下用户凭据</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li><a href="https://www.cnblogs.com/mq0036/p/3574555.html" target="_blank" rel="noopener">MSG命令使用详解</a></li>
+<li><a href="http://codewa.com/question/70756.html" target="_blank" rel="noopener">错误：1722获取会话名称l</a></li>
+<li><a href="https://blog.csdn.net/qq_24264221/article/details/70980123" target="_blank" rel="noopener">错误：5获取会话名称</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>局域网通信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>以梦为马，不负韶华</title>
+    <url>/2018/10/08/07College-Process-Of-Thought/</url>
+    <content><![CDATA[<p><img src="\images\thought.jpg" alt="thought"></p>
+<a id="more"></a>
+<h3 id="个人简介："><a href="#个人简介：" class="headerlink" title="个人简介："></a>个人简介：</h3><p>张宇，男，汉族，河南省济源市，1998年6月生，中共预备党员。北京石油化工学院信息工程学院2016级计算机专业学生，目前担任计163班级班长、计算机学长计划大组长、计算机党支部副书记。在校期间，获得校一等奖学金，先后多次荣获校单项奖学金，获得三好学生荣誉称号，一次性通过四六级考试，累计平均学分绩专业第一，连续参加两届校运动会并取得名次，连续两次参加学校迎新工作，参加国家级urt一项，参加工程项目一项。手机18811135890.</p>
+<h3 id="事迹正文："><a href="#事迹正文：" class="headerlink" title="事迹正文："></a>事迹正文：</h3><p> 今天在这里，我想讲讲自己的故事。两年前，我懵懵懂懂的来到了北京石油化工学院信息工程学院，踏进校门的那一刻起，心中有对大学的无限憧憬，也有对陌生环境的些许忐忑。可能是高中的学习压抑的久了，学期初那段时间，我试图去尝试各种各样的新鲜事，我参加了校学生会、院学生会、班干部、党支部、爱未来等等，那段时间是我最疯狂的时候，每天都在参加各种各样的活动，机器人比赛、话剧、运动会、歌手大赛等等，我试图了解更广阔的世界、认识更多的朋友和老师，同时也试图填满我的空白时间，的确我也做到了，在各项活动中都凭高中那股暂时还没有消退的“认真”取得了不错的成绩——在保证学习正常进行的情况下。因为成绩对我来说太重要了，高中的时候天天都挤在人堆里，在那个时候成绩总是高于一切的，加上学校课程难度不是很大，这让我在最初的一段时间内如鱼得水，凭借自己的努力赢得了掌声。</p>
+<p>  然而这样的日子并没过多久，我就遇到了我的心魔——未来。在下半学期那段时间，我简直快要魔怔了。究其原因，并没有人逼迫我做什么，可能是在突然闲下来的时间没有事情做，就开始的胡思乱想。那段时间我一直在纠结于一个问题——我上大学是为了什么？我觉得只有找到这个问题的根源所在，我才能处理好时间，才能安排我的生活，才会在突然停歇的时候不慌乱。所以我拼命的寻找答案，有时我甚至难过的躺在被窝捂着脑袋不去想，但是理智告诉我我不能这样，于是我又去图书馆找书，去找学长、去找老师，我用尽我所能动用的一切去问去找。虽然我不认为当时找到了什么具体的东西，不过学长、老师们的意见让我暂时缓和了下来——他们建议我去主动了解一些跟专业有关的东西，去多查一查跟专业相关的资料，于是之后我就找到了“需求”。当然，有人可能会问我，你难道没有什么兴趣爱好么？当然我有，我还觉得我的兴趣跟丰富，我喜欢唱歌、喜欢吉他、喜欢聆听美妙的旋律，我觉得那是一种享受，我经常会在宿舍带上耳机，打开全民k歌，开启嘶吼模式。我还特别喜欢街舞，他们酷酷的样子非常吸引人。至于游戏，虽然我LOL诺手打的爱不释手，可苦于当时没有合适的机子，玩的时间比较少。这些丰富的活动也是我得以一直坚持走下去的重要原因。</p>
+<p>  就这样大一的时光迅速的离我而去了，大二的我没有大一那么稚嫩了，我更加学会从多个角度看待问题了。我对一些东西开始有取舍，毕竟人的精力是有限的，而且我更愿意花多一些的时间去把更少的事做的更好，于是我继续留在了团学担任创新创业部部长，也顺利的留在了党支部，希望能学习更加先进的知识，能认识更多友善、热情的学长、学姐，他们真的对我帮助很大。同时在这段时期，我意识到了专业课的重要性，虽然平时上课也是认真听讲、认真做实验，可是总是感觉考完试就忘的差不多了，觉得自己的动手能力非常的差。于是我迫切的想提高自己的专业水平，却又苦于无法入手，不知道该从什么地方做起，就开始认真的跟着老师做urt，通过实际项目去多了解一些专业知识。同时，在这段时间，我还认真准备了物理、数学等好几项竞赛，这些竞赛让我对所学的知识有了进一步的理解，借此我还更多的了解到了考研这个名词。总之，无论是竞赛还是活动，他们的确很大程度的拓宽了我的视野，总是机缘巧合的让我能看到稍微远一些的东西，这些东西对我来说是珍贵的。</p>
+<p>  在下半学期，我则是想完全把心收回来，认认真真的对待我的专业，借着专业里的一个比赛加上专业课，我拓展了非常多专业相关的知识，我开始重新审视我的专业，因为它实在太大了，涵盖的东西太多了，我必须沉下心去对待它。在这段时间，班主任提供了一个参加国家级urt的机会，我积极报名，同时深入的学习专业课知识。经过这一学期的理论+实践，我找到了这个专业吸引人的地方，我觉得我成功的成为了一个入门者。我开始主动去了解一些这个专业最新的、最火的知识和理论，学的越多越觉得专业之大超乎想象。</p>
+<p>  于是时间过的越来越快，生活越来越单调，但却处处充满了激情，转眼就到了现在。我觉得回首往事，这些思想上的经历和遭遇是刻骨铭心的，因为它不空不大、实际存在，希望它能给大多数人提供良好的参考。</p>
+<p>  最后引用习总书记的一句话与君共勉：“希望你们珍惜韶华、奋发有为，勇做走在时代前面的奋进者、开拓者、奉献者，努力使自己成为祖国建设的有用之才、栋梁之材，为实现中国梦奉献智慧和力量。”</p>
+<p>  谢谢大家！ </p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>国奖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机院校信息整合</title>
+    <url>/2018/09/28/08Graduate-School/</url>
+    <content><![CDATA[<p><img src="/images/schoolChoice.jpg" alt="cover"></p>
+<a id="more"></a>
+<h3 id="北京航空航天大学计算机学院招生"><a href="#北京航空航天大学计算机学院招生" class="headerlink" title="北京航空航天大学计算机学院招生"></a>北京航空航天大学计算机学院招生</h3><h4 id="招生简章-2019年"><a href="#招生简章-2019年" class="headerlink" title="招生简章(2019年)"></a>招生简章(2019年)</h4><p>北航计算机学院推免生招生情况</p>
+<p><img src="/assets/北航推免生.png" alt="北航推免生"></p>
+<p>201803统考硕士招生情况</p>
+<p>全日制学硕：54人，其中计算机科学与技术38人，软件工程7人，网络空间安全9人</p>
+<p>全日制专硕：123人</p>
+<p>非全日制专硕：53人</p>
+<h4 id="考研大纲"><a href="#考研大纲" class="headerlink" title="考研大纲"></a>考研大纲</h4><p>961计算机基础综合共包括三门课程的内容：计算机组成原理、操作系统、计算机网络技术，分别占60分，50分、40分。所有课程均不指定参考书。具体要求见<a href="http://scse.buaa.edu.cn/info/1102/5423.htm" target="_blank" rel="noopener">北航研究生入学专业课考试大纲</a></p>
+<h4 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h4><p>北航研究生招生办公室（学历硕士）办公地址：北航行政办公楼东楼二层。</p>
+<p>联系电话：010-82317637传真电话：010-82328059</p>
+<p>E-mail: <a href="mailto:yzb@buaa.edu.cn" target="_blank" rel="noopener">yzb@buaa.edu.cn</a></p>
+<p>微信号：buaayzb</p>
+<h3 id="北京邮电大学计算机招生"><a href="#北京邮电大学计算机招生" class="headerlink" title="北京邮电大学计算机招生"></a>北京邮电大学计算机招生</h3><p>主要参考<a href="https://ningzimu.github.io/See_you_in_BUPT/#%E6%8B%9B%E7%94%9F%E4%B8%93%E4%B8%9A%E7%9B%AE%E5%BD%95" target="_blank" rel="noopener">北邮考研相关信息查阅宝典</a></p>
+<h4 id="2019年硕士研究生硕士专业目录-计算机学院"><a href="#2019年硕士研究生硕士专业目录-计算机学院" class="headerlink" title="2019年硕士研究生硕士专业目录(计算机学院)"></a><a href="https://yzb.bupt.edu.cn/content/content.php?p=8_4_67" target="_blank" rel="noopener">2019年硕士研究生硕士专业目录(计算机学院)</a></h4><p>推免生比例不超过50%。</p>
+<p>计算机学院招生408人，其中计算机科学与技术118人、智能科学与技术12人、计算机技术278人(专业学位，含180非全日制)</p>
+<h4 id="考研大纲-1"><a href="#考研大纲-1" class="headerlink" title="考研大纲"></a>考研大纲</h4><p><a href="https://yzb.bupt.edu.cn/content/content.php?p=8_4_269" target="_blank" rel="noopener">803计算机学科基础综合</a></p>
+<h4 id="往年报考录取情况"><a href="#往年报考录取情况" class="headerlink" title="往年报考录取情况"></a><a href="https://yzb.bupt.edu.cn/list/list.php?p=3_22_1" target="_blank" rel="noopener">往年报考录取情况</a></h4><p>2017</p>
+<p><img src="/assets/2017北邮.png" alt="2017北邮"></p>
+<h3 id="北京大学计算机招生2018"><a href="#北京大学计算机招生2018" class="headerlink" title="北京大学计算机招生2018"></a>北京大学计算机招生2018</h3><p>2018专业目录</p>
+<h4 id="信科"><a href="#信科" class="headerlink" title="信科"></a>信科</h4><p><img src="/assets/1547376642700.png" alt="1547376642700"></p>
+<h4 id="软件与微电子学院"><a href="#软件与微电子学院" class="headerlink" title="软件与微电子学院"></a>软件与微电子学院</h4><p><img src="/assets/1547344481109.png" alt="1547344481109"></p>
+<p>软微对比信科优势如下，学费较贵，3年6万</p>
+<p><img src="/assets/1547376711834.png" alt="1547376711834"></p>
+<p><img src="/assets/1547377172407.png" alt="1547377172407"> </p>
+<p>18年招了119人，19年计算机技术方向预估150来人</p>
+<p><img src="/assets/1547377358782.png" alt="1547377358782"> </p>
+<p><img src="/assets/1547377638493.png" alt="1547377638493"> </p>
+<h5 id="复习规划"><a href="#复习规划" class="headerlink" title="复习规划"></a>复习规划</h5><p>​    不用看慕课、不用看网上流传的各种视频、不用花钱买北大ppt</p>
+<p>只用看书+做题，书指的是王道的单科书或天勤的单科书。</p>
+<p><strong>考试科目</strong>：数据结构、计算机网络、操作系统</p>
+<p><strong>适用专业</strong>：软件工程专硕、计算机技术中的技术类</p>
+<p><strong>获取地点</strong> ：王道论坛经验帖、备考软微的QQ群</p>
+<p><strong>题目特点</strong>：18年变化比较大，模拟卷做到原题</p>
+<p>30到选择题，每科10题，每题2分（共60分）</p>
+<p>9道大题，每科3题，每题10-20分（共90分）</p>
+<p>大题每年都会有变动</p>
+<p><strong>策略</strong>：单科书一定要反复多次全面</p>
+<p>第一遍做题建议所有题都做，错的标记，第二次做再标记。第三次只做错题</p>
+<p>边回忆边做总结笔记和高频错题，采用索引结构不用全记</p>
+<p>后期做真题（王道难度完全超过真题难度），记得总结，水题考前突击。</p>
+<p>考前把自己做过的笔记错题拿出来反复看。可能考算法</p>
+<p>408真题不需要看，王道很多题就是408的题，科班直接看两边</p>
+<p><strong>复试</strong> 双非歧视?三跨生不要？往届生吃亏？学长三重身份。。。</p>
+<p>王道者？初始分高者也！</p>
+<p>政治抱好肖老师大腿。</p>
+<p>录取之后第一周可以转方向，没有四六级要求</p>
+<p>学长在复试的时候没有机试，开学的时候增加机试，没过的话增加一门语言课。软工4万，计算机6万，都是3年。</p>
+<p>并且北大的专硕还可以正常申请读博士，提前联系好导师。</p>
+<p>学长复习早上6点，晚上到11点</p>
+<p>软微是开学导师双选，你提前联系导师对你复试毫无帮助，不如好好准备复试。 </p>
+<p>软微9月份公布参考书目，9月份之前完成一轮复习</p>
+<p><img src="/assets/1547383663254.png" alt="1547383663254"></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>考研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一种新的基于小阴影图像的彩色图像秘密共享方案</title>
+    <url>/2018/09/03/06URT-ScienceDirect/</url>
+    <content><![CDATA[<p><img src="/images/secretImage.jpg" alt="cover"></p>
+<a id="more"></a>
+<hr>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>在过去几年，秘密图像分存技术变成了除了传统密码学的另一个努力的方向去防止秘密图像被窃取。由于小的影子图像可以加快秘密颜色图像的传播，在这篇文章中我们结合了Chang和Wu的单位图BTC（GSBTC）的渐进式搜索算法和Shamir的（k,n）门限概念提出一种新的秘密彩色图像共享方案来生成更小的影子。实验结果证实了提出的架构成功减小了影子的大小，并且每个影子表现为一个随机类的图像，这个图像能防止秘密彩色图像的信息泄露。此外，每个影子中两个纵向或横向相邻像素的关联性明显小于秘密彩色图像。提出的方案也实现了，平均来看，NPCR值为0.414%、AUCI值为32.78%。因此，在我们的方案中，一个像素差异会导致相应阴影的显著差异。因此，该方案的安全性也得到了证实。</p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>随着电脑技术的成长，数字相机之类的多媒体变得越来越受欢迎，使得越来越多的数字图像在网上广泛的分享和传播。然而，在网上传输那些秘密或者重要的图像，例如被用于军事或者企业重要秘密图像，则面临一定的危险。恶意的人监视互联网并试图检测并获取这些有价值的图像。为了使这些传输图像免于获取或篡改，秘密分寸技术提出了继传统密码学和隐写术之外的一个新的分支来从掠夺行为中保护重要图像。在这个秘密共享技术后的概念，也叫做（k，n）门限方案，它是Blakley和Shamir独立提出的。这些（k，n）门限方案有三个性质。                                                       当 $k \leq n$ ：<br>（1）：这个秘密图像可以被分成n个部分<br>（2）：任意k或者大于k个部分都能恢复秘密图像<br>（3）：任意k - 1 或者小于k个部分不能计算秘密值<br>Naor和Shamir在1995年第一次使用(k, n)门限方案介绍了聚焦于图像数据的秘密图像共享技术。本质上，秘密图像分存技术使用了几个随机性的被称为影子的图像来代替原始图像在网络上传输数据。影子可以阻挡恶意的攻击者并防止秘密图像被直接访问。秘密共享方案继承了(k, n)门限方案的三个属性。</p>
+<p>在过去十年里，许多秘密共享方案被提出。它们有一个共同的特点，即秘密图像可以通过叠加阴影来恢复，换句话说，这些秘密图像可以很容易地恢复，而无需复杂的计算。然而，在这些方案中，阴影的大小通常大于或等于秘密图像的大小。已经提出了许多方案来克服这个问题。在2002，Thien和Lin提出了一种生成更小阴影的（k，n）秘密图像共享方案。他们的方案通过将K - 1作为K像素的灰度值和模251来生成K—1度多项式。通过模251，它们截断大于250的所有灰度值，这导致将所有秘密图像灰度值连接至0-250范围。然后使用Akey生成一个置换序列来置乱秘密图像的像素，从而隐藏相邻像素之间的任一相关性。然后，对秘密图像的k个非共享像素进行采集，成为k  - 1次多项式的k个系数。这些系数和k - 1次多项式为n个阴影图像生成n个像素，直到对秘密图像中的所有像素进行处理。使用此过程，Thien和Lin成功地将每个阴影的大小减小到秘密图像的1 / k大小。</p>
+<p>受Thien和Lin的启发，Wang和Su后来设计了一个秘密图像共享方案，改进了Thien和Lin的方案。首先，它们的方案生成一个t比特秘密图像的二值图像。接着，利用Huffman编码对二值图像进行编码，得到的t比特形成共享码。然后，<br>k共享系数用作k -1次多项式共享函数的共享系数，直到处理完所有的Huffman编码结果。用Wangf和Su的方案进行的实验表明，生成的阴影小于Thien和Lin的阴影。然而，两种方案都不能直接应用于彩色图像，因为生成的彩色阴影的大小是灰度阴影的三倍。</p>
+<p>由于秘密图像可能是彩色图像，本文提出了一种有损秘密彩色图像共享方案，扩展了秘密图像共享的应用。在我们的方案中，阴影的大小取决于K的数量和较大的K产生较小的阴影。实验结果表明，该方案能有效地减小阴影的大小。本文的其余部分整理如下。第2节包含了（k，n）门限方案和GSBTC的简要回顾。第3节详细介绍了我们的方案。第4节给出了实验结果，并对所提出的方案进行了统计分析和安全性分析。在第5节中描述了未来的工作和一些结论。</p>
+<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p>采用两个重要的技术来设计我们的方案：（k，n）门限方案和GSBTC。前者允许将一个秘密图像分解成n个阴影图像，仅需要k个阴影来构造原始秘密图像。后者可以将一个秘密的彩色图像压缩成更小的尺寸，并具有可接受的失真。换言之，通过采用(k，n)阈值方案和GSBTC，可以克服数据传输过程中的潜在损耗，并且可以成功地减小阴影大小。为了给出所提出的方案的背景知识，这些技术在以下各节中说明</p>
+<h4 id="基于多项式插值的Shamir（k，n）门限方案"><a href="#基于多项式插值的Shamir（k，n）门限方案" class="headerlink" title="基于多项式插值的Shamir（k，n）门限方案"></a>基于多项式插值的Shamir（k，n）门限方案</h4><p>1979，Shamir提出了一种基于多项式插值的（k，n）门限方案。他的方案假定数据D被分成n个片段D1，D2，.…D n，并且仅需要任何D的k个部分，其中$k \leq n$，才能重建原始秘密数据D。因此，如果仅接收（k  - 1）或小于（k -1）个片段，则仍然不能显示秘密数据D。</p>
+<p>假设秘密数据D是一个数字。在Shamir的方案中，素数g是随机选择的，K - 1的多项式分担函数是在等式（1）中被划分为N个阴影。<br>​          f(x) = (a<sub>0</sub> + a<sub>1</sub>x + ……+a<sub>k-1</sub>x<sup>k-1</sup>)%g<br>其中a<sub>1</sub>，a<sub>2</sub>，……a<sub>k - 1</sub>都是随机数，并且a<sub>0</sub>=D。i＝1～n的每个D<sub>i</sub>可由方程导出。<br>D<sub>i</sub> = f(i)<br>其中i＝1 -n，并且每一个D1，D2，。…Dn被视为阴影。为了获得秘密数据D，D<sub>i</sub>的任何k个或更多阴影可以重构f（x）。多项式函数f(x)的所有系数可由拉格朗日插值公式导出，并可计算秘密数据D=a0=f(0)。<br>本文提出的秘密彩色图像共享方案基于Shamir(k，n)阈值方案，使得秘密图像D被划分为n个阴影(D1，D2，.…，Dn）然而，在所提出的方案中，每份的大小随着分享数量的增加而减少。</p>
+<h4 id="一个单位图BTC的渐进搜索算法"><a href="#一个单位图BTC的渐进搜索算法" class="headerlink" title="一个单位图BTC的渐进搜索算法"></a>一个单位图BTC的渐进搜索算法</h4><p>在采用Shamir（k，n）阈值方案将一个秘密图像分割成若干个阴影以克服数据传输过程中可能出现的任何损失之前，我们需要解决另一个问题，即如何减小原始彩色图像的大小，从而减小阴影大小。Chang和Wu设计的一个单位图BTC（GSBTC）的渐进搜索算法是我们的解决方案。块截断编码（BTC）变体GSBTC是一种简单而简单的彩色图像压缩算法。</p>
+<p>在传统BTC中，图像首先被分成几个非重叠的方块，每个块可以是4×4、8×8等。然后计算每个块的平均像素值x。一般来说，$ \bar{x} $是量化阈值。在块中，将每个像素值X<sub>i</sub>与$ \bar{x} $进行比较，从而生成由两个组组成的位图。如果$ \bar{x} $&lt;X<sub>i</sub>，则位图中的相应位属于组-1，表示为“1”；否则，该位属于组-0，表示为“0”。虽然BTC被设计为压缩灰度图像而不是彩色图像，但同样的过程可以应用于彩色图像。不幸的是，压缩比不是<br>当使用BTC压缩彩色图像时，也是如此，因为彩色图像由三个平面R、G和B组成，并且当使用BTC时，这三个平面形成三个位图。</p>
+<p>为了提高彩色图像中的BTC压缩比，通常的方法是生成一个公共位图，该位图使三个单独的位图的失真最小。然而，设计一个生成一个公共位图的算法是一个很难的问题。Chang和Wu的GSBTC算法生成一个等价的公共位图，该位图在保持低计算复杂度的同时，提供解压缩图像的可接受的图像质量。在本文中，我们使用GSBTC对秘密彩色图像进行压缩，然后给出一个秘密图像。有损秘密彩色图像共享方案。为了更好地解释我们提出的方案，我们首先在以下段落中详细介绍Chang和Wu的GSBTC算法。</p>
+<p>假设彩色图像被划分成几个具有m × m像素的非重叠块。首先，每个块用传统的BTC处理。换句话说，每个块由三个位图组成，它们映射到三个平面R、G和B。大于平均像素值。为了为每个块生成一个公共位图B<sub>C</sub>，R、G和B位图中相同的位称为确定元素，并保留在公共位图B<sub>C</sub>中。在三位图中具有二元值的位，称为非确定元素，不在公共位图B<sub>C</sub>中保留。也就是说，一个共同的位图B<sub>C</sub>的元素由两个组组成，D<sub>C</sub>和ND<sub>C</sub>，如下：<br>$D_C = {c_i|c_i \in B_C 且 c_i\neq 未定义}$<br>其中D<sub>C</sub>是确定的集合，ND<sub>C</sub>是非确定的集合。R、G和B平面的位图和公共位图被定义为<br>B<sub>R</sub> = {r<sub>1</sub>,r<sub>2</sub>,}<br>$f(x_1,x_2,\ldots,x_n) = x_1^2 + x_2^2 + \cdots +x_n^2 ​$</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>(k,n)门限</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pyecharts可视化学生信息</title>
+    <url>/2018/09/02/05Pyecharts/</url>
+    <content><![CDATA[<p><img src="/images/pyechart.gif" alt="cover"></p>
+<a id="more"></a>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><hr>
+<p>pyecharts是python的一个包，里面封装了echarts的接口，而echarts是一个功能非常强大的绘图工具，图形非常简洁、美观。相比于matplotlib还是有很多优势的，比如echarts的交互功能。如图：<br><img src="https://user-images.githubusercontent.com/19553554/35104157-fa39e170-fca2-11e7-9738-1547e22914a6.gif" alt="动画演示"> </p>
+<p><img src="\img\pyecharts\pyecharts.gif" alt="pyecharts"></p>
+<p>所以它可以用来演示功能、或者数据分析报告等等。</p>
+<h2 id="加载数据集"><a href="#加载数据集" class="headerlink" title="加载数据集"></a>加载数据集</h2><hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">df = pd.read_csv(<span class="string">"Student Info.csv"</span>) <span class="comment">#读取csv文件</span></span><br><span class="line">df.info()  <span class="comment">#查看学生各个属性有无缺失值</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><hr>
+<p>在加载到数据集之后，我们首先统计一下学生的生源地分布情况。要统计生源地情况，即我们要得到两个列表，第一个为各省份名称，第二个列表为对应名称在数据集中出现的次数(频率)。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">region_num = df[<span class="string">'生源地'</span>].value_counts() <span class="comment">#统计各类别频率</span></span><br><span class="line">region_num = region_num.values.tolist() <span class="comment">#将频率转换为列表</span></span><br><span class="line">region = df[<span class="string">'生源地'</span>].value_counts().keys() <span class="comment">#统计各类别频率对应的键值</span></span><br><span class="line">region = region.values.tolist() <span class="comment">#将键值转换为列表</span></span><br><span class="line">print(region_num) <span class="comment">#打印频率查看</span></span><br><span class="line">print(region)  <span class="comment">#打印地区查看</span></span><br></pre></td></tr></table></figure>
+<h2 id="绘图-柱状图-地域"><a href="#绘图-柱状图-地域" class="headerlink" title="绘图-柱状图-地域"></a>绘图-柱状图-地域</h2><hr>
+<p>我们用pyecharts的柱状图来绘制图形，同时将上面得到的region_num和region作为参数传到绘图函数中。在这里add采用了多个参数，如无需要可以去掉。</p>
+<blockquote>
+<ul>
+<li><code>add()</code><br>主要方法，用于添加图表的数据和设置各种配置项</li>
+<li><code>print_echarts_options()</code><br>打印输出图表的所有配置项</li>
+<li><code>render()</code><br>默认将会在根目录下生成一个 render.html 的文件，支持 path 参数，设置文件保存位置，如 render(r”e:\my_first_chart.html”)，文件用浏览器打开。</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> Bar <span class="comment">#引用直方图</span></span><br><span class="line">bar = Bar(<span class="string">"信息工程学院"</span>,<span class="string">"信息2018级新生生源地统计"</span>,width=<span class="number">1000</span>, height = <span class="number">500</span>)</span><br><span class="line"></span><br><span class="line">bar.use_theme(<span class="string">'dark'</span>)  <span class="comment">#背景主题</span></span><br><span class="line"></span><br><span class="line">bar.add(<span class="string">"生源地"</span>, region, region_num, is_stack=<span class="keyword">False</span>, bar_category_gap=<span class="string">'20%'</span>,xaxis_interval =<span class="number">0</span>,xaxis_rotate=<span class="number">20</span>, is_more_utils=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#bar.render() #导出为网页</span></span><br><span class="line">bar <span class="comment">#查看</span></span><br></pre></td></tr></table></figure>
+<p>通过以上步骤就能看到如下图所示结果</p>
+<p><img src="\img\pyecharts\pyecharts01.png" alt="pyecharts01"> </p>
+<h2 id="绘图-饼图-第一志愿"><a href="#绘图-饼图-第一志愿" class="headerlink" title="绘图-饼图-第一志愿"></a>绘图-饼图-第一志愿</h2><p>同样要先进行数据清洗，查看有无缺失值</p>
+<p><img src="\img\pyecharts\pyecharts02.png" alt="pyecharts02"></p>
+<p>可以看到，第一志愿数据是不全的，需要进行缺失值处理。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">choice = df[<span class="string">'第一志愿'</span>].fillna(<span class="string">''</span>) <span class="comment">#缺失值填充为空</span></span><br><span class="line">volunteer_first_num = df[<span class="string">'第一志愿'</span>].value_counts() <span class="comment">#统计各类别频率</span></span><br><span class="line">volunteer_first_num = region_num.values.tolist() <span class="comment">#将频率转换为列表</span></span><br><span class="line">volunteer_first = df[<span class="string">'第一志愿'</span>].value_counts().keys() <span class="comment">#统计各类别频率对应的键值</span></span><br><span class="line">volunteer_first = region.values.tolist() <span class="comment">#将键值转换为列表</span></span><br><span class="line">print(volunteer_first_num) <span class="comment">#打印频率查看</span></span><br><span class="line">print(volunteer_first)  <span class="comment">#打印地区查看</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>name -&gt; str<br>图例名称</p>
+</li>
+<li><p>attr -&gt; list<br>属性名称</p>
+</li>
+<li><p>value -&gt; list<br>属性所对应的值</p>
+</li>
+<li><p>radius -&gt; list<br>饼图的半径，数组的第一项是内半径，第二项是外半径，默认为 [0, 75]<br>默认设置成百分比，相对于容器高宽中较小的一项的一半</p>
+</li>
+<li><p>center -&gt; list<br>饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标，默认为 [50, 50]<br>默认设置成百分比，设置成百分比时第一项是相对于容器宽度，第二项是相对于容器高度</p>
+</li>
+<li><p>rosetype -&gt; str</p>
+<p>是否展示成南丁格尔图，通过半径区分数据大小，有’radius’和’area’两种模式。默认为’radius’</p>
+<ul>
+<li>radius：扇区圆心角展现数据的百分比，半径展现数据的大小</li>
+<li>area：所有扇区圆心角相同，仅通过半径展现数据大小</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> Pie <span class="comment">#饼图</span></span><br><span class="line"></span><br><span class="line">pie = Pie(<span class="string">"第一志愿"</span>) <span class="comment">#标题</span></span><br><span class="line"></span><br><span class="line">pie.add(<span class="string">""</span>, choice, choice_num, radius=[<span class="number">30</span>, <span class="number">75</span>], is_legend_show=<span class="keyword">False</span>, is_label_show=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment">#radius半径范围</span></span><br><span class="line"><span class="comment">#is_legend_show是否显示图例</span></span><br><span class="line"><span class="comment">#is_label_show是否显示标签</span></span><br><span class="line">pie</span><br></pre></td></tr></table></figure>
+<p><img src="\img\pyecharts\pyecharts03.png" alt="pyecharts03"> </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是我对pyecharts的简单使用以及探索，在这个过程中我发现参阅文档是极其重要的，在网上闷着头找解决方案不如认真仔细的读一读<a href="http://pyecharts.org/#/zh-cn/prepare" target="_blank" rel="noopener">pyecharts文档</a> ，里面绝对有你想要找的地方，起初我是找一个字体倾斜的解决方案，找了半天，给的都不是特别全面，在看了文档之后才发现，许多问题作者都是考虑在内了的，这会让你事半功倍。而且，pyecharts的封装是由我们国人完成的，文档阅读起来非常方便，所以必须支持下。</p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>北京林业大学-掌上医生APP开发</title>
+    <url>/2018/08/09/03App-Paldoctor/</url>
+    <content><![CDATA[<p><img src="/images/PalDoctor.jpg" alt="cover"></p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这个项目由来来的比较有意思，通过曾经在爱未来指导我的老师，我与北京工业大学以宫明昊为队长的小队走到了一块。起初是想在暑假找份实习，通过王帅老师投了两份，没反应，就把此次项目当作一份实习了，同时也接触一下其他学校的学生。团队中只有我一个人负责APP的开发，让第一次接触211学校同学的我有些压力。</p>
+<h1 id="项目信息"><a href="#项目信息" class="headerlink" title="项目信息"></a>项目信息</h1><p>2018年7月中旬，组内开了第一次会，整体了解了一下项目背景、项目制作初衷以及小组成员的工作分配。这个项目，主要针对互联网+创新类比赛，而且已经拿到了专利并获得比赛创办者的支持。 我还是第一次接触到这么优秀的项目，因此在我跟队长宫明昊谈完之后，我就决定做好它了。   </p>
+<p>紧接着项目指导老师在北京林业大学工学院实验楼给各小队成员开了一个会议，会议上老师对各小组的工作提出了要求，同时也对比赛的进行做了介绍，之后，我就要正式开始我的工作了。  </p>
+<h1 id="项目开展"><a href="#项目开展" class="headerlink" title="项目开展"></a>项目开展</h1><p>前期队里其他成员已经将他们设计好的界面图发到群里了，我只需要一个个实现就行了。  </p>
+<h2 id="项目的开发环境"><a href="#项目的开发环境" class="headerlink" title="项目的开发环境"></a>项目的开发环境</h2><p>Windows10，软件为andorid studio3.1.0，数据库使用android studio自带的sqlite  </p>
+<h2 id="项目基础页面设计"><a href="#项目基础页面设计" class="headerlink" title="项目基础页面设计"></a>项目基础页面设计</h2><p>项目前期设计的还算比较顺利，完成立一系列的的界面设计，同时以易通行app做参照，在界面设计方面有所提高，学会了利用分割线来设计界面。其他的都是一些基础设计，具体设计如下图<br><img src="/img/paldoctor/selfInfo.jpg" alt="Alt text"><br><img src="/img/paldoctor/login2.jpg" alt="Alt text"><br>不过跟我们生活中用的APP比起来，简直LOW到爆了，还要很多东西要去学习。  </p>
+<h2 id="短信验证码的实现"><a href="#短信验证码的实现" class="headerlink" title="短信验证码的实现"></a>短信验证码的实现</h2><p>在设计注册界面时按照需求通过给手机发送短信验证码，从而进行注册  </p>
+<p>面向用户的话，为了安全性的考量，应该是通过给短信验证码平台发送消息，再有验证码平台对移动商服务器请求，最后手机才收到短信。而这里就是用简单生成的六位随机数来模拟验证码，同时调用手机的短信服务接口，来进行短信的发送。  </p>
+<p><img src="/img/paldoctor/login1.jpg" alt="Alt text">  </p>
+<h2 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h2><p>在进行上传时，涉及到很多盲区，包括网络传输协议、网络信息发送方式、java输入输出流、java的多线程以及阿里云服务器的使用。这个过程我主要时通过以下拆分来完成的<br><img src="/img/paldoctor/process.png" alt="Alt text">  </p>
+<p>起初我大致了解了Android通信的几种方式socket(套接字),Internet协议、常见Http处理等  </p>
+<p>从java端到java端并没有什么难度，网上也给出了很多的经典例子。因此开始我就忽略了对java流实现的研究，直接进行文件的发送。开始还比较顺利，可是到了阿里服务器就坏了，通过对服务器Ubuntu的命令始终无法打开其端口，最终通过登陆阿里云平台的开放端口，最终才实现文件的发送。这一问题解决，其他就顺利的实现了手机端到服务器文件的发送。</p>
+<h2 id="下载服务器文件到本地"><a href="#下载服务器文件到本地" class="headerlink" title="下载服务器文件到本地"></a>下载服务器文件到本地</h2><p>在网上并没有对应上传下载同时进行，而只开一个端口的操作。于是自己看了一下java的IO流操作。<br>主要有Output、Input、Writer和Reader。其他的FileInput之类的属于从这些基类上派生出来的具体的操作。  </p>
+<p>我主要使用Output及Input来分别操控四个地方的文件即手机本地文件、android读取到平台的流文件、android收到的流文件、服务器本地文件  </p>
+<p>通过socket+服务器tmux+android流+线程的组合，顺利实现了下载。  </p>
+<p>不过还遗留了一个问题，就是不知道如何去断开流之间文件的读取，因此目前APP每次就只能下载一个服务器文件到本地<br><img src="/img/paldoctor/tmux.png" alt="Alt text"><br>tmux 命令<br><code>tmux attach</code> 切换到后台<br>ctrl + b + d  后台执行并切换到前台</p>
+<h2 id="上传头像"><a href="#上传头像" class="headerlink" title="上传头像"></a>上传头像</h2><p>头像的上传让我对startactivityforresult的理解又更深了一步，能够灵活通过request和result来区分不同的任务。用户在选择头像时，首先会弹出对话框(AlertDialog)选择上传方式。选择拍摄会直接调用相机的接口，跳转到拍摄界面。选择从文件中选择则直接跳转到相册。  </p>
+<p>在拍完照或者选择完图片之后会有一个方形区域来选择呈现的部分。而这个部分作为Bitmap返回到主界面forresult函数进行操作(保存到本地以及显示在界面上)。    </p>
+<p><img src="/img/paldoctor/pt.jpg" alt="Alt text"><img src="/img/paldoctor/ptchose.jpg" alt="Alt text">  </p>
+<p>ps:这里的上传指的是将裁剪后的图片保存到本地路径，从而在该用户第二次登陆时能够加载历史头像。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是掌上医生比赛项目的内容及制作过程，虽然有一些经验并且有参考，不过这次也确实学到了很多知识。首先，在对网络一片空白的情况下去研究 <strong>socket+服务器tmux+android流+线程</strong>这一套东西，并且能坚持下来，这其中也是非常锻炼人，还好我没有放弃这一块。  </p>
+<p>在这次实战中，我接触到了很多网络方面的知识，我觉得非常有意思，我们平时打开的网页也是对服务器的一次次请求，不过他们的通信又是另一种方式了。我对服务器、客户端有了一个新的认识，同时也对自己有了一个新的认识。无论是adnroid接口、andorid界面，还是socket通信、服务器命令等等，还有非常多的盲区，还要很多可以进步的地方，希望以后能越来越棒！  </p>
+<p>最后附上源码地址<a href="https://github.com/YuleZhang/PalDoctor" target="_blank" rel="noopener">https://github.com/YuleZhang/PalDoctor</a></p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>socket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人收藏</title>
+    <url>/2018/08/07/01self-collection/</url>
+    <content><![CDATA[<p><img src="/images/welcome-cover.jpg" alt="cover"><br><a id="more"></a></p>
+<h2 id="优质视频学习资源"><a href="#优质视频学习资源" class="headerlink" title="优质视频学习资源"></a>优质视频学习资源</h2><p><a href="https://www.icourse163.org/" target="_blank" rel="noopener">中国大学MOOC</a>能较为方便的查看国内知名高校开设的课程，适合学一些比较系统的知识、架构或者涉足新领域  </p>
+<p><a href="http://www.feemic.cn/mooc" target="_blank" rel="noopener">幕课视频搜索解析工具</a>是上述进阶版，可以查看下载关闭学期的课程 </p>
+<p><a href="https://www.imooc.com/course/list" target="_blank" rel="noopener">慕课网免费课程</a> 比较全面cs课程网站</p>
+<p><a href="https://www.zhihu.com/question/29748492" target="_blank" rel="noopener">可选择资源1</a>来自于知乎，推荐了较多的视频学习网站，待探索</p>
+<p><a href="https://mp.weixin.qq.com/s/Ft7TmbTPVRK1_9x-6iE17w" target="_blank" rel="noopener">可选择资源2</a>来自于微信文都的一篇文章，收录了全球比较好的视频学习网站。</p>
+<!-- more -->
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p><a href="https://www.leiphone.com/news/201610/Oqndr7PXFB9BRI9p.html" target="_blank" rel="noopener">入门必备</a>机器学习视频推荐<br><a href="https://zhuanlan.zhihu.com/p/26169982" target="_blank" rel="noopener">机器学习自学指南</a></p>
+<p><a href="http://blog.jobbole.com/112569/" target="_blank" rel="noopener">机器学习实践指南</a></p>
+<p><a href="http://www.360doc.com/content/17/0417/14/20558639_646290956.shtml" target="_blank" rel="noopener">kaggle入门详细教程</a>给出了具体步骤，附带资源链接  </p>
+<h2 id="算法学习"><a href="#算法学习" class="headerlink" title="算法学习"></a>算法学习</h2><p><a href="https://www.cnblogs.com/yinbiao/" target="_blank" rel="noopener">常见算法及数据结构总结</a> </p>
+<h2 id="PPT免费资源"><a href="#PPT免费资源" class="headerlink" title="PPT免费资源"></a>PPT免费资源</h2><p><a href="http://www.1ppt.com/moban/jingdian/" target="_blank" rel="noopener">第一PPT模板免费下载</a>PPT资源比较丰富</p>
+<h2 id="思维导图、流程图"><a href="#思维导图、流程图" class="headerlink" title="思维导图、流程图"></a>思维导图、流程图</h2><p><a href="https://www.processon.com/" target="_blank" rel="noopener">ProcessOn</a>在线编辑工,方便的进行流程图的制作，无广告 </p>
+<h2 id="图片素材"><a href="#图片素材" class="headerlink" title="图片素材"></a>图片素材</h2><h3 id="工程矢量图"><a href="#工程矢量图" class="headerlink" title="工程矢量图"></a>工程矢量图</h3><p><a href="http://iconfont.cn/" target="_blank" rel="noopener">阿里矢量图</a> 包含大量的小图标</p>
+<p><a href="https://www.easyicon.net/" target="_blank" rel="noopener">easyicon素材库</a>   </p>
+<p><a href="https://blog.csdn.net/weixin_42474261/article/details/106711403" target="_blank" rel="noopener">逗比拯救世界</a> 表情包搜索网站</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p> <a href="https://picjumbo.com/" target="_blank" rel="noopener">picjumbo</a> 博客专用高品质大图1</p>
+<p><a href="https://www.lifeofpix.com/" target="_blank" rel="noopener">lifeofpix</a> 博客专用高像素大图 2 </p>
+<p><a href="https://pixabay" target="_blank" rel="noopener">pixapay</a>  高清无版权图片库</p>
+<p><a href="https://www.pexels.com/" target="_blank" rel="noopener">pexels</a> 英文搜索</p>
+<p><a href="http://thestocks.im/" target="_blank" rel="noopener">thestocks</a> 无版权图片库资源整合</p>
+<h2 id="研究生参考资源"><a href="#研究生参考资源" class="headerlink" title="研究生参考资源"></a>研究生参考资源</h2><h3 id="院校选择"><a href="#院校选择" class="headerlink" title="院校选择"></a>院校选择</h3><p><a href="https://blog.csdn.net/cuijie0197/article/details/79394746" target="_blank" rel="noopener">人工智能院校及导师等排名</a><br><a href="http://www.cdgdc.edu.cn/xwyyjsjyxx/xkpgjg/" target="_blank" rel="noopener">全国第四轮学科评估</a></p>
+<h2 id="代码在线生成url"><a href="#代码在线生成url" class="headerlink" title="代码在线生成url"></a>代码在线生成url</h2><p><a href="https://paste.ubuntu.com" target="_blank" rel="noopener">https://paste.ubuntu.com</a></p>
+<h2 id="python库文档"><a href="#python库文档" class="headerlink" title="python库文档"></a>python库文档</h2><p><a href="http://pyecharts.org/#/" target="_blank" rel="noopener">pytcharts</a></p>
+<h2 id="科学上网资源"><a href="#科学上网资源" class="headerlink" title="科学上网资源"></a>科学上网资源</h2><p><a href="https://hh2h.xyz/top.html" target="_blank" rel="noopener">免费、付费科学上网VPN排行榜</a> </p>
+<p><a href="https://hh2h.xyz/53.html" target="_blank" rel="noopener">VyprVPN手机电脑 不限流量不限速</a></p>
+<p><a href="https://hh2h.xyz/408.html" target="_blank" rel="noopener">SSR酸酸乳</a></p>
+<h2 id="小工具"><a href="#小工具" class="headerlink" title="小工具"></a>小工具</h2><p><a href="https://smallpdf.com/" target="_blank" rel="noopener">word、pdf等文件在线转换</a><br><a href="http://www.jasondavies.com/wordcloud/" target="_blank" rel="noopener">在线词云</a><br><a href="http://www.huabandata.com/tools/wordcloud/" target="_blank" rel="noopener">词云助手</a><br><a href="https://www.youtuhi.com/" target="_blank" rel="noopener">优兔下载</a><br><a href="http://xueshu.baidu.com/usercenter/papercheck/" target="_blank" rel="noopener">论文查重</a><br><a href="https://minhaskamal.github.io/DownGit/#/home" target="_blank" rel="noopener">DownGit</a> 在github上下载单个子文件夹<br><a href="http://kagent.applinzi.com/qqun" target="_blank" rel="noopener">QQ群爬虫</a><br><a href="https://blog.csdn.net/ww122081351/article/details/43485165" target="_blank" rel="noopener">提取qq成员信息记录</a>是控制台脚本<br><a href="http://www.zhaowenku.com/" target="_blank" rel="noopener">百度文库文章免费下载</a><br><a href="https://www.cnblogs.com/L-zhihua/p/6232354.html" target="_blank" rel="noopener">U盘EXE病毒</a><br><a href="https://zhidao.baidu.com/question/272763300.html" target="_blank" rel="noopener">清除C盘临时文件bat指令</a><br><a href="http://music.vm82.com/" target="_blank" rel="noopener">多平台音乐免费下载</a><br><a href="https://pdfcrowd.com/" target="_blank" rel="noopener">pdfcrowd</a>、<a href="https://www.web2pdfconvert.com/to/jpg" target="_blank" rel="noopener">web2pdfconvert</a>、<a href="https://www.url2png.com/" target="_blank" rel="noopener">url2png</a>：页面转PDF|PNG|JPG的API<br>百度网盘倍速:videojs.getPlayers(“video-player”).html5player.tech_.setPlaybackRate(1.5)<br>倍速播放js脚本:document.getElementsByClassName(‘uplayer_video’).playbackRate = 1.25<br>慕课平台自动暂停破解js脚本:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'xt_video_player_play_btn fl'</span>)[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">if</span> (a.className == <span class="string">'xt_video_player_play_btn fl'</span>) &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'检测到暂停，已继续'</span>);</span><br><span class="line">     a.click();</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'视频正在播放'</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="电影"><a href="#电影" class="headerlink" title="电影"></a>电影</h2><h3 id="未看"><a href="#未看" class="headerlink" title="未看"></a>未看</h3><p><a href="http://t.cn/ReSIUiU" target="_blank" rel="noopener">西虹市首富（高清）</a>    <a href="http://t.cn/ReSIfvY" target="_blank" rel="noopener">邪不压正</a></p>
+<h3 id="已看"><a href="#已看" class="headerlink" title="已看"></a>已看</h3><p>碟中谍<br>速度与激情<br>暗战<br>给爸爸的信<br>西虹市首富<br>我不是药神<br>风雨咒<br>情圣<br>三傻大闹宝莱坞<br>未知死亡<br>喜剧之王<br>摔跤吧！爸爸<br>寻找幸福的赫克托                        </p>
+<p>大鱼海棠</p>
+<p>​          <a href="https://www.iqiyi.com/v_19rrho3enw.html" target="_blank" rel="noopener">人生遥控器</a>        <a href="https://v.qq.com/x/cover/x5ul2annjsbcwh8/e00335q391x.html?ptag=iqiyi" target="_blank" rel="noopener">三傻大闹宝莱坞</a></p>
+<p><img src="http://pic3.iqiyipic.com/image/20190808/2f/69/v_62644868_m_601_m5_180_236.jpg" alt="人生遥控器"><img src="http://pic6.iqiyipic.com/image/20180212/0d/df/v_50215691_m_601_m7_180_236.jpg" alt="三傻大闹宝莱坞"></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一次建网站</title>
+    <url>/2018/08/07/02Blog-Build/</url>
+    <content><![CDATA[<p><img src="/images/buildWebsites.jpg" alt="cover"><br><a id="more"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>对于一个小白来说，第一次建立自己的个人网页还真是一件既兴奋又无奈的事情。兴奋是因为你即将有一个属于自己的平台，可以将自己的感悟、收藏、简历等文章保存起来，也可以分享给他人。无奈是因为，在你搭着搭着，你会发现出现了各种各样的问题，这其中包含你的一些个性却没法实现的需求以及半路杀出的各种bug。不过，经历一番麻烦，也是会留下深刻的印象的。</p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>说到建立网站，不得不考虑不同人出于不同的需求，来走自己的网站路线。可是，对于小白们或者不干网站这方面的大佬们来说，做一个又显得费劲。而我想我的需求跟大部分人一样，当然我的实现也是比较low的一种。我没有买域名，也没有租服务器，而是蹭github的<em><a href="https://pages.github.com/" target="_blank" rel="noopener">github page</a></em>，具体创建仓库的教程网上都有详细概述。<br>而下面的两个配置路线有两个优点 </p>
+<ol>
+<li>有成型的网页模板，会让你的主页逼格瞬间提升一个档次。  </li>
+<li>方便后续更新维护你的网站。  </li>
+</ol>
+<h1 id="github-page建网页路线"><a href="#github-page建网页路线" class="headerlink" title="github page建网页路线"></a>github page建网页路线</h1><ol>
+<li>GitHub Pages + Hexo </li>
+<li>GitHub Pages + jekyll<br>我采用的搭建博客的方式是第一种，建议Windows用户走第一种。<br>因为我先走的第二种，走到一半卡死了，cmd窗口出现毫无头绪的错误，网上也找不到什么解决方案。当然你也可以勇于尝试，毕竟机子不同嘛。<br>接下来我们先说第一种</li>
+</ol>
+<h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><h2 id="下载Node-js"><a href="#下载Node-js" class="headerlink" title="下载Node.js"></a>下载<em><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></em></h2><p>其中 LTS为稳定版本 ，Current为当前最新版本</p>
+<h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载<em><a href="https://git-scm.com/" target="_blank" rel="noopener">git</a></em></h2><p>下载完配置账户，及ssh等，这里有详细介绍<em><a href="https://blog.csdn.net/qq_23341529/article/details/79331519" target="_blank" rel="noopener">git配置</a></em></p>
+<h2 id="安装Hexo及初步预览"><a href="#安装Hexo及初步预览" class="headerlink" title="安装Hexo及初步预览"></a>安装Hexo及初步预览</h2><p>网上大多hexo的配置都是以前版本的指令了，最新的还要参考<em><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官网</a></em><br>任意位置右键选择Git Bash Here(即打开git的命令窗口)<br><code>$ npm install -g hexo-cli</code><br>接下来找一个你要建立网站的目录，在它的上一级git bash here，执行命令  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;  </span><br><span class="line">$ cd &lt;folder&gt;  </span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>此时你的界面应该是这样的  </p>
+<p><img src="/assets/1547024489695.png" alt="1547024489695"></p>
+<p>下面我们测试一下环境搭的怎么样<br><code>hexo g</code><br>原为generate缩写为g，意为生成，在<em><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo官网</a></em>上有详细的说明<br><code>hexo s</code><br>原为server缩写为s，提交到本地服务器进行查看<br>当你看到这个界面</p>
+<p><img src="/assets/1547024466501.png" alt="1547024466501"></p>
+<p>就说明你测试成功啦，恭喜，就可以到<em><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></em>查看你已经初步搭建的网页预览图啦。<br><strong>如果你的目的达成了，那么下面就不需要继续看下去了，想有不同风格的主题往下看。</strong></p>
+<h2 id="网站主题"><a href="#网站主题" class="headerlink" title="网站主题"></a>网站主题</h2><h3 id="寻找主题"><a href="#寻找主题" class="headerlink" title="寻找主题"></a>寻找主题</h3><p>当我们看到预览图，肯定会有些小兴奋，不过冷静，事情还没办完。<br>留心查看一下，你会发现根目录下有个themes的文件夹，我们下面自己下载的主题就放到这个目录下面。<br>现在，到<em><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题平台</a></em>选择自己喜欢的主题吧，样式非常多，有的挑了。</p>
+<h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>下载主题两种方式.  </p>
+<ol>
+<li>第一种是点开主题的github界面，按照README.txt中的指令，在刚刚提到的themes目录下操作 </li>
+<li>第二种是github界面右上角下载”clone and download”  下完之后放到themes目录下</li>
+</ol>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>其实不只是配置主题，对Github页面的大部分编辑操作都涉及到根目录下面的_config.yml文件，将其中的themes后面的值改为对应主题文件夹名称。<br><strong>注意中间的空格不能丢，会报错的</strong></p>
+<h3 id="编辑页面"><a href="#编辑页面" class="headerlink" title="编辑页面"></a>编辑页面</h3><p>之后就根据不同主题的风格进行操作了，主要结合hexo官方文档以及对应主题github下readme.txt的说明来完成。  最好下个<em><a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">sublime text 3</a></em><br>编辑文本会非常方便，单纯用txt打开会遇到编码乱码问题，不利于后续文本的编辑<br>至于编辑，你还得会markdown，所以把东西很多，都得会，不过markdown非常简单，作为程序员你不得不用它，因为它确实很牛，sublime中可以下载markdown编辑插件，详细见教程<em><a href="https://www.cnblogs.com/james-lee/p/6847906.html" target="_blank" rel="noopener">Sublime Text3 + Markdown + 实时预览</a></em>个人觉得这比网页里面预览方便多了。<br><strong>注意：所有的操作都在你网站目录下的git bash中完成</strong>  </p>
+<h2 id="提交修改三步走"><a href="#提交修改三步走" class="headerlink" title="提交修改三步走"></a>提交修改三步走</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>其中hexo d是部署到github上去的，要是没弄好，先前两步多走几次，多预览几下，再提交到github。  </p>
+<p>github page网站配置分享到此结束，感谢查看。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><em>整体说明: <a href="https://blog.csdn.net/tianbo_zhang/article/details/79137103" target="_blank" rel="noopener">https://blog.csdn.net/tianbo_zhang/article/details/79137103</a></em>  </p>
+<p><em>官方文档: <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></em>  </p>
+<p><em>hexo主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></em></p>
+<p><em>hexo_config.yml配置示例：<a href="https://www.cnblogs.com/littlewriter/p/7229094.html" target="_blank" rel="noopener">https://www.cnblogs.com/littlewriter/p/7229094.html</a></em></p>
+<p><em>markdown基本语法：<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed</a></em></p>
+<p><em>sublime text 3下载地址：<a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">https://www.sublimetext.com/3</a></em></p>
+<p><em>markdown实时预览：<a href="https://www.cnblogs.com/james-lee/p/6847906.html" target="_blank" rel="noopener">https://www.cnblogs.com/james-lee/p/6847906.html</a></em></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python之wordcloud教程</title>
+    <url>/2018/08/07/04Wordcloud/</url>
+    <content><![CDATA[<p><img src="/images/wordcloud.jpg" alt="cover"></p>
+<a id="more"></a>
+<h2 id="wordcloud介绍"><a href="#wordcloud介绍" class="headerlink" title="wordcloud介绍"></a>wordcloud介绍</h2><p>wordcloud是python提供的一个包，主要可以用于数据分析，搭配matplotlib包生成可视化词图，加强我们对数据的理解，便于分析。<br><strong>如果你只是想快捷的利用现成的数据来做一张词图，并不打算深入了解python这门语言，那么恭喜你，你将在这里直接利用数据生成你想要的各种词图，非常方便。入口:</strong><a href="http://www.huabandata.com/tools/wordcloud/" target="_blank" rel="noopener">词云助手</a></p>
+<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><h3 id="python环境"><a href="#python环境" class="headerlink" title="python环境"></a>python环境</h3><p>首先要有<a href="https://www.python.org/downloads/release/python-370/" target="_blank" rel="noopener">python环境</a>，可以直接单击下载python。不过如果是初学者建议下载Anaconda3,Anaconda指的是一个开源的Python发行版本，其中包含了python正常使用需要的大部分包并且能自动配置环境变量，提供jupyter notebook等IDE，非常适合新手。点击查看<a href="https://blog.csdn.net/program_developer/article/details/79677557" target="_blank" rel="noopener"><br>Anaconda详细安装使用教程</a></p>
+<h3 id="wordcloud包"><a href="#wordcloud包" class="headerlink" title="wordcloud包"></a>wordcloud包</h3><p>快捷键win+r打开windows运行窗口(左下角)，输入cmd回车，打开命令窗口.<br>在命令行中输入<code>pip install wordcloud</code>或者<code>conda install wordcloud</code>，等待安装wordcloud包。  </p>
+<h2 id="开始编程"><a href="#开始编程" class="headerlink" title="开始编程"></a>开始编程</h2><p>首先打开你的jupyter notebook环境，还是通过win+r,输入jupyter notebook，回车。等待几十秒，跳转到页面里，就可以开始使用jupyter了。jupyter的教程网上有很多，这里就不再赘述，只介绍wordcloud的相关使用方法。<br>需要数据及源码的单击进入<a href="https://pan.baidu.com/s/1dV9u3aSV1flT3F6diTy_tA" target="_blank" rel="noopener">百度云</a>，密码: rugu ，进行下载<br>下面是实现词云的详细代码及注释（#之后为注释内容）<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,STOPWORDS,ImageColorGenerator</span><br><span class="line"> </span><br><span class="line"><span class="comment">#backgroup_Image = plt.imread('F:/man.jpg') #笼罩图</span></span><br><span class="line"> </span><br><span class="line">f = open(<span class="string">'F:\人工智能.txt'</span>,<span class="string">'r'</span>).read()  <span class="comment">#生成词云的文档</span></span><br><span class="line">wordcloud = WordCloud(</span><br><span class="line">        background_color = <span class="string">'white'</span>, <span class="comment">#背景颜色，根据图片背景设置，默认为黑色</span></span><br><span class="line">        <span class="comment">#mask = backgroup_Image, #笼罩图</span></span><br><span class="line">        font_path = <span class="string">'C:\Windows\Fonts\STZHONGS.TTF'</span>,<span class="comment">#若有中文需要设置才会显示中文</span></span><br><span class="line">        width = <span class="number">1000</span>,</span><br><span class="line">        height = <span class="number">860</span>,</span><br><span class="line">        margin = <span class="number">2</span>).generate(f) <span class="comment"># generate 可以对全部文本进行自动分词</span></span><br><span class="line"><span class="comment">#参数 width，height，margin分别对应宽度像素，长度像素，边缘空白处</span></span><br><span class="line"> </span><br><span class="line">plt.imshow(wordcloud)</span><br><span class="line">plt.axis(<span class="string">'off'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"> </span><br><span class="line"><span class="comment">#保存图片：默认为此代码保存的路径</span></span><br><span class="line">wordcloud.to_file(<span class="string">'touxiang.jpg'</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><em>Anaconda安装教程：<a href="https://blog.csdn.net/program_developer/article/details/79677557" target="_blank" rel="noopener">https://blog.csdn.net/program_developer/article/details/79677557</a></em></p>
+<p><em>Conda管理python包：<a href="https://blog.csdn.net/dennis_shaw/article/details/77535659" target="_blank" rel="noopener">https://blog.csdn.net/dennis_shaw/article/details/77535659</a></em></p>
+<p><em>wordcloud词云安装到入门： <a href="https://blog.csdn.net/arise007/article/details/79346169" target="_blank" rel="noopener">https://blog.csdn.net/arise007/article/details/79346169</a></em>  </p>
+<p><em>wordcloud词云详教程：<a href="https://www.2cto.com/kf/201712/707704.html" target="_blank" rel="noopener">https://www.2cto.com/kf/201712/707704.html</a></em>  </p>
+<p><em>wordcloud词云助手：<a href="http://www.huabandata.com/tools/wordcloud/" target="_blank" rel="noopener">http://www.huabandata.com/tools/wordcloud/</a></em>  </p>
+]]></content>
+      <tags>
+        <tag>博客</tag>
+        <tag>wordcloud</tag>
+      </tags>
+  </entry>
+</search>

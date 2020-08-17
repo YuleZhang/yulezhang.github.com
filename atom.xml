@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YuleZhang&#39;s Blogs</title>
+  
+  <subtitle>坚持走自己的路！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://182.92.108.27/"/>
+  <updated>2020-08-16T01:24:58.042Z</updated>
+  <id>http://182.92.108.27/</id>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习汇报(0810-0816)</title>
+    <link href="http://182.92.108.27/2020/08/16/31Study-Report(0810-0816)/"/>
+    <id>http://182.92.108.27/2020/08/16/31Study-Report(0810-0816)/</id>
+    <published>2020-08-16T01:17:33.000Z</published>
+    <updated>2020-08-16T01:24:58.042Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习汇报(0802-0809)</title>
+    <link href="http://182.92.108.27/2020/08/09/30Study-Report(0802-0809)/"/>
+    <id>http://182.92.108.27/2020/08/09/30Study-Report(0802-0809)/</id>
+    <published>2020-08-09T02:17:33.000Z</published>
+    <updated>2020-08-16T01:33:41.569Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;矩阵乘积态MPS表达多体系统基态&quot;&gt;&lt;a href=&quot;#矩阵乘积态MPS表达多体系统基态&quot; class=&quot;headerlink&quot; title=&quot;矩阵乘积态MPS表达多体系统基态&quot;&gt;&lt;/a&gt;矩阵乘积态MPS表达多体系统基态&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考研总结</title>
+    <link href="http://182.92.108.27/2020/06/05/29PGEE-Summary/"/>
+    <id>http://182.92.108.27/2020/06/05/29PGEE-Summary/</id>
+    <published>2020-06-05T12:36:53.000Z</published>
+    <updated>2020-06-05T13:01:43.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/boat.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="转折点" scheme="http://182.92.108.27/categories/%E8%BD%AC%E6%8A%98%E7%82%B9/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>决策树</title>
+    <link href="http://182.92.108.27/2020/04/03/27Decision-Tree/"/>
+    <id>http://182.92.108.27/2020/04/03/27Decision-Tree/</id>
+    <published>2020-04-03T14:21:00.000Z</published>
+    <updated>2020-08-16T01:31:27.548Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;决策树&quot;&gt;&lt;a href=&quot;#决策树&quot; class=&quot;headerlink&quot; title=&quot;决策树&quot;&gt;&lt;/a&gt;决策树&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本文部分图片、材料来自于课程&lt;a href=&quot;https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python3 入门机器学习&lt;/a&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;先来看一个招聘的例子，这就是一颗决策树，根据不同的问题进行一步步划分，最终将结果氛围录用和考察两类&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="机器学习" scheme="http://182.92.108.27/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>421总结</title>
+    <link href="http://182.92.108.27/2020/04/03/28GraduateSummary/"/>
+    <id>http://182.92.108.27/2020/04/03/28GraduateSummary/</id>
+    <published>2020-04-03T14:21:00.000Z</published>
+    <updated>2020-06-05T12:55:20.237Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;421总结&quot;&gt;&lt;a href=&quot;#421总结&quot; class=&quot;headerlink&quot; title=&quot;421总结&quot;&gt;&lt;/a&gt;421总结&lt;/h1&gt;&lt;p&gt;今天这个日期让我联想到了8421~~~&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="http://182.92.108.27/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>复试之C/C++系列问题</title>
+    <link href="http://182.92.108.27/2020/04/02/26Pku-Interview-C/"/>
+    <id>http://182.92.108.27/2020/04/02/26Pku-Interview-C/</id>
+    <published>2020-04-02T12:04:00.000Z</published>
+    <updated>2020-04-03T14:21:32.208Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;复试之C-C-系列问题&quot;&gt;&lt;a href=&quot;#复试之C-C-系列问题&quot; class=&quot;headerlink&quot; title=&quot;复试之C/C++系列问题&quot;&gt;&lt;/a&gt;复试之C/C++系列问题&lt;/h2&gt;&lt;h3 id=&quot;C-C-中为什么有引用&quot;&gt;&lt;a href=&quot;#C-C-中为什么有引用&quot; class=&quot;headerlink&quot; title=&quot;C/C++中为什么有引用&quot;&gt;&lt;/a&gt;C/C++中为什么有引用&lt;/h3&gt;&lt;p&gt;C++之所以增加引用类型, 主要是把它作为函数参数,以扩充函数传递数据的功能。&lt;/p&gt;
+&lt;p&gt;引用是一个常量指针占四个字节，编译器在编译时对引用作了更严格的限制，与普通指针相比更加安全。详细见&lt;a href=&quot;https://www.cnblogs.com/ronny/p/3662556.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;C++的那些事：你真的了解引用吗&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="C/C++" scheme="http://182.92.108.27/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>澳洲之行</title>
+    <link href="http://182.92.108.27/2020/03/31/25Australia-Trip/"/>
+    <id>http://182.92.108.27/2020/03/31/25Australia-Trip/</id>
+    <published>2020-03-31T12:04:00.000Z</published>
+    <updated>2020-04-21T01:44:39.186Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/Australia.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="http://182.92.108.27/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据挖掘学习笔记</title>
+    <link href="http://182.92.108.27/2020/02/15/24DataMining/"/>
+    <id>http://182.92.108.27/2020/02/15/24DataMining/</id>
+    <published>2020-02-15T12:04:00.000Z</published>
+    <updated>2020-08-16T01:29:03.204Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/data-mining.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="数据挖掘" scheme="http://182.92.108.27/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo部署博客到云服务器ECS</title>
+    <link href="http://182.92.108.27/2020/02/07/23DeployToECS/"/>
+    <id>http://182.92.108.27/2020/02/07/23DeployToECS/</id>
+    <published>2020-02-07T07:51:00.000Z</published>
+    <updated>2020-08-16T01:29:22.767Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/aliyunPlan.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="ECS" scheme="http://182.92.108.27/tags/ECS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考研总结</title>
+    <link href="http://182.92.108.27/2019/12/24/22PostGraduate_Exam/"/>
+    <id>http://182.92.108.27/2019/12/24/22PostGraduate_Exam/</id>
+    <published>2019-12-24T06:55:00.000Z</published>
+    <updated>2019-12-26T08:06:06.595Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/timg-1577170860481.jpg&quot; alt=&quot;timg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="考研" scheme="http://182.92.108.27/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考研复习回顾总结</title>
+    <link href="http://182.92.108.27/2019/08/07/21NextPlan/"/>
+    <id>http://182.92.108.27/2019/08/07/21NextPlan/</id>
+    <published>2019-08-07T13:57:00.000Z</published>
+    <updated>2020-08-16T01:31:15.105Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/21NextPlan.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="考研" scheme="http://182.92.108.27/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>西安交大&amp;百度竞赛总结</title>
+    <link href="http://182.92.108.27/2019/07/01/20Baidu-XJTU_BigData_Contest/"/>
+    <id>http://182.92.108.27/2019/07/01/20Baidu-XJTU_BigData_Contest/</id>
+    <published>2019-07-01T07:25:00.000Z</published>
+    <updated>2020-08-16T01:31:08.737Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/BaiDuContest.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="deep learning" scheme="http://182.92.108.27/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>K-means与MeanShift</title>
+    <link href="http://182.92.108.27/2019/04/04/18K-means&amp;MeanShift/"/>
+    <id>http://182.92.108.27/2019/04/04/18K-means&amp;MeanShift/</id>
+    <published>2019-04-04T11:29:06.000Z</published>
+    <updated>2020-08-16T01:30:58.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/machine.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="machine learning" scheme="http://182.92.108.27/tags/machine-learning/"/>
+    
+      <category term="k-means" scheme="http://182.92.108.27/tags/k-means/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈深度学习</title>
+    <link href="http://182.92.108.27/2019/04/04/19Deep-Learning/"/>
+    <id>http://182.92.108.27/2019/04/04/19Deep-Learning/</id>
+    <published>2019-04-04T11:29:06.000Z</published>
+    <updated>2020-08-16T01:31:02.802Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/nuralNetwork.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="deep learning" scheme="http://182.92.108.27/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自我反思总结</title>
+    <link href="http://182.92.108.27/2019/04/02/17SelfSummary/"/>
+    <id>http://182.92.108.27/2019/04/02/17SelfSummary/</id>
+    <published>2019-04-02T11:29:06.000Z</published>
+    <updated>2020-08-16T01:30:54.793Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/summary.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蓝桥杯和软微</title>
+    <link href="http://182.92.108.27/2019/03/25/16LanQiao&amp;SS/"/>
+    <id>http://182.92.108.27/2019/03/25/16LanQiao&amp;SS/</id>
+    <published>2019-03-25T09:35:25.000Z</published>
+    <updated>2020-08-16T01:30:48.240Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/contest.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>京东手机评论爬虫</title>
+    <link href="http://182.92.108.27/2019/02/26/15JDComment-Spider/"/>
+    <id>http://182.92.108.27/2019/02/26/15JDComment-Spider/</id>
+    <published>2019-02-26T06:48:03.000Z</published>
+    <updated>2020-08-16T01:30:42.882Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/jdSpider.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="爬虫" scheme="http://182.92.108.27/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于日记</title>
+    <link href="http://182.92.108.27/2019/01/20/13Diary/"/>
+    <id>http://182.92.108.27/2019/01/20/13Diary/</id>
+    <published>2019-01-20T07:16:10.000Z</published>
+    <updated>2020-08-16T01:30:29.411Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/diary.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读书笔记——福尔摩斯思考术(2)</title>
+    <link href="http://182.92.108.27/2019/01/20/14HolmesThinking/"/>
+    <id>http://182.92.108.27/2019/01/20/14HolmesThinking/</id>
+    <published>2019-01-20T07:16:10.000Z</published>
+    <updated>2020-08-16T01:30:35.592Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/HolmesThinking.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="读书笔记" scheme="http://182.92.108.27/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机考研备考规划</title>
+    <link href="http://182.92.108.27/2019/01/13/12CS-Preparation/"/>
+    <id>http://182.92.108.27/2019/01/13/12CS-Preparation/</id>
+    <published>2019-01-13T08:36:10.000Z</published>
+    <updated>2020-08-16T01:30:25.942Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/cs-preparation.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="考研" scheme="http://182.92.108.27/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+</feed>

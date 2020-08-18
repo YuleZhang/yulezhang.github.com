@@ -15,8 +15,12 @@
   
   <link rel="shortcut icon" href="/favicon.ico" />
   
-  <link rel="stylesheet" href="/dist/main.css">
-  <link rel="stylesheet" href="/css/custom.css">
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
   
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
   
@@ -106,7 +110,7 @@ var _hmt = _hmt || [];
 
       
       <p><img src="/images/BaiDuContest.jpg" alt="cover"><br><a id="more"></a></p>
-<h1 id="西安交大-amp-百度竞赛总结"><a href="#西安交大-amp-百度竞赛总结" class="headerlink" title="西安交大&amp;百度竞赛总结"></a>西安交大&amp;百度竞赛总结</h1><p>比赛的相关介绍见：<a href="https://dianshi.baidu.com/competition/30/rule" target="_blank" rel="noopener">百度点石竞赛总结</a> ，数据分为遥感图像和用户访问数据两部分，要求参赛者根据这两部分数据预测新地点的标签，分类内容如下图</p>
+<h1 id="西安交大-amp-百度竞赛总结"><a href="#西安交大-amp-百度竞赛总结" class="headerlink" title="西安交大&amp;百度竞赛总结"></a>西安交大&amp;百度竞赛总结</h1><p>比赛的相关介绍见：<a target="_blank" rel="noopener" href="https://dianshi.baidu.com/competition/30/rule">百度点石竞赛总结</a> ，数据分为遥感图像和用户访问数据两部分，要求参赛者根据这两部分数据预测新地点的标签，分类内容如下图</p>
 <p><img src="/assets/1561900835759.png" alt="1561900835759"> </p>
 <h3 id="第一版思路"><a href="#第一版思路" class="headerlink" title="第一版思路"></a>第一版思路</h3><p>这是第一次参加接触相关领域的知识，作为一个小白，很想从这个竞赛入手来学习深度学习相关的知识技能。起初分别对遥感图像和用户访问数据建立单网进行深度学习，整体使用的是keras框架，考虑到keras易于学习和使用，且能够以较快的尝试更多的创意。</p>
 <p><img src="/assets/1561952095923.png" alt="1561952095923"></p>
@@ -118,13 +122,13 @@ var _hmt = _hmt || [];
 <p>有一部分图块是全黑的，还有一部分图块是被云朵遮盖的，剩下的就是只能看到部分区域图，这也许会影响到模型的质量，我们第二版的思路就是将这些图片剔除掉之后再使用NasNet进行建模。</p>
 <p>随后又对图像做了一些预处理，包括去雾、旋转等，后来还使用GNN对图片进行了增强，从100×100的小矩阵增强到了224×224的矩阵形式，随后送入到神经网络中进行训练，最后的得到的实验结果是…。</p>
 <h4 id="尝试用户访问数据新模型思路"><a href="#尝试用户访问数据新模型思路" class="headerlink" title="尝试用户访问数据新模型思路"></a>尝试用户访问数据新模型思路</h4><p>虽然用户的访问数据比较适合序列的训练方式，我们团队尝试将访问数据按照不同的特征问题归类，如一些人数、假期等等。归类之后将其作为24维的输入即7×26×24，送到NasNet等卷积神经网络中进行训练，通过将图片数据和用户数据送到同一个网络中进行训练，得到了的0.68的效果。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过参加此次竞赛，我基本了解了大数据相关竞赛的参赛思路，如何去构建模型，如何去调整参数，如何从loss及accuracy等的变化中读取模型构建的情况，是否产生了过拟合等等。也了解了当前<a href="http://baijiahao.baidu.com/s?id=1599943447101946075&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">比较流行的几个深度学习框架</a>同时，我也认识到了讨论区的重要性，有些大佬会把最初的demo分享在github上， 通过学习、讨论及复现能够了解别人的思路，能够发现自己忽略的问题。竞赛是了解相关知识的较好途径，大佬们分享的代码简直就是宝物。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过参加此次竞赛，我基本了解了大数据相关竞赛的参赛思路，如何去构建模型，如何去调整参数，如何从loss及accuracy等的变化中读取模型构建的情况，是否产生了过拟合等等。也了解了当前<a target="_blank" rel="noopener" href="http://baijiahao.baidu.com/s?id=1599943447101946075&amp;wfr=spider&amp;for=pc">比较流行的几个深度学习框架</a>同时，我也认识到了讨论区的重要性，有些大佬会把最初的demo分享在github上， 通过学习、讨论及复现能够了解别人的思路，能够发现自己忽略的问题。竞赛是了解相关知识的较好途径，大佬们分享的代码简直就是宝物。</p>
 <p>下面附上几版代码以便自己和别人后续的学习使用：</p>
 <ol>
-<li><a href="https://github.com/czczup/UrbanRegionFunctionClassification" target="_blank" rel="noopener">baseline</a></li>
-<li><a href="https://github.com/SeaEagleI/2019_Baidu-XJTU_BigData_Contest" target="_blank" rel="noopener">69.4成绩</a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/czczup/UrbanRegionFunctionClassification">baseline</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SeaEagleI/2019_Baidu-XJTU_BigData_Contest">69.4成绩</a> </li>
 </ol>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/qq_34919792/article/details/93976813" target="_blank" rel="noopener">第五届百度&amp;西安交通大学大数据竞赛初赛思路总结</a> </p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34919792/article/details/93976813">第五届百度&amp;西安交通大学大数据竞赛初赛思路总结</a> </p>
 
       
       <!-- reward -->
@@ -197,7 +201,7 @@ var _hmt = _hmt || [];
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deep-learning/">deep learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/deep-learning/" rel="tag">deep learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
 
 
     </footer>
@@ -358,7 +362,7 @@ var _hmt = _hmt || [];
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com">摄影</a>
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
     </li>
     
     <li class="nav-item">
@@ -417,8 +421,12 @@ var _hmt = _hmt || [];
     
   </div>
 </div>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
 <script src="/js/lazyload.min.js"></script>
+
 
 <script>
   try {
@@ -437,7 +445,9 @@ var _hmt = _hmt || [];
 
 
 
+
 <script src="/js/tocbot.min.js"></script>
+
 <script>
   // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
@@ -458,7 +468,9 @@ var _hmt = _hmt || [];
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
 <script src="/dist/main.js"></script>
+
 
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
@@ -604,12 +616,16 @@ var _hmt = _hmt || [];
 
 
 
+
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
+
 
 
 <script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
 
-  <script src="/js/clickLove.js"></script>
+  
+<script src="/js/clickLove.js"></script>
+
 
 
     

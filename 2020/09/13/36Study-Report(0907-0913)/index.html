@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    学习汇报(0907-0913) |  
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-36Study-Report(0907-0913)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  学习汇报(0907-0913)
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/09/13/36Study-Report(0907-0913)/" class="article-date">
+  <time datetime="2020-09-13T01:17:33.000Z" itemprop="datePublished">2020-09-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">10 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="《张量网络基础课程》第六章"><a href="#《张量网络基础课程》第六章" class="headerlink" title="《张量网络基础课程》第六章"></a>《张量网络基础课程》第六章</h2><p><img src="./assets/a9ff7d12cb7bbe00703a592e95337ed7.png" alt="cover"></p>
+<a id="more"></a>
+<h3 id="6-1-张量网络机器学习基本思想"><a href="#6-1-张量网络机器学习基本思想" class="headerlink" title="6.1 张量网络机器学习基本思想"></a>6.1 张量网络机器学习基本思想</h3><p>张量网络机器学习的实质就是，利用张量网络建立输入到输出的映射，并使用张量网络算法实现变分参数的更新。</p>
+<p>张量网络机器学习的基本步骤：将数据编码/嵌入到希尔伯特空间；利用张量网络在该空间进行<strong>映射</strong>获得输出。</p>
+<p><img src="./assets/48c45ff003d2ea9baa1099701d9e64a7.png" alt=""></p>
+<p>表达非常清晰的一张图，说明了<strong>机器学习</strong>和<strong>张量网络学习</strong>的过程，并很好地体现了两者的差别，即张量网络学习多了<strong>特征映射</strong>这一步，随后通过张量网络而非神经网络进行训练。</p>
+<p>张量网络的优点是，它能在<strong>可解释性</strong>和<strong>准确率</strong>上达到一个较好地平衡点，但它的效率和准确度不如神经网络。神经网络的优点是准确率高，但它的可解释性不强。</p>
+<h3 id="6-2-特征映射、希尔伯特空间与量子概率"><a href="#6-2-特征映射、希尔伯特空间与量子概率" class="headerlink" title="6.2 特征映射、希尔伯特空间与量子概率"></a>6.2 特征映射、希尔伯特空间与量子概率</h3><p>特征映射的基本思想是，通过<strong>特征映射</strong>，将一个样本映射成L个qubit的直积态（L为特征的个数），以图像为例设第n张图片的第个像素值为()，将其映射成为单qubit态：</p>
+<p>通过这种映射就能将<strong>一整张图片映射成为</strong>由个qubit构成的直积态，如下所示</p>
+<p>那么对于具备L个像素的图片集而言，假设其联合概率分布由L个qubit构成的多体态（记为）描述，满足</p>
+<p>表示该概率分布给出的样本出现的概率，用张量网络图可以表示为</p>
+<p><img src="./assets/4d93aea728f4e369603bae5159025271.png" alt=""></p>
+<p>这里还有一个比较重要的性质，<strong>如果局域量子空间的维数等于特征取值个数d=D（例如黑白图与d=2映射），则不同样本对应的量子态将完全正交，有</strong></p>
+<p>这意味着，其中一张图片量子态对应的概率分布中，出现与之不同的图片的概率为0。但是视频中提到此处的正交性意义不大，即使特征取值个数d\&lt;D，此时各个样本的概率和会大于1，<strong>概率归一性被违背，</strong>但结果与单位矩阵仅相差一个<strong>归一化因子。</strong><br>更详细的解释可以看论文《Phys. Rev. X 8, 031012 (2018)》和《Phys. Rev. B<br>101,,075135 (2020)》</p>
+<h3 id="6-3-等概率假设和量子懒惰学习"><a href="#6-3-等概率假设和量子懒惰学习" class="headerlink" title="6.3 等概率假设和量子懒惰学习"></a>6.3 等概率假设和量子懒惰学习</h3><p>对于一大类图片，例如0到9的手写字体，可以训练量子态，使得该类中每一张图片出现的概率非零且相等，即</p>
+<p>等概率假设：当上式成立时，我们认为给出的联合概率分布接近该类图片给出的像素的联合分布。要想满足同类中图片出现的概率<strong>非零且相等，</strong>一种可行的方案如下</p>
+<p>其中代表中的图片数量，上态称之为lazy态。我觉得之所以将其称为lazy态，是因为这个量子态不需要经过训练，而是直接能根据图片特征映射得到，是一个通用的模板，因此通过lazy态实现机器学习任务被称为量子懒惰学习(quantum<br>lazy learning)。</p>
+<p>上面是以一个类别进行举例，那么将其用于MNIST数据集，就是10个lazy态，那么就可以<strong>根据量子概率定义，估计任意图片（记为Y）出现在第k类的概率</strong></p>
+<p>显然，通过就能得到概率最大的那个类，这个类就是分类器给出的该图片的分类预测，这种非参数的方法可以给出不错的分类结果：<strong>MNIST– 97%</strong>，<strong>fashion-MNIST –85%</strong>。<strong>量子懒惰学习</strong>的表现不如神经网络，但是超过了SVM、NB等传统机器学习算法。</p>
+<p>上述算法，是核心，但其<strong>参数复杂度会随着特征个数L指数上升</strong>，那么用张量网络表示它就能使参数复杂度降低到<strong>多项式级</strong>，在给定N个训练集样本后，我们可以训练量子态，使其满足<strong>等概率假设</strong>，这被称为<strong>MPS非监督机器学习</strong>。那么如何能够构建<strong>等概率假设</strong>的条件呢，<strong>交叉熵损失函数</strong>正好解决了这个问题，它的公式如下</p>
+<p>损失函数f取极小时正好能满足等概率假设的条件（之前的汇报里证明过）。</p>
+<h3 id="6-4-监督-非监督张量网络机器学习"><a href="#6-4-监督-非监督张量网络机器学习" class="headerlink" title="6.4 监督/非监督张量网络机器学习"></a>6.4 监督/非监督张量网络机器学习</h3><p>通过梯度更新方法，更新张量网络中的张量，使得损失函数在一次次迭代中降到极低，梯度更新公式为</p>
+<p>其中为学习率</p>
+<p>使用MPS表示时，可利用<strong>MPS中心正交形式，</strong>逐个更新各个张量，步骤如下</p>
+<ol>
+<li><p>更新第个张量时，将正交中心移动到该张量</p>
+</li>
+<li><p>利用张量网络微分法则，求出损失函数关于的梯度（见下图）</p>
+</li>
+</ol>
+<p><img src="./assets/df8a1b3f70359821d91233956c4241dd.png" alt=""></p>
+<h3 id="6-5-张量网络图片生成与压缩"><a href="#6-5-张量网络图片生成与压缩" class="headerlink" title="6.5 张量网络图片生成与压缩"></a>6.5 张量网络图片生成与压缩</h3><p>获得量子态后，不但可以求出像素的联合概率密度，还可以计算条件概率，具体内容为，考虑已知与图片中的部分像素（记为），则剩余位置像素（记为）的概率分布可由如下条件概率给出</p>
+<p>量子态为通过对的投影测量获得</p>
+<p>其中Z为归一化系数，上述式子用张量网络可表示为</p>
+<p><img src="./assets/db62224d0c6fbfd70ccba899759c295b.png" alt=""></p>
+<p><img src="./assets/be109937fe04cba8d4ecbc490ed20ada.png" alt=""></p>
+<h3 id="6-6-监督张量网络机器学习"><a href="#6-6-监督张量网络机器学习" class="headerlink" title="6.6 监督张量网络机器学习"></a>6.6 监督张量网络机器学习</h3><p><strong>监督性张量网络机器学习可以看做是非监督的自然推广</strong>，这点是不同于神经网络等非概率机器学习模型的，因为神经网络模型的非线性映射是不可逆的。以分类任务为例，需要使用张量网络建立从<strong>数据</strong>到<strong>分类标签的函数映射，</strong>而对于概率模型而言，该映射可以由<strong>条件概率P</strong>给出：</p>
+<p>那么可以考虑<strong>用张量网络建立该条件概率，</strong>一种常用的方法<strong>采用非监督学习的方法先获得并计算联合概率分布，再通过投影计算获得条件概率。</strong></p>
+<p>中含有（L+1）个qubit，其中L个qubit是图片像素的映射，一个qubit对应于分类的标签；因此，MPS表示中含有（L+1）个物理指标。</p>
+<p><img src="./assets/429b7d3778600a0102c691c3ccc195ec.png" alt=""></p>
+<p><strong>进行监督性学习的具体方法是：</strong></p>
+<ol>
+<li><p>将分类标签也当做是特征量，利用训练集进行非监督机器学习，训练量子态；</p>
+</li>
+<li><p><strong>利用投影计算条件概率</strong>，分类结果即为最概然的标签值。</p>
+</li>
+</ol>
+<p>当然，非监督张量网络的机器学习，并不一定要按照条件建立概率映射，例如当矩阵乘积态<strong>不满足量子态对应的归一化条件</strong>时，张量网络量子概率的<strong>可解释性</strong>也就受到影响，上面的算法就失效了，此时可以直接用<strong>梯度下降法</strong>训练模型（自动微分技术）</p>
+<h3 id="6-7-张量网络与经典概率模型"><a href="#6-7-张量网络与经典概率模型" class="headerlink" title="6.7 张量网络与经典概率模型"></a>6.7 张量网络与经典概率模型</h3><p>张量网络不仅可以作为非概率性的映射进行监督机器学习，也可以作为<strong>量子概率性机器学习</strong>，还可以作为经典概率模型进行概率性机器学习，其中两个例子为受限玻尔兹曼机和贝叶斯张量网络。</p>
+<p><img src="./assets/047d4dab88950fe3a1a8f5be3fc364b6.png" alt=""></p>
+<h2 id="论文《Deep-convolutioanl-tensor-network》"><a href="#论文《Deep-convolutioanl-tensor-network》" class="headerlink" title="论文《Deep convolutioanl tensor network》"></a>论文《Deep convolutioanl tensor network》</h2><p>论文中主要完成的工作：</p>
+<ol>
+<li><p>提出了一个基于张量网络的新张量模型，该模型基于张量网络组成（称为EPS（Enquetted<br>Plaquette状态）），可以满足<strong>参数共享、局域性和深度</strong>的需求</p>
+</li>
+<li><p>展示了EPS如何实现<strong>向后传播的功能层，</strong>这可以用于神经网络或者其他基于向后传播的模型</p>
+</li>
+<li><p>使用常用的技术训练深度神经网络，并在FashionMNIST上训练并评估模型。我们发现，虽然基于一个EPS的浅层模型在<strong>精度和参数数目</strong>方面与DCNN具有竞争性，但使其更深会导致更多的<strong>过拟合</strong>，从而<strong>导致精度降低</strong></p>
+</li>
+<li><p>展示了各种超参数如何影响模型的优化和概括</p>
+</li>
+</ol>
+<p>这篇论文首先介绍了一个张量网络中的<strong>copy操作</strong>，能够copy输入或者输出向量，一个比较形象的例子如下，在用箭头表示的输入边处用红点标记，输出边用另一种方式标记，这种copy操作等价于两个相同的input向量与张量网络进行收缩，如下图所示</p>
+<p><img src="./assets/18ea6993cb04558672d68c0a9087e3ea.png" alt=""></p>
+<pre><code>对于输入数据，仍然同之前的论文一样，将各个像素或样本映射到**归一化的向量上**，用它们的张量积表示系统量子态，如下图所示，图中表示了20个张量的**张量积。**
+</code></pre><p><img src="./assets/85f3a3e31312757bd400b9c9ede4c195.png" alt=""></p>
+<p>这篇文章采用的映射函数为：</p>
+<p>随后，文章中又讲解了EPS态的原理，它定义了kernel<br>size(这一点非常类似于卷积神经网络CNN中的kernel)，通过这一层EPS得处理，就能将参数化为一个的张量，其中为输入，1为输出。一个3*3矩阵的EPS处理示例如下</p>
+<p><img src="./assets/b757062c28739a24519117c7d68b495a.png" alt=""></p>
+<p>然而一张图片可以有很多个3*3或者2*2这样的子矩阵，因此就可以对这些局部采用EPS进行处理，以一张4*3的图片为例，它的EPS核可以按照下图的方式收缩，可以看到每个2*2的子矩阵收缩成了一个EPS张量。</p>
+<p><img src="./assets/47ebf778f8bfa6ef796df8b1af78998c.png" alt=""></p>
+<p>对于图片的处理流程可以表示如下，即先<strong>对图片进行映射</strong>，其次采用<strong>N层EPS</strong>进行参数化。随后用一个矩阵A和向量b线性层进行映射，<strong>softmax激活层进行激活</strong>，整体的模型可以用如下的等式进行定义</p>
+<p>上述公式非常清晰的阐明了EPS完整的网络结构，可以通过下图展示EPS网络来训练输入张量的过程</p>
+<p><img src="./assets/fffe44bec8eeae579243846fe3aabab0.png" alt=""></p>
+<p>再来一个对4*4图片采用两层EPS的张量网络展示，从这个图中可以看到，每一层EPS都有单独的Kernel<br>size，收缩单位都是上一层EPS的输出张量。</p>
+<p><img src="./assets/8756acf6fa5aae0d1d99950ed79e60c3.png" alt=""></p>
+<p>在文章的最后，还介绍了一些EPS网络参数优化的方法，并且通过实验验证了EPS的效果，类似于DCTN(deep<br>convolutional tensor<br>network），在<strong>参数共享、局域性和深度</strong>方面都有较好的表现。但是另一方面，多层的EPS网络很容易导致过拟合造成较差的结果，因此文中建议就是可以将<br>EPS仅作为神经网络中的一层操作。详细代码见Github:<br><a target="_blank" rel="noopener" href="https://github.com/philip-bl/dctn">https://github.com/philip-bl/dctn</a>.</p>
+<p>这个代码我下载下来看了一下，基于python3.7和深度学习框架torch，代码整体非常规范，项目比较大，看起来比较吃力。远比之前TTN网络训练MNIST要复杂。而HTN论文中缺少代码，正在编码想复现HTN这篇网络。卢陈玉学长的代码中，将tucker和cp分解处理后的图片和卷积神经网络结合起来，可以作为HTN中神经网络层的参考。因此HTN论文复现的关键就在于<strong>通过TTN网络压缩图片(</strong>两篇论文的TTN略有不同<strong>)，</strong>将其<strong>作为后续深度学习网络的输入。</strong></p>
+<p>结尾附上赖老师赠送给我的一张量子计算的层次结构图，非常清晰。就不需要再纠结上面论文中的算法如何设计成<strong>量子线路了</strong>（其实本身也是一头雾水。。。），只需要关注如何将复杂的张量网络机器学习算法如何用量子态进行表示和处理就OK了。</p>
+<p><img src="./assets/2b048be34aa9e4cb940526d22646ca2b.jpg" alt=""></p>
+<p>下面这张图也很useful,浅水区域表示了人工智能已经比较成熟的领域。陆地上的是正在热门解决的问题，高山上的是比较棘手复杂的AI问题，例如AI设计、写书、科学研究等。</p>
+<p><img src="./assets/a9ff7d12cb7bbe00703a592e95337ed7.png" alt=""></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://182.92.108.27/2020/09/13/36Study-Report(0907-0913)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/09/06/35Study-Report(0831-0906)/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">学习汇报(0831-0906)</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blogs
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="YuleZhang&#39;s Blogs"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://182.92.108.27/album/">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>

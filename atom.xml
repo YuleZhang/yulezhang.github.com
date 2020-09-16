@@ -6,17 +6,83 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://182.92.108.27/"/>
-  <updated>2020-08-20T11:20:43.706Z</updated>
+  <updated>2020-09-16T14:43:07.013Z</updated>
   <id>http://182.92.108.27/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>32GenPerAlbum</title>
+    <title>学习汇报(0907-0913)</title>
+    <link href="http://182.92.108.27/2020/09/13/36Study-Report(0907-0913)/"/>
+    <id>http://182.92.108.27/2020/09/13/36Study-Report(0907-0913)/</id>
+    <published>2020-09-13T01:17:33.000Z</published>
+    <updated>2020-09-16T14:43:07.013Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;a href=&quot;#《张量网络基础课程》第六章&quot; class=&quot;headerlink&quot; title=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;/a&gt;《张量网络基础课程》第六章&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./assets/a9ff7d12cb7bbe00703a592e95337ed7.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习汇报(0831-0906)</title>
+    <link href="http://182.92.108.27/2020/09/06/35Study-Report(0831-0906)/"/>
+    <id>http://182.92.108.27/2020/09/06/35Study-Report(0831-0906)/</id>
+    <published>2020-09-06T01:25:33.000Z</published>
+    <updated>2020-09-16T14:39:14.179Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;小程序&quot;&gt;&lt;a href=&quot;#小程序&quot; class=&quot;headerlink&quot; title=&quot;小程序&quot;&gt;&lt;/a&gt;小程序&lt;/h2&gt;&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
+&lt;p&gt;即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习汇报(0824-0830)</title>
+    <link href="http://182.92.108.27/2020/08/30/34Study-Report(0824-0830)/"/>
+    <id>http://182.92.108.27/2020/08/30/34Study-Report(0824-0830)/</id>
+    <published>2020-08-30T01:25:33.000Z</published>
+    <updated>2020-09-16T14:48:50.180Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一：论文——基于TNCS的非监督学习&quot;&gt;&lt;a href=&quot;#一：论文——基于TNCS的非监督学习&quot; class=&quot;headerlink&quot; title=&quot;一：论文——基于TNCS的非监督学习&quot;&gt;&lt;/a&gt;一：论文——基于TNCS的非监督学习&lt;/h2&gt;&lt;p&gt;简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行&lt;strong&gt;图片压缩&lt;/strong&gt;。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>生成个人相册</title>
     <link href="http://182.92.108.27/2020/08/20/32GenPerAlbum/"/>
     <id>http://182.92.108.27/2020/08/20/32GenPerAlbum/</id>
     <published>2020-08-20T11:10:31.000Z</published>
-    <updated>2020-08-20T11:20:43.706Z</updated>
+    <updated>2020-09-16T14:33:04.317Z</updated>
     
     <summary type="html">
     
@@ -31,6 +97,27 @@
     
     
       <category term="hexo" scheme="http://182.92.108.27/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习汇报(0810-0816)</title>
+    <link href="http://182.92.108.27/2020/08/16/33Study-Report(0817-0823)/"/>
+    <id>http://182.92.108.27/2020/08/16/33Study-Report(0817-0823)/</id>
+    <published>2020-08-16T01:25:33.000Z</published>
+    <updated>2020-09-16T14:44:04.778Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、量子图像处理及应用&quot;&gt;&lt;a href=&quot;#一、量子图像处理及应用&quot; class=&quot;headerlink&quot; title=&quot;一、量子图像处理及应用&quot;&gt;&lt;/a&gt;一、量子图像处理及应用&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -106,7 +193,7 @@
     <link href="http://182.92.108.27/2020/04/03/27Decision-Tree/"/>
     <id>http://182.92.108.27/2020/04/03/27Decision-Tree/</id>
     <published>2020-04-03T14:21:00.000Z</published>
-    <updated>2020-08-16T01:31:27.548Z</updated>
+    <updated>2020-09-16T14:35:40.576Z</updated>
     
     <summary type="html">
     
@@ -118,12 +205,12 @@
     </summary>
     
     
-      <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="复试" scheme="http://182.92.108.27/categories/%E5%A4%8D%E8%AF%95/"/>
     
-    
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="机器学习" scheme="http://182.92.108.27/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="数据挖掘" scheme="http://182.92.108.27/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     
   </entry>
   
@@ -153,7 +240,7 @@
     <link href="http://182.92.108.27/2020/04/02/26Pku-Interview-C/"/>
     <id>http://182.92.108.27/2020/04/02/26Pku-Interview-C/</id>
     <published>2020-04-02T12:04:00.000Z</published>
-    <updated>2020-04-03T14:21:32.208Z</updated>
+    <updated>2020-09-16T14:35:28.919Z</updated>
     
     <summary type="html">
     
@@ -163,10 +250,8 @@
     </summary>
     
     
-      <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="复试" scheme="http://182.92.108.27/categories/%E5%A4%8D%E8%AF%95/"/>
     
-    
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="C/C++" scheme="http://182.92.108.27/tags/C-C/"/>
     
@@ -177,7 +262,7 @@
     <link href="http://182.92.108.27/2020/03/31/25Australia-Trip/"/>
     <id>http://182.92.108.27/2020/03/31/25Australia-Trip/</id>
     <published>2020-03-31T12:04:00.000Z</published>
-    <updated>2020-04-21T01:44:39.186Z</updated>
+    <updated>2020-09-16T14:00:40.721Z</updated>
     
     <summary type="html">
     
@@ -189,7 +274,7 @@
       <category term="日志" scheme="http://182.92.108.27/categories/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="旅行" scheme="http://182.92.108.27/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   
@@ -198,7 +283,7 @@
     <link href="http://182.92.108.27/2020/02/15/24DataMining/"/>
     <id>http://182.92.108.27/2020/02/15/24DataMining/</id>
     <published>2020-02-15T12:04:00.000Z</published>
-    <updated>2020-08-16T01:29:03.204Z</updated>
+    <updated>2020-09-16T14:34:55.718Z</updated>
     
     <summary type="html">
     
@@ -210,8 +295,6 @@
       <category term="学习" scheme="http://182.92.108.27/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="数据挖掘" scheme="http://182.92.108.27/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     
   </entry>
@@ -221,7 +304,7 @@
     <link href="http://182.92.108.27/2020/02/07/23DeployToECS/"/>
     <id>http://182.92.108.27/2020/02/07/23DeployToECS/</id>
     <published>2020-02-07T07:51:00.000Z</published>
-    <updated>2020-08-17T12:06:40.355Z</updated>
+    <updated>2020-09-16T14:34:59.434Z</updated>
     
     <summary type="html">
     
@@ -230,8 +313,6 @@
     </summary>
     
     
-    
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="ECS" scheme="http://182.92.108.27/tags/ECS/"/>
     
@@ -284,7 +365,7 @@
     <link href="http://182.92.108.27/2019/07/01/20Baidu-XJTU_BigData_Contest/"/>
     <id>http://182.92.108.27/2019/07/01/20Baidu-XJTU_BigData_Contest/</id>
     <published>2019-07-01T07:25:00.000Z</published>
-    <updated>2020-08-16T01:31:08.737Z</updated>
+    <updated>2020-09-16T14:36:09.317Z</updated>
     
     <summary type="html">
     
@@ -294,9 +375,9 @@
     
     
     
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="深度学习" scheme="http://182.92.108.27/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="deep learning" scheme="http://182.92.108.27/tags/deep-learning/"/>
+      <category term="比赛" scheme="http://182.92.108.27/tags/%E6%AF%94%E8%B5%9B/"/>
     
   </entry>
   
@@ -305,7 +386,7 @@
     <link href="http://182.92.108.27/2019/04/04/18K-means&amp;MeanShift/"/>
     <id>http://182.92.108.27/2019/04/04/18K-means&amp;MeanShift/</id>
     <published>2019-04-04T11:29:06.000Z</published>
-    <updated>2020-08-16T01:30:58.704Z</updated>
+    <updated>2020-09-16T14:34:45.794Z</updated>
     
     <summary type="html">
     
@@ -315,9 +396,7 @@
     
     
     
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="machine learning" scheme="http://182.92.108.27/tags/machine-learning/"/>
+      <category term="机器学习" scheme="http://182.92.108.27/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="k-means" scheme="http://182.92.108.27/tags/k-means/"/>
     
@@ -328,7 +407,7 @@
     <link href="http://182.92.108.27/2019/04/04/19Deep-Learning/"/>
     <id>http://182.92.108.27/2019/04/04/19Deep-Learning/</id>
     <published>2019-04-04T11:29:06.000Z</published>
-    <updated>2020-08-16T01:31:02.802Z</updated>
+    <updated>2020-09-16T14:35:17.232Z</updated>
     
     <summary type="html">
     
@@ -338,9 +417,7 @@
     
     
     
-      <category term="博客" scheme="http://182.92.108.27/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="deep learning" scheme="http://182.92.108.27/tags/deep-learning/"/>
+      <category term="深度学习" scheme="http://182.92.108.27/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -360,84 +437,6 @@
     
     
       <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>蓝桥杯和软微</title>
-    <link href="http://182.92.108.27/2019/03/25/16LanQiao&amp;SS/"/>
-    <id>http://182.92.108.27/2019/03/25/16LanQiao&amp;SS/</id>
-    <published>2019-03-25T09:35:25.000Z</published>
-    <updated>2020-08-16T01:30:48.240Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/contest.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>京东手机评论爬虫</title>
-    <link href="http://182.92.108.27/2019/02/26/15JDComment-Spider/"/>
-    <id>http://182.92.108.27/2019/02/26/15JDComment-Spider/</id>
-    <published>2019-02-26T06:48:03.000Z</published>
-    <updated>2020-08-16T01:30:42.882Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/jdSpider.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="爬虫" scheme="http://182.92.108.27/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于日记</title>
-    <link href="http://182.92.108.27/2019/01/20/13Diary/"/>
-    <id>http://182.92.108.27/2019/01/20/13Diary/</id>
-    <published>2019-01-20T07:16:10.000Z</published>
-    <updated>2020-08-16T01:30:29.411Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/diary.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读书笔记——福尔摩斯思考术(2)</title>
-    <link href="http://182.92.108.27/2019/01/20/14HolmesThinking/"/>
-    <id>http://182.92.108.27/2019/01/20/14HolmesThinking/</id>
-    <published>2019-01-20T07:16:10.000Z</published>
-    <updated>2020-08-16T01:30:35.592Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/HolmesThinking.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="http://182.92.108.27/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="读书笔记" scheme="http://182.92.108.27/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

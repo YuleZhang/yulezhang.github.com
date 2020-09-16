@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    学习汇报(0810-0816) |  
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-33Study-Report(0817-0823)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  学习汇报(0810-0816)
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/08/16/33Study-Report(0817-0823)/" class="article-date">
+  <time datetime="2020-08-16T01:25:33.000Z" itemprop="datePublished">2020-08-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="一、量子图像处理及应用"><a href="#一、量子图像处理及应用" class="headerlink" title="一、量子图像处理及应用"></a>一、量子图像处理及应用</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;mid=2247484527&amp;idx=1&amp;sn=cc8a4dce08140f954d052705f7405b28&amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;scene=21#wechat_redirect">这篇文章</a>简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit<br>lattice、FRQI以及NEQR，它们各有特点，详细如下：</p>
+<a id="more"></a>
+<h3 id="1-1-QImR"><a href="#1-1-QImR" class="headerlink" title="1.1 QImR"></a><strong>1.1 QImR</strong></h3><p><strong>这个算法的思想就是将列向量映射成为一个量子态。例如一张m*n的图片，那么一共有n个量子态。每个量子态可以有m个基态，这m个基态的概率幅就表示像素值，而基态本身则能够很好的表示像素对应的位置，这样就能完整的将一个经典的图像映射为量子态表示。</strong></p>
+<p><img src="./assets/cafd5d3b503601ef50e2d97ff138e313.png" alt=""></p>
+<h3 id="1-2-Qubit-Lattice"><a href="#1-2-Qubit-Lattice" class="headerlink" title="1.2 Qubit Lattice"></a><strong>1.2 Qubit Lattice</strong></h3><p><strong>对于一个输入图像，其中每一个像素点都有一个qubit来表示。因此需要至少2\^n比特的存储。</strong>虽然这种存储方式仅仅是将经典比特转换为量子比特来表示，并没有利用到量子纠缠的性质，但也与经典的存储方式有一定的区别，转换过程如下图所示。</p>
+<p><img src="/assets/50b4cda33d636d2f7f1927d7447c908e.png" alt=""></p>
+<h3 id="FRQI："><a href="#FRQI：" class="headerlink" title=" FRQI："></a><strong> FRQI：</strong></h3><p>FRQI也是一种比较高效的处理方式，其转换过程如下图。</p>
+<p><img src="./assets/7312f086d3e3d6f0dc499ac34b3a4649.png" alt=""></p>
+<p>这种编码方式将像素值和像素位置通过量子态张量积的形式进行了关联，与上述qubit<br>lattice不同的地方在于，qubit<br>lattice是一个量子比特对应一个像素信息，因此需要2\^n个量子比特；而后者(FRQI)则采用了n个量子比特来编码像素位置，大大的减少了量子比特所需要的数量。</p>
+<h3 id="1-3-NEQR："><a href="#1-3-NEQR：" class="headerlink" title="1.3 NEQR："></a>1.3 NEQR：</h3><p>同样地，下图列举了一个简单的2*2维图像及其NEQR量子态表示：</p>
+<p><img src="/assets/d164a3ed88e4daea2f0a907ab202642c.png" alt=""></p>
+<p><img src="/assets/772c22a37af7fcb62ce323430f218678.png" alt=""></p>
+<p><strong>尽管NEQR算法看起来使用了更多的比特去编码像素信息，但它也有它的优点，NEQR量子态的各个基态是正交可区分的，因此NEQR的量子图像是可区分的。这使得在量子图像的准备阶段，NEQR相比FRQI实现了二次加速，在量子图像压缩率上实现了1.5倍的提升。总体相比其他的量子图像模型更灵活且更适用于量子图像表示。</strong></p>
+<h3 id="1-4-感受心得"><a href="#1-4-感受心得" class="headerlink" title="1.4 感受心得"></a><strong>1.4 感受心得</strong></h3><p>我发现之前进行的编程和考量都是基于将每一个像素处理成一个基态的表示，那么一张m*n的图片需要m*n个量子比特去存储表示，这显然与传统的经典比特没有什么区别，完全<strong>没有考虑到量子纠缠的性质</strong>(但考虑了叠加态的性质)<strong>。</strong>如果不考虑这n个量子比特之间的纠缠性(也就是各个量子态独立)，那么能表达的基态个数为2n，仍然是相当大的一个复杂度。可是如果能够借助量子之间的纠缠性，那么数据才能真正意义的实现n个比特能够表示2\^n次方的基态，也就对应着2\^n次方的数据（概率幅的平方）。</p>
+<p>这个地方就很好地回答了师兄的疑问，确实对像素进行逐个独立的映射显然不能充分的发挥量子的纠缠优势。</p>
+<h2 id="二、TTN结构的机器学习代码"><a href="#二、TTN结构的机器学习代码" class="headerlink" title="二、TTN结构的机器学习代码"></a>二、TTN结构的机器学习代码</h2><h3 id="2-1-目前进度说明"><a href="#2-1-目前进度说明" class="headerlink" title="2.1 目前进度说明"></a>2.1 目前进度说明</h3><p>代码中的参数主要是<strong>输入键（Input bond）的维度，虚拟键（Virtual<br>bond）的维度、样本的个数（n_train）、迭代的次数（n_epochs）</strong>这几项，通过不同的组合来验证论文的内容。</p>
+<p>在之前遇到的训练准确率不正常的问题，通过对像素进行归一化处理成功解决，得到了有效的测试集准确率，尽管没有达到实验中那样效果，但也明确了方向。这时能够得到t-SNR算法降维得到的逐层迭代过程，如下图所示</p>
+<p><img src="/assets/25ed37ebee7e744ab13025262110de2e.jpg" alt=""></p>
+<p>可以看到，数据经过一层一层的迭代，最终能明显的分离开来，达到分类的效果，这与论文中的结论是一致的。</p>
+<p>那么下面工作主要就是对上面提到的各类参数进行搜索并调整。首先是增大迭代次数和样本数据，通过对比能够看到数据训练的效果有明显的提升，效果如下图所示。从图中可以明显看出，提升了每个label的样本数量和迭代次数，效果与论文数据已经相当接近。</p>
+<p><img src="/assets/808b05937d6f4b6003e7db04ceb1137f.png" alt=""></p>
+<p>从上图中也可看出Input bond和Virtual<br>bond参数还可以进行修改优化来得到更好的结果，在实验中又出现了一些问题，例如下面的<strong>内存溢出问题</strong></p>
+<p><img src="/assets/6300cf85a496cc70b4a87028d72d6d7d.png" alt=""></p>
+<p><strong>这是因为机器所能表示的数据量是有限制的，而上面9*9*9*9*9*5400这些数据超过内存限制，经过尝试即使改成9*9*9*9*9*90还是会因为数据结构过于庞大而内存溢出，因此只能换机器或者通过降低样本数量来寻求这两类参数叠加的一个平衡点，或许有可能进一步提高算法准确率。</strong></p>
+<p><strong>后续继续一方面通过服务器优化参数，另一方面学习FRQI的算法代码，FRQI算法结合了IBM的Qiskit库能够在量子线路上得以实现。若能将FRQI的表示方法推广到TTN，也许会有更低的复杂度、更高的准确率。</strong></p>
+<h2 id="三、张量网络基础课程（Bilibili）"><a href="#三、张量网络基础课程（Bilibili）" class="headerlink" title="三、张量网络基础课程（Bilibili）"></a><strong>三、张量网络基础课程（Bilibili）</strong></h2><p>本周视频的学习有些疏忽，学习内容比较少。复习了TEBD和DMRG算法。还补充了一个通过<strong>自动微分</strong>方式计算能量的算法，学习了Uniform<br>MPS及其涨落、纠缠面积熵、MPO简述这些内容。</p>
+<h3 id="3-1-Uniform-MPS及其涨落"><a href="#3-1-Uniform-MPS及其涨落" class="headerlink" title="3.1 Uniform MPS及其涨落"></a>3.1 Uniform MPS及其涨落</h3><p>这里定义了单张量平移不变MPS（又称均匀MPS,uniform MPS）：</p>
+<p><img src="./assets/138f66fc085cfcb18fdfcc3884a23881.png" alt=""></p>
+<p>该MPS中仅包含一个张量A，记为不等价张量，整个MPS由不等价张量的无穷多个复制收缩构成，因此不等价张量可以理解为该无穷长MPS的组成基本单元。可以简单的记为：</p>
+<p><img src="./assets/d2b3a5e1fb36d08b863ddca532edb6ea.png" alt=""></p>
+<p>这个定义也可以推广到<strong>多张量平移不变MPS，</strong>例如双张量平移不变的情况可以表示如下：</p>
+<p><img src="./assets/399620b7a24682a3e9fb1a0cae1b2930.png" alt=""></p>
+<p>用什么样的平移不变性，取决于对待解决物理问题的先验知识或猜测。例如铁磁的哈密顿量，由于自旋都是同一个方向，所以就对应着单张量的平移不变MPS。</p>
+<ul>
+<li><p>反应无穷大平移不变MPS性质最重要的是其转移矩阵及转移矩阵的本征向量</p>
+</li>
+<li><p>有限MPS的各个算法可以推广至无穷长MPS，例如无穷密度矩阵重整化群（iDMRG）算法、无穷TEBD算法（iTEBD）等。</p>
+</li>
+<li><p>无穷长平移不变矩阵乘积态又称均匀矩阵乘积态，这一类构成了量子Hibert空间中一类特殊的流形。</p>
+<p>对于矩阵乘积态的涨落，先来看下面的关联函数：</p>
+<p><img src="./assets/3ebfca060a7da2e28c0312fa0a18a0c0.png" alt=""></p>
+</li>
+</ul>
+<p>通过一系列的化简运算，能够得到如下关系，即涨落随着D指数衰减</p>
+<p><img src="./assets/8e09d0309af8571db1c052dbd977218b.png" alt=""></p>
+<blockquote>
+<p>  其中，为正的常数，被称为关联长度，统称可经下式计算</p>
+</blockquote>
+<p><img src="./assets/8109a32849d8394ad609c023c1648a99.png" alt=""></p>
+<p>这里是次大本征值，当实MPS满足归一化条件时，其最大本征值为1，那么，所以为正。</p>
+<h3 id="3-2-MPS与纠缠熵面积定律"><a href="#3-2-MPS与纠缠熵面积定律" class="headerlink" title="3.2 MPS与纠缠熵面积定律"></a>3.2 MPS与纠缠熵面积定律</h3><p>由于MPS的正交行书容易看出，其奇异谱的维数等于辅助指标的维数，同时由于MPS的归一化条件，有。</p>
+<p>设奇异谱维数，当时，纠缠熵达到极大值，纠缠熵表达式为</p>
+<p>因此，给定MPS辅助指标维数之后，其能容纳的纠缠上限为</p>
+<p>详细证明过程如下图所示</p>
+<p><img src="./assets/6aea947432391ad507a5562ffcb5fef9.jpg" alt=""></p>
+<p>可见，在任意一处截断MPS进行二分之后，两部分之间的纠缠熵大小与各部分包含的格点个数无关，仅与边界处辅助指标的维数有关。</p>
+<p>那么<strong>纠缠熵的面积定理</strong>就是：对于D维格点系统的量子态，将体系二分后，两部分之间的纠缠熵满足：</p>
+<p><img src="./assets/c6023373e402bfd1eba2becd8cbb74b6.png" alt=""></p>
+<p>，其中l表示空间尺度</p>
+<p><img src="./assets/b2cf5f7f70e11ae6a49aba4e4308b5d9.png" alt=""></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://182.92.108.27/2020/08/16/33Study-Report(0817-0823)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/08/20/32GenPerAlbum/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            生成个人相册
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/08/16/31Study-Report(0810-0816)/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">学习汇报(0810-0816)</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blogs
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="YuleZhang&#39;s Blogs"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://182.92.108.27/album/">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>

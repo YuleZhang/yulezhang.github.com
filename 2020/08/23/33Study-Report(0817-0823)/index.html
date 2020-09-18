@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    学习汇报(0831-0906) |  
+    学习汇报(0817-0823) |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-35Study-Report(0831-0906)"
+  id="post-33Study-Report(0817-0823)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,15 +69,15 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  学习汇报(0831-0906)
+  学习汇报(0817-0823)
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/09/06/35Study-Report(0831-0906)/" class="article-date">
-  <time datetime="2020-09-06T01:25:33.000Z" itemprop="datePublished">2020-09-06</time>
+      <a href="/2020/08/23/33Study-Report(0817-0823)/" class="article-date">
+  <time datetime="2020-08-23T01:25:33.000Z" itemprop="datePublished">2020-08-23</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">2.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">7 min</span>
         </span>
     </span>
 </div>
@@ -112,52 +112,66 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。</p>
-<ul>
-<li><p>如何唯一标识用户(_openId)</p>
-<p>即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。</p>
+  <h2 id="一、量子图像处理及应用"><a href="#一、量子图像处理及应用" class="headerlink" title="一、量子图像处理及应用"></a>一、量子图像处理及应用</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;mid=2247484527&amp;idx=1&amp;sn=cc8a4dce08140f954d052705f7405b28&amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;scene=21#wechat_redirect">这篇文章</a>简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit<br>lattice、FRQI以及NEQR，它们各有特点，详细如下：</p>
 <a id="more"></a>
+<h3 id="1-1-QImR"><a href="#1-1-QImR" class="headerlink" title="1.1 QImR"></a><strong>1.1 QImR</strong></h3><p><strong>这个算法的思想就是将列向量映射成为一个量子态。例如一张m*n的图片，那么一共有n个量子态。每个量子态可以有m个基态，这m个基态的概率幅就表示像素值，而基态本身则能够很好的表示像素对应的位置，这样就能完整的将一个经典的图像映射为量子态表示。</strong></p>
+<p><img src="/assets/cafd5d3b503601ef50e2d97ff138e313.png" alt=""></p>
+<h3 id="1-2-Qubit-Lattice"><a href="#1-2-Qubit-Lattice" class="headerlink" title="1.2 Qubit Lattice"></a><strong>1.2 Qubit Lattice</strong></h3><p><strong>对于一个输入图像，其中每一个像素点都有一个qubit来表示。因此需要至少2\^n比特的存储。</strong>虽然这种存储方式仅仅是将经典比特转换为量子比特来表示，并没有利用到量子纠缠的性质，但也与经典的存储方式有一定的区别，转换过程如下图所示。</p>
+<p><img src="/assets/50b4cda33d636d2f7f1927d7447c908e.png" alt=""></p>
+<h3 id="FRQI："><a href="#FRQI：" class="headerlink" title=" FRQI："></a><strong> FRQI：</strong></h3><p>FRQI也是一种比较高效的处理方式，其转换过程如下图。</p>
+<p><img src="./assets/7312f086d3e3d6f0dc499ac34b3a4649.png" alt=""></p>
+<p>这种编码方式将像素值和像素位置通过量子态张量积的形式进行了关联，与上述qubit<br>lattice不同的地方在于，qubit<br>lattice是一个量子比特对应一个像素信息，因此需要2\^n个量子比特；而后者(FRQI)则采用了n个量子比特来编码像素位置，大大的减少了量子比特所需要的数量。</p>
+<h3 id="1-3-NEQR："><a href="#1-3-NEQR：" class="headerlink" title="1.3 NEQR："></a>1.3 NEQR：</h3><p>同样地，下图列举了一个简单的2*2维图像及其NEQR量子态表示：</p>
+<p><img src="/assets/d164a3ed88e4daea2f0a907ab202642c.png" alt=""></p>
+<p><img src="/assets/772c22a37af7fcb62ce323430f218678.png" alt=""></p>
+<p><strong>尽管NEQR算法看起来使用了更多的比特去编码像素信息，但它也有它的优点，NEQR量子态的各个基态是正交可区分的，因此NEQR的量子图像是可区分的。这使得在量子图像的准备阶段，NEQR相比FRQI实现了二次加速，在量子图像压缩率上实现了1.5倍的提升。总体相比其他的量子图像模型更灵活且更适用于量子图像表示。</strong></p>
+<h3 id="1-4-感受心得"><a href="#1-4-感受心得" class="headerlink" title="1.4 感受心得"></a><strong>1.4 感受心得</strong></h3><p>我发现之前进行的编程和考量都是基于将每一个像素处理成一个基态的表示，那么一张m*n的图片需要m*n个量子比特去存储表示，这显然与传统的经典比特没有什么区别，完全<strong>没有考虑到量子纠缠的性质</strong>(但考虑了叠加态的性质)<strong>。</strong>如果不考虑这n个量子比特之间的纠缠性(也就是各个量子态独立)，那么能表达的基态个数为2n，仍然是相当大的一个复杂度。可是如果能够借助量子之间的纠缠性，那么数据才能真正意义的实现n个比特能够表示2\^n次方的基态，也就对应着2\^n次方的数据（概率幅的平方）。</p>
+<p>这个地方就很好地回答了师兄的疑问，确实对像素进行逐个独立的映射显然不能充分的发挥量子的纠缠优势。</p>
+<h2 id="二、TTN结构的机器学习代码"><a href="#二、TTN结构的机器学习代码" class="headerlink" title="二、TTN结构的机器学习代码"></a>二、TTN结构的机器学习代码</h2><h3 id="2-1-目前进度说明"><a href="#2-1-目前进度说明" class="headerlink" title="2.1 目前进度说明"></a>2.1 目前进度说明</h3><p>代码中的参数主要是<strong>输入键（Input bond）的维度，虚拟键（Virtual<br>bond）的维度、样本的个数（n_train）、迭代的次数（n_epochs）</strong>这几项，通过不同的组合来验证论文的内容。</p>
+<p>在之前遇到的训练准确率不正常的问题，通过对像素进行归一化处理成功解决，得到了有效的测试集准确率，尽管没有达到实验中那样效果，但也明确了方向。这时能够得到t-SNR算法降维得到的逐层迭代过程，如下图所示</p>
+<p><img src="/assets/25ed37ebee7e744ab13025262110de2e.jpg" alt=""></p>
+<p>可以看到，数据经过一层一层的迭代，最终能明显的分离开来，达到分类的效果，这与论文中的结论是一致的。</p>
+<p>那么下面工作主要就是对上面提到的各类参数进行搜索并调整。首先是增大迭代次数和样本数据，通过对比能够看到数据训练的效果有明显的提升，效果如下图所示。从图中可以明显看出，提升了每个label的样本数量和迭代次数，效果与论文数据已经相当接近。</p>
+<p><img src="/assets/808b05937d6f4b6003e7db04ceb1137f.png" alt=""></p>
+<p>从上图中也可看出Input bond和Virtual<br>bond参数还可以进行修改优化来得到更好的结果，在实验中又出现了一些问题，例如下面的<strong>内存溢出问题</strong></p>
+<p><img src="/assets/6300cf85a496cc70b4a87028d72d6d7d.png" alt=""></p>
+<p><strong>这是因为机器所能表示的数据量是有限制的，而上面9*9*9*9*9*5400这些数据超过内存限制，经过尝试即使改成9*9*9*9*9*90还是会因为数据结构过于庞大而内存溢出，因此只能换机器或者通过降低样本数量来寻求这两类参数叠加的一个平衡点，或许有可能进一步提高算法准确率。</strong></p>
+<p><strong>后续继续一方面通过服务器优化参数，另一方面学习FRQI的算法代码，FRQI算法结合了IBM的Qiskit库能够在量子线路上得以实现。若能将FRQI的表示方法推广到TTN，也许会有更低的复杂度、更高的准确率。</strong></p>
+<h2 id="三、张量网络基础课程（Bilibili）"><a href="#三、张量网络基础课程（Bilibili）" class="headerlink" title="三、张量网络基础课程（Bilibili）"></a><strong>三、张量网络基础课程（Bilibili）</strong></h2><p>本周视频的学习有些疏忽，学习内容比较少。复习了TEBD和DMRG算法。还补充了一个通过<strong>自动微分</strong>方式计算能量的算法，学习了Uniform<br>MPS及其涨落、纠缠面积熵、MPO简述这些内容。</p>
+<h3 id="3-1-Uniform-MPS及其涨落"><a href="#3-1-Uniform-MPS及其涨落" class="headerlink" title="3.1 Uniform MPS及其涨落"></a>3.1 Uniform MPS及其涨落</h3><p>这里定义了单张量平移不变MPS（又称均匀MPS,uniform MPS）：</p>
+<p><img src="/assets/138f66fc085cfcb18fdfcc3884a23881.png" alt=""></p>
+<p>该MPS中仅包含一个张量A，记为不等价张量，整个MPS由不等价张量的无穷多个复制收缩构成，因此不等价张量可以理解为该无穷长MPS的组成基本单元。可以简单的记为：</p>
+<p><img src="/assets/d2b3a5e1fb36d08b863ddca532edb6ea.png" alt=""></p>
+<p>这个定义也可以推广到<strong>多张量平移不变MPS，</strong>例如双张量平移不变的情况可以表示如下：</p>
+<p><img src="/assets/399620b7a24682a3e9fb1a0cae1b2930.png" alt=""></p>
+<p>用什么样的平移不变性，取决于对待解决物理问题的先验知识或猜测。例如铁磁的哈密顿量，由于自旋都是同一个方向，所以就对应着单张量的平移不变MPS。</p>
+<ul>
+<li><p>反应无穷大平移不变MPS性质最重要的是其转移矩阵及转移矩阵的本征向量</p>
 </li>
-<li><p>如何表示矩阵、公式？</p>
-<p>小程序目前的渲染功能还比较有限，不支持Latex、MathType，并且这类公式在存储到数据库中时也十分的不方便，因此采用图片的形式，将题目保存成图片，随后读取出来，只要位置大小安排合理，能够正常显示。</p>
+<li><p>有限MPS的各个算法可以推广至无穷长MPS，例如无穷密度矩阵重整化群（iDMRG）算法、无穷TEBD算法（iTEBD）等。</p>
 </li>
-<li><p>控件和布局可以用现成的框架Weui，Vant等等，开发起来事半功倍。当然要是能熟练运用flex布局，那也是妥妥的</p>
+<li><p>无穷长平移不变矩阵乘积态又称均匀矩阵乘积态，这一类构成了量子Hibert空间中一类特殊的流形。</p>
+<p>对于矩阵乘积态的涨落，先来看下面的关联函数：</p>
+<p><img src="/assets/3ebfca060a7da2e28c0312fa0a18a0c0.png" alt=""></p>
 </li>
 </ul>
-<h2 id="Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks"><a href="#Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks" class="headerlink" title="Quantum-Classical Machine learning by Hybrid Tensor Networks"></a>Quantum-Classical Machine learning by Hybrid Tensor Networks</h2><h3 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h3><p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
-<p><img src="./assets/879be0a02961a360ce311a4bb024b0be.png" alt=""></p>
-<h3 id="3-2-张量网络机器学习的局限性"><a href="#3-2-张量网络机器学习的局限性" class="headerlink" title="3.2 张量网络机器学习的局限性"></a>3.2 张量网络机器学习的局限性</h3><p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
-<ol>
-<li>表示能力</li>
-</ol>
-<p>张量网络是一个线性函数并且遵从量子力学的叠加原理，这是量子多体系统中张量网络的固有特性，但同时也是建立<strong>强大的机器学习通用分类器的障碍</strong>，所以在处理时一般都通过非线性函数映射成到Hilbert空间，因此<strong>特征映射函数</strong>是张量网络机器学习的一个关键点(类比SVM)。张量网络机器学习TTN需要比经典模型(CNN、FCN等)更多的参数，而文中的<strong>量子经典混合张量网络</strong>需要的参数比TTN还要少的多！参数的比较见下图</p>
-<p><img src="./assets/4a4d245e651e1944d8cd321820cbb1fb.png" alt=""></p>
-<ol>
-<li>体系结构的可扩展性</li>
-</ol>
-<p><img src="./assets/4505f794f327f2c207b568ef4019e4f2.png" alt=""></p>
-<p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(</strong>例如全连接层<strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图(c)表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
-<h3 id="3-3-混合神经网络"><a href="#3-3-混合神经网络" class="headerlink" title="3.3 混合神经网络"></a>3.3 混合神经网络</h3><p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
-<p><img src="./assets/cefc9d2c3a147e42cd4123c01846f821.png" alt=""></p>
-<p>而张量网络中张量的收缩过程可以用如下公式表示：</p>
-<p><img src="./assets/16d5f4701d4230f5c3194c0f68e8b259.png" alt=""></p>
-<p>其中表示i+1层的第k个张量，所以(2)式推导为：</p>
-<p><img src="./assets/a45b75d8c0b8fe6b1f987fa2feaf49f3.png" alt=""></p>
-<p>其中表示第i层的第j个张量，随后用梯度下降更新张量</p>
-<p><img src="./assets/b6ff5f61c6f7ebc9deabc271f410a07d.png" alt=""></p>
-<p>其中表示学习率，用这样的方式可以逐步更新HTN中的各个张量</p>
-<h4 id="3-4-量子态分类和量子分类自编码"><a href="#3-4-量子态分类和量子分类自编码" class="headerlink" title="3.4 量子态分类和量子分类自编码"></a>3.4 <strong>量子态分类和量子分类自编码</strong></h4><p>分类的思路也比较容易理解，首先是将图片的像素映射成量子态，单个像素的映射如下</p>
-<p><img src="./assets/b48a49d4b30470aecc5f6635740abbfc.png" alt=""></p>
-<p>随后将像素表示成矩阵成绩态，如下</p>
-<p><img src="./assets/f953a9ebb0bc7aba45d3a39fe43a85bd.png" alt=""></p>
-<p>将作为输入，与现成的张量网络进行收缩，将输入表示成低维的中间态，即对应如下的公式</p>
-<p><img src="./assets/eb158b15460bf6bc3dd007b7a4442eda.png" alt=""></p>
-<p>那么中间态(也就是后面神经网络的输入)就可以表示为</p>
-<p><img src="./assets/407e6a5eb3d6730d5238c3d0629af7c7.png" alt=""></p>
-<p>其中M表示测量操作，随后通过神经网络层将输入分成对应的十个类别，训练过程如下图</p>
-<p><img src="./assets/0968f4a2730b423b10c47be88cc5f44d.png" alt=""></p>
-<p>量子分类器自编码就是将输入的量子态压缩成低维的中间态，将损失函数换位MSE，同时使用PSNR来对比图片压缩前后的差异，对MNIST数据的压缩如下所示。</p>
-<p><img src="./assets/db1f021ee86472ba575412e96e484a49.png" alt=""></p>
+<p>通过一系列的化简运算，能够得到如下关系，即涨落随着D指数衰减</p>
+<p><img src="/assets/8e09d0309af8571db1c052dbd977218b.png" alt=""></p>
+<blockquote>
+<p>  其中，为正的常数，被称为关联长度，统称可经下式计算</p>
+</blockquote>
+<p><img src="/assets/8109a32849d8394ad609c023c1648a99.png" alt=""></p>
+<p>这里是次大本征值，当实MPS满足归一化条件时，其最大本征值为1，那么，所以为正。</p>
+<h3 id="3-2-MPS与纠缠熵面积定律"><a href="#3-2-MPS与纠缠熵面积定律" class="headerlink" title="3.2 MPS与纠缠熵面积定律"></a>3.2 MPS与纠缠熵面积定律</h3><p>由于MPS的正交行书容易看出，其奇异谱的维数等于辅助指标的维数，同时由于MPS的归一化条件，有。</p>
+<p>设奇异谱维数，当时，纠缠熵达到极大值，纠缠熵表达式为</p>
+<p>因此，给定MPS辅助指标维数之后，其能容纳的纠缠上限为</p>
+<p>详细证明过程如下图所示</p>
+<p><img src="/assets/6aea947432391ad507a5562ffcb5fef9.jpg" alt=""></p>
+<p>可见，在任意一处截断MPS进行二分之后，两部分之间的纠缠熵大小与各部分包含的格点个数无关，仅与边界处辅助指标的维数有关。</p>
+<p>那么<strong>纠缠熵的面积定理</strong>就是：对于D维格点系统的量子态，将体系二分后，两部分之间的纠缠熵满足：</p>
+<p><img src="/assets/c6023373e402bfd1eba2becd8cbb74b6.png" alt=""></p>
+<p>，其中l表示空间尺度</p>
+<p><img src="/assets/b2cf5f7f70e11ae6a49aba4e4308b5d9.png" alt=""></p>
  
       <!-- reward -->
       
@@ -228,7 +242,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://182.92.108.27/2020/09/06/35Study-Report(0831-0906)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://182.92.108.27/2020/08/23/33Study-Report(0817-0823)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -241,19 +255,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2020/09/13/36Study-Report(0907-0913)/" class="article-nav-link">
+      <a href="/2020/08/30/34Study-Report(0824-0830)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            学习汇报(0907-0913)
+            学习汇报(0824-0830)
           
         </div>
       </a>
     
     
-      <a href="/2020/08/30/34Study-Report(0824-0830)/" class="article-nav-link">
+      <a href="/2020/08/20/32GenPerAlbum/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">学习汇报(0824-0830)</div>
+        <div class="article-nav-title">生成个人相册</div>
       </a>
     
   </nav>
@@ -375,7 +389,7 @@ var _hmt = _hmt || [];
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="YuleZhang&#39;s Blogs"></a>
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blogs"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -718,7 +732,7 @@ var _hmt = _hmt || [];
     
     
     <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
 </div>
 
 <style>

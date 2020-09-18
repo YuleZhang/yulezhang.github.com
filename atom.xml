@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://182.92.108.27/"/>
-  <updated>2020-09-16T14:43:07.013Z</updated>
+  <updated>2020-09-18T08:04:57.541Z</updated>
   <id>http://182.92.108.27/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,11 +16,11 @@
     <link href="http://182.92.108.27/2020/09/13/36Study-Report(0907-0913)/"/>
     <id>http://182.92.108.27/2020/09/13/36Study-Report(0907-0913)/</id>
     <published>2020-09-13T01:17:33.000Z</published>
-    <updated>2020-09-16T14:43:07.013Z</updated>
+    <updated>2020-09-18T08:04:57.541Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;a href=&quot;#《张量网络基础课程》第六章&quot; class=&quot;headerlink&quot; title=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;/a&gt;《张量网络基础课程》第六章&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;./assets/a9ff7d12cb7bbe00703a592e95337ed7.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;a href=&quot;#《张量网络基础课程》第六章&quot; class=&quot;headerlink&quot; title=&quot;《张量网络基础课程》第六章&quot;&gt;&lt;/a&gt;《张量网络基础课程》第六章&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/images/AI_Map.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -34,10 +34,10 @@
   
   <entry>
     <title>学习汇报(0831-0906)</title>
-    <link href="http://182.92.108.27/2020/09/06/35Study-Report(0831-0906)/"/>
-    <id>http://182.92.108.27/2020/09/06/35Study-Report(0831-0906)/</id>
-    <published>2020-09-06T01:25:33.000Z</published>
-    <updated>2020-09-16T14:39:14.179Z</updated>
+    <link href="http://182.92.108.27/2020/09/13/35Study-Report(0831-0906)/"/>
+    <id>http://182.92.108.27/2020/09/13/35Study-Report(0831-0906)/</id>
+    <published>2020-09-13T01:17:33.000Z</published>
+    <updated>2020-09-18T08:02:01.282Z</updated>
     
     <summary type="html">
     
@@ -61,11 +61,32 @@
     <link href="http://182.92.108.27/2020/08/30/34Study-Report(0824-0830)/"/>
     <id>http://182.92.108.27/2020/08/30/34Study-Report(0824-0830)/</id>
     <published>2020-08-30T01:25:33.000Z</published>
-    <updated>2020-09-16T14:48:50.180Z</updated>
+    <updated>2020-09-18T08:01:20.357Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;一：论文——基于TNCS的非监督学习&quot;&gt;&lt;a href=&quot;#一：论文——基于TNCS的非监督学习&quot; class=&quot;headerlink&quot; title=&quot;一：论文——基于TNCS的非监督学习&quot;&gt;&lt;/a&gt;一：论文——基于TNCS的非监督学习&lt;/h2&gt;&lt;p&gt;简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行&lt;strong&gt;图片压缩&lt;/strong&gt;。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习汇报(0817-0823)</title>
+    <link href="http://182.92.108.27/2020/08/23/33Study-Report(0817-0823)/"/>
+    <id>http://182.92.108.27/2020/08/23/33Study-Report(0817-0823)/</id>
+    <published>2020-08-23T01:25:33.000Z</published>
+    <updated>2020-09-18T08:06:21.249Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、量子图像处理及应用&quot;&gt;&lt;a href=&quot;#一、量子图像处理及应用&quot; class=&quot;headerlink&quot; title=&quot;一、量子图像处理及应用&quot;&gt;&lt;/a&gt;一、量子图像处理及应用&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
     
     </summary>
     
@@ -97,27 +118,6 @@
     
     
       <category term="hexo" scheme="http://182.92.108.27/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习汇报(0810-0816)</title>
-    <link href="http://182.92.108.27/2020/08/16/33Study-Report(0817-0823)/"/>
-    <id>http://182.92.108.27/2020/08/16/33Study-Report(0817-0823)/</id>
-    <published>2020-08-16T01:25:33.000Z</published>
-    <updated>2020-09-16T14:44:04.778Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、量子图像处理及应用&quot;&gt;&lt;a href=&quot;#一、量子图像处理及应用&quot; class=&quot;headerlink&quot; title=&quot;一、量子图像处理及应用&quot;&gt;&lt;/a&gt;一、量子图像处理及应用&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://182.92.108.27/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="总结" scheme="http://182.92.108.27/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

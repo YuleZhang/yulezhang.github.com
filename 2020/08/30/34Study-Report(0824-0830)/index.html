@@ -114,31 +114,30 @@ var _hmt = _hmt || [];
        
   <h2 id="一：论文——基于TNCS的非监督学习"><a href="#一：论文——基于TNCS的非监督学习" class="headerlink" title="一：论文——基于TNCS的非监督学习"></a>一：论文——基于TNCS的非监督学习</h2><p>简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行<strong>图片压缩</strong>。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下</p>
 <a id="more"></a>
-<p><img src="./assets/89d7e4f039c1c94af9cf1de864d45c8f.png" alt=""></p>
+<p><img src="/assets/89d7e4f039c1c94af9cf1de864d45c8f.png" alt=""></p>
 <p>算法能够将所有的像素存在量子概率分布中：</p>
-<p><img src="./assets/36001ac220e62d57d384f28923e7c20e.png" alt=""></p>
-<pre><code>从上图可以看出，仅传递40个像素，就能将这个图片传递的差不多了，极大的减小了传输开销。
-</code></pre><h2 id="二、FRQI算法代码"><a href="#二、FRQI算法代码" class="headerlink" title="二、FRQI算法代码"></a>二、FRQI算法代码</h2><p>FRQI算法代码以彩色图像为列，进行量子态映射，代码的整体过程是这样的。第一步，先对图片的每一个像素进行rgb三元素映射（映射公式如下所示）</p>
-<p>其次，将表示像素的作为量子电路中cu3门的输入进行处理，设计的电路如下所示</p>
+<p><img src="/assets/36001ac220e62d57d384f28923e7c20e.png" alt=""></p>
+<p>从上图可以看出，仅传递40个像素，就能将这个图片传递的差不多了，极大的减小了传输开销。</p>
+<h2 id="二、FRQI算法代码"><a href="#二、FRQI算法代码" class="headerlink" title="二、FRQI算法代码"></a>二、FRQI算法代码</h2><p>FRQI算法代码以彩色图像为列，进行量子态映射，代码的整体过程是这样的。第一步，先对图片的每一个像素进行rgb三元素映射（映射公式如下所示）<br>$$<br>θ=π/2(r/16+g/16^2 +b/16^3 )<br>$$<br>其次，将表示像素的作为量子电路中cu3门的输入进行处理，设计的电路如下所示</p>
 <p><img src="./assets/a864474058bd4a7467b531c0c1b362a5.png" alt=""></p>
 <p>其中，cu3门的算符代入参数后可以表示为</p>
 <p><img src="./assets/b9ce1569a30435e126a329006d9d8103.png" alt=""></p>
 <p>经过对这个电路的局部验证，最终能够与论文中提到的公式达成一致。我通过这次验证，也是较为清楚的理解了电路设计和实现的核心思想，从熊珏婵那里学到很多知识，验证过程如下：</p>
-<p><img src="./assets/ea6a532f5e1bdb07e546a057192cfae6.jpg" alt=""></p>
+<p><img src="/assets/ea6a532f5e1bdb07e546a057192cfae6.jpg" alt=""></p>
 <p>可以看到这部分电路是基本组成，依次对各个套用这样的门电路处理，最终就能得到如下结果，即将图片的n个像素映射成为级别的qubit量子态来表示，极大的节省了空间，提高了处理效率</p>
-<p><img src="./assets/2f57100375956817987171f350a51125.png" alt=""></p>
+<p><img src="/assets/2f57100375956817987171f350a51125.png" alt=""></p>
 <p>随之而来的一个问题就是，通过这样像素的映射，将对像素的操作转移到量子电路上来，能够对像素进行并行计算。<strong>那么在将该映射方法套用到张量网络处理MNIST数据集时，如何将张量网络设计成处理电路？</strong>这是一个比较重要的问题，一个关于将张量网络和量子态结合的问题。在tree<br>TN那篇文献的附加代码中，张量网络仍是基于传统电路的串行处理模式进行处理，接下来会继续回顾《Towards<br>quantum machine learning with tensor networks》这篇文章。</p>
 <p>TTN那部分代码的测试集准确率仍比较低，最高达到90%，各种方法都尝试了，例如划分数据集、修改评估函数等，结果没有显著上升。我觉得能解决高维辅助指标的表示问题，或许能有所改善。</p>
 <h2 id="三、张量网络基础课程"><a href="#三、张量网络基础课程" class="headerlink" title="三、张量网络基础课程"></a>三、张量网络基础课程</h2><p>3.1 张量网络的基本定义</p>
 <p>张量网络其实表示一个大的张量，这个大张量的指标其实就是<strong>张量网络中的物理指标</strong>。一个高阶张量可以被表示成不同的张量网络，如下图</p>
-<p><img src="./assets/c7cdf2421f0cdd9292912bff35386933.png" alt=""></p>
+<p><img src="/assets/c7cdf2421f0cdd9292912bff35386933.png" alt=""></p>
 <p>闭合张量网络：将张量网络中的所有几何指标求和之后表示一个标量，这类网络可以用来表示一大类问题，例如格点模型的配分函数，量子多体态的观测量等</p>
 <p>3.2 张量网络的低秩近似</p>
 <p>解决如下问题：<strong>在如下给定的张量网络中，如何裁减某一个几何指标的维数，使得裁减前后的误差极小？</strong></p>
-<p><img src="./assets/07f507c32930243a7439401534795471.png" alt=""></p>
+<p><img src="/assets/07f507c32930243a7439401534795471.png" alt=""></p>
 <p>一种可行的方案就是，将将张量网络reshape成一个大矩阵，矩阵的横向是s1,s2指标，纵向是s3,s4,s5指标，然后进行SVD分解（这样可能会改变网络结构）</p>
 <p>另一种方案是引入非方的裁减矩阵（），与连接待裁减指标的张量进行收缩，实现该指标的维数裁减。</p>
-<p><img src="./assets/f265967f011972618d633ff15654b108.png" alt=""></p>
+<p><img src="/assets/f265967f011972618d633ff15654b108.png" alt=""></p>
 <p>那么如何计算裁减矩阵呢，视频中给出了两种方法：</p>
 <ol>
 <li><p>通过规范变化，将张量网络变换为中心正交形式，正交中心为连接待裁减指标的两个张量中的一个</p>
@@ -229,7 +228,7 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2020/09/06/35Study-Report(0831-0906)/" class="article-nav-link">
+      <a href="/2020/09/13/35Study-Report(0831-0906)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -239,9 +238,9 @@ var _hmt = _hmt || [];
       </a>
     
     
-      <a href="/2020/08/20/32GenPerAlbum/" class="article-nav-link">
+      <a href="/2020/08/23/33Study-Report(0817-0823)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">生成个人相册</div>
+        <div class="article-nav-title">学习汇报(0817-0823)</div>
       </a>
     
   </nav>
@@ -363,7 +362,7 @@ var _hmt = _hmt || [];
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="YuleZhang&#39;s Blogs"></a>
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blogs"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -706,7 +705,7 @@ var _hmt = _hmt || [];
     
     
     <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
 </div>
 
 <style>

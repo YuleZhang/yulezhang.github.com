@@ -6,17 +6,46 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-09-30T02:24:07.379Z</updated>
+  <updated>2020-09-30T02:30:38.279Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>HTN-Experiment</title>
+    <title>刻意练习读书笔记（更新中）</title>
+    <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
+    <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
+    <published>2020-09-30T02:30:52.000Z</published>
+    <updated>2020-09-30T02:30:38.279Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;训练时长和训练方法&lt;/p&gt;
+&lt;p&gt;训练方法可能是间断性调整的（往往在当前方法遇到瓶颈，无法提高时）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在任何行业或者领域中，最有效和最强大的那类联系，都通过充分利用人类的身体与大脑的适应能力，来逐步的塑造和提升他们的技能，以做到一些过去不可能的事
+        
+      
+    
+    </summary>
+    
+    
+      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTN-Experiment（updating...）</title>
     <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
     <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
     <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2020-09-30T02:24:07.379Z</updated>
+    <updated>2020-09-30T02:29:37.532Z</updated>
     
     <summary type="html">
     
@@ -424,27 +453,6 @@
       <category term="深度学习" scheme="http://www.yulezhang.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="比赛" scheme="http://www.yulezhang.com/tags/%E6%AF%94%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>K-means与MeanShift</title>
-    <link href="http://www.yulezhang.com/2019/04/04/18K-means&amp;MeanShift/"/>
-    <id>http://www.yulezhang.com/2019/04/04/18K-means&amp;MeanShift/</id>
-    <published>2019-04-04T11:29:06.000Z</published>
-    <updated>2020-09-16T14:34:45.794Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/machine.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="机器学习" scheme="http://www.yulezhang.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="k-means" scheme="http://www.yulezhang.com/tags/k-means/"/>
     
   </entry>
   

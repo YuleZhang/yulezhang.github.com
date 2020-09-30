@@ -126,11 +126,11 @@ var _hmt = _hmt || [];
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pred_y = torch.max(output1, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">sum = int(torch.sum(pred_y == b_y))</span><br><span class="line">accuracy = sum / BATCH_SIZE</span><br></pre></td></tr></table></figure>
 <p>还有一个坑就是，程序在开始运行的时候准确率只有10%，训练了好几个batch_size也没有明显的提升，于是就一步步追根溯源去查看backward更新函数，各种调试，最后发现人家写的还是对的。</p>
 <p>那么问题出在哪里了呢，我在调试过程中发现，在反向传播BP更新参数那部分很复杂，每一层都有相当多的参数（尤其是张量网络层），例如最上一层是<code>16*16*3*3*3*3*3</code>，然后是<code>8*8*3*3*3*3*3</code>就是按照TTN的结构以此类推。参数这么多我估计得训练很多轮，于是就只能先跑几轮看看效果，不看不知道，一看吓一跳</p>
-<p><img src="assets\1601029097250_meitu_1.jpg" alt="1601029097250"></p>
+<p><img src="/assets/1601029097250_meitu_1.jpg" alt="1601029097250"></p>
 <p>仅仅经过两轮就整体上看到了test acc的增长，尽管每次的幅度很小（这意味着学习率很低）。上述仅仅2个epoch就耗费了大约两个小时的时间，因此我将更高的epoch次数（50+）放到了服务器上，以便于能昼夜不停地尽快得到最好的结果，目前fashion-mnist最高准确率达到90%，跟论文中的描述一致，40-50epoch基本没有变化，可能参数已经接近收敛了，重新设计网络或许能改善效果。</p>
 <p>对于上述方案，可以改进的参数和设计还有很多，例如<strong>学习率的大小</strong>，<strong>张量网络层</strong>和神经网络层的结构都可以进行调整。代码中神经网络层部分仅仅用了<strong>两个线性层</strong>作为补充，而诸如<strong>CNN、RNN</strong>等神经网络结构也可以一定程度上提高准确率。这篇论文代码只给了fashion-MNIST的代码，MNIST的代码已经在跑了，同时我还在尝试修改网络的结构，以达到更好的效果。</p>
 <p>经过一晚上的设计，终于研究出了以下（含卷积层）的混合神经网络，下面将在MNIST上训练并查看这种设计的效果。</p>
-<p><img src="assets\1601211309856.png" alt="1601211309856"></p>
+<p><img src="/assets/1601211309856.png" alt="1601211309856"></p>
 <p>还有一些tensorboard和torch库的基本知识，内容比较多，就不再一一列举啦，以上就是本周的汇报。</p>
 <h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server#comment83193829_40413202"><em>1. How can I run Tensorboard on a remote server?</em></a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24739717/article/details/103068009"><em>2. 学习笔记|Pytorch使用教程20(TensorBoard使用（一）</em></a></p>
@@ -225,9 +225,9 @@ var _hmt = _hmt || [];
       </a>
     
     
-      <a href="/2020/09/13/35Study-Report(0831-0906)/" class="article-nav-link">
+      <a href="/2020/09/13/36Study-Report(0907-0913)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">HTN Paper</div>
+        <div class="article-nav-title">《张量网络基础课程》第六章</div>
       </a>
     
   </nav>

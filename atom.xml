@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-09-30T02:13:09.268Z</updated>
+  <updated>2020-09-30T02:24:07.379Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,7 +16,7 @@
     <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
     <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
     <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2020-09-30T02:13:09.268Z</updated>
+    <updated>2020-09-30T02:24:07.379Z</updated>
     
     <summary type="html">
     
@@ -37,7 +37,7 @@
     <link href="http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/"/>
     <id>http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/</id>
     <published>2020-09-28T10:37:30.000Z</published>
-    <updated>2020-09-30T01:11:09.908Z</updated>
+    <updated>2020-09-30T02:23:58.652Z</updated>
     
     <summary type="html">
     
@@ -50,30 +50,6 @@
     
     
       <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTN Paper</title>
-    <link href="http://www.yulezhang.com/2020/09/13/35Study-Report(0831-0906)/"/>
-    <id>http://www.yulezhang.com/2020/09/13/35Study-Report(0831-0906)/</id>
-    <published>2020-09-13T01:17:33.000Z</published>
-    <updated>2020-09-30T01:10:33.520Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;小程序&quot;&gt;&lt;a href=&quot;#小程序&quot; class=&quot;headerlink&quot; title=&quot;小程序&quot;&gt;&lt;/a&gt;小程序&lt;/h2&gt;&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
-&lt;p&gt;即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   
@@ -95,6 +71,30 @@
     
     
       <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTN Paper</title>
+    <link href="http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/"/>
+    <id>http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/</id>
+    <published>2020-09-06T01:17:33.000Z</published>
+    <updated>2020-09-30T02:23:09.350Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;小程序&quot;&gt;&lt;a href=&quot;#小程序&quot; class=&quot;headerlink&quot; title=&quot;小程序&quot;&gt;&lt;/a&gt;小程序&lt;/h2&gt;&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
+&lt;p&gt;即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   

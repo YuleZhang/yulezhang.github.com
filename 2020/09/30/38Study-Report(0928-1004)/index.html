@@ -116,7 +116,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<font color='red'><strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台Colab（这个待会说），内存还是溢出了。观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见链接内容。</p>
 <p>下图是验证论文HTN在MNIST数据集上的效果，计算经过41个epochs（耗时19小时34分）的完整过程，并用<a target="_blank" rel="noopener" href="https://w1ww.tensorflow.org/tensorboard">Tensorboard</a>详细的记录训练过程如下图所示。</p>
-<p><img src="assets/160138.png" alt="img"></p>
+<p><img src="/assets/160138.png" alt="img"></p>
 <p>从图中可以看出，Accuracy最高到达99.2%，之后没有很大涨幅，基本已经收敛。loss也在不断地降低最后收敛于0.04这样一个值，已经非常小了。至此，HTN论文在MNIST和fashion-MNIST上已经得到验证。</p>
 <p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。</p>
 <p>同时为了将模型和这次疫情相结合，找到了这篇文章<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub">Automated detection of COVID-19 cases using deep neural networks with X-ray images</a>，包含了数据集以及卷积CNN训练的例子，我尝试将它改造成我们上面提到的HTN网络进行训练，以期望能够出现更好的效果。</p>

@@ -7,7 +7,7 @@
 <a id="more"></a>
 <p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<font color='red'><strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台Colab（这个待会说），内存还是溢出了。观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见链接内容。</p>
 <p>下图是验证论文HTN在MNIST数据集上的效果，计算经过41个epochs（耗时19小时34分）的完整过程，并用<a href="https://w1ww.tensorflow.org/tensorboard">Tensorboard</a>详细的记录训练过程如下图所示。</p>
-<p><img src="assets/160138.png" alt="img"></p>
+<p><img src="/assets/160138.png" alt="img"></p>
 <p>从图中可以看出，Accuracy最高到达99.2%，之后没有很大涨幅，基本已经收敛。loss也在不断地降低最后收敛于0.04这样一个值，已经非常小了。至此，HTN论文在MNIST和fashion-MNIST上已经得到验证。</p>
 <p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。</p>
 <p>同时为了将模型和这次疫情相结合，找到了这篇文章<a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub">Automated detection of COVID-19 cases using deep neural networks with X-ray images</a>，包含了数据集以及卷积CNN训练的例子，我尝试将它改造成我们上面提到的HTN网络进行训练，以期望能够出现更好的效果。</p>
@@ -63,11 +63,11 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pred_y = torch.max(output1, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">sum = int(torch.sum(pred_y == b_y))</span><br><span class="line">accuracy = sum / BATCH_SIZE</span><br></pre></td></tr></table></figure>
 <p>还有一个坑就是，程序在开始运行的时候准确率只有10%，训练了好几个batch_size也没有明显的提升，于是就一步步追根溯源去查看backward更新函数，各种调试，最后发现人家写的还是对的。</p>
 <p>那么问题出在哪里了呢，我在调试过程中发现，在反向传播BP更新参数那部分很复杂，每一层都有相当多的参数（尤其是张量网络层），例如最上一层是<code>16*16*3*3*3*3*3</code>，然后是<code>8*8*3*3*3*3*3</code>就是按照TTN的结构以此类推。参数这么多我估计得训练很多轮，于是就只能先跑几轮看看效果，不看不知道，一看吓一跳</p>
-<p><img src="assets\1601029097250_meitu_1.jpg" alt="1601029097250"></p>
+<p><img src="/assets/1601029097250_meitu_1.jpg" alt="1601029097250"></p>
 <p>仅仅经过两轮就整体上看到了test acc的增长，尽管每次的幅度很小（这意味着学习率很低）。上述仅仅2个epoch就耗费了大约两个小时的时间，因此我将更高的epoch次数（50+）放到了服务器上，以便于能昼夜不停地尽快得到最好的结果，目前fashion-mnist最高准确率达到90%，跟论文中的描述一致，40-50epoch基本没有变化，可能参数已经接近收敛了，重新设计网络或许能改善效果。</p>
 <p>对于上述方案，可以改进的参数和设计还有很多，例如<strong>学习率的大小</strong>，<strong>张量网络层</strong>和神经网络层的结构都可以进行调整。代码中神经网络层部分仅仅用了<strong>两个线性层</strong>作为补充，而诸如<strong>CNN、RNN</strong>等神经网络结构也可以一定程度上提高准确率。这篇论文代码只给了fashion-MNIST的代码，MNIST的代码已经在跑了，同时我还在尝试修改网络的结构，以达到更好的效果。</p>
 <p>经过一晚上的设计，终于研究出了以下（含卷积层）的混合神经网络，下面将在MNIST上训练并查看这种设计的效果。</p>
-<p><img src="assets\1601211309856.png" alt="1601211309856"></p>
+<p><img src="/assets/1601211309856.png" alt="1601211309856"></p>
 <p>还有一些tensorboard和torch库的基本知识，内容比较多，就不再一一列举啦，以上就是本周的汇报。</p>
 <h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><p><a href="https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server#comment83193829_40413202"><em>1. How can I run Tensorboard on a remote server?</em></a></p>
 <p><a href="https://blog.csdn.net/qq_24739717/article/details/103068009"><em>2. 学习笔记|Pytorch使用教程20(TensorBoard使用（一）</em></a></p>
@@ -81,63 +81,6 @@
       </categories>
       <tags>
         <tag>张量基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTN Paper</title>
-    <url>/2020/09/13/35Study-Report(0831-0906)/</url>
-    <content><![CDATA[<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。</p>
-<ul>
-<li><p>如何唯一标识用户(_openId)</p>
-<p>即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。</p>
-<a id="more"></a>
-</li>
-<li><p>如何表示矩阵、公式？</p>
-<p>小程序目前的渲染功能还比较有限，不支持Latex、MathType，并且这类公式在存储到数据库中时也十分的不方便，因此采用图片的形式，将题目保存成图片，随后读取出来，只要位置大小安排合理，能够正常显示。</p>
-</li>
-<li><p>控件和布局可以用现成的框架Weui，Vant等等，开发起来事半功倍。当然要是能熟练运用flex布局，那也是妥妥的</p>
-</li>
-</ul>
-<h2 id="Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks"><a href="#Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks" class="headerlink" title="Quantum-Classical Machine learning by Hybrid Tensor Networks"></a>Quantum-Classical Machine learning by Hybrid Tensor Networks</h2><h3 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h3><p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
-<p><img src="/assets/879be0a02961a360ce311a4bb024b0be.png" alt=""></p>
-<h3 id="3-2-张量网络机器学习的局限性"><a href="#3-2-张量网络机器学习的局限性" class="headerlink" title="3.2 张量网络机器学习的局限性"></a>3.2 张量网络机器学习的局限性</h3><p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
-<ol>
-<li>表示能力</li>
-</ol>
-<p>张量网络是一个线性函数并且遵从量子力学的叠加原理，这是量子多体系统中张量网络的固有特性，但同时也是建立<strong>强大的机器学习通用分类器的障碍</strong>，所以在处理时一般都通过非线性函数映射成到Hilbert空间，因此<strong>特征映射函数</strong>是张量网络机器学习的一个关键点(类比SVM)。张量网络机器学习TTN需要比经典模型(CNN、FCN等)更多的参数，而文中的<strong>量子经典混合张量网络</strong>需要的参数比TTN还要少的多！参数的比较见下图</p>
-<p><img src="/assets/4a4d245e651e1944d8cd321820cbb1fb.png" alt=""></p>
-<ol>
-<li>体系结构的可扩展性</li>
-</ol>
-<p><img src="/assets/4505f794f327f2c207b568ef4019e4f2.png" alt=""></p>
-<p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(</strong>例如全连接层<strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图(c)表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
-<h3 id="3-3-混合神经网络"><a href="#3-3-混合神经网络" class="headerlink" title="3.3 混合神经网络"></a>3.3 混合神经网络</h3><p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
-<p><img src="/assets/cefc9d2c3a147e42cd4123c01846f821.png" alt=""></p>
-<p>而张量网络中张量的收缩过程可以用如下公式表示：</p>
-<p><img src="/assets/16d5f4701d4230f5c3194c0f68e8b259.png" alt=""></p>
-<p>其中表示i+1层的第k个张量，所以(2)式推导为：</p>
-<p><img src="/assets/a45b75d8c0b8fe6b1f987fa2feaf49f3.png" alt=""></p>
-<p>其中表示第i层的第j个张量，随后用梯度下降更新张量</p>
-<p><img src="/assets/b6ff5f61c6f7ebc9deabc271f410a07d.png" alt=""></p>
-<p>其中表示学习率，用这样的方式可以逐步更新HTN中的各个张量</p>
-<h4 id="3-4-量子态分类和量子分类自编码"><a href="#3-4-量子态分类和量子分类自编码" class="headerlink" title="3.4 量子态分类和量子分类自编码"></a>3.4 <strong>量子态分类和量子分类自编码</strong></h4><p>分类的思路也比较容易理解，首先是将图片的像素映射成量子态，单个像素的映射如下</p>
-<p><img src="/assets/b48a49d4b30470aecc5f6635740abbfc.png" alt=""></p>
-<p>随后将像素表示成矩阵成绩态，如下</p>
-<p><img src="/assets/f953a9ebb0bc7aba45d3a39fe43a85bd.png" alt=""></p>
-<p>将作为输入，与现成的张量网络进行收缩，将输入表示成低维的中间态，即对应如下的公式</p>
-<p><img src="/assets/eb158b15460bf6bc3dd007b7a4442eda.png" alt=""></p>
-<p>那么中间态(也就是后面神经网络的输入)就可以表示为</p>
-<p><img src="/assets/407e6a5eb3d6730d5238c3d0629af7c7.png" alt=""></p>
-<p>其中M表示测量操作，随后通过神经网络层将输入分成对应的十个类别，训练过程如下图</p>
-<p><img src="/assets/0968f4a2730b423b10c47be88cc5f44d.png" alt=""></p>
-<p>量子分类器自编码就是将输入的量子态压缩成低维的中间态，将损失函数换位MSE，同时使用PSNR来对比图片压缩前后的差异，对MNIST数据的压缩如下所示。</p>
-<p><img src="/assets/db1f021ee86472ba575412e96e484a49.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>周汇报</category>
-      </categories>
-      <tags>
-        <tag>HTN</tag>
       </tags>
   </entry>
   <entry>
@@ -239,6 +182,63 @@
       </categories>
       <tags>
         <tag>张量基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTN Paper</title>
+    <url>/2020/09/06/35Study-Report(0831-0906)/</url>
+    <content><![CDATA[<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。</p>
+<ul>
+<li><p>如何唯一标识用户(_openId)</p>
+<p>即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。</p>
+<a id="more"></a>
+</li>
+<li><p>如何表示矩阵、公式？</p>
+<p>小程序目前的渲染功能还比较有限，不支持Latex、MathType，并且这类公式在存储到数据库中时也十分的不方便，因此采用图片的形式，将题目保存成图片，随后读取出来，只要位置大小安排合理，能够正常显示。</p>
+</li>
+<li><p>控件和布局可以用现成的框架Weui，Vant等等，开发起来事半功倍。当然要是能熟练运用flex布局，那也是妥妥的</p>
+</li>
+</ul>
+<h2 id="Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks"><a href="#Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks" class="headerlink" title="Quantum-Classical Machine learning by Hybrid Tensor Networks"></a>Quantum-Classical Machine learning by Hybrid Tensor Networks</h2><h3 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h3><p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
+<p><img src="/assets/879be0a02961a360ce311a4bb024b0be.png" alt=""></p>
+<h3 id="3-2-张量网络机器学习的局限性"><a href="#3-2-张量网络机器学习的局限性" class="headerlink" title="3.2 张量网络机器学习的局限性"></a>3.2 张量网络机器学习的局限性</h3><p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
+<ol>
+<li>表示能力</li>
+</ol>
+<p>张量网络是一个线性函数并且遵从量子力学的叠加原理，这是量子多体系统中张量网络的固有特性，但同时也是建立<strong>强大的机器学习通用分类器的障碍</strong>，所以在处理时一般都通过非线性函数映射成到Hilbert空间，因此<strong>特征映射函数</strong>是张量网络机器学习的一个关键点(类比SVM)。张量网络机器学习TTN需要比经典模型(CNN、FCN等)更多的参数，而文中的<strong>量子经典混合张量网络</strong>需要的参数比TTN还要少的多！参数的比较见下图</p>
+<p><img src="/assets/4a4d245e651e1944d8cd321820cbb1fb.png" alt=""></p>
+<ol>
+<li>体系结构的可扩展性</li>
+</ol>
+<p><img src="/assets/4505f794f327f2c207b568ef4019e4f2.png" alt=""></p>
+<p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(</strong>例如全连接层<strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图(c)表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
+<h3 id="3-3-混合神经网络"><a href="#3-3-混合神经网络" class="headerlink" title="3.3 混合神经网络"></a>3.3 混合神经网络</h3><p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
+<p><img src="/assets/cefc9d2c3a147e42cd4123c01846f821.png" alt=""></p>
+<p>而张量网络中张量的收缩过程可以用如下公式表示：</p>
+<p><img src="/assets/16d5f4701d4230f5c3194c0f68e8b259.png" alt=""></p>
+<p>其中表示i+1层的第k个张量，所以(2)式推导为：</p>
+<p><img src="/assets/a45b75d8c0b8fe6b1f987fa2feaf49f3.png" alt=""></p>
+<p>其中表示第i层的第j个张量，随后用梯度下降更新张量</p>
+<p><img src="/assets/b6ff5f61c6f7ebc9deabc271f410a07d.png" alt=""></p>
+<p>其中表示学习率，用这样的方式可以逐步更新HTN中的各个张量</p>
+<h4 id="3-4-量子态分类和量子分类自编码"><a href="#3-4-量子态分类和量子分类自编码" class="headerlink" title="3.4 量子态分类和量子分类自编码"></a>3.4 <strong>量子态分类和量子分类自编码</strong></h4><p>分类的思路也比较容易理解，首先是将图片的像素映射成量子态，单个像素的映射如下</p>
+<p><img src="/assets/b48a49d4b30470aecc5f6635740abbfc.png" alt=""></p>
+<p>随后将像素表示成矩阵成绩态，如下</p>
+<p><img src="/assets/f953a9ebb0bc7aba45d3a39fe43a85bd.png" alt=""></p>
+<p>将作为输入，与现成的张量网络进行收缩，将输入表示成低维的中间态，即对应如下的公式</p>
+<p><img src="/assets/eb158b15460bf6bc3dd007b7a4442eda.png" alt=""></p>
+<p>那么中间态(也就是后面神经网络的输入)就可以表示为</p>
+<p><img src="/assets/407e6a5eb3d6730d5238c3d0629af7c7.png" alt=""></p>
+<p>其中M表示测量操作，随后通过神经网络层将输入分成对应的十个类别，训练过程如下图</p>
+<p><img src="/assets/0968f4a2730b423b10c47be88cc5f44d.png" alt=""></p>
+<p>量子分类器自编码就是将输入的量子态压缩成低维的中间态，将损失函数换位MSE，同时使用PSNR来对比图片压缩前后的差异，对MNIST数据的压缩如下所示。</p>
+<p><img src="/assets/db1f021ee86472ba575412e96e484a49.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
+      <tags>
+        <tag>HTN</tag>
       </tags>
   </entry>
   <entry>

@@ -36,7 +36,12 @@
 <p>所以有效的方法是<strong>制定改进技能的培训方法</strong>，强调实干，而不是知晓</p>
 <p>外科与其他专科的不同，例如血管破裂组织损伤，能够立马暴露出来，即使反馈，知道哪错了。</p>
 <p>杰出医生做好计划、监控手术、准备临场应变。有有效的心理表征</p>
-<h2 id="在生活中运用刻意练习原则"><a href="#在生活中运用刻意练习原则" class="headerlink" title="在生活中运用刻意练习原则"></a>在生活中运用刻意练习原则</h2><p><strong>遇到瓶颈怎么处理？</strong></p>
+<h2 id="10月2日更新-第六章-在生活中运用刻意练习原则"><a href="#10月2日更新-第六章-在生活中运用刻意练习原则" class="headerlink" title="10月2日更新  第六章 在生活中运用刻意练习原则"></a>10月2日更新  第六章 在生活中运用刻意练习原则</h2><p><strong>刻意练习针对每一个有梦想的人</strong></p>
+<p>首先，找一位好导师，你可以看视频、参加团体课，但无论看多少遍示范，但你依然会注意不到或者理解错某些细节，有时甚至还忽略了并不细微的事情。而且即使你发现自己的缺陷，也无法想出最好的方法来弥补。尤其是，你的心理表征将存在问题。</p>
+<p>导师的选择也有一定的要求，不是越优秀、杰出的导师越好，要看其他人对老师的评价、老师的熟练度和经验。导师最重要的事情是帮助你建立<strong>心理表征</strong>，以便能够检测和纠正自己的表现。<strong>当自己改变了时，可能需要更换导师。</strong></p>
+<p>要记住：如果你在走神，或者你很放松，并且只为了好玩，你可能不会进步。</p>
+<p>没有导师怎么办、富兰克林的例子、要自己设计练习方法。。为了提高，我们必须自己创造机会</p>
+<p><strong>遇到瓶颈怎么处理？</strong></p>
 <p>尝试做不同的事情，而非更难的事情.</p>
 <p>有目的练习的特点</p>
 <ol>
@@ -57,19 +62,48 @@
       </tags>
   </entry>
   <entry>
-    <title>HTN-Experiment（updating...）</title>
+    <title>HTN-Experiment</title>
     <url>/2020/09/30/38Study-Report(0928-1004)/</url>
     <content><![CDATA[<p>本周主要工作是尝试不同的数据集、不同的方案、对比分析不同的效果及产生的原因</p>
 <a id="more"></a>
-<p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<font color='red'><strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台Colab（这个待会说），内存还是溢出了。观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见链接内容。</p>
+<h2 id="HTN-Experiment"><a href="#HTN-Experiment" class="headerlink" title="HTN-Experiment"></a>HTN-Experiment</h2><p>Github项目地址：<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network">这里</a>，欢迎大家多多关注！</p>
+<h3 id="On-MNIST-amp-fashion-MNIST"><a href="#On-MNIST-amp-fashion-MNIST" class="headerlink" title="On MNIST&amp;fashion-MNIST"></a>On MNIST&amp;fashion-MNIST</h3><p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<font color='red'><strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台Colab（一个免费的在线GPU算力平台，TeslaP4），内存还是溢出了。观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见<u>链接内容4</u>。</p>
 <p>下图是验证论文HTN在MNIST数据集上的效果，计算经过41个epochs（耗时19小时34分）的完整过程，并用<a href="https://w1ww.tensorflow.org/tensorboard">Tensorboard</a>详细的记录训练过程如下图所示。</p>
 <p><img src="/assets/160138.png" alt="img"></p>
 <p>从图中可以看出，Accuracy最高到达99.2%，之后没有很大涨幅，基本已经收敛。loss也在不断地降低最后收敛于0.04这样一个值，已经非常小了。至此，HTN论文在MNIST和fashion-MNIST上已经得到验证。</p>
-<p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。</p>
-<p>同时为了将模型和这次疫情相结合，找到了这篇文章<a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub">Automated detection of COVID-19 cases using deep neural networks with X-ray images</a>，包含了数据集以及卷积CNN训练的例子，我尝试将它改造成我们上面提到的HTN网络进行训练，以期望能够出现更好的效果。</p>
-<h2 id="Colab"><a href="#Colab" class="headerlink" title="Colab"></a>Colab</h2><p>新的含CNN的网络，仅仅在第三轮就达到了70%的准确率</p>
-<h2 id="华为开发者大会2020"><a href="#华为开发者大会2020" class="headerlink" title="华为开发者大会2020"></a>华为开发者大会2020</h2><p>中科院计算所——孙晓明</p>
-<p>听完报告收获还是蛮大的，感觉思路清晰了很多。</p>
+<p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。对于上述实验，数据集采用的是MNIST的60000张图片，只能从<strong>数据预处理</strong>、<strong>算法模型调优</strong>、<strong>算法参数调优</strong>几个角度来尝试提高准确率，因此在新的算法模型<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network/blob/master/HTN_MNIST_CNN_V4.py">HTN_MNIST_CNN_V4.py</a>中引入了Dropout、Leakly relu进行优化，如果效果不佳，下一步将尝试NASnet、AlexNet等其他神经网络。</p>
+<h3 id="On-COVID-19-Datasets"><a href="#On-COVID-19-Datasets" class="headerlink" title="On COVID-19 Datasets"></a>On COVID-19 Datasets</h3><p>另一方面，同时为了将模型和这次疫情相结合，找到了这篇文章<a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><strong>Automated detection of COVID-19 cases using deep neural networks with X-ray images</strong></a>，包含了数据集以及卷积CNN训练的例子，我尝试将它改造成我们上面提到的HTN网络进行训练，以期望能够出现更好的效果。这篇文章的数据源是一些感冒或者发烧患者的<strong>胸部X射线照片</strong>图片（如下图），它们共分为三类，即<strong>肺炎</strong>、<strong>正常</strong>、<strong>COVID-19</strong>。</p>
+<p><img src="/assets/1601799444853.png" width="80%"></p>
+<p>并且<a href="https://github.com/muhammedtalo/COVID-19">COVID-19项目中</a>给出了一些已经经过诊断的分好类的图片，用这些图片来训练我们构造的神经网络模型参数，最终就能构建对未知图片的预测能力。当然该项目代码中也缺少一部分数据读取处理的过程，经过不断地查询和调试，最终可以通过以下代码补全</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line">kf = KFold(n_splits=<span class="number">5</span>)</span><br><span class="line">skf=StratifiedKFold(n_splits=<span class="number">5</span>)</span><br><span class="line">path = <span class="string">&quot;COVID-19/X-Ray Image DataSet&quot;</span></span><br><span class="line">data= (ImageList.from_folder(path)</span><br><span class="line">.split_none()</span><br><span class="line">.label_from_folder()</span><br><span class="line">.transform(size=(<span class="number">256</span>,<span class="number">256</span>))</span><br><span class="line">.databunch()).normalize(imagenet_stats)</span><br><span class="line"></span><br><span class="line">df=data.to_df()</span><br><span class="line">split_data = <span class="literal">None</span></span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> skf.split(df.index, df[<span class="string">&#x27;y&#x27;</span>]): <span class="comment"># 划分数据集</span></span><br><span class="line">  print(len(train_index), len(test_index))</span><br><span class="line">  print((train_index), (test_index))</span><br><span class="line">  d = (ImageList.from_folder(path)</span><br><span class="line">          .split_by_idxs(train_index, test_index)</span><br><span class="line">          .label_from_folder()</span><br><span class="line">          .transform(size = (<span class="number">256</span>,<span class="number">256</span>))</span><br><span class="line">          .databunch(num_workers =<span class="number">0</span>)).normalize(imagenet_stats)</span><br><span class="line">  split_data = d</span><br><span class="line">  <span class="keyword">break</span></span><br><span class="line">data = split_data</span><br></pre></td></tr></table></figure>
+<p>传统的train-test分割方式容易浪费数据，并且容易过拟合。因此这里采用了<strong>交叉验证</strong>的分割方式，一般应用于样本数量不足的情况。它的原理是<strong>将数据集A随机分为k个包，每次将其中一个包作为测试集，剩下k-1个包作为训练集进行训练</strong>。部分训练过程如下图所示<img src="/assets/1601802574535.png" alt="1601802574535"></p>
+<p>这个神经网络结构相当复杂，大概有50多层，而且图片的尺寸比较特殊，基于HTN的网络还在设计中，计划先把原论文中的结果验证之后，再跑修改后的HTN网络。</p>
+<h2 id="Knowledges-in-Neural-Network"><a href="#Knowledges-in-Neural-Network" class="headerlink" title="Knowledges in Neural Network"></a>Knowledges in Neural Network</h2><h3 id="How-to-improve-our-accuracy"><a href="#How-to-improve-our-accuracy" class="headerlink" title="How to improve our accuracy"></a>How to improve our accuracy</h3><p>四个角度去提高模型的准确率，详细见<u>相关链接5</u></p>
+<ol>
+<li>从数据上提升性能：<strong>数据预处理、特征提取、特征选择</strong>等</li>
+<li>从算法上提升性能：<strong>算法框架</strong>CNN、RNN、GAN？要考虑算法的结构和特点</li>
+<li>从算法调优上提升性能：参数是否合理？Grid Searching？Batch Learning？</li>
+<li>从模型融合上提升性能：集成方式<strong>Voting</strong>？<strong>Bagging</strong>？<strong>Boosting</strong>？</li>
+</ol>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><blockquote>
+<p>According to <a href="https://en.wikipedia.org/wiki/Dropout_(neural_networks">Wikipedia</a>) —</p>
+<p>The term “dropout” refers to dropping out units (both hidden and visible) in a neural network.</p>
+</blockquote>
+<p>总的来说，dropout就是在随机选择神经元的训练阶段忽略某些单元，同时也意味着在<strong>向前或者向后</strong>传播过程中不考虑这些单位。从神经网络的细节上来看，在每个训练阶段，单个节点要么以$1-p$的概率从网络中退出，要么以概率$p$的形式被保留，从而留下一个简化的网络（节点的输入和输出边也将被删除）。</p>
+<p><strong>So what’s the reason why we need dropout?</strong></p>
+<p><strong>The answer to these questions is “to prevent over-fitting”.</strong></p>
+<p>全连接层占据了大部分的参数，因此神经元在训练过程中彼此之间发展了相互依赖性，这抑制了每个神经元的个体力量，导致训练数据过拟合，当然增大数据量也是一个不错的方法。</p>
+<h3 id="ReLU-in-CNN"><a href="#ReLU-in-CNN" class="headerlink" title="ReLU in CNN"></a>ReLU in CNN</h3><blockquote>
+<p>According to <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks">Wikipedia</a>&gt;) —</p>
+<p>The  ReLU is an <a href="https://en.wikipedia.org/wiki/Activation_function">activation function</a> defined as the positive part of its argument:</p>
+<p>$f(x) = max(0,x)$</p>
+<p>where <em>x</em> is the input to a neuron.</p>
+</blockquote>
+<p><strong>ReLU是目前世界上使用最广的激活函数，除此之外，常见的激活函数还有Softmax、tanh、Sigmoid等等。</strong>激活函数是<strong>神经网络或深度学习</strong>中一个非常重要的模块，它一般用来对layer的output进行激活（例如放缩到0-1之间，分成两类等等），经过不同函数的激活，连续的数据可以变为离散的数据，数据的分布也会发生变化。</p>
+<p><img src='/assets/1601783272663.png' width="70%"></p>
+<p>ReLU和sigmoid的图像如上图所示，可以看出它的取值范围是0到无穷，且处处可导（梯度传播会用到）。此外，为了处理不同场景的数据，ReLU函数还有很多的变体，例如Leaky ReLU、ELU、PReLU等等</p>
+<p>在CNN中，ReLU的使用有助于<strong>防止操作神经网络所需的计算量呈指数增长</strong>。如果CNN缩放，添加额外ReLU的计算成本将线性增加。ReLU还可以防止出现所谓的“<strong>消失梯度</strong>”问题，这在使用S型函数时很常见。这个问题指的是对于Higher Input，神经元的梯度趋于接近零的趋势。</p>
+<h2 id="华为2020开发者大会和量子计算软件创新大赛"><a href="#华为2020开发者大会和量子计算软件创新大赛" class="headerlink" title="华为2020开发者大会和量子计算软件创新大赛"></a><a href="https://m.koushare.com/lives/room/621135">华为2020开发者大会</a>和<a href="https://zhibo.sina.com.cn/news/ty40018557">量子计算软件创新大赛</a></h2><h3 id="中科院计算所——孙晓明"><a href="#中科院计算所——孙晓明" class="headerlink" title="中科院计算所——孙晓明"></a>中科院计算所——孙晓明</h3><p>听完报告收获还是蛮大的，感觉思路清晰了很多。</p>
 <ul>
 <li>首先就是量子计算时借助<strong>量子力学特性（纠缠、叠加）</strong>来获得加速。</li>
 <li>量子算法：在<strong>量子图灵机</strong>上运行<strong>量子算法</strong></li>
@@ -87,13 +121,25 @@
 <li>新型量子优化算法框架设计？</li>
 </ul>
 <p><img src='C:/Users/SAMSUNG/AppData/Roaming/Typora/typora-user-images/1601360428005.png' algin='center' width='70%'></p>
-<p>Github项目地址：<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network">这里</a>，欢迎大家多多关注！</p>
-<h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><p><a href="https://blog.csdn.net/github_37228709/article/details/107541005"><em>1.Colab、矩池云、mistGPU几个云GPU使用心得</em></a></p>
+<h3 id="大赛感悟"><a href="#大赛感悟" class="headerlink" title="大赛感悟"></a>大赛感悟</h3><p>这次决赛的队伍是来自南大、中科大、上大、清华、北大、南方科大的六个团队，这些学校都是实力派强校。它们的作品也是经过层层选拔之后剩下来的。</p>
+<p>他们的答辩都非常的精彩，能从他们的讲解中看出他们的强大的基础和自信，并且设计的方案也都非常的贴近实际场景，比如<strong>量子计算开源框架Mizore、北大的路线规划、DWBA</strong>等等，它们的思路都是将经典的方式方法迁移到量子机器上去，从而期望创造更多的商业价值。然而，这还不是最令我吃惊的地方。最让我印象深刻的是视频中前面那两位老师的问题，简直切中要害、非常犀利。这些问题让我更清晰地了解了这些团队得工作。</p>
+<p>例如：</p>
+<p>你这个项目用量子计算机来做有什么优势？有没有和经典方式的一个比较？</p>
+<p>在处理过程中，有没有考虑噪声问题？</p>
+<p>如果问题场景更加复杂，算法是否有效等？</p>
+<p>怎么样进行梯度求导的，你的Loss function是什么？</p>
+<p>这些问题真的很宝贵，也带给了我很多思考。并且我发现，PPT答辩人都有一大堆的原因去解释，可总感觉他们没讲到点子上，还要争着抢着表达观点。有些功能没有就是没有，未来可以再加上呀，接过话筒就开始绕（回避问题）。。。这点我就比较欣赏清华的团队，很坦诚，有什么就是什么，有些功能就是没考虑到，后续可以进行完善。</p>
+<p>还有一点感受就是他们的大部分项目没有突出自己的<strong>量子优势</strong>和<strong>算法复杂度</strong>，比如北大的交通网络设计，几个量子比特可以清晰的体现量子计算方面的优势呢？这时如果有个对比的图像或者表格那就完美了。还有DWBA，尽管我是第一次听区块链方面的内容，可是我总感觉他题目范围定的太大了。将拜占庭共识问题用量子计算解决是一个不错的思路，但是他没有用详细的公式去支撑他们的观点，直接就上很多涉及范围很广的结论，总之我半信半疑。</p>
+<p>最后就是这些团队的方案基于经典理论，即使他们运用了量子计算的一些特点，但还是无可避免的与经典有千丝万缕的关系。也就是说他们的实现<strong>并不是完全基于量子的</strong>，而是将<strong>两者混合起来</strong>，例如先用经典计算机进行<strong>预计算</strong>，随后再将处理好的输入送入HIQ进行<strong>量子计算</strong>。总之，在这次高手们激烈角逐的过程中我学到了很多知识，有一些是概念性的比如<strong>最优容忍界</strong>、<strong>FLP不可能定理、Aharonov态、异步分布式系统、流守恒</strong>等等，还有一些就是怎样去表达观点和回答问题。</p>
+<h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><p><a href="https://blog.csdn.net/github_37228709/article/details/107541005"><em>1. Colab、矩池云、mistGPU几个云GPU使用心得</em></a></p>
 <p><a href="https://blog.csdn.net/jinyuan7708/article/details/89948938?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param"><em>2. Deep Learning时代最好用的云GPU——Google Colab</em></a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/54389036"><strong><em>3.Google lab使用心得</em></strong></a></p>
-<p><a href="https://blog.csdn.net/qq_36401512/article/details/96163940"><em>4.pytorch 关于显存增长原因以及显存占用优化</em></a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/54389036"><strong><em>3. Google lab使用心得</em></strong></a></p>
+<p><a href="https://blog.csdn.net/qq_36401512/article/details/96163940"><em>4. pytorch 关于显存增长原因以及显存占用优化</em></a></p>
+<p><a href="https://blog.csdn.net/heyc861221/article/details/80125471"><em>5. 深度学习性能提升的诀窍</em></a></p>
 <p><a href="https://stackoverflow.com/questions/61254168/prevent-a-google-colab-process-from-being-disconnected"><em>5. prevent-a-google-colab-process-from-being-disconnected</em></a></p>
 <p><a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><em>6. Automated detection of COVID-19 cases using deep neural networks with X-ray images</em></a></p>
+<p><a href="https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5"><em>7. Dropout in (Deep) Machine learning</em></a></p>
+<p><a href="https://docs.fast.ai/vision.data">Vision Data</a></p>
 ]]></content>
       <categories>
         <category>周汇报</category>

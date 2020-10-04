@@ -67,11 +67,13 @@
     <content><![CDATA[<p>本周主要工作是尝试不同的数据集、不同的方案、对比分析不同的效果及产生的原因</p>
 <a id="more"></a>
 <h2 id="HTN-Experiment"><a href="#HTN-Experiment" class="headerlink" title="HTN-Experiment"></a>HTN-Experiment</h2><p>Github项目地址：<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network">这里</a>，欢迎大家多多关注！</p>
-<h3 id="On-MNIST-amp-fashion-MNIST"><a href="#On-MNIST-amp-fashion-MNIST" class="headerlink" title="On MNIST&amp;fashion-MNIST"></a>On MNIST&amp;fashion-MNIST</h3><p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<font color='red'><strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台Colab（一个免费的在线GPU算力平台，TeslaP4），内存还是溢出了。观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见<u>链接内容4</u>。</p>
+<h3 id="On-MNIST-amp-fashion-MNIST"><a href="#On-MNIST-amp-fashion-MNIST" class="headerlink" title="On MNIST&amp;fashion-MNIST"></a>On MNIST&amp;fashion-MNIST</h3><p>上周设计好HTN网络之后，就想跑一跑看看效果，谁知道在多个机子上均出现了<strong>内存溢出</strong></font>的问题。起初我以为是电脑不行，换了一圈，甚至都找到了Google的计算平台<strong>Colab</strong>（一个免费的在线GPU算力平台，TeslaP4），内存还是溢出了。</p>
+<p>观察代码的执行情况，我发现程序在运行过程中，内存占比持续增高，最终填满内存，然后崩溃，这说明程序有些中间执行过程资源没有释放。经过查阅资料（Releated Links3），发现<strong>loss里的tensor不断地放进内存，最终导致溢出</strong>。获取损失函数的计算结果用<code>loss.item()</code>而尽量避免直接用loss，其他内存优化的知识见<u>链接内容4</u>。</p>
 <p>下图是验证论文HTN在MNIST数据集上的效果，计算经过41个epochs（耗时19小时34分）的完整过程，并用<a href="https://w1ww.tensorflow.org/tensorboard">Tensorboard</a>详细的记录训练过程如下图所示。</p>
 <p><img src="/assets/160138.png" alt="img"></p>
 <p>从图中可以看出，Accuracy最高到达99.2%，之后没有很大涨幅，基本已经收敛。loss也在不断地降低最后收敛于0.04这样一个值，已经非常小了。至此，HTN论文在MNIST和fashion-MNIST上已经得到验证。</p>
-<p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。对于上述实验，数据集采用的是MNIST的60000张图片，只能从<strong>数据预处理</strong>、<strong>算法模型调优</strong>、<strong>算法参数调优</strong>几个角度来尝试提高准确率，因此在新的算法模型<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network/blob/master/HTN_MNIST_CNN_V4.py">HTN_MNIST_CNN_V4.py</a>中引入了Dropout、Leakly relu进行优化，如果效果不佳，下一步将尝试NASnet、AlexNet等其他神经网络。</p>
+<p>相比之下，设计含卷积层的网络已经迭代到epoch 77，仅用了不到10个小时，可见GPU加速的效果。相比于原先的两个线性层，CNN的引入并没有很大幅度的提升准确率，收敛结果在92%左右徘徊，只能说比线性层的90%好了一点点。</p>
+<p>对于上述实验，数据集采用的是MNIST的60000张图片，只能从<strong>数据预处理</strong>、<strong>算法模型调优</strong>、<strong>算法参数调优</strong>几个角度来尝试提高准确率，因此在新的算法模型<a href="https://github.com/YuleZhang/Hybrid-Tensor-Network/blob/master/HTN_MNIST_CNN_V4.py">HTN_MNIST_CNN_V4.py</a>中引入了Dropout、Leakly relu进行优化，如果效果不佳，下一步将尝试NASnet、AlexNet等其他神经网络。</p>
 <h3 id="On-COVID-19-Datasets"><a href="#On-COVID-19-Datasets" class="headerlink" title="On COVID-19 Datasets"></a>On COVID-19 Datasets</h3><p>另一方面，同时为了将模型和这次疫情相结合，找到了这篇文章<a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><strong>Automated detection of COVID-19 cases using deep neural networks with X-ray images</strong></a>，包含了数据集以及卷积CNN训练的例子，我尝试将它改造成我们上面提到的HTN网络进行训练，以期望能够出现更好的效果。这篇文章的数据源是一些感冒或者发烧患者的<strong>胸部X射线照片</strong>图片（如下图），它们共分为三类，即<strong>肺炎</strong>、<strong>正常</strong>、<strong>COVID-19</strong>。</p>
 <p><img src="/assets/1601799444853.png" width="80%"></p>
 <p>并且<a href="https://github.com/muhammedtalo/COVID-19">COVID-19项目中</a>给出了一些已经经过诊断的分好类的图片，用这些图片来训练我们构造的神经网络模型参数，最终就能构建对未知图片的预测能力。当然该项目代码中也缺少一部分数据读取处理的过程，经过不断地查询和调试，最终可以通过以下代码补全</p>
@@ -103,7 +105,7 @@
 <p><img src='/assets/1601783272663.png' width="70%"></p>
 <p>ReLU和sigmoid的图像如上图所示，可以看出它的取值范围是0到无穷，且处处可导（梯度传播会用到）。此外，为了处理不同场景的数据，ReLU函数还有很多的变体，例如Leaky ReLU、ELU、PReLU等等</p>
 <p>在CNN中，ReLU的使用有助于<strong>防止操作神经网络所需的计算量呈指数增长</strong>。如果CNN缩放，添加额外ReLU的计算成本将线性增加。ReLU还可以防止出现所谓的“<strong>消失梯度</strong>”问题，这在使用S型函数时很常见。这个问题指的是对于Higher Input，神经元的梯度趋于接近零的趋势。</p>
-<h2 id="华为2020开发者大会和量子计算软件创新大赛"><a href="#华为2020开发者大会和量子计算软件创新大赛" class="headerlink" title="华为2020开发者大会和量子计算软件创新大赛"></a><a href="https://m.koushare.com/lives/room/621135">华为2020开发者大会</a>和<a href="https://zhibo.sina.com.cn/news/ty40018557">量子计算软件创新大赛</a></h2><h3 id="中科院计算所——孙晓明"><a href="#中科院计算所——孙晓明" class="headerlink" title="中科院计算所——孙晓明"></a>中科院计算所——孙晓明</h3><p>听完报告收获还是蛮大的，感觉思路清晰了很多。</p>
+<h2 id="华为2020开发者大会和量子计算软件创新大赛"><a href="#华为2020开发者大会和量子计算软件创新大赛" class="headerlink" title="华为2020开发者大会和量子计算软件创新大赛"></a><a href="https://m.koushare.com/lives/room/621135">华为2020开发者大会</a>和<a href="https://zhibo.sina.com.cn/news/ty40018557">量子计算软件创新大赛</a></h2><h3 id="华为2020开发者大会"><a href="#华为2020开发者大会" class="headerlink" title="华为2020开发者大会"></a>华为2020开发者大会</h3><p>听完报告收获还是蛮大的，尤其是中科院计算所孙晓明对量子计算梳理，让我思路清晰了很多。</p>
 <ul>
 <li>首先就是量子计算时借助<strong>量子力学特性（纠缠、叠加）</strong>来获得加速。</li>
 <li>量子算法：在<strong>量子图灵机</strong>上运行<strong>量子算法</strong></li>
@@ -112,34 +114,43 @@
 <li>那么关键就在于找到可以优化可以加速的哪些问题，逐渐找到边界</li>
 <li>傅里叶算法相当于找到了周期（量子态可以同时表示一个周期的各个值）</li>
 </ul>
-<p><strong>量子查询模型</strong>：量子计算只能进行<strong>酉操作（可逆变换）</strong>，Toffoli门可以实现任何可逆布尔函数（通用门），这就意味着凡是能用经典计算机解决的问题，量子计算机也能解决，并且在某些方面能够加速。</p>
-<p><strong>常见算法</strong>：Deutsch-Jozsa算法(傅里叶变换)、Shor算法大整数分解（指数加速）、Grover算法（开平方加速、应用更广）、振幅放大算法</p>
-<p>解决问题：局部搜索、求解线性方程组、有先验知识的量子搜索、体积估计问题、量子群测试算法、子团查找（社区发现）问题</p>
+<p><strong>量子查询模型</strong></p>
+<p>量子计算只能进行<strong>酉操作（可逆变换）</strong>，Toffoli门可以实现任何可逆布尔函数（通用门），这就意味着凡是能用经典计算机解决的问题，量子计算机也能解决，并且在某些方面能够加速。</p>
+<p><strong>常见算法</strong></p>
+<p>Deutsch-Jozsa算法(傅里叶变换)、Shor算法大整数分解（指数加速）、Grover算法（开平方加速、应用更广）、振幅放大算法。</p>
+<p><strong>解决问题</strong></p>
+<p>局部搜索、求解线性方程组、有先验知识的量子搜索、体积估计问题、量子群测试算法、子团查找（社区发现）问题。</p>
 <h3 id="方向和挑战"><a href="#方向和挑战" class="headerlink" title="方向和挑战"></a>方向和挑战</h3><ul>
 <li>量子计算能否在多项式时间解决<font color='red'>（NP-难的）组合优化问题</font>？</li>
 <li>量子计算能否加速困难组合优化问题的<font color='red'>近似算法</font>？</li>
 <li>新型量子优化算法框架设计？</li>
 </ul>
-<p><img src='C:/Users/SAMSUNG/AppData/Roaming/Typora/typora-user-images/1601360428005.png' algin='center' width='70%'></p>
-<h3 id="大赛感悟"><a href="#大赛感悟" class="headerlink" title="大赛感悟"></a>大赛感悟</h3><p>这次决赛的队伍是来自南大、中科大、上大、清华、北大、南方科大的六个团队，这些学校都是实力派强校。它们的作品也是经过层层选拔之后剩下来的。</p>
+<p><img src='/assets/1601360428005.png' algin='center' width='70%'></p>
+<h3 id="量子计算软件创新大赛感悟"><a href="#量子计算软件创新大赛感悟" class="headerlink" title="量子计算软件创新大赛感悟"></a>量子计算软件创新大赛感悟</h3><p>这次决赛的队伍是来自南大、中科大、上大、清华、北大、南方科大的六个团队，这些学校都是实力派强校。它们的作品也是经过层层选拔之后剩下来的。</p>
 <p>他们的答辩都非常的精彩，能从他们的讲解中看出他们的强大的基础和自信，并且设计的方案也都非常的贴近实际场景，比如<strong>量子计算开源框架Mizore、北大的路线规划、DWBA</strong>等等，它们的思路都是将经典的方式方法迁移到量子机器上去，从而期望创造更多的商业价值。然而，这还不是最令我吃惊的地方。最让我印象深刻的是视频中前面那两位老师的问题，简直切中要害、非常犀利。这些问题让我更清晰地了解了这些团队得工作。</p>
-<p>例如：</p>
-<p>你这个项目用量子计算机来做有什么优势？有没有和经典方式的一个比较？</p>
-<p>在处理过程中，有没有考虑噪声问题？</p>
-<p>如果问题场景更加复杂，算法是否有效等？</p>
-<p>怎么样进行梯度求导的，你的Loss function是什么？</p>
-<p>这些问题真的很宝贵，也带给了我很多思考。并且我发现，PPT答辩人都有一大堆的原因去解释，可总感觉他们没讲到点子上，还要争着抢着表达观点。有些功能没有就是没有，未来可以再加上呀，接过话筒就开始绕（回避问题）。。。这点我就比较欣赏清华的团队，很坦诚，有什么就是什么，有些功能就是没考虑到，后续可以进行完善。</p>
+<p>下面这些问题我印象深刻</p>
+<ul>
+<li><p>你这个项目用量子计算机来做有什么优势？有没有和经典方式的一个比较？</p>
+</li>
+<li><p>在处理过程中，有没有考虑噪声问题？</p>
+</li>
+<li><p>如果问题场景更加复杂，算法是否有效等？</p>
+</li>
+<li><p>怎么样进行梯度求导的，你的Loss function是什么？</p>
+</li>
+</ul>
+<p>这些问题真的很宝贵，也带给了我很多思考。并且我发现，PPT答辩人都有一大堆的原因去解释，可总感觉他们没讲到点子上，还要争着抢着表达观点。有些功能没有就是没有，未来可以再加上呀，接过话筒就开始绕。这点我就比较欣赏清华的团队，很坦诚，有什么就是什么，有些功能就是没考虑到，后续可以进行完善。</p>
 <p>还有一点感受就是他们的大部分项目没有突出自己的<strong>量子优势</strong>和<strong>算法复杂度</strong>，比如北大的交通网络设计，几个量子比特可以清晰的体现量子计算方面的优势呢？这时如果有个对比的图像或者表格那就完美了。还有DWBA，尽管我是第一次听区块链方面的内容，可是我总感觉他题目范围定的太大了。将拜占庭共识问题用量子计算解决是一个不错的思路，但是他没有用详细的公式去支撑他们的观点，直接就上很多涉及范围很广的结论，总之我半信半疑。</p>
 <p>最后就是这些团队的方案基于经典理论，即使他们运用了量子计算的一些特点，但还是无可避免的与经典有千丝万缕的关系。也就是说他们的实现<strong>并不是完全基于量子的</strong>，而是将<strong>两者混合起来</strong>，例如先用经典计算机进行<strong>预计算</strong>，随后再将处理好的输入送入HIQ进行<strong>量子计算</strong>。总之，在这次高手们激烈角逐的过程中我学到了很多知识，有一些是概念性的比如<strong>最优容忍界</strong>、<strong>FLP不可能定理、Aharonov态、异步分布式系统、流守恒</strong>等等，还有一些就是怎样去表达观点和回答问题。</p>
-<h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><p><a href="https://blog.csdn.net/github_37228709/article/details/107541005"><em>1. Colab、矩池云、mistGPU几个云GPU使用心得</em></a></p>
+<h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links"></a>Releated Links</h2><p><a href="https://blog.csdn.net/github_37228709/article/details/107541005"><em>1. Colab、矩池云、mistGPU几个云GPU使用心得</em></a></p>
 <p><a href="https://blog.csdn.net/jinyuan7708/article/details/89948938?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param"><em>2. Deep Learning时代最好用的云GPU——Google Colab</em></a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/54389036"><strong><em>3. Google lab使用心得</em></strong></a></p>
 <p><a href="https://blog.csdn.net/qq_36401512/article/details/96163940"><em>4. pytorch 关于显存增长原因以及显存占用优化</em></a></p>
 <p><a href="https://blog.csdn.net/heyc861221/article/details/80125471"><em>5. 深度学习性能提升的诀窍</em></a></p>
-<p><a href="https://stackoverflow.com/questions/61254168/prevent-a-google-colab-process-from-being-disconnected"><em>5. prevent-a-google-colab-process-from-being-disconnected</em></a></p>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><em>6. Automated detection of COVID-19 cases using deep neural networks with X-ray images</em></a></p>
-<p><a href="https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5"><em>7. Dropout in (Deep) Machine learning</em></a></p>
-<p><a href="https://docs.fast.ai/vision.data">Vision Data</a></p>
+<p><a href="https://stackoverflow.com/questions/61254168/prevent-a-google-colab-process-from-being-disconnected"><em>6. prevent-a-google-colab-process-from-being-disconnected</em></a></p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><em>7. Automated detection of COVID-19 cases using deep neural networks with X-ray images</em></a></p>
+<p><a href="https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5"><em>8. Dropout in (Deep) Machine learning</em></a></p>
+<p><a href="https://docs.fast.ai/vision.data"><em>9. Vision Data</em></a></p>
 ]]></content>
       <categories>
         <category>周汇报</category>

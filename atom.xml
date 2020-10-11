@@ -6,17 +6,17 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-10-11T13:26:04.245Z</updated>
+  <updated>2020-10-11T13:33:39.330Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>刻意练习读书笔记（更新中）</title>
+    <title>HTN+Covid-19（OOM和参数）</title>
     <link href="http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/"/>
     <id>http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/</id>
     <published>2020-10-11T02:30:52.000Z</published>
-    <updated>2020-10-11T13:26:04.245Z</updated>
+    <updated>2020-10-11T13:33:39.330Z</updated>
     
     <summary type="html">
     
@@ -31,10 +31,10 @@
     </summary>
     
     
-      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
     
-      <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
+      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   
@@ -44,29 +44,6 @@
     <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
     <published>2020-09-30T02:30:52.000Z</published>
     <updated>2020-10-09T13:10:27.934Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;训练时长和训练方法&lt;/p&gt;
-&lt;p&gt;训练方法可能是间断性调整的（往往在当前方法遇到瓶颈，无法提高时）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在任何行业或者领域中，最有效和最强大的那类联系，都通过充分利用人类的身体与大脑的适应能力，来逐步的塑造和提升他们的技能，以做到一些过去不可能的事情。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刻意练习读书笔记（更新中）</title>
-    <link href="http://www.yulezhang.com/2020/09/30/DelibratePractice/"/>
-    <id>http://www.yulezhang.com/2020/09/30/DelibratePractice/</id>
-    <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2020-10-10T13:13:35.288Z</updated>
     
     <summary type="html">
     
@@ -447,6 +424,27 @@
     <summary type="html">
     
       Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="考研" scheme="http://www.yulezhang.com/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考研复习回顾总结</title>
+    <link href="http://www.yulezhang.com/2019/08/07/21NextPlan/"/>
+    <id>http://www.yulezhang.com/2019/08/07/21NextPlan/</id>
+    <published>2019-08-07T13:57:00.000Z</published>
+    <updated>2020-08-16T01:31:15.105Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/21NextPlan.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
     
     </summary>
     

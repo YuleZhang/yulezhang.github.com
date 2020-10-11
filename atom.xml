@@ -81,11 +81,11 @@
     <link href="http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/"/>
     <id>http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/</id>
     <published>2020-09-28T10:37:30.000Z</published>
-    <updated>2020-09-30T02:23:58.652Z</updated>
+    <updated>2020-10-11T14:21:06.880Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Tensor-Contracted&quot;&gt;&lt;a href=&quot;#Tensor-Contracted&quot; class=&quot;headerlink&quot; title=&quot;Tensor Contracted&quot;&gt;&lt;/a&gt;Tensor Contracted&lt;/h2&gt;&lt;p&gt;我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。&lt;a href=&quot;https://blog.csdn.net/qq_45777142/article/details/107499465&quot;&gt;刘紫豪同学的博客&lt;/a&gt;里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在&lt;strong&gt;numpy、tensorflow以及Pytorch&lt;/strong&gt;中都提供了&lt;strong&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.einsum.html&quot;&gt;einsum&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.matmul.html&quot;&gt;matmul&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html&quot;&gt;tensordot&lt;/a&gt;&lt;/strong&gt;这三种方式用于计算张量的缩并。&lt;/p&gt;
+      Welcome to my blog, enter password to read.
     
     </summary>
     

@@ -190,7 +190,7 @@ var _hmt = _hmt || [];
        
   <p>本周花了很长时间设计神经网络以及解决<strong>OOM</strong>（Out of Memory）的bug，尤其是OOM的问题，花了很大的力气去调试去修复，直到周五才顺利解决，解决办法其实很简单。 </p>
 <p>周一就开始一边复现论文，一边修改算法模型（改成HTN）。开始还是比较顺利，也巩固了一下<strong>CNN网络的设计</strong>，它需要一层层简单计算输入输出的shape。起初还算比较顺利，设计好了基于HTN的Covid-19肺炎预测算法。算法的网络结构如下：</p>
-<p><img src='D:/WorkSpace/WebsiteSoft/source/assets/1602302858699.png' width='60%'></p>
+<p><img src='/assets/1602302858699.png' width='60%'></p>
 <p>但其在执行过程中出现了<strong>内存溢出</strong>的问题（OOM），由于对<strong>fastai</strong>库的不了解，并且Colab不方便调试和查看内存使用情况，这卡了我好几天。</p>
 <p>在此期间，我尝试从各种角度、各种方案去解决这类问题，以下是我在调试过程中对模型进行的一些尝试</p>
 <ol>

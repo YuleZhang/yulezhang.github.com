@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 <p>本机调试只有<strong>fastai1.0.50.post1版本才能运行这个程序</strong></p>
 </blockquote>
 <p>同时，我还尝试将Colab的项目放到本地运行调试（本机运行时间过长，期间并未出现这样的问题，不利于调试），这个BUG始终无法解决，整的我束手无策。既然各种方法都不行，说明程序没有问题，也许是内存真的太小不够用，于是想尽办法蹭了蹭Colab旧版本的25G RAM，还真成了。在25G Colab上内存其实都没有超过12G，可是在12G的Colab上跑不了，说明这个数字有水分哈哈。总之，直接暴力增加内存的方式解决了这个问题，可是此时Colab也开始通知我GPU使用过于频繁，限制了使用。</p>
-<p>薅不到羊毛了，只能转战<strong>矩池云</strong>，3元一小时的<strong>NVIDIA GeForce RTX 2080 Ti</strong>，经过实验算法可以成功的运行起来，下图是算法运行时显卡的一些参数信息。<br><img src='D:/WorkSpace/WebsiteSoft/source/assets/1602301844903.png' width="70%"></p>
+<p>薅不到羊毛了，只能转战<strong>矩池云</strong>，3元一小时的<strong>NVIDIA GeForce RTX 2080 Ti</strong>，经过实验算法可以成功的运行起来，下图是算法运行时显卡的一些参数信息。<br><img src='/assets/1602301844903.png' width="70%"></p>
 <p>可以看到显存使用率100%，将GPU加速开到了极致（感觉没有Tesla P4快）。再回过头来分析内存不足的原因，总结一下主要有两个方面</p>
 <ol>
 <li>TTN网络部分包含了大量的参数（500W+），在每次训练时要消耗大量的内存</li>

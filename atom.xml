@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-10-11T13:38:46.801Z</updated>
+  <updated>2020-10-11T14:15:24.165Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,17 +16,11 @@
     <link href="http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/"/>
     <id>http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/</id>
     <published>2020-10-11T02:30:52.000Z</published>
-    <updated>2020-10-11T13:38:46.801Z</updated>
+    <updated>2020-10-11T14:15:24.165Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;本周花了很长时间设计神经网络以及解决&lt;strong&gt;OOM&lt;/strong&gt;（Out of Memory）的bug，尤其是OOM的问题，花了很大的力气去调试去修复，直到周五才顺利解决，解决办法其实很简单。
-        
-      
+      Welcome to my blog, enter password to read.
     
     </summary>
     
@@ -66,11 +60,11 @@
     <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
     <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
     <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2020-10-04T09:49:15.085Z</updated>
+    <updated>2020-10-11T14:15:35.139Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本周主要工作是尝试不同的数据集、不同的方案、对比分析不同的效果及产生的原因&lt;/p&gt;
+      Welcome to my blog, enter password to read.
     
     </summary>
     

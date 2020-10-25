@@ -6,17 +6,38 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-10-18T14:16:12.452Z</updated>
+  <updated>2020-10-25T08:00:05.406Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Overfitting?</title>
+    <link href="http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/"/>
+    <id>http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/</id>
+    <published>2020-10-24T02:15:21.000Z</published>
+    <updated>2020-10-25T08:00:05.406Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="Overfitting" scheme="http://www.yulezhang.com/tags/Overfitting/"/>
+    
+  </entry>
   
   <entry>
     <title>GA and TN Decomposition</title>
     <link href="http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/"/>
     <id>http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/</id>
     <published>2020-10-17T03:04:28.000Z</published>
-    <updated>2020-10-18T14:16:12.452Z</updated>
+    <updated>2020-10-19T08:06:40.043Z</updated>
     
     <summary type="html">
     
@@ -426,27 +447,6 @@
     
     
       <category term="ECS" scheme="http://www.yulezhang.com/tags/ECS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>考研结束</title>
-    <link href="http://www.yulezhang.com/2019/12/24/22PostGraduate_Exam/"/>
-    <id>http://www.yulezhang.com/2019/12/24/22PostGraduate_Exam/</id>
-    <published>2019-12-24T06:55:00.000Z</published>
-    <updated>2020-09-26T02:05:15.993Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="考研" scheme="http://www.yulezhang.com/tags/%E8%80%83%E7%A0%94/"/>
     
   </entry>
   

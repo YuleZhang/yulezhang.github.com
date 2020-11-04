@@ -6,10 +6,31 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-10-25T08:37:00.801Z</updated>
+  <updated>2020-11-04T03:37:53.145Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于张量的大数据多聚类及其安全和高效方法研究</title>
+    <link href="http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/"/>
+    <id>http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/</id>
+    <published>2020-11-01T13:46:21.000Z</published>
+    <updated>2020-11-04T03:37:53.145Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;迁移学习和实验&quot;&gt;&lt;a href=&quot;#迁移学习和实验&quot; class=&quot;headerlink&quot; title=&quot;迁移学习和实验&quot;&gt;&lt;/a&gt;迁移学习和实验&lt;/h2&gt;&lt;p&gt;迁移学习(Transfer learning) 顾名思义就是就是把已学训练好的模型参数迁移到新的模型来帮助新模型训练。考虑到大部分数据或任务是存在相关性的，所以通过迁移学习我们可以将已经学到的模型参数（也可理解为模型学到的知识）通过某种方式来分享给新模型从而加快并优化模型的学习效率不用像大多数网络那样从零学习（starting from scratch）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="Overfitting" scheme="http://www.yulezhang.com/tags/Overfitting/"/>
+    
+  </entry>
   
   <entry>
     <title>Overfitting?</title>
@@ -428,25 +449,6 @@
     
     
       <category term="数据挖掘" scheme="http://www.yulezhang.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo部署博客到云服务器ECS</title>
-    <link href="http://www.yulezhang.com/2020/02/07/23DeployToECS/"/>
-    <id>http://www.yulezhang.com/2020/02/07/23DeployToECS/</id>
-    <published>2020-02-07T07:51:00.000Z</published>
-    <updated>2020-09-30T01:54:15.567Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/aliyunPlan.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="ECS" scheme="http://www.yulezhang.com/tags/ECS/"/>
     
   </entry>
   

@@ -6,10 +6,34 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-04T03:37:53.145Z</updated>
+  <updated>2020-11-06T03:14:56.925Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.yulezhang.com/2020/11/06/Study-Report(1102-1108)/"/>
+    <id>http://www.yulezhang.com/2020/11/06/Study-Report(1102-1108)/</id>
+    <published>2020-11-06T02:22:07.142Z</published>
+    <updated>2020-11-06T03:14:56.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;11月6日&lt;/p&gt;
+&lt;p&gt;早上继续看&lt;strong&gt;tensor network with machine
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>基于张量的大数据多聚类及其安全和高效方法研究</title>
@@ -428,27 +452,6 @@
     
     
       <category term="旅行" scheme="http://www.yulezhang.com/tags/%E6%97%85%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据挖掘学习笔记</title>
-    <link href="http://www.yulezhang.com/2020/02/15/24DataMining/"/>
-    <id>http://www.yulezhang.com/2020/02/15/24DataMining/</id>
-    <published>2020-02-15T12:04:00.000Z</published>
-    <updated>2020-09-30T02:19:09.692Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/data-mining.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="学习" scheme="http://www.yulezhang.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="数据挖掘" scheme="http://www.yulezhang.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     
   </entry>
   

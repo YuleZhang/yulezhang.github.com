@@ -158,6 +158,46 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-Study-Report(1102-1108)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2020/11/06/Study-Report(1102-1108)/" class="article-date">
+  <time datetime="2020-11-06T02:22:07.142Z" itemprop="datePublished">2020-11-06</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>11月6日</p>
+<p>早上继续看<strong>tensor network with machine learning</strong>，又有不一样的收获，在看的过程中，忽然想到HTN中TTN的更新方式是通过<strong>梯度下降</strong>的方式，连续的一点点移动，直到收敛。这中间不仅<strong>计算量大</strong>，output要对逐个张量求导，而且由于张量的各个指标都是连续的，参数极大，<strong>更新非常缓慢并且极易造成过拟合</strong>。而同样是TTN网络，在Unitary of Tree Tensor Network中收敛效果就很好，这是因为这篇文章中张量更新的方式不用，这里采用的是<strong>MERA</strong>的方式进行<strong>裁剪更新</strong>，不用求梯度，而是通过环境张量来不断地更新原张量，这种方式<strong>收敛速度更快</strong>，计算方式简单、可解释性强，或许可以结合到HTN中。跟李雷讨论了这个想法，然后他主要继续开拓这个方向。</p>
+<p>我又继续在看TIS的判别，这里采用了Se80和AUC来进行评估模型的效果Riemannian Adaptive Optimization Methods（黎曼自适应优化方法），这里还提出了一个CNN进行TIS预测的模型，或许这个TIS监督学习任务还可以用HTN来进行训练。</p>
+<p>同时这里有StartScan、CNN两个模型来同MPS进行对比。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
   id="post-Study-Report(1026-1101)"
   class="article article-type-post"
   itemscope
@@ -656,62 +696,6 @@ var _hmt = _hmt || [];
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTN/" rel="tag">HTN</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-34Study-Report(0824-0830)"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/08/30/34Study-Report(0824-0830)/"
-    >Unsupervised Learning TNCS</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/08/30/34Study-Report(0824-0830)/" class="article-date">
-  <time datetime="2020-08-30T01:25:33.000Z" itemprop="datePublished">2020-08-30</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行<strong>图片压缩</strong>。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下</p> 
-      <a class="article-more-link" href="/2020/08/30/34Study-Report(0824-0830)/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/" rel="tag">图片压缩</a></li></ul>
 
     </footer>
   </div>

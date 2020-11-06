@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2020/11/06/Study-Report(1102-1108)/</url>
+    <content><![CDATA[<p>11月6日</p>
+<p>早上继续看<strong>tensor network with machine learning</strong>，又有不一样的收获，在看的过程中，忽然想到HTN中TTN的更新方式是通过<strong>梯度下降</strong>的方式，连续的一点点移动，直到收敛。这中间不仅<strong>计算量大</strong>，output要对逐个张量求导，而且由于张量的各个指标都是连续的，参数极大，<strong>更新非常缓慢并且极易造成过拟合</strong>。而同样是TTN网络，在Unitary of Tree Tensor Network中收敛效果就很好，这是因为这篇文章中张量更新的方式不用，这里采用的是<strong>MERA</strong>的方式进行<strong>裁剪更新</strong>，不用求梯度，而是通过环境张量来不断地更新原张量，这种方式<strong>收敛速度更快</strong>，计算方式简单、可解释性强，或许可以结合到HTN中。跟李雷讨论了这个想法，然后他主要继续开拓这个方向。</p>
+<p>我又继续在看TIS的判别，这里采用了Se80和AUC来进行评估模型的效果Riemannian Adaptive Optimization Methods（黎曼自适应优化方法），这里还提出了一个CNN进行TIS预测的模型，或许这个TIS监督学习任务还可以用HTN来进行训练。</p>
+<p>同时这里有StartScan、CNN两个模型来同MPS进行对比。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>基于张量的大数据多聚类及其安全和高效方法研究</title>
     <url>/2020/11/01/Study-Report(1026-1101)/</url>
     <content><![CDATA[<h2 id="迁移学习和实验"><a href="#迁移学习和实验" class="headerlink" title="迁移学习和实验"></a>迁移学习和实验</h2><p>迁移学习(Transfer learning) 顾名思义就是就是把已学训练好的模型参数迁移到新的模型来帮助新模型训练。考虑到大部分数据或任务是存在相关性的，所以通过迁移学习我们可以将已经学到的模型参数（也可理解为模型学到的知识）通过某种方式来分享给新模型从而加快并优化模型的学习效率不用像大多数网络那样从零学习（starting from scratch）</p>

@@ -6,32 +6,29 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-06T03:14:56.925Z</updated>
+  <updated>2020-11-08T10:49:44.201Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://www.yulezhang.com/2020/11/06/Study-Report(1102-1108)/"/>
-    <id>http://www.yulezhang.com/2020/11/06/Study-Report(1102-1108)/</id>
-    <published>2020-11-06T02:22:07.142Z</published>
-    <updated>2020-11-06T03:14:56.925Z</updated>
+    <title>Tensor Network with maching learning</title>
+    <link href="http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/"/>
+    <id>http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/</id>
+    <published>2020-11-08T10:44:30.000Z</published>
+    <updated>2020-11-08T10:49:44.201Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;11月6日&lt;/p&gt;
-&lt;p&gt;早上继续看&lt;strong&gt;tensor network with machine
-        
-      
+      Welcome to my blog, enter password to read.
     
     </summary>
     
     
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="GA" scheme="http://www.yulezhang.com/tags/GA/"/>
     
   </entry>
   
@@ -61,11 +58,18 @@
     <link href="http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/"/>
     <id>http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/</id>
     <published>2020-10-24T02:15:21.000Z</published>
-    <updated>2020-10-25T08:37:00.801Z</updated>
+    <updated>2020-11-08T10:49:09.986Z</updated>
     
     <summary type="html">
     
-      Welcome to my blog, enter password to read.
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;实验内容&quot;&gt;&lt;a href=&quot;#实验内容&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
@@ -82,11 +86,18 @@
     <link href="http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/"/>
     <id>http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/</id>
     <published>2020-10-17T03:04:28.000Z</published>
-    <updated>2020-10-19T08:06:40.043Z</updated>
+    <updated>2020-11-08T10:49:38.558Z</updated>
     
     <summary type="html">
     
-      Welcome to my blog, enter password to read.
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;本周为了更好地理解论文的思路，我又重新回顾了&lt;a
+        
+      
     
     </summary>
     

@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.1k</span>
+            <span class="post-count">2.2k</span>
         </span>
     </span>
 
@@ -121,7 +121,7 @@ var _hmt = _hmt || [];
 <h4 id="1-Robust-Supervised-Learning-Based-on-Tensor-Network-Method"><a href="#1-Robust-Supervised-Learning-Based-on-Tensor-Network-Method" class="headerlink" title="1. Robust Supervised Learning Based on Tensor Network Method"></a>1. <a href="/download/Reading_Materials/08406391.pdf">Robust Supervised Learning Based on Tensor Network Method</a></h4><p>这篇文章介绍了利用张量网络进行监督学习(MNIST分类)，当然这是一般情况的张量链参数又多还非常容易出现梯度消失，因此本文提出了一张将<strong>长张量链分解为短张量链</strong>的方法，从而<strong>减少参数</strong>、<strong>加快收敛速度</strong>、可以通过<strong>SGD</strong>进行更新。</p>
 <p>其主要思想是<strong>将每个神经元与多个图片中的像素相联系</strong>，在每次更新时仅仅用一小批样本去计算梯度，这样又能加速还能优化算法，如下图所示</p>
 <p><img src="/assets/1605420802226.png" alt="1605420802226"></p>
-<p>MNIST每张图片是28<em>28=784个像素，先将其压缩成为14\</em>14=196个像素，然后每7个像素映射到一个神经元x上，因此一共对应着28个权重(神经元)，就像图中所表示的那样。下图是<strong>添加了一个线性层的Short-chains网络结构</strong></p>
+<p>MNIST每张图片是$ 28\ast 28=784$个像素，先将其压缩成为$ 14\ast 14=196$个像素，然后每7个像素映射到一个神经元$x$上，因此一共对应着28个权重(神经元)，就像图中所表示的那样。下图是<strong>添加了一个线性层的Short-chains网络结构</strong></p>
 <p><img src="/assets/1605421125052.png" width='50%'></p>
 <p>此图结构跟上图略有不同，这个图中共有14个MPS态，也就是说图片(196pixels)被分成了14份，每一份有14个像素及其对应的神经元。</p>
 <p>在实验上，这篇文章采用MNIST数据集，讨论了张量链<strong>Error Rate</strong>与<strong>bond strength</strong>和<strong>learning rate</strong>的关系，同时将<strong>LeNet-5</strong>(CNN网络的一种)、<strong>STN(50)</strong>、<strong>STN(10)</strong> <strong>with LT</strong>这三种网络进行对比，尽管LeNet-5准确率更高，但是它有很多的参数、并且更新速度慢，<strong>STN(50)</strong>同样具有这个问题，而经过本文优化的<strong>短张量链STN(10)</strong> with LT则从参数上、收敛速度上都有更好的优势，而且准确率还不会很低。</p>
@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
 <p><strong>群智能算法优化的频谱感知方法</strong></p>
 <p>看了一下<strong>混合蛙跳算法SFLA</strong>，它是一种将<strong>全局搜索和局部搜索</strong>结合起来的方法，对数据分成的m个族群不断迭代进化，最终不能能得到各个族群的<strong>最优适应度</strong>和所有族群中的最优适应度。而量子蛙跳算法QSFLA仅在SFLA的基础上<strong>修改了青蛙位置的表示方式以及更新方法</strong>，青蛙的<strong>位置移动</strong>恰好可以用各种<strong>量子门的酉变换</strong>实现。该算法通过<strong>Sphere、Sum Squares、Griewank和Ackley</strong>函数进行了测试，结果表明量子混合蛙跳算法能够较快达到最佳适应度的平均值。量子细菌觅食算法也是类似的思路，只不过改成了用<strong>量子态</strong>表示细菌的位置，用量子门进行趋向性更新，<strong>直到收敛</strong>。</p>
 <p>那<strong>量子混合蛙跳算法</strong>、<strong>量子细菌觅食算法</strong>这些引入量子不确定性的算法是如何应用到<strong>频谱感知技术</strong>中的呢，这时候就体现出数学公式的重要性了。在上一段SFLA的介绍中我们提到了算法的目的是寻找族群<strong>最优适应度</strong>，这个适应度可以理解为满足特定条件的一组解，同loss function的作用一样。目标问题就是<strong>协作频谱感知检测概率最大化</strong>，那么根据这个概率计算公式设计出<strong>适应度函数</strong>就可以解决该实际问题了。</p>
-<h4 id="3-量子并行神经网络"><a href="#3-量子并行神经网络" class="headerlink" title="3. 量子并行神经网络"></a>3. 量子并行神经网络</h4><p>在阅读过程中了解到了占据当今机器学习主导地位的<strong>神经网络</strong>一直难以量子化，关键原因在于神经元激活函数是<strong>非线性的和耗散的</strong>，这和量子力学线性可逆的动力学特征相矛盾。<strong>早期量子神经网络</strong>的研究集中于Hopfield等基于关联内存而不是非线性激活函数的，关联内存可以存储n个网络状态，然后对每个输入数据，输出一个与输入有最短汉明距离)的网络状态。</p>
+<h4 id="3-量子并行神经网络"><a href="#3-量子并行神经网络" class="headerlink" title="3. 量子并行神经网络"></a>3. <a href="/download/Reading_Materials/量子并行神经网络.pdf">量子并行神经网络</a></h4><p>在阅读过程中了解到了占据当今机器学习主导地位的<strong>神经网络</strong>一直难以量子化，关键原因在于神经元激活函数是<strong>非线性的和耗散的</strong>，这和量子力学线性可逆的动力学特征相矛盾。<strong>早期量子神经网络</strong>的研究集中于Hopfield等基于关联内存而不是非线性激活函数的，关联内存可以存储n个网络状态，然后对每个输入数据，输出一个与输入有最短汉明距离)的网络状态。Hopfield具有联想和记忆功能，1984解决TSP旅行商问题</p>
 <p><strong>Hopfield Network</strong></p>
 <p><img src='/assets/1605411072353.png' width="50%"></p>
 <blockquote>

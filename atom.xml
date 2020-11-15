@@ -6,10 +6,55 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-09T07:25:07.657Z</updated>
+  <updated>2020-11-15T09:25:45.763Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量子群智能！！！</title>
+    <link href="http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/"/>
+    <id>http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/</id>
+    <published>2020-11-15T01:59:17.000Z</published>
+    <updated>2020-11-15T09:25:45.763Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本周重要心得：&lt;/p&gt;
+&lt;p&gt;我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+      <category term="量子群智能" scheme="http://www.yulezhang.com/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>刻意练习读书笔记（更新中）</title>
+    <link href="http://www.yulezhang.com/2020/11/13/LeetcodeSummary/"/>
+    <id>http://www.yulezhang.com/2020/11/13/LeetcodeSummary/</id>
+    <published>2020-11-13T11:19:38.000Z</published>
+    <updated>2020-11-13T12:11:40.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Leetcode算法刷题总结&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="http://www.yulezhang.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Tensor Network with maching learning</title>
@@ -420,49 +465,6 @@
     
     
       <category term="总结" scheme="http://www.yulezhang.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复试之C/C++系列问题</title>
-    <link href="http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/"/>
-    <id>http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/</id>
-    <published>2020-04-02T12:04:00.000Z</published>
-    <updated>2020-09-30T02:18:55.959Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;C-C-中为什么有引用&quot;&gt;&lt;a href=&quot;#C-C-中为什么有引用&quot; class=&quot;headerlink&quot; title=&quot;C/C++中为什么有引用&quot;&gt;&lt;/a&gt;C/C++中为什么有引用&lt;/h3&gt;&lt;p&gt;C++之所以增加引用类型, 主要是把它作为函数参数,以扩充函数传递数据的功能。&lt;/p&gt;
-&lt;p&gt;引用是一个常量指针占四个字节，编译器在编译时对引用作了更严格的限制，与普通指针相比更加安全。详细见&lt;a href=&quot;https://www.cnblogs.com/ronny/p/3662556.html&quot;&gt;C++的那些事：你真的了解引用吗&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="复试" scheme="http://www.yulezhang.com/categories/%E5%A4%8D%E8%AF%95/"/>
-    
-    
-      <category term="C/C++" scheme="http://www.yulezhang.com/tags/C-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>澳洲之行</title>
-    <link href="http://www.yulezhang.com/2020/03/31/25Australia-Trip/"/>
-    <id>http://www.yulezhang.com/2020/03/31/25Australia-Trip/</id>
-    <published>2020-03-31T12:04:00.000Z</published>
-    <updated>2020-09-30T02:19:27.729Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/Australia.jpg&quot; alt=&quot;cover&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="日志" scheme="http://www.yulezhang.com/categories/%E6%97%A5%E5%BF%97/"/>
-    
-    
-      <category term="旅行" scheme="http://www.yulezhang.com/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   

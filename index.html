@@ -229,7 +229,7 @@ var _hmt = _hmt || [];
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/11/13/LeetcodeSummary/"
-    >刻意练习读书笔记（更新中）</a> 
+    >LeetcodeSummary</a> 
 </h2>
  
 
@@ -415,34 +415,13 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <a id="more"></a>
-<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验，重新设计了算法的代码将<strong>fastai框架</strong>改为<strong>pytorch框架</strong>。同时还由于算力不够的原因，向徐永健师兄请教了一下开发的经验和显卡的配置。最后进行了几组不同的实验来一步步的优化模型的参数，实验内容和过程如下：</p>
-<p><img src="/assets/Snipaste_2020-10-24_19-46-21_meitu_1.jpg" alt="Snipaste_2020-10-24_19-46-21_meitu_1"></p>
-<p>上图是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 2</strong>，解决新冠疫情<strong>二分类问题</strong>的一个模型，是目前一个比较好的<strong>baseline</strong>了。如图所示，准确率最高达到了<strong>94%</strong>，交叉熵最低为<strong>0.2648</strong>，这个实验结果能为HTN的应用带来很大的参考价值。</p>
-<p><img src="/assets/1603551394170.png" alt="1603551394170"></p>
-<p>另外主要一组是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 3</strong>的、解决新冠疫情<strong>三分类问题(无症状、新冠、肺炎)</strong>的一个模型，运行时间长且很快收敛。如图所示，准确率一直在50%左右上下波动，交叉熵最低为0.8就不再发生明显的变化了，这是比较明显的<strong>过拟合</strong>现象。</p>
-<p>其他的还有Tucker处理成128*128的实验，意义不太大了，就不在此介绍了。原论文中处理的<strong>二分类准确率</strong>最高可达<strong>98.08%</strong>，三分类可达<strong>87.02%</strong>，相比之下TTN由于参数原因限制了它能力的发挥，同时大规模的参数还导致以下不利影响：</p>
-<ul>
-<li><strong>模型训练时间变长</strong></li>
-<li><strong>模型很容易出现过拟合</strong></li>
-</ul>
-<p>因此解决<strong>HTN过拟合问题</strong>的关键就在于对<strong>张量网络层</strong>进行降维、分解、<strong>Dropout</strong>等操作尽可能的减少参数的数目，从而能够得到更好的结果，当然扩大数据量也是一个可以考虑的方向。</p>
-<p>另外在学习Pytorch视频时，发现神经网络中<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dropout"><strong>Dropout</strong></a>层通过随机的减少<strong>激活的神经元</strong>，从而尽可能避免过拟合现象。Dropout层的具体作用原理见下图</p>
-<p><img src="https://www.researchgate.net/profile/Amine_Ben_khalifa/publication/309206911/figure/fig3/AS:418379505651712@1476760855735/Dropout-neural-network-model-a-is-a-standard-neural-network-b-is-the-same-network.png" alt="Dropout neural network model. (a) is a standard neural network. (b) is... |  Download Scientific Diagram"></p>
-<p>就像图中所展示的那样，在每一层的神经元中<strong>按照一定的比例随机丢弃</strong>一部分神经元，从而能加快模型的收敛速度，同时也能尽可能避免<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Overfitting">过拟合</a>，当然如果丢弃的比例过多又可能造成<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Overfitting">欠拟合</a>，需要合理的设计网络层与Dropout进行搭配，才能更好的发挥它的作用。</p>
-<p>那么一个值得深思的问题是，如何能设计出一个类似神经网络中Dropout层的张量分解层，来对TTN或者其他张量网络层进行<strong>分解降维</strong>或<strong>随机丢弃一些维度</strong>，这是一个很不错的Idea，需要尝试不同的分解方法，同时还要继续查阅相关的研究。</p>
-<h2 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h2><p><strong>关于COVID-19数据集</strong></p>
-<p>对比着搜了几篇新冠疫情相关的文章，发现数据集的主要来源是<a target="_blank" rel="noopener" href="https://github.com/ieee8023">ieee8023/<strong>covid-chestxray-dataset</strong></a>，这个平台建立了一个<strong>胸部X射线</strong>和<strong>CT图像</strong>的公开数据集，这些患者是COVID-19阳性或被怀疑是COVID-19或其他病毒性和细菌性肺炎（MERS，SARS和ARDS）。 数据将通过公共来源以及通过医院和医生的间接收集来收集。 所有图像和数据将在此GitHub存储库中公开发布，目前已经有<strong>2.4K+</strong>的关注度，同时该数据接口也可以通过<strong>Dataloader</strong>调用。上面进行实验的图片也都来自于这个数据集。</p>
-<p><strong>关于论文写作</strong></p>
-<p><a href="www.overleaf.com">overleaf</a>是一个比较优秀的在线论文写作平台，可以在线的Edit和Compile文章，自动生成论文格式，写论文利器，我已经在上面创建了一个模板，并在此基础上进行论文的修改和写作。</p>
-<p><strong>未来的工作</strong></p>
-<p>本周也基本上读完了遗传算法，接来下要尝试去复现它，并再继续阅读论文寻找合适的张量分解方式或者其他数据集，最终将实验的代码重新进行了整理，模型融合，放到<a target="_blank" rel="noopener" href="https://github.com/YuleZhang/Experiments_HTN">github私人仓库</a>供大家学习使用。下周还要细读《<strong>基于张量的大数据多聚类及其安全和高效方法研究</strong>》的第五、六两章，把相关的背景知识要介绍清楚。</p>
-<h2 id="相关链接："><a href="#相关链接：" class="headerlink" title="相关链接："></a>相关链接：</h2><p><a target="_blank" rel="noopener" href="https://openi.nlm.nih.gov/faq#collection"><em>1. Open-i</em></a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ieee8023/covid-chestxray-dataset"><em>2. COVID-19 image data collection</em></a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7372265/"><em>3. Deep-COVID: Predicting COVID-19 from chest X-ray images using deep transfer learning</em></a></p>
-<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><em>4. Automated detection of COVID-19 cases using deep neural networks with X-ray images</em></a></p>
-<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/8099852"><em>5. ChestX-Ray8: Hospital-Scale Chest X-Ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases</em></a></p>
- 
+  <blockquote>
+<p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/10/24/Study-Report(1019-1025)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -494,71 +473,11 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <a id="more"></a>
-<p>本周为了更好地理解论文的思路，我又重新回顾了<a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/">学堂在线的数据挖掘课程</a>，对一些重点知识进行了简单的记录。</p>
-<h2 id="The-Introduction-of-Genetic-Algorithm"><a href="#The-Introduction-of-Genetic-Algorithm" class="headerlink" title="The Introduction of Genetic Algorithm"></a>The Introduction of Genetic Algorithm</h2><blockquote>
-<p>遗传算法（Genetic Algorithm, GA）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。</p>
-</blockquote>
-<p>从几十亿年前的单细胞生命体，经过漫长的自然进化，地球上最终有了像人类这样高度发达的生命体，所以说进化的威力是十分强大的。同时我们经常讨论的人工智能，其实还是基于固定的硬件和结构，它的能力会受到一定的限制。想象一下如果计算机的各类硬件能够自动的进化，那就很有可能在未来实现真正的强人工智能。</p>
-<p>What can EAs do for us?</p>
-<ul>
-<li>Optimization</li>
-<li>Help people understand the envolution in nature.</li>
-</ul>
-<p>What is Optimization?</p>
-<ul>
-<li>search the optimal solution from candidates based on <strong>certain performance criteria</strong>.</li>
-<li>Accomplish a predefined task to the highest standard</li>
-</ul>
-<p><img src='/assets/1602914947968.png' width='80%'></p>
-<h3 id="Global-Optimization"><a href="#Global-Optimization" class="headerlink" title="Global Optimization"></a>Global Optimization</h3><p>Portfolio Optimization、Travelling Salesman Problem、Knapsack Problem、Bin Packing Problem、Feature Selection Problem, these questions are difficult to solve or caculate in polynomial time.</p>
-<p>只用local search搜索最优值？容易陷入局部最优值</p>
-<p>有parallel search，多个点同时开始进行搜索，避免陷入局部最优值</p>
-<p>推荐一本书Blondie24：Playing at the edge of AI</p>
-<h3 id="Genetic-Algorithm"><a href="#Genetic-Algorithm" class="headerlink" title="Genetic Algorithm"></a>Genetic Algorithm</h3><p><strong>GA算法</strong>基于生物学的背景，1975年由<strong>John Holland</strong>在论文《Adaptation in Natural and Artificial Systems》中提出，受到达尔文理论的启发，主要包含以下过程：<strong>染色体表达、杂交、变异、选择</strong>。其中涉及到的一些原则如下：</p>
-<ol>
-<li>将待解决的问题表示成染色体</li>
-<li>最开始的解决方案往往是随机生成的</li>
-<li>通过一代代的变异和选择，个体能够自然的进化</li>
-</ol>
-<p>GA算法的主要过程如下图所示：</p>
-<p><img src='/assets/1603027568447.png' width='80%'></p>
-<h4 id="染色体表达"><a href="#染色体表达" class="headerlink" title="染色体表达"></a>染色体表达</h4><p>Individual（Chromosome）：表示问题的特定解决方案的一个向量，向量中的每一个值都是参数</p>
-<p>Population：由多个个体组成，GA每次进化多个个体，通过<strong>并行搜索</strong>，进行<strong>全局最优化</strong></p>
-<p>Offspring：通过基因生成器生成的新的个体，希望能够有更优秀的结果</p>
-<p>Encoding：二进制还是格雷码，如何编码TSP问题</p>
-<p>格雷码的特点是它表示的每一个类别的编码之间<strong>只有一位的差别</strong>，而二进制0与7之间就距离很远，这不利于表达各个个体之间的并行关系。</p>
-<h4 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h4><ol>
-<li>轮盘法：主要是通过各个值的占比关系，来对基因进行选择，值大的被选中的机会就大，但<strong>无法处理负数</strong></li>
-<li>等级法：将不同的取值分为不同的Rank，就像学生成绩从0-100变为ABCD一样，通过Rank的引入，能够极大的避免优质资源在一开始就<strong>过度的聚集</strong>。</li>
-<li>锦标赛选拔：每次从Individuals中选择两个或三个，对它们进行PK，PK胜利的留下继续进行遗传，失败的被淘汰。这里要注意一个问题就是每次选择的个数越多，就越容易淘汰掉有潜力的个体，当所有个体都被选择，问题就又变成了<strong>轮盘法</strong></li>
-<li>精英选择：将后代中表现非常突出的基因保存到下一代，避免由于一两次偶尔的杂交或突变而直接丢掉。这一点就跟我们高考中的保送一样，有一部分同学成绩非常优秀，可能由于考试发挥的问题而被淘汰，因此如果有保送，那么好的基因也许能得以保留。</li>
-</ol>
-<h4 id="杂交"><a href="#杂交" class="headerlink" title="杂交"></a>杂交</h4><p>单点杂交：从某一处基因开始，其后A和B染色体的所有基因进行互换</p>
-<p>两点杂交：指定两个基因，A和B染色体在两点之间的基因片段进行互换</p>
-<p>统一性杂交（uniform crossover）：选择出要杂交的基因位置，将染色体对应位置的基因进行互换</p>
-<h4 id="变异"><a href="#变异" class="headerlink" title="变异"></a>变异</h4><p>变异主要为了保证基因的多样性，如果仅仅是一些已有的基因不断杂交，可能整个群体的上限是被限定的，而通过变异这种方式引入随机性的突变，能够较好的脱离局部最优值，从而找到问题的更优解。</p>
-<h2 id="Evolutionary-Topology-Search-for-Tensor-Network-Decomposition"><a href="#Evolutionary-Topology-Search-for-Tensor-Network-Decomposition" class="headerlink" title="Evolutionary Topology Search for Tensor Network Decomposition"></a>Evolutionary Topology Search for Tensor Network Decomposition</h2><p>由于备选的solutions随着张量阶数增加指数增大，因此<strong>TN分解的最优拓扑结构</strong>是很难通过搜索解决的。但在这篇论文中，作者采用遗传算法解决这个问题。文中将复杂的拓扑结构编码为二进制字串，并且开发了遗产元算法在Hamming空间中寻找最优拓扑结构，并且通过实验结果验证了<strong>算法生成的拓扑结构</strong>相比于传统TT、TR的巨大优势。</p>
-<p>这篇论文的张量分解方法可以应用到<strong>图片的降维处理</strong>中，HTN网络因为在张量网络层采用了TTN结构，产生了大量的参数，因此如果能够对图片进行预处理操作，从而提取一部分信息之后，再将二维的图片矩阵作为HTN的输入，那么相信模型的训练速度和效果会上升一个台阶。</p>
-<h2 id="Bayesian-Tensor-Network-with-Polynomial-Complexity-for-Probabilistic-Machine-Learning"><a href="#Bayesian-Tensor-Network-with-Polynomial-Complexity-for-Probabilistic-Machine-Learning" class="headerlink" title="Bayesian Tensor Network with Polynomial Complexity for Probabilistic Machine Learning"></a>Bayesian Tensor Network with Polynomial Complexity for Probabilistic Machine Learning</h2><p>冉仕举老师的BTN网络，他自己定义了BTN的网络结构，类似于TTN，但是收缩过程不一样，他设计了两种结构BTN1和BTN2，并且这个BTN网络不是简单的用<strong>Adam或者SGD</strong>优化，这两种方式无法保证更新时的归一化，它自己定义了优化方式，然后跟Adam对比了一下，优点是复杂度和收敛效果。HTN参数过多就在于它采用TTN结构，进行不同层直接张量收缩时需要大量的辅助张量，来完成从2阶—&gt;5阶—&gt;新2阶的过渡</p>
-<p>下面这张图是<strong>TTN网络</strong>的<strong>计算复杂度</strong></p>
-<p><img src="/assets/QQ图片20201018215648.png" alt="QQ图片20201018215648"></p>
-<p>下面这张图片是<strong>BTN的计算复杂度</strong></p>
-<p><img src='/assets/QQ图片20201018215842.png' width="50%"></p>
-<p>可以看到两个算法的复杂度相差不大，对于<strong>HTN的优化</strong>可能没有很大的影响，但是论文给出了算法，可以借鉴参考，学习它的<strong>网络设计</strong>和<strong>自定义的反向传播算法</strong>。</p>
-<h2 id="目前的实验进展"><a href="#目前的实验进展" class="headerlink" title="目前的实验进展"></a>目前的实验进展</h2><p>本周开始上课，稍微有一些不适应，加上考试，Colab也一直断线，因此很多实验的思路和想法都被耽搁。于是就主要想再通过论文找找新的途径，主要在看那篇GA设计TN Decomposition的思路，想对数据进行个预处理，当然也可以简单的通过Tucker分解再训练，都是比较好的思路。</p>
-<p>同时程序也写了好几版的代码，设计了一版<strong>Kfold多次交叉验证</strong>的训练方式，这样有利于处理这样的小规模样本数据。又设计了一版<strong>模型断点保存+直接多次fit</strong>的方式，来进行优化，目前的训练效果如下图所示</p>
-<p><img src="/assets/1603030360249.png" alt="1603030360249"></p>
-<p>训练了100轮，准确率还是比较低，loss一直在降低，最小值为0.631103。但是准确率确没有大幅度上升，而是不断地波动，因此还需要继续分析原因。</p>
-<h2 id="Releated-Links"><a href="#Releated-Links" class="headerlink" title="Releated Links:"></a>Releated Links:</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ae5157c26af9">[算法]超详细的遗传算法（Genetic Algorithm）解析</a></li>
-<li><p><a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/fcc6470935784c29bbc7346425da24c8/">[学堂在线80240372X]数据挖掘——进化计算（视频）</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://vlambda.com/wz_wzio4B63sm.html">详解贝叶斯张量网络（二）：概率性图像识别</a></p>
-</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ranshiju/BayesianTN">ranshiju/BayesianTN算法代码</a></li>
-</ol>
- 
+  <p>本周为了更好地理解论文的思路，我又重新回顾了<a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/">学堂在线的数据挖掘课程</a>，对一些重点知识进行了简单的记录。</p> 
+      <a class="article-more-link" href="/2020/10/17/Study-Report(1012-1018)/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -648,7 +567,7 @@ var _hmt = _hmt || [];
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/09/30/39DelibratePractice/"
-    >刻意练习读书笔记（更新中）</a> 
+    >刻意练习读书笔记</a> 
 </h2>
  
 
@@ -780,7 +699,7 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  Welcome to my blog, enter password to read. 
+  <h2 id="Tensor-Contracted"><a href="#Tensor-Contracted" class="headerlink" title="Tensor Contracted"></a>Tensor Contracted</h2><p>我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45777142/article/details/107499465">刘紫豪同学的博客</a>里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在<strong>numpy、tensorflow以及Pytorch</strong>中都提供了<strong><a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html">einsum</a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html">matmul</a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html">tensordot</a></strong>这三种方式用于计算张量的缩并。</p> 
       <a class="article-more-link" href="/2020/09/28/37Study-Report(0921-0927)/"
         >阅读更多...</a
       >

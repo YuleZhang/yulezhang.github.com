@@ -112,7 +112,10 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <a id="more"></a>
+  <blockquote>
+<p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验</p>
+</blockquote>
+<a id="more"></a>
 <h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验，重新设计了算法的代码将<strong>fastai框架</strong>改为<strong>pytorch框架</strong>。同时还由于算力不够的原因，向徐永健师兄请教了一下开发的经验和显卡的配置。最后进行了几组不同的实验来一步步的优化模型的参数，实验内容和过程如下：</p>
 <p><img src="/assets/Snipaste_2020-10-24_19-46-21_meitu_1.jpg" alt="Snipaste_2020-10-24_19-46-21_meitu_1"></p>
 <p>上图是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 2</strong>，解决新冠疫情<strong>二分类问题</strong>的一个模型，是目前一个比较好的<strong>baseline</strong>了。如图所示，准确率最高达到了<strong>94%</strong>，交叉熵最低为<strong>0.2648</strong>，这个实验结果能为HTN的应用带来很大的参考价值。</p>

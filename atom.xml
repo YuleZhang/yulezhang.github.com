@@ -36,11 +36,11 @@
   </entry>
   
   <entry>
-    <title>刻意练习读书笔记（更新中）</title>
+    <title>LeetcodeSummary</title>
     <link href="http://www.yulezhang.com/2020/11/13/LeetcodeSummary/"/>
     <id>http://www.yulezhang.com/2020/11/13/LeetcodeSummary/</id>
     <published>2020-11-13T11:19:38.000Z</published>
-    <updated>2020-11-13T12:11:40.920Z</updated>
+    <updated>2020-11-16T01:11:21.179Z</updated>
     
     <summary type="html">
     
@@ -103,18 +103,13 @@
     <link href="http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/"/>
     <id>http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/</id>
     <published>2020-10-24T02:15:21.000Z</published>
-    <updated>2020-11-08T10:49:09.986Z</updated>
+    <updated>2020-11-16T01:13:56.684Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;实验内容&quot;&gt;&lt;a href=&quot;#实验内容&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -131,18 +126,11 @@
     <link href="http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/"/>
     <id>http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/</id>
     <published>2020-10-17T03:04:28.000Z</published>
-    <updated>2020-11-08T10:49:38.558Z</updated>
+    <updated>2020-11-16T01:14:32.650Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;本周为了更好地理解论文的思路，我又重新回顾了&lt;a
-        
-      
+      &lt;p&gt;本周为了更好地理解论文的思路，我又重新回顾了&lt;a href=&quot;https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/&quot;&gt;学堂在线的数据挖掘课程&lt;/a&gt;，对一些重点知识进行了简单的记录。&lt;/p&gt;
     
     </summary>
     
@@ -176,11 +164,11 @@
   </entry>
   
   <entry>
-    <title>刻意练习读书笔记（更新中）</title>
+    <title>刻意练习读书笔记</title>
     <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
     <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
     <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2020-10-09T13:10:27.934Z</updated>
+    <updated>2020-11-16T01:11:50.941Z</updated>
     
     <summary type="html">
     
@@ -224,11 +212,11 @@
     <link href="http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/"/>
     <id>http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/</id>
     <published>2020-09-28T10:37:30.000Z</published>
-    <updated>2020-10-11T14:21:06.880Z</updated>
+    <updated>2020-11-16T01:14:58.677Z</updated>
     
     <summary type="html">
     
-      Welcome to my blog, enter password to read.
+      &lt;h2 id=&quot;Tensor-Contracted&quot;&gt;&lt;a href=&quot;#Tensor-Contracted&quot; class=&quot;headerlink&quot; title=&quot;Tensor Contracted&quot;&gt;&lt;/a&gt;Tensor Contracted&lt;/h2&gt;&lt;p&gt;我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。&lt;a href=&quot;https://blog.csdn.net/qq_45777142/article/details/107499465&quot;&gt;刘紫豪同学的博客&lt;/a&gt;里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在&lt;strong&gt;numpy、tensorflow以及Pytorch&lt;/strong&gt;中都提供了&lt;strong&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.einsum.html&quot;&gt;einsum&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.matmul.html&quot;&gt;matmul&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html&quot;&gt;tensordot&lt;/a&gt;&lt;/strong&gt;这三种方式用于计算张量的缩并。&lt;/p&gt;
     
     </summary>
     

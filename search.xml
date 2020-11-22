@@ -1,6 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>第11周学习汇报</title>
+    <url>/2020/11/21/Study-Report(1116-1122)/</url>
+    <content><![CDATA[<blockquote>
+<p>本周继续根据上周的研究思路读论文学习，以下是一些学习收获</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="量子并行神经网络和程嵩第四章"><a href="#量子并行神经网络和程嵩第四章" class="headerlink" title="量子并行神经网络和程嵩第四章"></a>量子并行神经网络和程嵩第四章</h2><p>本周重新温习了一下Bilibili冉仕举的《张量网络基础课程视频》，主要复习了纠缠熵面积律和MPO简述这一部分，纠缠熵面积定律的内容是：</p>
+<p><strong>对于D维格点系统的量子态，将体系二分后，两部分之间的纠缠熵满足 </strong>$ S\sim O(l^{D-1}) $</p>
+<p>其中l代表空间尺度</p>
+<p><strong>推论</strong>：MPS满足一维量子态的纠缠熵面积定律，一维纠缠熵面积定律S是一个常数，<strong>只与辅助指标的维度有关</strong>。</p>
+<p>二维纠缠熵面积定律意味着一条直线无法对张量网络态进行二分，例如PEPS就满足的是<strong>二维量子态纠缠熵面积定律</strong>，要切分出PEPS中的一块，必须沿两个方向，如下图所示。</p>
+<p><img src='/assets/1605964125053.png' width='50%'></p>
+<p>MPO与一维热力学计算，TEBD可以用于计算一维格点模型的热力学性质，被称为线性张量重整化群算法。TEBD算法思路有两种，第一种是可以仅用一层MPS，让<strong>张量网络进行逐层收缩到MPS</strong>上，第二种是可以用<strong>MPO表示并直接进行收缩</strong>，最终都是为了<strong>计算有限温度密度算符</strong>。看完之后我又回过头来看程嵩的第四章，感觉很多地方豁然开朗，就能看明白了</p>
+<p>总结一下程嵩第四章的内容就是用<strong>MPO代替神经网络的全连接层</strong>，因为全连接层参数实在是太多了，因此这种方式可减少参数，并基于<strong>MNIST和CIFAR10</strong>进行了实验，下面一张图就可概况本章的核心思想。这是一个不错的思路，可以直接用于任何具有全连接层的神经网络，HTN中的线性层可以考虑用MPO进行替换。</p>
+<p><img src='/assets/1605964223417.png' width='50%'></p>
+<p>另外<strong>量子并行神经网络</strong>又看了一遍，在这次细看的过程中有一些困惑同时又有一些新的收获。</p>
+<p>困惑呢就是有两个公式推不出来，一个是<strong>神经元y的叠加态表示</strong>，另一个是<strong>概率的计算（用到了欧拉公式）</strong>，问了他们也还是没弄出来，只能先放一放，纠结这个意义也确实不大。</p>
+<p>新收获就是<strong>Quron可以看作sigmoid神经元的量子化版本</strong>，是为了引入非线性，基于测量与编码。同时这个量子多选门MUX的目的是为了<strong>更多的基函数</strong>，进一步利用量子并行性，同时计算多个不同权重或结构的神经网络。同时在A quantum-implementable neural network model这篇文章中也了解到这个量子多选门<strong>MUX也是充当了一个Dropout层</strong>的作用，通过相位theta每次随机的丢弃一些神经元，这样能够显著的减少计算的开销，改善分类结果。但是实验部分讲解不是特别详细，仅是贴出了实验结果，实验细节不太清楚，比如如何用MATLAB进行量子线路模拟就不是很清楚。</p>
+<p>将上面的两个方案结合到一起就是一个不错的创新，程嵩这个MPO代替全连接层的方案基于张量网络，完全可以<strong>通过引入张量网络的量子态表示和运算</strong>，构造出<strong>Quantum MPO</strong>用于神经网络结构的优化，从而<strong>减少参数并提高算法的效率</strong>。最后我将这个思路进行了简单的整理，记录在了Overleaf上，目前实验部分还是很抽象，思路不清晰。</p>
+<h2 id="量子遗传算法-多宇宙并行"><a href="#量子遗传算法-多宇宙并行" class="headerlink" title="量子遗传算法+多宇宙并行"></a>量子遗传算法+多宇宙并行</h2><p>量子多宇宙并行算法主要是提出了一种<strong>神经网络中的权重初始化方式</strong>.因为一般的神经网格的权重都是随机初始化的,这可能会存在梯度消失或者梯度爆炸的问题.这篇文章QGA算法通过,针对在同一个宇宙内部的量子个体,算法采用的是量子旋门调整来搜索最优解.文中采用的量子交叉策略如下</p>
+<p><img src='/assets/1606042203345.png' width='60%'></p>
+<p>实验中的ORL人脸识别率约在90%左右，仅给出不同算法的运行时间上的差别，但不知数据是否可靠，因为这篇文章缺乏实验细节，即采用什么平台来模拟或者实现量子门的运算和操作。对量子比特的操作也很简单，只是做了一个旋转角的操作.在这里遗传算法是为了优化权值，适应度函数也没给，相当粗糙了.</p>
+<h1 id="2020量子物理与智能计算交叉研讨会-QCAI2020"><a href="#2020量子物理与智能计算交叉研讨会-QCAI2020" class="headerlink" title="2020量子物理与智能计算交叉研讨会(QCAI2020)"></a><a href="https://qcaitju.github.io/qcai2020/#3">2020量子物理与智能计算交叉研讨会(QCAI2020)</a></h1><p>此次“量子物理与智能计算交叉研讨会”将讨论量子物理、计算机科学与技术、人工智能等交叉学科的前沿进展，以及目前量子科技发展的挑战和机会。主题包括（且不限于）人工智能在量子物理的应用、量子人工智能、量子机器学习、量子信息检索、自然语言处理、现阶段量子技术和人工智能技术的挑战等，与我目前的研究方向非常吻合，同时也是之前刘丁老师推荐我参加的workshop。</p>
+<p>这次分享的大佬还是蛮多的，我就简单总结回顾一下几个我印象比较深的老师。</p>
+<h2 id="翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network"><a href="#翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network" class="headerlink" title="翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network"></a>翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network</h2><p>在这个汇报里，主要是提出了一种量子神经网络的概念，量子神经网络的概念与经典神经网络的概念对比如下图所示</p>
+<p><img src='/assets/1605966045957.png' width='70%'></p>
+<p>从图中可以看到，从经典到量子，对应着以下变化</p>
+<ul>
+<li>输入从向量变成了波函数</li>
+<li>从各种各样的函数(线性矩阵变换+非线性激活函数作用)变成了酉变换</li>
+<li>输出从<strong>数字</strong>(一般表示预测类别或者预测值)变成了<strong>测量</strong></li>
+<li>经典通过对输入信息进行特征抽取，而量子神经网络则保存所有输入信息(可逆)</li>
+</ul>
+<h2 id="NLP专场"><a href="#NLP专场" class="headerlink" title="NLP专场"></a>NLP专场</h2><p>这部分主要由以下三位老师进行解释,由于我对NLP不是很了解,因此将其放在一起</p>
+<p><strong>邱锡鹏（复旦大学）/刘知远（清华大学）/张鹏（天津大学）</strong></p>
+<p>NLP的一些简单介绍</p>
+<p>NLP问题范畴</p>
+<p>NLP的处理过程</p>
+<p>NLP处理一般步骤</p>
+<p>NLP常用的一些模型</p>
+<p><img src="/assets/1606042451941.png" alt="1606042451941"></p>
+<p>NLP的评价方式</p>
+<p>目前最适合NLP的模型Transformer</p>
+<h2 id="刘丁（天津工业大学）和冉仕举（首都师范大学）"><a href="#刘丁（天津工业大学）和冉仕举（首都师范大学）" class="headerlink" title="刘丁（天津工业大学）和冉仕举（首都师范大学）"></a>刘丁（天津工业大学）和冉仕举（首都师范大学）</h2><p>这是我们非常熟悉的两位大佬啦,我相信不用我再进行过多的介绍,他们的资料在此次Workshop官网上有很多介绍,我们目前做的很多工作内容与他们两个密切相关,同时他们的论文大部分我们也都读过,因此停下来整体感觉还是比较棒的.</p>
+<p>刘丁老师呢主要讲了<strong>Unitary algorithm inspired by MERA</strong>那篇文章,就是用<strong>五阶环境张量E和T进行分解处理来更新张量网络</strong>,还有就是那篇<strong>HTN</strong>了,看了不知多少遍的那篇.</p>
+<ul>
+<li>Liu, Ding, et al. “Machine learning by unitary tensor network of hierarchical tree structure.” <em>New Journal of Physics</em> 21.7 (2019): 073059.</li>
+<li>Liu, Ding, Zekun Yao, and Quan Zhang. “Quantum-Classical Machine learning by Hybrid Tensor Networks.” <em>arXiv preprint arXiv:2005.09428</em> (2020).</li>
+</ul>
+<p>整个过程中他也反复的提到了<strong>参数过多/过拟合</strong>的问题,同时他也抛出了他的一些思考,如下图所示,这些问题也是目前我们正在想办法去解决的部分</p>
+<p><img src="/assets/1606040022400.png" alt="1606040022400"></p>
+<p>这里解释一下SOTA(State-of-the-Art),它表示目前最高水平的论文中的机器学习算法应用结果,在<a href="https://paperswithcode.com/sota">Browse State-of-the-Art</a>里列出了各个领域目前最好的一些Benchmark,同时还都提供有代码,大家有兴趣的可以去查阅.</p>
+<p>冉老师呢文章超级多,可是今天他就讲了一个BTN,论文信息如下</p>
+<ul>
+<li>Ran, Shi-Ju. “Bayesian Tensor Network and Optimization Algorithm for Probabilistic Machine Learning.” <em>arXiv preprint arXiv:1912.12923</em> (2019).</li>
+</ul>
+<p>这篇文章提出了一个基于概率诠释的张量网络,叫做<strong>贝叶斯张量网络,</strong>其作用类似于MPS/PEPS/TTN等张量网络,但是其<strong>可解释性更强,</strong>它能够处理张量网络计算中指数大的问题,同时也能避免出现神经网络中出现的梯度消失问题,在未来BTN可能用于解决更多的物理方面的模拟问题.</p>
+<p>总结一下就是<strong>刘老师和冉老师这次提出的两个模型是不太一样的,刘老师提出的是一种Framework,其中的张量网络还是TTN/MPS这些,而冉老师直接提出一种新的张量网络结构用于解决一些特殊的问题.当然这两种算法都可用于解决各种各样的监督学习任务.</strong></p>
+<p>孙正之（中国科学院大学）：Tensor Network: A Bridge of Quantum Physics and Machine Learning</p>
+<p>孙老师的报告有一段我没有听到,他主要介绍的是以下两篇论文的工作</p>
+<ul>
+<li>Yang, Y., Sun, Z. Z., Ran, S. J., &amp; Su, G. (2020). Visualizing Quantum Phases And Identifying Quantum Phase Transitions By Nonlinear Dimensionality Reduction. <em>arXiv e-prints</em>, arXiv-2006.</li>
+<li>Sun, Zheng-Zhi, et al. “Generative tensor network classification model for supervised machine learning.” <em>Physical Review B</em> 101.7 (2020): 075135.</li>
+</ul>
+<p>GTNC定义了一种基于量子的角度旋转去代替BP算法,用fidelities代替欧式距离/曼哈顿距离,很少的参数</p>
+<p>我个人觉得挺棒的,非常推荐大家去阅读,了解以下处理的一些思路.</p>
+<h2 id="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"><a href="#潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩" class="headerlink" title="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"></a>潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩</h2><p>报告全称为《Contracting Arbitrary Tensor Networks: General Approximate Algorithm and Applications in Graphical Models and Quantum Circuit Simulations》，这个任意张量网络结构的收缩倒是令人耳目一新。</p>
+<p>无论是google还是QAOA量子线路，在线路上的酉变换并不一定都是有规律的(这跟昨天翟荟的思路恰好不一样)，大部分量子门的分布具有一定的随机性，谷歌量子计算机线路见下图（这是我第一次看到）</p>
+<p><img src='/assets/1606037151929.png' width='80%'></p>
+<p>QAOA的线路：</p>
+<p><img src="/assets/1606037204566.png" alt="1606037204566"></p>
+<p>上面两个图就包含很多的随机性，同时实验表明einsum缩并顺序对计算耗时影响很大，尤其是当张量的数目和阶数都非常大的时候,在讲的过程中倒是举了一个例子,待收缩的<strong>张量网络结构及收缩过程</strong>如下</p>
+<p><img src='/assets/1606037904082.png' width='80%'></p>
+<p>上图收缩过程的代码: <a href="https://github.com/panzhang83/catn">点击这里</a>,收缩的思路是先任意选择张量进行缩并,优先选缩并后物理指标维度小,作者任务这样的启发式搜索是比较可行的,但是这跟人工指定没有很大的区别,费事也费力,<strong>如果能够自动搜索任意张量网络的缩并路径那就牛逼了</strong>,这块能否用遗传算法演化拓扑结构,是一个值得考虑的内容.</p>
+<p>实验结果分析如下,通过对比不同张量网络收缩过程的误差率体现算法的性能,可以看到误差已经非常接近机器误差了,这跟严格解释已经没有什么区别了.</p>
+<p><img src="/assets/1606038001668.png" alt="1606038001668"></p>
+<p>一些可能存在的问题:冉老师提了几个比较好的问题,如下</p>
+<ol>
+<li>能不能用临界矩阵来帮助寻找合适的缩并顺序,作者回答在每两个MPS态收缩之后,张量网络结构发生变化(辅助指标维度等信息),结构变化就很难直接用邻接矩阵表示了</li>
+<li>有没有将这个算法与TEBD\HOTRG等算法进行比较,冉老师认为<strong>TEBD已经可以很好的处理任意张量网络收缩问题</strong></li>
+<li>SVD裁剪是否是基于全局正则形式,回答不是,作者的实现仅仅是定义单个mps的正则形式</li>
+</ol>
+<h2 id="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"><a href="#马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用" class="headerlink" title="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"></a><strong>马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用</strong></h2><p>马星宇同学将机器学习应用到材料领域，并介绍了目前业界内的一些研究工作，例如<strong>无监督机器学习预测锂离子电导率、**</strong>压缩感知算法预测钙钛矿的稳定性、<strong>**生成的机器学习模型VAE预测晶体结构</strong></p>
+<p>本文主要内容：<strong>机器学习加速发现二维光电材料(例如二维铁电金属)，通过机器学习预测光伏带隙</strong>，下图是预测过程的一些具体步骤</p>
+<p><img src='/assets/1606036608266.png' width='60%'></p>
+<p>对于材料性质而言，<strong>回归学习</strong>的意义更大，<strong>压缩感知算法给出物理可解释性</strong>。</p>
+<p>机器学习在材料领域的应用有以下的问题存在，如何提出更好的算法、模型、方案来处理这些问题是值得深思的，下面这张图给出<strong>机器学习应用与材料领域</strong>相关的一些问题</p>
+<p><img src='/assets/1606036840310.png' width='80%'></p>
+<p>这张图能够带给我们思考，如何将我们学习的一些算法或者知识应用到不同的领域，这或许也是量子张量网络机器学习的用武之地。其中的一个特点就是，对于实际领域的应用，一般很少直接用深度学习进行模型的训练和预测，这可能是因为这些具体的领域需要一定的专业知识解释相关的现象，而传统的机器学习算法例如PCA/SVM/DT等算法显然更有优势，那么<strong>将张量网络用到材料科学当中？？？张量网络也可以做监督学习，正好弥补神经网络的不足。</strong></p>
+<h1 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h1><p>最后将本次Workshop的一些收获和New Idea总结如下</p>
+<ol>
+<li>HTN和BTN能否能推广应用到<strong>TIS预测</strong>/<strong>物理</strong>/材料/<strong>目标检测</strong>等领域发挥他们更大的价值</li>
+<li>任意张量网络收缩的顺序能否通过程序自行设计(例如<strong>基于邻接矩阵的遗传算法</strong>)</li>
+<li>量子张量网络能否应用到材料或化学等领域,取代经典的机器学习(重点是考虑可解释性方面)</li>
+<li><strong>张量网络表示词向量进行自然语言的处理</strong></li>
+</ol>
+]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
+  </entry>
+  <entry>
     <title>量子群智能！！！</title>
     <url>/2020/11/15/Study-Report(1109-1115)/</url>
     <content><![CDATA[<blockquote>

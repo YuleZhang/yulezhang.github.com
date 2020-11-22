@@ -44,6 +44,7 @@
 <p><img src="/assets/1606042451941.png" alt="1606042451941"></p>
 <p>NLP的评价方式</p>
 <p>目前最适合NLP的模型Transformer</p>
+<p>清华大学NLP实验室: <a href="https://github.com/thunlp">Github地址</a> </p>
 <h2 id="刘丁（天津工业大学）和冉仕举（首都师范大学）"><a href="#刘丁（天津工业大学）和冉仕举（首都师范大学）" class="headerlink" title="刘丁（天津工业大学）和冉仕举（首都师范大学）"></a>刘丁（天津工业大学）和冉仕举（首都师范大学）</h2><p>这是我们非常熟悉的两位大佬啦,我相信不用我再进行过多的介绍,他们的资料在此次Workshop官网上有很多介绍,我们目前做的很多工作内容与他们两个密切相关,同时他们的论文大部分我们也都读过,因此停下来整体感觉还是比较棒的.</p>
 <p>刘丁老师呢主要讲了<strong>Unitary algorithm inspired by MERA</strong>那篇文章,就是用<strong>五阶环境张量E和T进行分解处理来更新张量网络</strong>,还有就是那篇<strong>HTN</strong>了,看了不知多少遍的那篇.</p>
 <ul>
@@ -96,6 +97,7 @@
 <li>任意张量网络收缩的顺序能否通过程序自行设计(例如<strong>基于邻接矩阵的遗传算法</strong>)</li>
 <li>量子张量网络能否应用到材料或化学等领域,取代经典的机器学习(重点是考虑可解释性方面)</li>
 <li><strong>张量网络表示词向量进行自然语言的处理</strong></li>
+<li><strong>增量式量子语言模型处理</strong>，结合增量大数据处理思想</li>
 </ol>
 ]]></content>
       <categories>

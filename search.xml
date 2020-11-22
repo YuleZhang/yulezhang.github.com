@@ -23,9 +23,10 @@
 <h2 id="量子遗传算法-多宇宙并行"><a href="#量子遗传算法-多宇宙并行" class="headerlink" title="量子遗传算法+多宇宙并行"></a>量子遗传算法+多宇宙并行</h2><p>量子多宇宙并行算法主要是提出了一种<strong>神经网络中的权重初始化方式</strong>.因为一般的神经网格的权重都是随机初始化的,这可能会存在梯度消失或者梯度爆炸的问题.这篇文章QGA算法通过,针对在同一个宇宙内部的量子个体,算法采用的是量子旋门调整来搜索最优解.文中采用的量子交叉策略如下</p>
 <p><img src='/assets/1606042203345.png' width='60%'></p>
 <p>实验中的ORL人脸识别率约在90%左右，仅给出不同算法的运行时间上的差别，但不知数据是否可靠，因为这篇文章缺乏实验细节，即采用什么平台来模拟或者实现量子门的运算和操作。对量子比特的操作也很简单，只是做了一个旋转角的操作.在这里遗传算法是为了优化权值，适应度函数也没给，相当粗糙了.</p>
-<h1 id="2020量子物理与智能计算交叉研讨会-QCAI2020"><a href="#2020量子物理与智能计算交叉研讨会-QCAI2020" class="headerlink" title="2020量子物理与智能计算交叉研讨会(QCAI2020)"></a><a href="https://qcaitju.github.io/qcai2020/#3">2020量子物理与智能计算交叉研讨会(QCAI2020)</a></h1><p>此次“量子物理与智能计算交叉研讨会”将讨论量子物理、计算机科学与技术、人工智能等交叉学科的前沿进展，以及目前量子科技发展的挑战和机会。主题包括（且不限于）人工智能在量子物理的应用、量子人工智能、量子机器学习、量子信息检索、自然语言处理、现阶段量子技术和人工智能技术的挑战等，与我目前的研究方向非常吻合，同时也是之前刘丁老师推荐我参加的workshop。</p>
+<p>关于实验的一些进展</p>
+<h2 id="2020量子物理与智能计算交叉研讨会-QCAI2020"><a href="#2020量子物理与智能计算交叉研讨会-QCAI2020" class="headerlink" title="2020量子物理与智能计算交叉研讨会(QCAI2020)"></a><a href="https://qcaitju.github.io/qcai2020/#3">2020量子物理与智能计算交叉研讨会(QCAI2020)</a></h2><p>此次“量子物理与智能计算交叉研讨会”将讨论量子物理、计算机科学与技术、人工智能等交叉学科的前沿进展，以及目前量子科技发展的挑战和机会。主题包括（且不限于）人工智能在量子物理的应用、量子人工智能、量子机器学习、量子信息检索、自然语言处理、现阶段量子技术和人工智能技术的挑战等，与我目前的研究方向非常吻合，同时也是之前刘丁老师推荐我参加的workshop。</p>
 <p>这次分享的大佬还是蛮多的，我就简单总结回顾一下几个我印象比较深的老师。</p>
-<h2 id="翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network"><a href="#翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network" class="headerlink" title="翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network"></a>翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network</h2><p>在这个汇报里，主要是提出了一种量子神经网络的概念，量子神经网络的概念与经典神经网络的概念对比如下图所示</p>
+<h3 id="翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network"><a href="#翟荟（清华大学）：Quantum-Information-Scrambling-and-Quantum-Neural-Network" class="headerlink" title="翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network"></a>翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network</h3><p>在这个汇报里，主要是提出了一种量子神经网络的概念，量子神经网络的概念与经典神经网络的概念对比如下图所示</p>
 <p><img src='/assets/1605966045957.png' width='70%'></p>
 <p>从图中可以看到，从经典到量子，对应着以下变化</p>
 <ul>
@@ -34,7 +35,7 @@
 <li>输出从<strong>数字</strong>(一般表示预测类别或者预测值)变成了<strong>测量</strong></li>
 <li>经典通过对输入信息进行特征抽取，而量子神经网络则保存所有输入信息(可逆)</li>
 </ul>
-<h2 id="NLP专场"><a href="#NLP专场" class="headerlink" title="NLP专场"></a>NLP专场</h2><p>这部分主要由以下三位老师进行解释,由于我对NLP不是很了解,因此将其放在一起</p>
+<h3 id="NLP专场"><a href="#NLP专场" class="headerlink" title="NLP专场"></a>NLP专场</h3><p>这部分主要由以下三位老师进行解释,由于我对NLP不是很了解,因此将其放在一起</p>
 <p><strong>邱锡鹏（复旦大学）/刘知远（清华大学）/张鹏（天津大学）</strong></p>
 <p>NLP的一些简单介绍</p>
 <p>NLP问题范畴</p>
@@ -45,7 +46,7 @@
 <p>NLP的评价方式</p>
 <p>目前最适合NLP的模型Transformer</p>
 <p>清华大学NLP实验室: <a href="https://github.com/thunlp">Github地址</a> </p>
-<h2 id="刘丁（天津工业大学）和冉仕举（首都师范大学）"><a href="#刘丁（天津工业大学）和冉仕举（首都师范大学）" class="headerlink" title="刘丁（天津工业大学）和冉仕举（首都师范大学）"></a>刘丁（天津工业大学）和冉仕举（首都师范大学）</h2><p>这是我们非常熟悉的两位大佬啦,我相信不用我再进行过多的介绍,他们的资料在此次Workshop官网上有很多介绍,我们目前做的很多工作内容与他们两个密切相关,同时他们的论文大部分我们也都读过,因此停下来整体感觉还是比较棒的.</p>
+<h3 id="刘丁（天津工业大学）和冉仕举（首都师范大学）"><a href="#刘丁（天津工业大学）和冉仕举（首都师范大学）" class="headerlink" title="刘丁（天津工业大学）和冉仕举（首都师范大学）"></a>刘丁（天津工业大学）和冉仕举（首都师范大学）</h3><p>这是我们非常熟悉的两位大佬啦,我相信不用我再进行过多的介绍,他们的资料在此次Workshop官网上有很多介绍,我们目前做的很多工作内容与他们两个密切相关,同时他们的论文大部分我们也都读过,因此停下来整体感觉还是比较棒的.</p>
 <p>刘丁老师呢主要讲了<strong>Unitary algorithm inspired by MERA</strong>那篇文章,就是用<strong>五阶环境张量E和T进行分解处理来更新张量网络</strong>,还有就是那篇<strong>HTN</strong>了,看了不知多少遍的那篇.</p>
 <ul>
 <li>Liu, Ding, et al. “Machine learning by unitary tensor network of hierarchical tree structure.” <em>New Journal of Physics</em> 21.7 (2019): 073059.</li>
@@ -68,7 +69,7 @@
 </ul>
 <p>GTNC定义了一种基于量子的角度旋转去代替BP算法,用fidelities代替欧式距离/曼哈顿距离,很少的参数</p>
 <p>我个人觉得挺棒的,非常推荐大家去阅读,了解以下处理的一些思路.</p>
-<h2 id="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"><a href="#潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩" class="headerlink" title="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"></a>潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩</h2><p>报告全称为《Contracting Arbitrary Tensor Networks: General Approximate Algorithm and Applications in Graphical Models and Quantum Circuit Simulations》，这个任意张量网络结构的收缩倒是令人耳目一新。</p>
+<h3 id="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"><a href="#潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩" class="headerlink" title="潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩"></a>潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩</h3><p>报告全称为《Contracting Arbitrary Tensor Networks: General Approximate Algorithm and Applications in Graphical Models and Quantum Circuit Simulations》，这个任意张量网络结构的收缩倒是令人耳目一新。</p>
 <p>无论是google还是QAOA量子线路，在线路上的酉变换并不一定都是有规律的(这跟昨天翟荟的思路恰好不一样)，大部分量子门的分布具有一定的随机性，谷歌量子计算机线路见下图（这是我第一次看到）</p>
 <p><img src='/assets/1606037151929.png' width='80%'></p>
 <p>QAOA的线路：</p>
@@ -84,14 +85,14 @@
 <li>有没有将这个算法与TEBD\HOTRG等算法进行比较,冉老师认为<strong>TEBD已经可以很好的处理任意张量网络收缩问题</strong></li>
 <li>SVD裁剪是否是基于全局正则形式,回答不是,作者的实现仅仅是定义单个mps的正则形式</li>
 </ol>
-<h2 id="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"><a href="#马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用" class="headerlink" title="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"></a><strong>马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用</strong></h2><p>马星宇同学将机器学习应用到材料领域，并介绍了目前业界内的一些研究工作，例如<strong>无监督机器学习预测锂离子电导率、**</strong>压缩感知算法预测钙钛矿的稳定性、<strong>**生成的机器学习模型VAE预测晶体结构</strong></p>
+<h3 id="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"><a href="#马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用" class="headerlink" title="马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用"></a><strong>马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用</strong></h3><p>马星宇同学将机器学习应用到材料领域，并介绍了目前业界内的一些研究工作，例如<strong>无监督机器学习预测锂离子电导率、**</strong>压缩感知算法预测钙钛矿的稳定性、<strong>**生成的机器学习模型VAE预测晶体结构</strong></p>
 <p>本文主要内容：<strong>机器学习加速发现二维光电材料(例如二维铁电金属)，通过机器学习预测光伏带隙</strong>，下图是预测过程的一些具体步骤</p>
 <p><img src='/assets/1606036608266.png' width='60%'></p>
 <p>对于材料性质而言，<strong>回归学习</strong>的意义更大，<strong>压缩感知算法给出物理可解释性</strong>。</p>
 <p>机器学习在材料领域的应用有以下的问题存在，如何提出更好的算法、模型、方案来处理这些问题是值得深思的，下面这张图给出<strong>机器学习应用与材料领域</strong>相关的一些问题</p>
 <p><img src='/assets/1606036840310.png' width='80%'></p>
 <p>这张图能够带给我们思考，如何将我们学习的一些算法或者知识应用到不同的领域，这或许也是量子张量网络机器学习的用武之地。其中的一个特点就是，对于实际领域的应用，一般很少直接用深度学习进行模型的训练和预测，这可能是因为这些具体的领域需要一定的专业知识解释相关的现象，而传统的机器学习算法例如PCA/SVM/DT等算法显然更有优势，那么<strong>将张量网络用到材料科学当中？？？张量网络也可以做监督学习，正好弥补神经网络的不足。</strong></p>
-<h1 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h1><p>最后将本次Workshop的一些收获和New Idea总结如下</p>
+<h2 id="最后总结"><a href="#最后总结" class="headerlink" title="最后总结"></a>最后总结</h2><p>最后将本次Workshop的一些收获和New Idea总结如下</p>
 <ol>
 <li>HTN和BTN能否能推广应用到<strong>TIS预测</strong>/<strong>物理</strong>/材料/<strong>目标检测</strong>等领域发挥他们更大的价值</li>
 <li>任意张量网络收缩的顺序能否通过程序自行设计(例如<strong>基于邻接矩阵的遗传算法</strong>)</li>

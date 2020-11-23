@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -118,7 +118,11 @@ var _hmt = _hmt || [];
 <p>算法能够将所有的像素存在量子概率分布中：</p>
 <p><img src="/assets/36001ac220e62d57d384f28923e7c20e.png" alt=""></p>
 <p>从上图可以看出，仅传递40个像素，就能将这个图片传递的差不多了，极大的减小了传输开销。</p>
-<h2 id="二、FRQI算法代码"><a href="#二、FRQI算法代码" class="headerlink" title="二、FRQI算法代码"></a>二、FRQI算法代码</h2><p>FRQI算法代码以彩色图像为列，进行量子态映射，代码的整体过程是这样的。第一步，先对图片的每一个像素进行rgb三元素映射（映射公式如下所示）<br>$$<br>θ=π/2(r/16+g/16^2 +b/16^3 )<br>$$<br>其次，将表示像素的作为量子电路中cu3门的输入进行处理，设计的电路如下所示</p>
+<h2 id="二-frqi算法代码">二、FRQI算法代码</h2>
+<p>FRQI算法代码以彩色图像为列，进行量子态映射，代码的整体过程是这样的。第一步，先对图片的每一个像素进行rgb三元素映射（映射公式如下所示）</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>π</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo stretchy="false">(</mo><mi>r</mi><mi mathvariant="normal">/</mi><mn>16</mn><mo>+</mo><mi>g</mi><mi mathvariant="normal">/</mi><mn>1</mn><msup><mn>6</mn><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi mathvariant="normal">/</mi><mn>1</mn><msup><mn>6</mn><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">θ=π/2(r/16+g/16^2 +b/16^3 )
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">π</span><span class="mord">/</span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">/</span><span class="mord">1</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord">/</span><span class="mord">1</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mord">/</span><span class="mord">1</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其次，将表示像素的作为量子电路中cu3门的输入进行处理，设计的电路如下所示</p>
 <p><img src="./assets/a864474058bd4a7467b531c0c1b362a5.png" alt=""></p>
 <p>其中，cu3门的算符代入参数后可以表示为</p>
 <p><img src="./assets/b9ce1569a30435e126a329006d9d8103.png" alt=""></p>
@@ -126,9 +130,12 @@ var _hmt = _hmt || [];
 <p><img src="/assets/ea6a532f5e1bdb07e546a057192cfae6.jpg" alt=""></p>
 <p>可以看到这部分电路是基本组成，依次对各个套用这样的门电路处理，最终就能得到如下结果，即将图片的n个像素映射成为级别的qubit量子态来表示，极大的节省了空间，提高了处理效率</p>
 <p><img src="/assets/2f57100375956817987171f350a51125.png" alt=""></p>
-<p>随之而来的一个问题就是，通过这样像素的映射，将对像素的操作转移到量子电路上来，能够对像素进行并行计算。<strong>那么在将该映射方法套用到张量网络处理MNIST数据集时，如何将张量网络设计成处理电路？</strong>这是一个比较重要的问题，一个关于将张量网络和量子态结合的问题。在tree<br>TN那篇文献的附加代码中，张量网络仍是基于传统电路的串行处理模式进行处理，接下来会继续回顾《Towards<br>quantum machine learning with tensor networks》这篇文章。</p>
+<p>随之而来的一个问题就是，通过这样像素的映射，将对像素的操作转移到量子电路上来，能够对像素进行并行计算。**那么在将该映射方法套用到张量网络处理MNIST数据集时，如何将张量网络设计成处理电路？**这是一个比较重要的问题，一个关于将张量网络和量子态结合的问题。在tree<br>
+TN那篇文献的附加代码中，张量网络仍是基于传统电路的串行处理模式进行处理，接下来会继续回顾《Towards<br>
+quantum machine learning with tensor networks》这篇文章。</p>
 <p>TTN那部分代码的测试集准确率仍比较低，最高达到90%，各种方法都尝试了，例如划分数据集、修改评估函数等，结果没有显著上升。我觉得能解决高维辅助指标的表示问题，或许能有所改善。</p>
-<h2 id="三、张量网络基础课程"><a href="#三、张量网络基础课程" class="headerlink" title="三、张量网络基础课程"></a>三、张量网络基础课程</h2><p>3.1 张量网络的基本定义</p>
+<h2 id="三-张量网络基础课程">三、张量网络基础课程</h2>
+<p>3.1 张量网络的基本定义</p>
 <p>张量网络其实表示一个大的张量，这个大张量的指标其实就是<strong>张量网络中的物理指标</strong>。一个高阶张量可以被表示成不同的张量网络，如下图</p>
 <p><img src="/assets/c7cdf2421f0cdd9292912bff35386933.png" alt=""></p>
 <p>闭合张量网络：将张量网络中的所有几何指标求和之后表示一个标量，这类网络可以用来表示一大类问题，例如格点模型的配分函数，量子多体态的观测量等</p>
@@ -140,9 +147,11 @@ var _hmt = _hmt || [];
 <p><img src="/assets/f265967f011972618d633ff15654b108.png" alt=""></p>
 <p>那么如何计算裁减矩阵呢，视频中给出了两种方法：</p>
 <ol>
-<li><p>通过规范变化，将张量网络变换为中心正交形式，正交中心为连接待裁减指标的两个张量中的一个</p>
+<li>
+<p>通过规范变化，将张量网络变换为中心正交形式，正交中心为连接待裁减指标的两个张量中的一个</p>
 </li>
-<li><p>对正交中心的张量进行奇异值分解，由前个奇异向量构成，且</p>
+<li>
+<p>对正交中心的张量进行奇异值分解，由前个奇异向量构成，且</p>
 </li>
 </ol>
  
@@ -620,6 +629,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -116,11 +116,12 @@ var _hmt = _hmt || [];
 <p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验，重新设计了算法的代码将<strong>fastai框架</strong>改为<strong>pytorch框架</strong>。同时还由于算力不够的原因，向徐永健师兄请教了一下开发的经验和显卡的配置。最后进行了几组不同的实验来一步步的优化模型的参数，实验内容和过程如下：</p>
+<h2 id="实验内容">实验内容</h2>
+<p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验，重新设计了算法的代码将<strong>fastai框架</strong>改为<strong>pytorch框架</strong>。同时还由于算力不够的原因，向徐永健师兄请教了一下开发的经验和显卡的配置。最后进行了几组不同的实验来一步步的优化模型的参数，实验内容和过程如下：</p>
 <p><img src="/assets/Snipaste_2020-10-24_19-46-21_meitu_1.jpg" alt="Snipaste_2020-10-24_19-46-21_meitu_1"></p>
 <p>上图是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 2</strong>，解决新冠疫情<strong>二分类问题</strong>的一个模型，是目前一个比较好的<strong>baseline</strong>了。如图所示，准确率最高达到了<strong>94%</strong>，交叉熵最低为<strong>0.2648</strong>，这个实验结果能为HTN的应用带来很大的参考价值。</p>
 <p><img src="/assets/1603551394170.png" alt="1603551394170"></p>
-<p>另外主要一组是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 3</strong>的、解决新冠疫情<strong>三分类问题(无症状、新冠、肺炎)</strong>的一个模型，运行时间长且很快收敛。如图所示，准确率一直在50%左右上下波动，交叉熵最低为0.8就不再发生明显的变化了，这是比较明显的<strong>过拟合</strong>现象。</p>
+<p>另外主要一组是包含<strong>Tucker分解</strong>的、<strong>Virtual Bond = 3</strong>的、解决新冠疫情<strong>三分类问题(无症状、新冠、肺炎)<strong>的一个模型，运行时间长且很快收敛。如图所示，准确率一直在50%左右上下波动，交叉熵最低为0.8就不再发生明显的变化了，这是比较明显的</strong>过拟合</strong>现象。</p>
 <p>其他的还有Tucker处理成128*128的实验，意义不太大了，就不在此介绍了。原论文中处理的<strong>二分类准确率</strong>最高可达<strong>98.08%</strong>，三分类可达<strong>87.02%</strong>，相比之下TTN由于参数原因限制了它能力的发挥，同时大规模的参数还导致以下不利影响：</p>
 <ul>
 <li><strong>模型训练时间变长</strong></li>
@@ -131,13 +132,15 @@ var _hmt = _hmt || [];
 <p><img src="https://www.researchgate.net/profile/Amine_Ben_khalifa/publication/309206911/figure/fig3/AS:418379505651712@1476760855735/Dropout-neural-network-model-a-is-a-standard-neural-network-b-is-the-same-network.png" alt="Dropout neural network model. (a) is a standard neural network. (b) is... |  Download Scientific Diagram"></p>
 <p>就像图中所展示的那样，在每一层的神经元中<strong>按照一定的比例随机丢弃</strong>一部分神经元，从而能加快模型的收敛速度，同时也能尽可能避免<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Overfitting">过拟合</a>，当然如果丢弃的比例过多又可能造成<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Overfitting">欠拟合</a>，需要合理的设计网络层与Dropout进行搭配，才能更好的发挥它的作用。</p>
 <p>那么一个值得深思的问题是，如何能设计出一个类似神经网络中Dropout层的张量分解层，来对TTN或者其他张量网络层进行<strong>分解降维</strong>或<strong>随机丢弃一些维度</strong>，这是一个很不错的Idea，需要尝试不同的分解方法，同时还要继续查阅相关的研究。</p>
-<h2 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h2><p><strong>关于COVID-19数据集</strong></p>
-<p>对比着搜了几篇新冠疫情相关的文章，发现数据集的主要来源是<a target="_blank" rel="noopener" href="https://github.com/ieee8023">ieee8023/<strong>covid-chestxray-dataset</strong></a>，这个平台建立了一个<strong>胸部X射线</strong>和<strong>CT图像</strong>的公开数据集，这些患者是COVID-19阳性或被怀疑是COVID-19或其他病毒性和细菌性肺炎（MERS，SARS和ARDS）。 数据将通过公共来源以及通过医院和医生的间接收集来收集。 所有图像和数据将在此GitHub存储库中公开发布，目前已经有<strong>2.4K+</strong>的关注度，同时该数据接口也可以通过<strong>Dataloader</strong>调用。上面进行实验的图片也都来自于这个数据集。</p>
+<h2 id="杂谈">杂谈</h2>
+<p><strong>关于COVID-19数据集</strong></p>
+<p>对比着搜了几篇新冠疫情相关的文章，发现数据集的主要来源是<a target="_blank" rel="noopener" href="https://github.com/ieee8023">ieee8023/<strong>covid-chestxray-dataset</strong></a>，这个平台建立了一个<strong>胸部X射线</strong>和<strong>CT图像</strong>的公开数据集，这些患者是COVID-19阳性或被怀疑是COVID-19或其他病毒性和细菌性肺炎（MERS，SARS和ARDS）。 数据将通过公共来源以及通过医院和医生的间接收集来收集。 所有图像和数据将在此GitHub存储库中公开发布，目前已经有<strong>2.4K+<strong>的关注度，同时该数据接口也可以通过</strong>Dataloader</strong>调用。上面进行实验的图片也都来自于这个数据集。</p>
 <p><strong>关于论文写作</strong></p>
 <p><a href="www.overleaf.com">overleaf</a>是一个比较优秀的在线论文写作平台，可以在线的Edit和Compile文章，自动生成论文格式，写论文利器，我已经在上面创建了一个模板，并在此基础上进行论文的修改和写作。</p>
 <p><strong>未来的工作</strong></p>
 <p>本周也基本上读完了遗传算法，接来下要尝试去复现它，并再继续阅读论文寻找合适的张量分解方式或者其他数据集，最终将实验的代码重新进行了整理，模型融合，放到<a target="_blank" rel="noopener" href="https://github.com/YuleZhang/Experiments_HTN">github私人仓库</a>供大家学习使用。下周还要细读《<strong>基于张量的大数据多聚类及其安全和高效方法研究</strong>》的第五、六两章，把相关的背景知识要介绍清楚。</p>
-<h2 id="相关链接："><a href="#相关链接：" class="headerlink" title="相关链接："></a>相关链接：</h2><p><a target="_blank" rel="noopener" href="https://openi.nlm.nih.gov/faq#collection"><em>1. Open-i</em></a></p>
+<h2 id="相关链接：">相关链接：</h2>
+<p><a target="_blank" rel="noopener" href="https://openi.nlm.nih.gov/faq#collection"><em>1. Open-i</em></a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ieee8023/covid-chestxray-dataset"><em>2. COVID-19 image data collection</em></a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7372265/"><em>3. Deep-COVID: Predicting COVID-19 from chest X-ray images using deep transfer learning</em></a></p>
 <p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0010482520301621?via%3Dihub"><em>4. Automated detection of COVID-19 cases using deep neural networks with X-ray images</em></a></p>
@@ -617,6 +620,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

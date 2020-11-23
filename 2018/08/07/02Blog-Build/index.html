@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -112,39 +112,73 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/buildWebsites.jpg" alt="cover"><br><a id="more"></a></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>对于一个小白来说，第一次建立自己的个人网页还真是一件既兴奋又无奈的事情。兴奋是因为你即将有一个属于自己的平台，可以将自己的感悟、收藏、简历等文章保存起来，也可以分享给他人。无奈是因为，在你搭着搭着，你会发现出现了各种各样的问题，这其中包含你的一些个性却没法实现的需求以及半路杀出的各种bug。不过，经历一番麻烦，也是会留下深刻的印象的。</p>
-<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>说到建立网站，不得不考虑不同人出于不同的需求，来走自己的网站路线。可是，对于小白们或者不干网站这方面的大佬们来说，做一个又显得费劲。而我想我的需求跟大部分人一样，当然我的实现也是比较low的一种。我没有买域名，也没有租服务器，而是蹭github的<em><a target="_blank" rel="noopener" href="https://pages.github.com/">github page</a></em>，具体创建仓库的教程网上都有详细概述。<br>而下面的两个配置路线有两个优点 </p>
+  <p><img src="/images/buildWebsites.jpg" alt="cover"></p>
+<a id="more"></a>
+<h1>前言</h1>
+<p>对于一个小白来说，第一次建立自己的个人网页还真是一件既兴奋又无奈的事情。兴奋是因为你即将有一个属于自己的平台，可以将自己的感悟、收藏、简历等文章保存起来，也可以分享给他人。无奈是因为，在你搭着搭着，你会发现出现了各种各样的问题，这其中包含你的一些个性却没法实现的需求以及半路杀出的各种bug。不过，经历一番麻烦，也是会留下深刻的印象的。</p>
+<h1>需求</h1>
+<p>说到建立网站，不得不考虑不同人出于不同的需求，来走自己的网站路线。可是，对于小白们或者不干网站这方面的大佬们来说，做一个又显得费劲。而我想我的需求跟大部分人一样，当然我的实现也是比较low的一种。我没有买域名，也没有租服务器，而是蹭github的*<a target="_blank" rel="noopener" href="https://pages.github.com/">github page</a>*，具体创建仓库的教程网上都有详细概述。<br>
+而下面的两个配置路线有两个优点</p>
 <ol>
-<li>有成型的网页模板，会让你的主页逼格瞬间提升一个档次。  </li>
-<li>方便后续更新维护你的网站。  </li>
+<li>有成型的网页模板，会让你的主页逼格瞬间提升一个档次。</li>
+<li>方便后续更新维护你的网站。</li>
 </ol>
-<h1 id="github-page建网页路线"><a href="#github-page建网页路线" class="headerlink" title="github page建网页路线"></a>github page建网页路线</h1><ol>
-<li>GitHub Pages + Hexo </li>
-<li>GitHub Pages + jekyll<br>我采用的搭建博客的方式是第一种，建议Windows用户走第一种。<br>因为我先走的第二种，走到一半卡死了，cmd窗口出现毫无头绪的错误，网上也找不到什么解决方案。当然你也可以勇于尝试，毕竟机子不同嘛。<br>接下来我们先说第一种</li>
+<h1>github page建网页路线</h1>
+<ol>
+<li>GitHub Pages + Hexo</li>
+<li>GitHub Pages + jekyll<br>
+我采用的搭建博客的方式是第一种，建议Windows用户走第一种。<br>
+因为我先走的第二种，走到一半卡死了，cmd窗口出现毫无头绪的错误，网上也找不到什么解决方案。当然你也可以勇于尝试，毕竟机子不同嘛。<br>
+接下来我们先说第一种</li>
 </ol>
-<h1 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h1><h2 id="下载Node-js"><a href="#下载Node-js" class="headerlink" title="下载Node.js"></a>下载<em><a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></em></h2><p>其中 LTS为稳定版本 ，Current为当前最新版本</p>
-<h2 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载<em><a target="_blank" rel="noopener" href="https://git-scm.com/">git</a></em></h2><p>下载完配置账户，及ssh等，这里有详细介绍<em><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23341529/article/details/79331519">git配置</a></em></p>
-<h2 id="安装Hexo及初步预览"><a href="#安装Hexo及初步预览" class="headerlink" title="安装Hexo及初步预览"></a>安装Hexo及初步预览</h2><p>网上大多hexo的配置都是以前版本的指令了，最新的还要参考<em><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官网</a></em><br>任意位置右键选择Git Bash Here(即打开git的命令窗口)<br><code>$ npm install -g hexo-cli</code><br>接下来找一个你要建立网站的目录，在它的上一级git bash here，执行命令  </p>
+<h1>Hexo配置</h1>
+<h2 id="下载-node-js">下载*<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a>*</h2>
+<p>其中 LTS为稳定版本 ，Current为当前最新版本</p>
+<h2 id="下载-git">下载*<a target="_blank" rel="noopener" href="https://git-scm.com/">git</a>*</h2>
+<p>下载完配置账户，及ssh等，这里有详细介绍*<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23341529/article/details/79331519">git配置</a>*</p>
+<h2 id="安装hexo及初步预览">安装Hexo及初步预览</h2>
+<p>网上大多hexo的配置都是以前版本的指令了，最新的还要参考*<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官网</a>*<br>
+任意位置右键选择Git Bash Here(即打开git的命令窗口)<br>
+<code>$ npm install -g hexo-cli</code><br>
+接下来找一个你要建立网站的目录，在它的上一级git bash here，执行命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;  </span><br><span class="line">$ cd &lt;folder&gt;  </span><br><span class="line">$ npm install  </span><br></pre></td></tr></table></figure>
-<p>此时你的界面应该是这样的  </p>
+<p>此时你的界面应该是这样的</p>
 <p><img src="/assets/1547024489695.png" alt="1547024489695"></p>
-<p>下面我们测试一下环境搭的怎么样<br><code>hexo g</code><br>原为generate缩写为g，意为生成，在<em><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官网</a></em>上有详细的说明<br><code>hexo s</code><br>原为server缩写为s，提交到本地服务器进行查看<br>当你看到这个界面</p>
+<p>下面我们测试一下环境搭的怎么样<br>
+<code>hexo g</code><br>
+原为generate缩写为g，意为生成，在*<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">hexo官网</a>*上有详细的说明<br>
+<code>hexo s</code><br>
+原为server缩写为s，提交到本地服务器进行查看<br>
+当你看到这个界面</p>
 <p><img src="/assets/1547024466501.png" alt="1547024466501"></p>
-<p>就说明你测试成功啦，恭喜，就可以到<em><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></em>查看你已经初步搭建的网页预览图啦。<br><strong>如果你的目的达成了，那么下面就不需要继续看下去了，想有不同风格的主题往下看。</strong></p>
-<h2 id="网站主题"><a href="#网站主题" class="headerlink" title="网站主题"></a>网站主题</h2><h3 id="寻找主题"><a href="#寻找主题" class="headerlink" title="寻找主题"></a>寻找主题</h3><p>当我们看到预览图，肯定会有些小兴奋，不过冷静，事情还没办完。<br>留心查看一下，你会发现根目录下有个themes的文件夹，我们下面自己下载的主题就放到这个目录下面。<br>现在，到<em><a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题平台</a></em>选择自己喜欢的主题吧，样式非常多，有的挑了。</p>
-<h3 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h3><p>下载主题两种方式.  </p>
+<p>就说明你测试成功啦，恭喜，就可以到*<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>*查看你已经初步搭建的网页预览图啦。<br>
+<strong>如果你的目的达成了，那么下面就不需要继续看下去了，想有不同风格的主题往下看。</strong></p>
+<h2 id="网站主题">网站主题</h2>
+<h3 id="寻找主题">寻找主题</h3>
+<p>当我们看到预览图，肯定会有些小兴奋，不过冷静，事情还没办完。<br>
+留心查看一下，你会发现根目录下有个themes的文件夹，我们下面自己下载的主题就放到这个目录下面。<br>
+现在，到*<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题平台</a>*选择自己喜欢的主题吧，样式非常多，有的挑了。</p>
+<h3 id="下载主题">下载主题</h3>
+<p>下载主题两种方式.</p>
 <ol>
-<li>第一种是点开主题的github界面，按照README.txt中的指令，在刚刚提到的themes目录下操作 </li>
-<li>第二种是github界面右上角下载”clone and download”  下完之后放到themes目录下</li>
+<li>第一种是点开主题的github界面，按照README.txt中的指令，在刚刚提到的themes目录下操作</li>
+<li>第二种是github界面右上角下载&quot;clone and download&quot;  下完之后放到themes目录下</li>
 </ol>
-<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>其实不只是配置主题，对Github页面的大部分编辑操作都涉及到根目录下面的_config.yml文件，将其中的themes后面的值改为对应主题文件夹名称。<br><strong>注意中间的空格不能丢，会报错的</strong></p>
-<h3 id="编辑页面"><a href="#编辑页面" class="headerlink" title="编辑页面"></a>编辑页面</h3><p>之后就根据不同主题的风格进行操作了，主要结合hexo官方文档以及对应主题github下readme.txt的说明来完成。  最好下个<em><a target="_blank" rel="noopener" href="https://www.sublimetext.com/3">sublime text 3</a></em><br>编辑文本会非常方便，单纯用txt打开会遇到编码乱码问题，不利于后续文本的编辑<br>至于编辑，你还得会markdown，所以把东西很多，都得会，不过markdown非常简单，作为程序员你不得不用它，因为它确实很牛，sublime中可以下载markdown编辑插件，详细见教程<em><a target="_blank" rel="noopener" href="https://www.cnblogs.com/james-lee/p/6847906.html">Sublime Text3 + Markdown + 实时预览</a></em>个人觉得这比网页里面预览方便多了。<br><strong>注意：所有的操作都在你网站目录下的git bash中完成</strong>  </p>
-<h2 id="提交修改三步走"><a href="#提交修改三步走" class="headerlink" title="提交修改三步走"></a>提交修改三步走</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>其中hexo d是部署到github上去的，要是没弄好，先前两步多走几次，多预览几下，再提交到github。  </p>
+<h3 id="配置主题">配置主题</h3>
+<p>其实不只是配置主题，对Github页面的大部分编辑操作都涉及到根目录下面的_config.yml文件，将其中的themes后面的值改为对应主题文件夹名称。<br>
+<strong>注意中间的空格不能丢，会报错的</strong></p>
+<h3 id="编辑页面">编辑页面</h3>
+<p>之后就根据不同主题的风格进行操作了，主要结合hexo官方文档以及对应主题github下readme.txt的说明来完成。  最好下个*<a target="_blank" rel="noopener" href="https://www.sublimetext.com/3">sublime text 3</a>*<br>
+编辑文本会非常方便，单纯用txt打开会遇到编码乱码问题，不利于后续文本的编辑<br>
+至于编辑，你还得会markdown，所以把东西很多，都得会，不过markdown非常简单，作为程序员你不得不用它，因为它确实很牛，sublime中可以下载markdown编辑插件，详细见教程*<a target="_blank" rel="noopener" href="https://www.cnblogs.com/james-lee/p/6847906.html">Sublime Text3 + Markdown + 实时预览</a>*个人觉得这比网页里面预览方便多了。<br>
+<strong>注意：所有的操作都在你网站目录下的git bash中完成</strong></p>
+<h2 id="提交修改三步走">提交修改三步走</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>其中hexo d是部署到github上去的，要是没弄好，先前两步多走几次，多预览几下，再提交到github。</p>
 <p>github page网站配置分享到此结束，感谢查看。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><em>整体说明: <a target="_blank" rel="noopener" href="https://blog.csdn.net/tianbo_zhang/article/details/79137103">https://blog.csdn.net/tianbo_zhang/article/details/79137103</a></em>  </p>
-<p><em>官方文档: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></em>  </p>
+<h1>参考</h1>
+<p><em>整体说明: <a target="_blank" rel="noopener" href="https://blog.csdn.net/tianbo_zhang/article/details/79137103">https://blog.csdn.net/tianbo_zhang/article/details/79137103</a></em></p>
+<p><em>官方文档: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></em></p>
 <p><em>hexo主题：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></em></p>
 <p><em>hexo_config.yml配置示例：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/littlewriter/p/7229094.html">https://www.cnblogs.com/littlewriter/p/7229094.html</a></em></p>
 <p><em>markdown基本语法：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed">https://www.jianshu.com/p/191d1e21f7ed</a></em></p>
@@ -625,6 +659,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

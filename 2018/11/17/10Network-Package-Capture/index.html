@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -110,7 +110,8 @@ var _hmt = _hmt || [];
        
   <p><img src="/images/network.jpg" alt="cover"></p>
 <a id="more"></a>
-<h3 id="Wireshark抓包实验"><a href="#Wireshark抓包实验" class="headerlink" title="Wireshark抓包实验"></a><strong>Wireshark抓包实验</strong></h3><p><strong>1.1</strong>  <strong>学习Wireshark工具的基本操作</strong></p>
+<h3 id="wireshark抓包实验"><strong>Wireshark抓包实验</strong></h3>
+<p><strong>1.1</strong>  <strong>学习Wireshark工具的基本操作</strong></p>
 <p>学习捕获选项的设置和使用，如考虑源主机和目的主机，正确设置 Capture Filter；捕获后设置 Display Filter。</p>
 <p><strong>1.2</strong>  <strong>PING</strong>命令的网络包捕获分析</p>
 <p>PING命令是基于ICMP协议而工作的，发送4个包，正常返回四个包。以主机210.31.40.41为例，主要实验步骤为：</p>
@@ -161,7 +162,7 @@ var _hmt = _hmt || [];
 <p>（1）FTP 服务器的登录</p>
 <p>捕获 USER 和 PWD 的内容，分析 FTP、TCP、IP 协议的首部信息。FTP 服务器的端口号为 21，用于控制连接。</p>
 <p><img src="/assets/clip_image025.jpg" alt="img"></p>
-<p>在这里使用的是filezilla登陆的FTP服务器，通过对登陆过程的捕获可以看到，登陆的账号为anonymous，密码为<a href="mailto:anonymous@example.com">anonymous@example.com</a>（默认）。</p>
+<p>在这里使用的是filezilla登陆的FTP服务器，通过对登陆过程的捕获可以看到，登陆的账号为anonymous，密码为anonymous@example.com（默认）。</p>
 <p>用Wireshark查看FTP、TCP、IP协议的首部信息，如下图。</p>
 <p><img src="/assets/clip_image027.jpg" alt="img"></p>
 <p>（2）FTP 文件的下载过程</p>
@@ -181,7 +182,7 @@ var _hmt = _hmt || [];
 <p>（3）    服务器收到客户端的http请求后，将返回应答，并向客户端发送数据。</p>
 <p>（4）    客户端通过TCP四次握手，与服务器断开TCP连接。</p>
 <p>国内网站：</p>
-<p>国内这里以京东商城为列jd.com（111.13.28.118），捕获主页浏览过程，抓包结果如图。从图中可以看出，No分别为1950、1951、1958时进行了TCP三次握手，此时使用的是TCP协议的80端口。（说明：Wireshark抓包仅限于http，对于https其无法解密识别，国内大部分网站主页都是http，只有在登陆界面或者少数主页是https加密，不过为了掩盖性，大部分网站的头部都以https开头，尽管他们没有发挥任何作用。）</p>
+<p><a target="_blank" rel="noopener" href="http://xn--jd-8w2cqeqyvkx0nr7as7qkre3tc3w20amkf.com">国内这里以京东商城为列jd.com</a>（111.13.28.118），捕获主页浏览过程，抓包结果如图。从图中可以看出，No分别为1950、1951、1958时进行了TCP三次握手，此时使用的是TCP协议的80端口。（说明：Wireshark抓包仅限于http，对于https其无法解密识别，国内大部分网站主页都是http，只有在登陆界面或者少数主页是https加密，不过为了掩盖性，大部分网站的头部都以https开头，尽管他们没有发挥任何作用。）</p>
 <p><img src="/assets/clip_image031.jpg" alt="img"></p>
 <p><img src="/assets/clip_image033.jpg" alt="img"></p>
 <p>从包的数据中可以分析得出(见图6-2)，本机地址10.10.215.246，捕获端口为19651。目标地址为111.13.28.118，开放端口为80，TCP协议数据切片长度为382。在看看HTTP协议，其中http请求头为Mozilla/5.0（Windows NT 10.0；Win64; X64）…以及它的接受语言为中文等等，是正常访问url时向服务器发送的一些数据信息。</p>
@@ -189,15 +190,16 @@ var _hmt = _hmt || [];
 <p>登录到校内外的邮件系统，捕获自己的登录信息，重点分析其 SMTP、POP3 协议的内容。注意其端口号分别是 25 和 110。</p>
 <p>国内外大部分邮箱采用ssl加密，即https协议，其中http常用端口为80，https常用端口号为443。下面我使用的是foxmail客户端来进行EMAIL协议包的捕获，捕获内容如下图</p>
 <p><img src="/assets/clip_image035.jpg" alt="img"></p>
-<p>在Protocol列中可以看到显示的协议有TCP和SMTP。由于SMTP是基于TCP协议的，所以在使用SMTP协议发送邮件之前，首先要通过TCP三次握手建立连接。从图中倒数第三个SMTP包的后面可以看到我发送邮件的邮箱账号。第75帧表示成功登陆邮箱，第78帧表示发送邮件的账户，本例中是<a href="mailto:yulezhang321@qq.com">yulezhang321@qq.com</a>。第81帧表示接受邮件的账户，本例中是<a href="mailto:2592879772@qq.com">2592879772@qq.com</a>。第83帧是客户端发送的内容，84帧使用<CR><LF>接收了文本的内容。</p>
+<p>在Protocol列中可以看到显示的协议有TCP和SMTP。由于SMTP是基于TCP协议的，所以在使用SMTP协议发送邮件之前，首先要通过TCP三次握手建立连接。从图中倒数第三个SMTP包的后面可以看到我发送邮件的邮箱账号。第75帧表示成功登陆邮箱，第78帧表示发送邮件的账户，本例中是yulezhang321@qq.com。第81帧表示接受邮件的账户，本例中是2592879772@qq.com。第83帧是客户端发送的内容，84帧使用<CR><LF>接收了文本的内容。</p>
 <p><img src="/assets/clip_image037.jpg" alt="img"></p>
 <p>该界面较为清晰的展示了邮件信息（右键一个SMTP包，选择follow-&gt;TCP Stream查看），红色部分为客户端发送的信息，蓝色部分是服务器相应信息。在该界面可以看到客户端的主机名、邮件账户、使用的邮件客户端、邮件内容类型和传输格式等等。也可以看见发送的信息内容，由于内容被转换为base64位格式的信息，进行了加密。</p>
-<h2 id="四、-思考题"><a href="#四、-思考题" class="headerlink" title="四、 思考题"></a>四、 思考题</h2><p>（1）在 FTP 服务中，FTP 数据长度为什么是 1460 字节？</p>
+<h2 id="四-思考题">四、 思考题</h2>
+<p>（1）在 FTP 服务中，FTP 数据长度为什么是 1460 字节？</p>
 <p>最大传输单元是1460字节是TCP层的报文段(segment)的长度限制。</p>
 <p>（2）如何捕获 FTP 服务的结束数据包？</p>
 <p>在过滤器中输入ftp，会看到在Information信息列中出现Request：QUIT的内容，表示为ftp的结束包</p>
 <p>（3）在端口扫描中，对应的协议有 TCP 和 UDP。应该如何查找某端口对应的服务类型？</p>
-<p>在cmd命令行中使用netstat -a -n命令查看。 </p>
+<p>在cmd命令行中使用netstat -a -n命令查看。</p>
 <p>（4）不指定 IP 地址时，为什么有的邻近主机捕获不到？</p>
 <p>每个信息包能够通过网络不同的路径发送，信息包能按照与它们发送时的不同顺序到达。网络协议（IP）仅仅是递送他们，TCP才是能够将它们按照正确顺序组合回原样。IP是一个无连接协议，这就意味着在通信的终点之间没有连续的线路连接。这就导致了会有一些主机捕获不到信息。</p>
 <p>（5）PING 命令操作时，为什么会捕获 ARP 协议的数据包？</p>
@@ -684,6 +686,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

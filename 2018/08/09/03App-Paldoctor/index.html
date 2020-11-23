@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -110,28 +110,47 @@ var _hmt = _hmt || [];
        
   <p><img src="/images/PalDoctor.jpg" alt="cover"></p>
 <a id="more"></a>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这个项目由来来的比较有意思，通过曾经在爱未来指导我的老师，我与北京工业大学以宫明昊为队长的小队走到了一块。起初是想在暑假找份实习，通过王帅老师投了两份，没反应，就把此次项目当作一份实习了，同时也接触一下其他学校的学生。团队中只有我一个人负责APP的开发，让第一次接触211学校同学的我有些压力。</p>
-<h1 id="项目信息"><a href="#项目信息" class="headerlink" title="项目信息"></a>项目信息</h1><p>2018年7月中旬，组内开了第一次会，整体了解了一下项目背景、项目制作初衷以及小组成员的工作分配。这个项目，主要针对互联网+创新类比赛，而且已经拿到了专利并获得比赛创办者的支持。 我还是第一次接触到这么优秀的项目，因此在我跟队长宫明昊谈完之后，我就决定做好它了。   </p>
-<p>紧接着项目指导老师在北京林业大学工学院实验楼给各小队成员开了一个会议，会议上老师对各小组的工作提出了要求，同时也对比赛的进行做了介绍，之后，我就要正式开始我的工作了。  </p>
-<h1 id="项目开展"><a href="#项目开展" class="headerlink" title="项目开展"></a>项目开展</h1><p>前期队里其他成员已经将他们设计好的界面图发到群里了，我只需要一个个实现就行了。  </p>
-<h2 id="项目的开发环境"><a href="#项目的开发环境" class="headerlink" title="项目的开发环境"></a>项目的开发环境</h2><p>Windows10，软件为andorid studio3.1.0，数据库使用android studio自带的sqlite  </p>
-<h2 id="项目基础页面设计"><a href="#项目基础页面设计" class="headerlink" title="项目基础页面设计"></a>项目基础页面设计</h2><p>项目前期设计的还算比较顺利，完成立一系列的的界面设计，同时以易通行app做参照，在界面设计方面有所提高，学会了利用分割线来设计界面。其他的都是一些基础设计，具体设计如下图<br><img src="/img/paldoctor/selfInfo.jpg" alt="Alt text"><br><img src="/img/paldoctor/login2.jpg" alt="Alt text"><br>不过跟我们生活中用的APP比起来，简直LOW到爆了，还要很多东西要去学习。  </p>
-<h2 id="短信验证码的实现"><a href="#短信验证码的实现" class="headerlink" title="短信验证码的实现"></a>短信验证码的实现</h2><p>在设计注册界面时按照需求通过给手机发送短信验证码，从而进行注册  </p>
-<p>面向用户的话，为了安全性的考量，应该是通过给短信验证码平台发送消息，再有验证码平台对移动商服务器请求，最后手机才收到短信。而这里就是用简单生成的六位随机数来模拟验证码，同时调用手机的短信服务接口，来进行短信的发送。  </p>
-<p><img src="/img/paldoctor/login1.jpg" alt="Alt text">  </p>
-<h2 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h2><p>在进行上传时，涉及到很多盲区，包括网络传输协议、网络信息发送方式、java输入输出流、java的多线程以及阿里云服务器的使用。这个过程我主要时通过以下拆分来完成的<br><img src="/img/paldoctor/process.png" alt="Alt text">  </p>
-<p>起初我大致了解了Android通信的几种方式socket(套接字),Internet协议、常见Http处理等  </p>
+<h1>前言</h1>
+<p>这个项目由来来的比较有意思，通过曾经在爱未来指导我的老师，我与北京工业大学以宫明昊为队长的小队走到了一块。起初是想在暑假找份实习，通过王帅老师投了两份，没反应，就把此次项目当作一份实习了，同时也接触一下其他学校的学生。团队中只有我一个人负责APP的开发，让第一次接触211学校同学的我有些压力。</p>
+<h1>项目信息</h1>
+<p>2018年7月中旬，组内开了第一次会，整体了解了一下项目背景、项目制作初衷以及小组成员的工作分配。这个项目，主要针对互联网+创新类比赛，而且已经拿到了专利并获得比赛创办者的支持。 我还是第一次接触到这么优秀的项目，因此在我跟队长宫明昊谈完之后，我就决定做好它了。</p>
+<p>紧接着项目指导老师在北京林业大学工学院实验楼给各小队成员开了一个会议，会议上老师对各小组的工作提出了要求，同时也对比赛的进行做了介绍，之后，我就要正式开始我的工作了。</p>
+<h1>项目开展</h1>
+<p>前期队里其他成员已经将他们设计好的界面图发到群里了，我只需要一个个实现就行了。</p>
+<h2 id="项目的开发环境">项目的开发环境</h2>
+<p>Windows10，软件为andorid studio3.1.0，数据库使用android studio自带的sqlite</p>
+<h2 id="项目基础页面设计">项目基础页面设计</h2>
+<p>项目前期设计的还算比较顺利，完成立一系列的的界面设计，同时以易通行app做参照，在界面设计方面有所提高，学会了利用分割线来设计界面。其他的都是一些基础设计，具体设计如下图<br>
+<img src="/img/paldoctor/selfInfo.jpg" alt="Alt text"><br>
+<img src="/img/paldoctor/login2.jpg" alt="Alt text"><br>
+不过跟我们生活中用的APP比起来，简直LOW到爆了，还要很多东西要去学习。</p>
+<h2 id="短信验证码的实现">短信验证码的实现</h2>
+<p>在设计注册界面时按照需求通过给手机发送短信验证码，从而进行注册</p>
+<p>面向用户的话，为了安全性的考量，应该是通过给短信验证码平台发送消息，再有验证码平台对移动商服务器请求，最后手机才收到短信。而这里就是用简单生成的六位随机数来模拟验证码，同时调用手机的短信服务接口，来进行短信的发送。</p>
+<p><img src="/img/paldoctor/login1.jpg" alt="Alt text"></p>
+<h2 id="上传本地文件到服务器">上传本地文件到服务器</h2>
+<p>在进行上传时，涉及到很多盲区，包括网络传输协议、网络信息发送方式、java输入输出流、java的多线程以及阿里云服务器的使用。这个过程我主要时通过以下拆分来完成的<br>
+<img src="/img/paldoctor/process.png" alt="Alt text"></p>
+<p>起初我大致了解了Android通信的几种方式socket(套接字),Internet协议、常见Http处理等</p>
 <p>从java端到java端并没有什么难度，网上也给出了很多的经典例子。因此开始我就忽略了对java流实现的研究，直接进行文件的发送。开始还比较顺利，可是到了阿里服务器就坏了，通过对服务器Ubuntu的命令始终无法打开其端口，最终通过登陆阿里云平台的开放端口，最终才实现文件的发送。这一问题解决，其他就顺利的实现了手机端到服务器文件的发送。</p>
-<h2 id="下载服务器文件到本地"><a href="#下载服务器文件到本地" class="headerlink" title="下载服务器文件到本地"></a>下载服务器文件到本地</h2><p>在网上并没有对应上传下载同时进行，而只开一个端口的操作。于是自己看了一下java的IO流操作。<br>主要有Output、Input、Writer和Reader。其他的FileInput之类的属于从这些基类上派生出来的具体的操作。  </p>
-<p>我主要使用Output及Input来分别操控四个地方的文件即手机本地文件、android读取到平台的流文件、android收到的流文件、服务器本地文件  </p>
-<p>通过socket+服务器tmux+android流+线程的组合，顺利实现了下载。  </p>
-<p>不过还遗留了一个问题，就是不知道如何去断开流之间文件的读取，因此目前APP每次就只能下载一个服务器文件到本地<br><img src="/img/paldoctor/tmux.png" alt="Alt text"><br>tmux 命令<br><code>tmux attach</code> 切换到后台<br>ctrl + b + d  后台执行并切换到前台</p>
-<h2 id="上传头像"><a href="#上传头像" class="headerlink" title="上传头像"></a>上传头像</h2><p>头像的上传让我对startactivityforresult的理解又更深了一步，能够灵活通过request和result来区分不同的任务。用户在选择头像时，首先会弹出对话框(AlertDialog)选择上传方式。选择拍摄会直接调用相机的接口，跳转到拍摄界面。选择从文件中选择则直接跳转到相册。  </p>
-<p>在拍完照或者选择完图片之后会有一个方形区域来选择呈现的部分。而这个部分作为Bitmap返回到主界面forresult函数进行操作(保存到本地以及显示在界面上)。    </p>
-<p><img src="/img/paldoctor/pt.jpg" alt="Alt text"><img src="/img/paldoctor/ptchose.jpg" alt="Alt text">  </p>
+<h2 id="下载服务器文件到本地">下载服务器文件到本地</h2>
+<p>在网上并没有对应上传下载同时进行，而只开一个端口的操作。于是自己看了一下java的IO流操作。<br>
+主要有Output、Input、Writer和Reader。其他的FileInput之类的属于从这些基类上派生出来的具体的操作。</p>
+<p>我主要使用Output及Input来分别操控四个地方的文件即手机本地文件、android读取到平台的流文件、android收到的流文件、服务器本地文件</p>
+<p>通过socket+服务器tmux+android流+线程的组合，顺利实现了下载。</p>
+<p>不过还遗留了一个问题，就是不知道如何去断开流之间文件的读取，因此目前APP每次就只能下载一个服务器文件到本地<br>
+<img src="/img/paldoctor/tmux.png" alt="Alt text"><br>
+tmux 命令<br>
+<code>tmux attach</code> 切换到后台<br>
+ctrl + b + d  后台执行并切换到前台</p>
+<h2 id="上传头像">上传头像</h2>
+<p>头像的上传让我对startactivityforresult的理解又更深了一步，能够灵活通过request和result来区分不同的任务。用户在选择头像时，首先会弹出对话框(AlertDialog)选择上传方式。选择拍摄会直接调用相机的接口，跳转到拍摄界面。选择从文件中选择则直接跳转到相册。</p>
+<p>在拍完照或者选择完图片之后会有一个方形区域来选择呈现的部分。而这个部分作为Bitmap返回到主界面forresult函数进行操作(保存到本地以及显示在界面上)。</p>
+<p><img src="/img/paldoctor/pt.jpg" alt="Alt text"><img src="/img/paldoctor/ptchose.jpg" alt="Alt text"></p>
 <p>ps:这里的上传指的是将裁剪后的图片保存到本地路径，从而在该用户第二次登陆时能够加载历史头像。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是掌上医生比赛项目的内容及制作过程，虽然有一些经验并且有参考，不过这次也确实学到了很多知识。首先，在对网络一片空白的情况下去研究 <strong>socket+服务器tmux+android流+线程</strong>这一套东西，并且能坚持下来，这其中也是非常锻炼人，还好我没有放弃这一块。  </p>
-<p>在这次实战中，我接触到了很多网络方面的知识，我觉得非常有意思，我们平时打开的网页也是对服务器的一次次请求，不过他们的通信又是另一种方式了。我对服务器、客户端有了一个新的认识，同时也对自己有了一个新的认识。无论是adnroid接口、andorid界面，还是socket通信、服务器命令等等，还有非常多的盲区，还要很多可以进步的地方，希望以后能越来越棒！  </p>
+<h1>总结</h1>
+<p>以上就是掌上医生比赛项目的内容及制作过程，虽然有一些经验并且有参考，不过这次也确实学到了很多知识。首先，在对网络一片空白的情况下去研究 <strong>socket+服务器tmux+android流+线程</strong>这一套东西，并且能坚持下来，这其中也是非常锻炼人，还好我没有放弃这一块。</p>
+<p>在这次实战中，我接触到了很多网络方面的知识，我觉得非常有意思，我们平时打开的网页也是对服务器的一次次请求，不过他们的通信又是另一种方式了。我对服务器、客户端有了一个新的认识，同时也对自己有了一个新的认识。无论是adnroid接口、andorid界面，还是socket通信、服务器命令等等，还有非常多的盲区，还要很多可以进步的地方，希望以后能越来越棒！</p>
 <p>最后附上源码地址<a target="_blank" rel="noopener" href="https://github.com/YuleZhang/PalDoctor">https://github.com/YuleZhang/PalDoctor</a></p>
  
       <!-- reward -->
@@ -608,6 +627,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

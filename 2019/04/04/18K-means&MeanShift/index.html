@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -108,8 +108,10 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/machine.jpg" alt="cover"><br><a id="more"></a></p>
-<h1 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h1><p>k-means算法是机器学习中的一种常见聚类算法。聚类算法属于无监督学习，相比于回归、朴素贝叶斯等少了标签y的信息。K-means算法是将样本聚成k个簇，具体执行步骤如下</p>
+  <p><img src="/images/machine.jpg" alt="cover"></p>
+<a id="more"></a>
+<h1>k-means</h1>
+<p>k-means算法是机器学习中的一种常见聚类算法。聚类算法属于无监督学习，相比于回归、朴素贝叶斯等少了标签y的信息。K-means算法是将样本聚成k个簇，具体执行步骤如下</p>
 <p>（1）      随机选区k个对象作为初始聚类中心</p>
 <p>（2）      计算每一个样本到簇的距离来划分</p>
 <p>（3）      再次计算每个聚类中心</p>
@@ -120,55 +122,72 @@ var _hmt = _hmt || [];
 <p>图6-1 K-means算法确定的4个聚类中心</p>
 <p><strong>算法优点：</strong></p>
 <ul>
-<li><p>速度快，计算简便</p>
+<li>
+<p>速度快，计算简便</p>
 </li>
-<li><p>聚类效果较优</p>
+<li>
+<p>聚类效果较优</p>
 </li>
-<li><p>算法的可解释度比较强</p>
+<li>
+<p>算法的可解释度比较强</p>
 </li>
 </ul>
 <p><strong>算法缺点：</strong></p>
 <ul>
-<li><p>必须提前知道数据有多少类/组</p>
+<li>
+<p>必须提前知道数据有多少类/组</p>
 </li>
-<li><p>对于不是凸的数据集比较难收敛</p>
+<li>
+<p>对于不是凸的数据集比较难收敛</p>
 </li>
-<li><p>采用迭代方法，得到的结果只是局部最优</p>
+<li>
+<p>采用迭代方法，得到的结果只是局部最优</p>
 </li>
-<li><p>初始聚类中心的选择</p>
+<li>
+<p>初始聚类中心的选择</p>
 </li>
-<li><p>对于离群点和噪声点比较敏感，模型受影响较大</p>
+<li>
+<p>对于离群点和噪声点比较敏感，模型受影响较大</p>
 </li>
 </ul>
 <p><strong>算法延伸：</strong></p>
-<p>​             对初始聚类中心的选择进行改进，有了K-means++、二分K-means等等<br>  采用MeanShift避开对数据集聚类中心K的选择</p>
-<h1 id="MeanShift均值漂移"><a href="#MeanShift均值漂移" class="headerlink" title="MeanShift均值漂移"></a>MeanShift均值漂移</h1><p>​       MeanShift均值漂移算法也是一种常见的聚类算法，它的工作方式跟K-means很相似，两者都是通过不断地调整位置，进而逼近样本密度最大的区域中心。它常被用在图像识别中的目标跟踪，数据聚类、分类等场景，前者的核函数使用了Epannechnikov核函数，后者使用了Gaussian(高斯核函数)</p>
+<p>​             对初始聚类中心的选择进行改进，有了K-means++、二分K-means等等<br>
+采用MeanShift避开对数据集聚类中心K的选择</p>
+<h1>MeanShift均值漂移</h1>
+<p>​       MeanShift均值漂移算法也是一种常见的聚类算法，它的工作方式跟K-means很相似，两者都是通过不断地调整位置，进而逼近样本密度最大的区域中心。它常被用在图像识别中的目标跟踪，数据聚类、分类等场景，前者的核函数使用了Epannechnikov核函数，后者使用了Gaussian(高斯核函数)</p>
 <p>​       <strong>算法执行步骤：</strong></p>
 <ul>
-<li><p>确定滑动窗口半径r，以随机选取的中心点C半径为r的圆形滑动窗口开始滑动。均值漂移类似一种爬山算法，在每一次迭代中向密度更高的区域移动，直到收敛。</p>
+<li>
+<p>确定滑动窗口半径r，以随机选取的中心点C半径为r的圆形滑动窗口开始滑动。均值漂移类似一种爬山算法，在每一次迭代中向密度更高的区域移动，直到收敛。</p>
 </li>
-<li><p>每一次滑动到新的区域，计算滑动窗口内的均值来作为中心点，滑动窗口内的点的数量为窗口内的密度。在每一次移动中，窗口会想密度更高的区域移动。</p>
+<li>
+<p>每一次滑动到新的区域，计算滑动窗口内的均值来作为中心点，滑动窗口内的点的数量为窗口内的密度。在每一次移动中，窗口会想密度更高的区域移动。</p>
 </li>
-<li><p>移动窗口，计算窗口内的中心点以及窗口内的密度，知道没有方向在窗口内可以容纳更多的点，即一直移动到圆内密度不再增加为止。</p>
+<li>
+<p>移动窗口，计算窗口内的中心点以及窗口内的密度，知道没有方向在窗口内可以容纳更多的点，即一直移动到圆内密度不再增加为止。</p>
 </li>
-<li><p>步骤一到三会产生很多个滑动窗口，当多个滑动窗口重叠时，保留包含最多点的窗口，然后根据数据点所在的滑动窗口进行聚类</p>
+<li>
+<p>步骤一到三会产生很多个滑动窗口，当多个滑动窗口重叠时，保留包含最多点的窗口，然后根据数据点所在的滑动窗口进行聚类</p>
 </li>
 </ul>
 <p>迭代过程如下图</p>
-<p>   <img src="/assets/201802281615434.gif" alt="201802281615434"></p>
+<p><img src="/assets/201802281615434.gif" alt="201802281615434"></p>
 <p>图6-2 MeanShift算法迭代过程</p>
 <p><strong>算法优点：</strong></p>
 <ul>
-<li><p>不同于K-Means算法，均值漂移聚类算法不需要我们知道有多少类/组</p>
+<li>
+<p>不同于K-Means算法，均值漂移聚类算法不需要我们知道有多少类/组</p>
 </li>
-<li><p>基于密度的算法相比于K-Means受均值影响较小</p>
+<li>
+<p>基于密度的算法相比于K-Means受均值影响较小</p>
 </li>
 </ul>
 <p><strong>算法缺点：</strong></p>
 <ul>
 <li>窗口半径r的选择可能是不重要的</li>
 </ul>
-<h1 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h1><p>​    随机森林就是通过集成学习的思想将多棵树集成的一种算法，它的基本单元是决策树，而它的本质属于机器学习的一大分支——集成学习（Ensemble Learning）方法。</p>
+<h1>随机森林</h1>
+<p>​    随机森林就是通过集成学习的思想将多棵树集成的一种算法，它的基本单元是决策树，而它的本质属于机器学习的一大分支——集成学习（Ensemble Learning）方法。</p>
 <p>​    其实从直观角度来解释，每棵决策树都是一个分类器（假设现在针对的是分类问题），那么对于一个输入样本，N棵树会有N个分类结果。而随机森林集成了所有的分类投票结果，将投票次数最多的类别指定为最终的输出，这就是一种最简单的 Bagging 思想。</p>
 <p><strong>每棵树的按照如下规则生成：</strong></p>
 <p>（1）   如果训练集大小为N，对于每棵树而言，随机且有放回地从训练集中的抽取N个训练样本（这种采样方式称为bootstrap sample方法），作为该树的训练集；</p>
@@ -176,23 +195,30 @@ var _hmt = _hmt || [];
 <p>（3）   每棵树都尽最大程度的生长，并且没有剪枝过程</p>
 <p><strong>算法优点：</strong></p>
 <ul>
-<li><p>在当前所有算法中，具有极好的准确率</p>
+<li>
+<p>在当前所有算法中，具有极好的准确率</p>
 </li>
-<li><p>能够有效地运行在大数据集上</p>
+<li>
+<p>能够有效地运行在大数据集上</p>
 </li>
-<li><p>能够处理具有高维特征的输入样本，而且不需要降维</p>
+<li>
+<p>能够处理具有高维特征的输入样本，而且不需要降维</p>
 </li>
-<li><p>对于缺省值问题也能够获得很好得结果</p>
+<li>
+<p>对于缺省值问题也能够获得很好得结果</p>
 </li>
 </ul>
 <p><strong>错误率影响：</strong></p>
 <ul>
-<li><p>森林中任意两棵树的相关性：相关性越大，错误率越大</p>
+<li>
+<p>森林中任意两棵树的相关性：相关性越大，错误率越大</p>
 </li>
-<li><p>森林中每棵树的分类能力：每棵树的分类能力越强，整个森林的错误率越低</p>
+<li>
+<p>森林中每棵树的分类能力：每棵树的分类能力越强，整个森林的错误率越低</p>
 </li>
 </ul>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Katherine_hsr/article/details/79382249">常见的六大类聚类算法</a></p>
+<h1>参考文章</h1>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Katherine_hsr/article/details/79382249">常见的六大类聚类算法</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gczr/p/7097704.html">随机森林</a></p>
  
       <!-- reward -->
@@ -669,6 +695,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

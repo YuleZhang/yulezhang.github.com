@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -112,21 +112,28 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。</p>
+  <h2 id="小程序">小程序</h2>
+<p>小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。</p>
 <ul>
-<li><p>如何唯一标识用户(_openId)</p>
+<li>
+<p>如何唯一标识用户(_openId)</p>
 <p>即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。</p>
 <a id="more"></a>
 </li>
-<li><p>如何表示矩阵、公式？</p>
+<li>
+<p>如何表示矩阵、公式？</p>
 <p>小程序目前的渲染功能还比较有限，不支持Latex、MathType，并且这类公式在存储到数据库中时也十分的不方便，因此采用图片的形式，将题目保存成图片，随后读取出来，只要位置大小安排合理，能够正常显示。</p>
 </li>
-<li><p>控件和布局可以用现成的框架Weui，Vant等等，开发起来事半功倍。当然要是能熟练运用flex布局，那也是妥妥的</p>
+<li>
+<p>控件和布局可以用现成的框架Weui，Vant等等，开发起来事半功倍。当然要是能熟练运用flex布局，那也是妥妥的</p>
 </li>
 </ul>
-<h2 id="Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks"><a href="#Quantum-Classical-Machine-learning-by-Hybrid-Tensor-Networks" class="headerlink" title="Quantum-Classical Machine learning by Hybrid Tensor Networks"></a>Quantum-Classical Machine learning by Hybrid Tensor Networks</h2><h3 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h3><p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
+<h2 id="quantum-classical-machine-learning-by-hybrid-tensor-networks">Quantum-Classical Machine learning by Hybrid Tensor Networks</h2>
+<h3 id="3-1-介绍">3.1 介绍</h3>
+<p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
 <p><img src="/assets/879be0a02961a360ce311a4bb024b0be.png" alt=""></p>
-<h3 id="3-2-张量网络机器学习的局限性"><a href="#3-2-张量网络机器学习的局限性" class="headerlink" title="3.2 张量网络机器学习的局限性"></a>3.2 张量网络机器学习的局限性</h3><p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
+<h3 id="3-2-张量网络机器学习的局限性">3.2 张量网络机器学习的局限性</h3>
+<p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
 <ol>
 <li>表示能力</li>
 </ol>
@@ -136,8 +143,9 @@ var _hmt = _hmt || [];
 <li>体系结构的可扩展性</li>
 </ol>
 <p><img src="/assets/4505f794f327f2c207b568ef4019e4f2.png" alt=""></p>
-<p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(</strong>例如全连接层<strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图(c)表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
-<h3 id="3-3-混合神经网络"><a href="#3-3-混合神经网络" class="headerlink" title="3.3 混合神经网络"></a>3.3 混合神经网络</h3><p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
+<p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(<strong>例如全连接层</strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图©表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
+<h3 id="3-3-混合神经网络">3.3 混合神经网络</h3>
+<p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
 <p><img src="/assets/cefc9d2c3a147e42cd4123c01846f821.png" alt=""></p>
 <p>而张量网络中张量的收缩过程可以用如下公式表示：</p>
 <p><img src="/assets/16d5f4701d4230f5c3194c0f68e8b259.png" alt=""></p>
@@ -146,7 +154,8 @@ var _hmt = _hmt || [];
 <p>其中表示第i层的第j个张量，随后用梯度下降更新张量</p>
 <p><img src="/assets/b6ff5f61c6f7ebc9deabc271f410a07d.png" alt=""></p>
 <p>其中表示学习率，用这样的方式可以逐步更新HTN中的各个张量</p>
-<h4 id="3-4-量子态分类和量子分类自编码"><a href="#3-4-量子态分类和量子分类自编码" class="headerlink" title="3.4 量子态分类和量子分类自编码"></a>3.4 <strong>量子态分类和量子分类自编码</strong></h4><p>分类的思路也比较容易理解，首先是将图片的像素映射成量子态，单个像素的映射如下</p>
+<h4 id="3-4-量子态分类和量子分类自编码">3.4 <strong>量子态分类和量子分类自编码</strong></h4>
+<p>分类的思路也比较容易理解，首先是将图片的像素映射成量子态，单个像素的映射如下</p>
 <p><img src="/assets/b48a49d4b30470aecc5f6635740abbfc.png" alt=""></p>
 <p>随后将像素表示成矩阵成绩态，如下</p>
 <p><img src="/assets/f953a9ebb0bc7aba45d3a39fe43a85bd.png" alt=""></p>
@@ -633,6 +642,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

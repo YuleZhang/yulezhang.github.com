@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-22T12:26:47.919Z</updated>
+  <updated>2020-11-23T04:04:59.703Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,7 +16,7 @@
     <link href="http://www.yulezhang.com/2020/11/21/Study-Report(1116-1122)/"/>
     <id>http://www.yulezhang.com/2020/11/21/Study-Report(1116-1122)/</id>
     <published>2020-11-21T12:56:17.000Z</published>
-    <updated>2020-11-22T12:26:47.919Z</updated>
+    <updated>2020-11-23T04:04:59.703Z</updated>
     
     <summary type="html">
     
@@ -35,7 +35,7 @@
     <link href="http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/"/>
     <id>http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/</id>
     <published>2020-11-15T01:59:17.000Z</published>
-    <updated>2020-11-15T11:25:18.703Z</updated>
+    <updated>2020-11-22T13:59:15.859Z</updated>
     
     <summary type="html">
     
@@ -59,7 +59,7 @@
     <link href="http://www.yulezhang.com/2020/11/13/LeetcodeSummary/"/>
     <id>http://www.yulezhang.com/2020/11/13/LeetcodeSummary/</id>
     <published>2020-11-13T11:19:38.000Z</published>
-    <updated>2020-11-16T01:11:21.179Z</updated>
+    <updated>2020-11-16T01:11:22.000Z</updated>
     
     <summary type="html">
     
@@ -80,7 +80,7 @@
     <link href="http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/"/>
     <id>http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/</id>
     <published>2020-11-08T10:44:30.000Z</published>
-    <updated>2020-11-09T07:25:07.657Z</updated>
+    <updated>2020-11-09T07:25:08.000Z</updated>
     
     <summary type="html">
     
@@ -101,11 +101,12 @@
     <link href="http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/"/>
     <id>http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/</id>
     <published>2020-11-01T13:46:21.000Z</published>
-    <updated>2020-11-04T03:37:53.145Z</updated>
+    <updated>2020-11-04T03:37:54.000Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;迁移学习和实验&quot;&gt;&lt;a href=&quot;#迁移学习和实验&quot; class=&quot;headerlink&quot; title=&quot;迁移学习和实验&quot;&gt;&lt;/a&gt;迁移学习和实验&lt;/h2&gt;&lt;p&gt;迁移学习(Transfer learning) 顾名思义就是就是把已学训练好的模型参数迁移到新的模型来帮助新模型训练。考虑到大部分数据或任务是存在相关性的，所以通过迁移学习我们可以将已经学到的模型参数（也可理解为模型学到的知识）通过某种方式来分享给新模型从而加快并优化模型的学习效率不用像大多数网络那样从零学习（starting from scratch）&lt;/p&gt;
+      &lt;h2 id=&quot;迁移学习和实验&quot;&gt;迁移学习和实验&lt;/h2&gt;
+&lt;p&gt;迁移学习(Transfer learning) 顾名思义就是就是把已学训练好的模型参数迁移到新的模型来帮助新模型训练。考虑到大部分数据或任务是存在相关性的，所以通过迁移学习我们可以将已经学到的模型参数（也可理解为模型学到的知识）通过某种方式来分享给新模型从而加快并优化模型的学习效率不用像大多数网络那样从零学习（starting from scratch）&lt;/p&gt;
     
     </summary>
     
@@ -122,7 +123,7 @@
     <link href="http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/"/>
     <id>http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/</id>
     <published>2020-10-24T02:15:21.000Z</published>
-    <updated>2020-11-16T01:13:56.684Z</updated>
+    <updated>2020-11-16T01:13:58.000Z</updated>
     
     <summary type="html">
     
@@ -145,7 +146,7 @@
     <link href="http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/"/>
     <id>http://www.yulezhang.com/2020/10/17/Study-Report(1012-1018)/</id>
     <published>2020-10-17T03:04:28.000Z</published>
-    <updated>2020-11-16T01:14:32.650Z</updated>
+    <updated>2020-11-16T01:14:34.000Z</updated>
     
     <summary type="html">
     
@@ -166,7 +167,7 @@
     <link href="http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/"/>
     <id>http://www.yulezhang.com/2020/10/11/Study-Report(1005-1011)/</id>
     <published>2020-10-11T02:30:52.000Z</published>
-    <updated>2020-10-11T14:15:24.165Z</updated>
+    <updated>2020-10-11T14:15:26.000Z</updated>
     
     <summary type="html">
     
@@ -187,7 +188,7 @@
     <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
     <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
     <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2020-11-16T01:11:50.941Z</updated>
+    <updated>2020-11-16T01:11:52.000Z</updated>
     
     <summary type="html">
     
@@ -210,7 +211,7 @@
     <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
     <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
     <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2020-10-11T14:15:35.139Z</updated>
+    <updated>2020-10-11T14:15:36.000Z</updated>
     
     <summary type="html">
     
@@ -231,11 +232,12 @@
     <link href="http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/"/>
     <id>http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/</id>
     <published>2020-09-28T10:37:30.000Z</published>
-    <updated>2020-11-16T01:14:58.677Z</updated>
+    <updated>2020-11-16T01:15:00.000Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Tensor-Contracted&quot;&gt;&lt;a href=&quot;#Tensor-Contracted&quot; class=&quot;headerlink&quot; title=&quot;Tensor Contracted&quot;&gt;&lt;/a&gt;Tensor Contracted&lt;/h2&gt;&lt;p&gt;我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。&lt;a href=&quot;https://blog.csdn.net/qq_45777142/article/details/107499465&quot;&gt;刘紫豪同学的博客&lt;/a&gt;里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在&lt;strong&gt;numpy、tensorflow以及Pytorch&lt;/strong&gt;中都提供了&lt;strong&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.einsum.html&quot;&gt;einsum&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.matmul.html&quot;&gt;matmul&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html&quot;&gt;tensordot&lt;/a&gt;&lt;/strong&gt;这三种方式用于计算张量的缩并。&lt;/p&gt;
+      &lt;h2 id=&quot;tensor-contracted&quot;&gt;Tensor Contracted&lt;/h2&gt;
+&lt;p&gt;我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。&lt;a href=&quot;https://blog.csdn.net/qq_45777142/article/details/107499465&quot;&gt;刘紫豪同学的博客&lt;/a&gt;里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在&lt;strong&gt;numpy、tensorflow以及Pytorch&lt;/strong&gt;中都提供了**&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.einsum.html&quot;&gt;einsum&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.matmul.html&quot;&gt;matmul&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html&quot;&gt;tensordot&lt;/a&gt;**这三种方式用于计算张量的缩并。&lt;/p&gt;
     
     </summary>
     
@@ -252,7 +254,7 @@
     <link href="http://www.yulezhang.com/2020/09/13/36Study-Report(0907-0913)/"/>
     <id>http://www.yulezhang.com/2020/09/13/36Study-Report(0907-0913)/</id>
     <published>2020-09-13T01:17:33.000Z</published>
-    <updated>2020-10-14T14:59:15.388Z</updated>
+    <updated>2020-10-14T14:59:16.000Z</updated>
     
     <summary type="html">
     
@@ -273,13 +275,15 @@
     <link href="http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/"/>
     <id>http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/</id>
     <published>2020-09-06T01:17:33.000Z</published>
-    <updated>2020-09-30T02:23:09.350Z</updated>
+    <updated>2020-10-11T14:16:08.000Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;小程序&quot;&gt;&lt;a href=&quot;#小程序&quot; class=&quot;headerlink&quot; title=&quot;小程序&quot;&gt;&lt;/a&gt;小程序&lt;/h2&gt;&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
+      &lt;h2 id=&quot;小程序&quot;&gt;小程序&lt;/h2&gt;
+&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
 &lt;p&gt;即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。&lt;/p&gt;
     
     </summary>
@@ -297,7 +301,7 @@
     <link href="http://www.yulezhang.com/2020/08/30/34Study-Report(0824-0830)/"/>
     <id>http://www.yulezhang.com/2020/08/30/34Study-Report(0824-0830)/</id>
     <published>2020-08-30T01:25:33.000Z</published>
-    <updated>2020-09-30T01:09:47.636Z</updated>
+    <updated>2020-09-30T01:09:48.000Z</updated>
     
     <summary type="html">
     
@@ -318,11 +322,12 @@
     <link href="http://www.yulezhang.com/2020/08/23/33Study-Report(0817-0823)/"/>
     <id>http://www.yulezhang.com/2020/08/23/33Study-Report(0817-0823)/</id>
     <published>2020-08-23T01:25:33.000Z</published>
-    <updated>2020-09-30T01:09:54.695Z</updated>
+    <updated>2020-09-30T01:09:56.000Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;
+lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
     
     </summary>
     
@@ -341,7 +346,7 @@
     <link href="http://www.yulezhang.com/2020/08/20/32GenPerAlbum/"/>
     <id>http://www.yulezhang.com/2020/08/20/32GenPerAlbum/</id>
     <published>2020-08-20T11:10:31.000Z</published>
-    <updated>2020-09-30T01:11:55.955Z</updated>
+    <updated>2020-09-30T01:11:56.000Z</updated>
     
     <summary type="html">
     
@@ -364,12 +369,12 @@
     <link href="http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/"/>
     <id>http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/</id>
     <published>2020-08-16T01:17:33.000Z</published>
-    <updated>2020-09-30T01:12:37.966Z</updated>
+    <updated>2020-09-30T01:12:38.000Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt; 本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
+&lt;p&gt;本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
@@ -387,7 +392,7 @@
     <link href="http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/"/>
     <id>http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/</id>
     <published>2020-08-09T02:17:33.000Z</published>
-    <updated>2020-09-30T01:14:22.432Z</updated>
+    <updated>2020-09-30T01:14:24.000Z</updated>
     
     <summary type="html">
     
@@ -412,7 +417,7 @@
     <link href="http://www.yulezhang.com/2020/06/05/29PGEE-Summary/"/>
     <id>http://www.yulezhang.com/2020/06/05/29PGEE-Summary/</id>
     <published>2020-06-05T12:36:53.000Z</published>
-    <updated>2020-08-18T01:23:17.828Z</updated>
+    <updated>2020-08-18T01:23:18.000Z</updated>
     
     <summary type="html">
     
@@ -429,28 +434,23 @@
   </entry>
   
   <entry>
-    <title>决策树</title>
-    <link href="http://www.yulezhang.com/2020/04/03/27Decision-Tree/"/>
-    <id>http://www.yulezhang.com/2020/04/03/27Decision-Tree/</id>
+    <title>421总结</title>
+    <link href="http://www.yulezhang.com/2020/04/03/28GraduateSummary/"/>
+    <id>http://www.yulezhang.com/2020/04/03/28GraduateSummary/</id>
     <published>2020-04-03T14:21:00.000Z</published>
-    <updated>2020-09-30T01:54:01.085Z</updated>
+    <updated>2020-09-26T02:05:38.000Z</updated>
     
     <summary type="html">
     
-      &lt;blockquote&gt;
-&lt;p&gt;本文部分图片、材料来自于课程&lt;a href=&quot;https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms&quot;&gt;Python3 入门机器学习&lt;/a&gt; &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先来看一个招聘的例子，这就是一颗决策树，根据不同的问题进行一步步划分，最终将结果氛围录用和考察两类&lt;/p&gt;
+      Welcome to my blog, enter password to read.
     
     </summary>
     
     
-      <category term="复试" scheme="http://www.yulezhang.com/categories/%E5%A4%8D%E8%AF%95/"/>
+      <category term="日志" scheme="http://www.yulezhang.com/categories/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="机器学习" scheme="http://www.yulezhang.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="数据挖掘" scheme="http://www.yulezhang.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+      <category term="总结" scheme="http://www.yulezhang.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

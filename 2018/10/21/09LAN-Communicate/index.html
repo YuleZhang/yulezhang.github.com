@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -84,7 +84,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">482</span>
+            <span class="post-count">485</span>
         </span>
     </span>
 
@@ -110,21 +110,32 @@ var _hmt = _hmt || [];
        
   <p><img src="/images/communication.jpg" alt="cover"></p>
 <a id="more"></a>
-<h3 id="主机相互发送消息"><a href="#主机相互发送消息" class="headerlink" title="主机相互发送消息"></a>主机相互发送消息</h3><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>本学期的计算机网络课非常有意思，它与我们的生活息息相关，曾经我也为电脑发生的网络问题而困惑，总是没有根据的瞎尝试来试图解决问题。但是在老师的一些简单指导之后，有了一个基本的ip之间通信以及局域网的概念。于是就想，既然局域网内部不用通过路由器就能发送数据，那我就可以给同学的电脑发消息了呀，带着这样的兴趣，我开始了本次尝试。</p>
-<h4 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h4><ol>
+<h3 id="主机相互发送消息">主机相互发送消息</h3>
+<h4 id="背景">背景</h4>
+<p>本学期的计算机网络课非常有意思，它与我们的生活息息相关，曾经我也为电脑发生的网络问题而困惑，总是没有根据的瞎尝试来试图解决问题。但是在老师的一些简单指导之后，有了一个基本的ip之间通信以及局域网的概念。于是就想，既然局域网内部不用通过路由器就能发送数据，那我就可以给同学的电脑发消息了呀，带着这样的兴趣，我开始了本次尝试。</p>
+<h4 id="发送消息">发送消息</h4>
+<ol>
 <li>关掉发送消息电脑及接受电脑360安全卫士等杀毒软件</li>
 <li>关掉两电脑域防火墙、专用网络防火墙、公用网络防火墙等，如图1</li>
 </ol>
 <p><img src="/assets/1540101899894.png" alt="1540101899894"></p>
 <ol start="3">
-<li>打开控制面板-&gt;凭据管理器-&gt;Windows凭据<br> 单击添加Windows凭据，输入要连接的ip以及用户名密码（每台主机可以同时拥有多个用户，尽量不要用Adminsitrator用户）<br><img src="/assets/1540102133297.png" alt="1540102133297"></li>
+<li>打开控制面板-&gt;凭据管理器-&gt;Windows凭据<br>
+单击添加Windows凭据，输入要连接的ip以及用户名密码（每台主机可以同时拥有多个用户，尽量不要用Adminsitrator用户）<br>
+<img src="/assets/1540102133297.png" alt="1540102133297"></li>
 <li>添加之后，点击确定即可。同时按住win+r打开运行界面，输入cmd后回车</li>
-<li>在cmd命令行中输入<code>msg server:(ip) * &quot;消息内容&quot;</code>如下图所示<br><img src="/assets/1540102455111.png" alt="1540102455111"></li>
-<li>目标电脑收到所发送的消息，如图<br><img src="/assets/1540102669781.png" alt="1540102669781"><h4 id="可能存在的一些问题"><a href="#可能存在的一些问题" class="headerlink" title="可能存在的一些问题"></a>可能存在的一些问题</h4><h5 id="获取会话名称时的错误1722"><a href="#获取会话名称时的错误1722" class="headerlink" title="获取会话名称时的错误1722"></a>获取会话名称时的错误1722</h5></li>
+<li>在cmd命令行中输入<code>msg server:(ip) * &quot;消息内容&quot;</code>如下图所示<br>
+<img src="/assets/1540102455111.png" alt="1540102455111"></li>
+<li>目标电脑收到所发送的消息，如图<br>
+<img src="/assets/1540102669781.png" alt="1540102669781"></li>
 </ol>
-<p>这种情况说明RPC服务器不可用，win+r运行regedit.exe，找到”计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server”把AllowRemoteRPC的值从0改为1就能接受信息了。</p>
-<h5 id="获取会话名称时的错误5"><a href="#获取会话名称时的错误5" class="headerlink" title="获取会话名称时的错误5"></a>获取会话名称时的错误5</h5><p>尝试以管理员身份运行cmd，或者就是没有添加用户凭据，或者是用户凭据添加出错了，重新添加一下用户凭据</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<h4 id="可能存在的一些问题">可能存在的一些问题</h4>
+<h5 id="获取会话名称时的错误1722">获取会话名称时的错误1722</h5>
+<p>这种情况说明RPC服务器不可用，win+r运行regedit.exe，找到&quot;计算机\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot;把AllowRemoteRPC的值从0改为1就能接受信息了。</p>
+<h5 id="获取会话名称时的错误5">获取会话名称时的错误5</h5>
+<p>尝试以管理员身份运行cmd，或者就是没有添加用户凭据，或者是用户凭据添加出错了，重新添加一下用户凭据</p>
+<h3 id="参考文献">参考文献</h3>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mq0036/p/3574555.html">MSG命令使用详解</a></li>
 <li><a target="_blank" rel="noopener" href="http://codewa.com/question/70756.html">错误：1722获取会话名称l</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24264221/article/details/70980123">错误：5获取会话名称</a></li>
@@ -604,6 +615,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

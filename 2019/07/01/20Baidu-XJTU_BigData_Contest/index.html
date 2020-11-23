@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
 
 
 <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-</head>
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
 
@@ -108,26 +108,37 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/BaiDuContest.jpg" alt="cover"><br><a id="more"></a></p>
-<h1 id="西安交大-amp-百度竞赛总结"><a href="#西安交大-amp-百度竞赛总结" class="headerlink" title="西安交大&amp;百度竞赛总结"></a>西安交大&amp;百度竞赛总结</h1><p>比赛的相关介绍见：<a target="_blank" rel="noopener" href="https://dianshi.baidu.com/competition/30/rule">百度点石竞赛总结</a> ，数据分为遥感图像和用户访问数据两部分，要求参赛者根据这两部分数据预测新地点的标签，分类内容如下图</p>
-<p><img src="/assets/1561900835759.png" alt="1561900835759"> </p>
-<h3 id="第一版思路"><a href="#第一版思路" class="headerlink" title="第一版思路"></a>第一版思路</h3><p>这是第一次参加接触相关领域的知识，作为一个小白，很想从这个竞赛入手来学习深度学习相关的知识技能。起初分别对遥感图像和用户访问数据建立单网进行深度学习，整体使用的是keras框架，考虑到keras易于学习和使用，且能够以较快的尝试更多的创意。</p>
+  <p><img src="/images/BaiDuContest.jpg" alt="cover"></p>
+<a id="more"></a>
+<h1>西安交大&amp;百度竞赛总结</h1>
+<p>比赛的相关介绍见：<a target="_blank" rel="noopener" href="https://dianshi.baidu.com/competition/30/rule">百度点石竞赛总结</a> ，数据分为遥感图像和用户访问数据两部分，要求参赛者根据这两部分数据预测新地点的标签，分类内容如下图</p>
+<p><img src="/assets/1561900835759.png" alt="1561900835759"></p>
+<h3 id="第一版思路">第一版思路</h3>
+<p>这是第一次参加接触相关领域的知识，作为一个小白，很想从这个竞赛入手来学习深度学习相关的知识技能。起初分别对遥感图像和用户访问数据建立单网进行深度学习，整体使用的是keras框架，考虑到keras易于学习和使用，且能够以较快的尝试更多的创意。</p>
 <p><img src="/assets/1561952095923.png" alt="1561952095923"></p>
-<h4 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h4><p>对图像部分的数据尝试了Inception系列、VGG系列、NasNet及Xception等，构建模型时，初始采用各个模型在imgnet网络上的训练权重，在各网的基础结构后添加9个神经元的Dense层，用于最后的分类。经过实验，发现NASNet的Accuracy的结果较好，在0.42左右。</p>
-<h4 id="用户访问数据处理"><a href="#用户访问数据处理" class="headerlink" title="用户访问数据处理"></a>用户访问数据处理</h4><p>对用户数据部分试验了Rnn、Xgboost及Lightgbm等网络</p>
-<h4 id="数据融合"><a href="#数据融合" class="headerlink" title="数据融合"></a>数据融合</h4><p>数据融合实际上一开始用了权重相加，效果不好，只有0.71左右，后来认为为什么不将不同所求的概率作为输入，用验证集作为最后的一个xgboost的训练集来训练融合模型，最后效果为0.7240，比直接通过加权相加的效果好了很多，可以调节xgboost的参数来提高效果。</p>
-<h3 id="第二版思路"><a href="#第二版思路" class="headerlink" title="第二版思路"></a>第二版思路</h3><h4 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h4><p>经队员提醒，发现所给的遥感图像中有很多脏数据，如下图所示</p>
-<p><img src="/assets/1561964040175.png" alt="1561964040175"> </p>
+<h4 id="图像处理">图像处理</h4>
+<p>对图像部分的数据尝试了Inception系列、VGG系列、NasNet及Xception等，构建模型时，初始采用各个模型在imgnet网络上的训练权重，在各网的基础结构后添加9个神经元的Dense层，用于最后的分类。经过实验，发现NASNet的Accuracy的结果较好，在0.42左右。</p>
+<h4 id="用户访问数据处理">用户访问数据处理</h4>
+<p>对用户数据部分试验了Rnn、Xgboost及Lightgbm等网络</p>
+<h4 id="数据融合">数据融合</h4>
+<p>数据融合实际上一开始用了权重相加，效果不好，只有0.71左右，后来认为为什么不将不同所求的概率作为输入，用验证集作为最后的一个xgboost的训练集来训练融合模型，最后效果为0.7240，比直接通过加权相加的效果好了很多，可以调节xgboost的参数来提高效果。</p>
+<h3 id="第二版思路">第二版思路</h3>
+<h4 id="数据预处理">数据预处理</h4>
+<p>经队员提醒，发现所给的遥感图像中有很多脏数据，如下图所示</p>
+<p><img src="/assets/1561964040175.png" alt="1561964040175"></p>
 <p>有一部分图块是全黑的，还有一部分图块是被云朵遮盖的，剩下的就是只能看到部分区域图，这也许会影响到模型的质量，我们第二版的思路就是将这些图片剔除掉之后再使用NasNet进行建模。</p>
 <p>随后又对图像做了一些预处理，包括去雾、旋转等，后来还使用GNN对图片进行了增强，从100×100的小矩阵增强到了224×224的矩阵形式，随后送入到神经网络中进行训练，最后的得到的实验结果是…。</p>
-<h4 id="尝试用户访问数据新模型思路"><a href="#尝试用户访问数据新模型思路" class="headerlink" title="尝试用户访问数据新模型思路"></a>尝试用户访问数据新模型思路</h4><p>虽然用户的访问数据比较适合序列的训练方式，我们团队尝试将访问数据按照不同的特征问题归类，如一些人数、假期等等。归类之后将其作为24维的输入即7×26×24，送到NasNet等卷积神经网络中进行训练，通过将图片数据和用户数据送到同一个网络中进行训练，得到了的0.68的效果。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过参加此次竞赛，我基本了解了大数据相关竞赛的参赛思路，如何去构建模型，如何去调整参数，如何从loss及accuracy等的变化中读取模型构建的情况，是否产生了过拟合等等。也了解了当前<a target="_blank" rel="noopener" href="http://baijiahao.baidu.com/s?id=1599943447101946075&amp;wfr=spider&amp;for=pc">比较流行的几个深度学习框架</a>同时，我也认识到了讨论区的重要性，有些大佬会把最初的demo分享在github上， 通过学习、讨论及复现能够了解别人的思路，能够发现自己忽略的问题。竞赛是了解相关知识的较好途径，大佬们分享的代码简直就是宝物。</p>
+<h4 id="尝试用户访问数据新模型思路">尝试用户访问数据新模型思路</h4>
+<p>虽然用户的访问数据比较适合序列的训练方式，我们团队尝试将访问数据按照不同的特征问题归类，如一些人数、假期等等。归类之后将其作为24维的输入即7×26×24，送到NasNet等卷积神经网络中进行训练，通过将图片数据和用户数据送到同一个网络中进行训练，得到了的0.68的效果。</p>
+<h3 id="总结">总结</h3>
+<p>通过参加此次竞赛，我基本了解了大数据相关竞赛的参赛思路，如何去构建模型，如何去调整参数，如何从loss及accuracy等的变化中读取模型构建的情况，是否产生了过拟合等等。也了解了当前<a target="_blank" rel="noopener" href="http://baijiahao.baidu.com/s?id=1599943447101946075&amp;wfr=spider&amp;for=pc">比较流行的几个深度学习框架</a>同时，我也认识到了讨论区的重要性，有些大佬会把最初的demo分享在github上， 通过学习、讨论及复现能够了解别人的思路，能够发现自己忽略的问题。竞赛是了解相关知识的较好途径，大佬们分享的代码简直就是宝物。</p>
 <p>下面附上几版代码以便自己和别人后续的学习使用：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://github.com/czczup/UrbanRegionFunctionClassification">baseline</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SeaEagleI/2019_Baidu-XJTU_BigData_Contest">69.4成绩</a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/SeaEagleI/2019_Baidu-XJTU_BigData_Contest">69.4成绩</a></li>
 </ol>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34919792/article/details/93976813">第五届百度&amp;西安交通大学大数据竞赛初赛思路总结</a> </p>
+<h3 id="参考">参考</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34919792/article/details/93976813">第五届百度&amp;西安交通大学大数据竞赛初赛思路总结</a></p>
  
       <!-- reward -->
       
@@ -603,6 +614,15 @@ var _hmt = _hmt || [];
 </script>
 
 <!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
 
 <!-- busuanzi  -->
 

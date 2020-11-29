@@ -6,10 +6,31 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-29T04:03:42.821Z</updated>
+  <updated>2020-11-29T12:31:10.510Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GTNC and TSGO</title>
+    <link href="http://www.yulezhang.com/2020/11/29/Study-Report(1123-1129)/"/>
+    <id>http://www.yulezhang.com/2020/11/29/Study-Report(1123-1129)/</id>
+    <published>2020-11-29T12:31:17.000Z</published>
+    <updated>2020-11-29T12:31:10.510Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>校园网认证</title>
@@ -42,27 +63,6 @@
     <summary type="html">
     
       Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GTNC and TSGO</title>
-    <link href="http://www.yulezhang.com/2020/11/21/Study-Report(1123-1129)/"/>
-    <id>http://www.yulezhang.com/2020/11/21/Study-Report(1123-1129)/</id>
-    <published>2020-11-21T12:56:17.000Z</published>
-    <updated>2020-11-29T12:29:03.548Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

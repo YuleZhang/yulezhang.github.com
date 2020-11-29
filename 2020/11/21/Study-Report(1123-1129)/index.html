@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    量子群智能！！！ |  
+    GTNC and TSGO |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Study-Report(1109-1115)"
+  id="post-Study-Report(1123-1129)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,15 +69,15 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  量子群智能！！！
+  GTNC and TSGO
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/11/15/Study-Report(1109-1115)/" class="article-date">
-  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">2020-11-15</time>
+      <a href="/2020/11/21/Study-Report(1123-1129)/" class="article-date">
+  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">2020-11-21</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.2k</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">7 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -113,54 +113,30 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
        
   <blockquote>
-<p>本周重要心得：</p>
-<p>我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。</p>
+<p>本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化</p>
 </blockquote>
 <a id="more"></a>
-<p>下面来梳理总结一下本周学习的几篇论文，以及一些比较新鲜的知识点。</p>
-<h4 id="1-robust-supervised-learning-based-on-tensor-network-method">1. <a href="/download/Reading_Materials/08406391.pdf">Robust Supervised Learning Based on Tensor Network Method</a></h4>
-<p>这篇文章介绍了利用张量网络进行监督学习(MNIST分类)，当然这是一般情况的张量链参数又多还非常容易出现梯度消失，因此本文提出了一张将<strong>长张量链分解为短张量链</strong>的方法，从而<strong>减少参数</strong>、<strong>加快收敛速度</strong>、可以通过<strong>SGD</strong>进行更新。</p>
-<p>其主要思想是<strong>将每个神经元与多个图片中的像素相联系</strong>，在每次更新时仅仅用一小批样本去计算梯度，这样又能加速还能优化算法，如下图所示</p>
-<p><img src="/assets/1605420802226.png" alt="1605420802226"></p>
-<p>MNIST每张图片是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>28</mn><mo>∗</mo><mn>28</mn><mo>=</mo><mn>784</mn></mrow><annotation encoding="application/x-tex">28\ast 28=784</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">8</span><span class="mord">4</span></span></span></span>个像素，先将其压缩成为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>14</mn><mo>∗</mo><mn>14</mn><mo>=</mo><mn>196</mn></mrow><annotation encoding="application/x-tex">14\ast 14=196</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">6</span></span></span></span>个像素，然后每7个像素映射到一个神经元<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>上，因此一共对应着28个权重(神经元)，就像图中所表示的那样。下图是<strong>添加了一个线性层的Short-chains网络结构</strong></p>
-<img src="/assets/1605421125052.png" width='50%'>
-<p>此图结构跟上图略有不同，这个图中共有14个MPS态，也就是说图片(196pixels)被分成了14份，每一份有14个像素及其对应的神经元。</p>
-<p>在实验上，这篇文章采用MNIST数据集，讨论了张量链<strong>Error Rate</strong>与<strong>bond strength</strong>和<strong>learning rate</strong>的关系，同时将<strong>LeNet-5</strong>(CNN网络的一种)、<strong>STN(50)</strong>、<strong>STN(10)</strong> <strong>with LT</strong>这三种网络进行对比，尽管LeNet-5准确率更高，但是它有很多的参数、并且更新速度慢，<strong>STN(50)<strong>同样具有这个问题，而经过本文优化的</strong>短张量链STN(10)</strong> with LT则从参数上、收敛速度上都有更好的优势，而且准确率还不会很低。</p>
-<h4 id="2-基于量子群智能优化算法的频谱感知技术研究">2. <a href="/download/Reading_Materials/QuantumGroupIntelligence.pdf">基于量子群智能优化算法的频谱感知技术研究</a></h4>
-<p>借这篇文章了解了一下群智能算法以及其量子版本，比较重要的是学到了<strong>将量子结合到智能算法</strong>的方式。</p>
-<p><strong>群智能计算</strong></p>
-<p>用大自然的智慧来启发我们对各种各样的搜索问题进行近似求解</p>
-<p><img src="/assets/1_R_rzzAvoCg72_So8zKkqHw_meitu_4.jpg" alt="1_R_rzzAvoCg72_So8zKkqHw_meitu_4"></p>
-<p><strong>群智能算法</strong>例如<strong>粒子群算法</strong>、<strong>人工蜂群算法</strong>等通过对群体生物的<strong>觅食性行为进行模拟</strong>具有良好的性能。但是在求解一些复杂优化问题时会存在<strong>收敛速度与收敛经度</strong>之间的矛盾，在求解高维问题时，需要大规模的种群和较多的迭代次数，这无疑增加了计算量和运行时间。而量子群智能计算内容主要包括：<strong>量子粒子群算法、量子蛙跳算法、量子蜂群算法、量子细菌觅食算法、量子神经网络、量子文化算法、量子文化群智能、量子膜群算法</strong>和<strong>多目标量子膜群算法</strong>。量子群智能可以解决例如<strong>多用户检测、频谱分配、决策引擎和频谱感知</strong>等通信技术中的热点和难点问题。</p>
-<p><strong>群智能算法优化的频谱感知方法</strong></p>
-<p>看了一下<strong>混合蛙跳算法SFLA</strong>，它是一种将<strong>全局搜索和局部搜索</strong>结合起来的方法，对数据分成的m个族群不断迭代进化，最终不能能得到各个族群的<strong>最优适应度</strong>和所有族群中的最优适应度。而量子蛙跳算法QSFLA仅在SFLA的基础上<strong>修改了青蛙位置的表示方式以及更新方法</strong>，青蛙的<strong>位置移动</strong>恰好可以用各种<strong>量子门的酉变换</strong>实现。该算法通过<strong>Sphere、Sum Squares、Griewank和Ackley</strong>函数进行了测试，结果表明量子混合蛙跳算法能够较快达到最佳适应度的平均值。量子细菌觅食算法也是类似的思路，只不过改成了用<strong>量子态</strong>表示细菌的位置，用量子门进行趋向性更新，<strong>直到收敛</strong>。</p>
-<p>那<strong>量子混合蛙跳算法</strong>、<strong>量子细菌觅食算法</strong>这些引入量子不确定性的算法是如何应用到<strong>频谱感知技术</strong>中的呢，这时候就体现出数学公式的重要性了。在上一段SFLA的介绍中我们提到了算法的目的是寻找族群<strong>最优适应度</strong>，这个适应度可以理解为满足特定条件的一组解，同loss function的作用一样。目标问题就是<strong>协作频谱感知检测概率最大化</strong>，那么根据这个概率计算公式设计出<strong>适应度函数</strong>就可以解决该实际问题了。</p>
-<h4 id="3-量子并行神经网络">3. <a href="/download/Reading_Materials/%E9%87%8F%E5%AD%90%E5%B9%B6%E8%A1%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.pdf">量子并行神经网络</a></h4>
-<p>在阅读过程中了解到了占据当今机器学习主导地位的<strong>神经网络</strong>一直难以量子化，关键原因在于神经元激活函数是<strong>非线性的和耗散的</strong>，这和量子力学线性可逆的动力学特征相矛盾。<strong>早期量子神经网络</strong>的研究集中于Hopfield等基于关联内存而不是非线性激活函数的，关联内存可以存储n个网络状态，然后对每个输入数据，输出一个与输入有最短汉明距离)的网络状态。Hopfield具有联想和记忆功能，1984解决TSP旅行商问题</p>
-<p><strong>Hopfield Network</strong></p>
-<img src='/assets/1605411072353.png' width="50%">
-<blockquote>
-<p>Encog可以用来绘制各种各样的神经网络结构图，并且可以生成Java、C#、VisualBasic代码</p>
-</blockquote>
-<p>一个简单的Hopfield网络如上图，它是无监督学习，没有输出，只是去匹配一些模式，属于反馈式类型</p>
-<p>这篇文章提出了一种<strong>量子并行神经网络</strong>，神经网络的非线性主要体现在激活函数的作用上，如果没有<strong>非线性函数（又称为激活函数）</strong>，即使<strong>FFNN</strong>(FeedForward Neuro Network)层数再多，也只是一个<strong>线性划分分类器</strong>，用途有限，因此激活函数是大部分ANN的关键组成部分。</p>
-<p>(1) 在先前的量子神经网络工作上做出了改进，提出了一种可完全物理实现可向深度发展的量子神经网络结构模型。<br>
-(2) 利用量子并行性提高神经网络的预测性能，并且采用标准测试集进行数值仿真，验证了量子效应在机器学习中的作用。<br>
-(3) 提出了<strong>量子记忆体</strong>的概念，初步讨论了其在MNIST手写体识别中的应用。</p>
-<p>文中引入了一类新的量子神经元，称为Quron，以此为基础构建完整的QNN，Quron的示意图如下图2所示，y可以通过对x进行酉变换得到。其Quron的量子线路图如下图右侧所示，其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>1</mn></msup><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msup><mi>x</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">x^1...x^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span></span></span></span>表示输入的m个数据，它们还需要转换成二进制的形式用量子态表达， 也就是每个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>对应<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>个量子比特，然后对这些比特进行旋转操作就可得到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>.</p>
-<p><img src="/assets/Snipaste_2020-11-15_16-01-04_meitu_1.jpg" alt="Snipaste_2020-11-15_16-01-04_meitu_1"></p>
-<p>QPNN结构示意图如下所示：</p>
-<img src='/assets/1605431216771.png' width='50%'>
-<p>同时为了计算方便，本文还设计了一个<strong>量子多选门(QMUX)</strong>，它能够为了产生更多<strong>基函数</strong>，进一步利用量子并行性，<strong>同时计算</strong>多个不同权重或结构的神经网络。下面给出一个三层QPNN的量子线路图示例</p>
-<p><img src="/assets/1605431582325.png" alt="1605431582325"></p>
-<p>以上就是本文的主要内容，看的还是有些粗糙，尤其是公式部分，还有些云里雾里，接下来要根据老师的指点继续细读。</p>
-<p>周六晚上同赖老师交流了一下关于最近研究的内容和方向，感觉又明确了不少，近期呢主要有三个方向思路可以继续读论文找结合点：</p>
-<ol>
-<li><strong>量子并行神经网络</strong>和程嵩第四章</li>
-<li>量子<strong>遗传算法</strong>+<strong>多宇宙并行</strong></li>
-<li><a href="/download/Reading_Materials/%E5%9F%BA%E4%BA%8E%E5%BC%A0%E9%87%8F%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%9A%E8%81%9A%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AE%89%E5%85%A8%E5%92%8C%E9%AB%98%E6%95%88%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6.pdf">基于张量的大数据多聚类及其安全和高效方法研究</a>和<a href="/download/Reading_Materials/QuantumApplicationInBigdata.pdf"><strong>量子计算在增量式大数据并行挖掘中的应用</strong></a></li>
-</ol>
-<p>还有老师发的那几张图片，我觉得还需要时间再消化一下，以上就是本周的总结</p>
+<p>本周首先继续上周总结整理了一下上周日大佬们讲座的核心观点和思想，并简单总结了一下这次讲座带给我的一些启发，同老师交流之后，觉得TSGO或GTNC的这种思路可以结合到HTN的优化上来，进一步的向量子模拟计算靠拢，主要是孙正之同学的一些工作需要进一步的学习和复现。</p>
+<h2 id="generative-tensor-network-classification-model-for-supervised-machine-learning-gtnc">Generative tensor network classification model for supervised machine learning(GTNC)</h2>
+<p>这篇文章主要的是一种聚类的思想，生成型张量网络<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>是定义在希尔伯特空间的L个qubit。训练后的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>通过计算样本和$$\left{\Psi^{©}\right}$$之间的欧氏距离进行分类，但是作者在这篇文章中通过采用保真度代替欧式距离，最大保真度对应的簇就是该样本的分类结果。</p>
+<p>在阅读的过程中又学到了一个新的概念叫做<strong>Mercer Condition</strong>，我们都知道在SVM算法中，需要将低维空间映射到核函数上，我们并不需要显式的定义核函数，而是只需要求得投影之后的内积就可以，也就是满足如下式子</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">⟨</mo><mi>ϕ</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mo separator="true">,</mo><mi>ϕ</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow><mo fence="true">⟩</mo></mrow></mrow><annotation encoding="application/x-tex">K\left(x_{i}, x_{j}\right)=\left\langle\phi\left(x_{i}\right), \phi\left(x_{j}\right)\right\rangle
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⟨</span><span class="mord mathdefault">ϕ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ϕ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mclose delimcenter" style="top:0em;">⟩</span></span></span></span></span></span></p>
+<p>只有当这个核函数是正定的时候，映射<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span>才实际存在，我们将这个条件称作Mercer Condition。</p>
+<p>此外在论文中简单对比了一下GTNC算法和SVM算法的优劣，如下</p>
+<ul>
+<li><font color='blue'>SVM的效果依赖于核函数的选择，而GTNC的映射方式是比较固定的。</font></li>
+<li><font color='blue'>GTNC基于希尔伯特空间的聚类求距离进行分类，而SVM则是去寻找高维度空间的决策边界。</font></li>
+</ul>
+<p>这里提到一种lazy-learning的训练方式，它不用训练出$$\left{\Psi^{©}\right}$$就能直接把该簇与样本的保真度表示出来</p>
+<h2 id="tangent-space-gradient-optimization-of-tensor-network-for-machine-learning-tsgo">Tangent-Space Gradient Optimization of Tensor Network for Machine Learning(TSGO)</h2>
+<p>基于梯度的优化方法在深度神经网络中经常会出现<strong>梯度消失或者梯度爆炸</strong>的问题，尤其是计算图深度特别深的时候。这篇文章提出的TSGO算法通过<strong>旋转参数向量的角度</strong>来是实现梯度优化，并且<strong>梯度正交于参数向量</strong>，可以限制在切空间中，学习率用<strong>旋转角</strong>表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\eta=\tan \theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mop">tan</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>，这样就能避免<strong>梯度消失及梯度爆炸</strong>。</p>
+<p><img src="/assets/1606644334115.png" alt="1606644334115"></p>
+<p>实验结果如上图所示，左图展示的是loss function和epochs在不同算法下的变化曲线，可以看出TSGO完胜经典中强大通用的Adam优化器。右图横轴是特征数，可以理解为图片大小，纵轴是收敛时的loss function值，可以看出在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&lt;</mo><mn>1</mn><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">Length&lt;12^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>时，Adam和TSGO的效果相差不大，而当Legnth特别大时，基于梯度下降的Adam算法就陷入了比较差的收敛值，而TSGO则收敛的效果更好一些。</p>
+<p>TSGO的核心思想是<strong>限制与参数向量正交的梯度</strong>，模型的优化可以通过再希尔伯特空间参数向量的旋转操作实现，TSGO独立于学习率和学习深度，能实现稳健收敛。但TSGO不能用来更新神经网络，这是因为我们无法保证公式3再高度非线性的条件。</p>
+<h2 id="总结">总结</h2>
+<p>此外，我还有幸在github上搜索到了孙正之<a target="_blank" rel="noopener" href="https://github.com/crazybigcat/GTNC">GTNC</a>和<a target="_blank" rel="noopener" href="https://github.com/crazybigcat/TSGO">TSGO</a>的论文代码，这些代码对目前的我而言，相当的宝贵。我一边读代码一边写注释，争取能够在多熟悉一些对量子态的<strong>模拟</strong>、<strong>旋转</strong>等操作，然后再想办法将它结合到HTN中。</p>
+<p>本周基于MPS的HTN表现出了不错的效果，经过一些参数的调试，其在cifar10上的训练效果接近80%，这是我们目前设计的所有的张量网络算法结构中比较好的一个效果了，它能够比较准确的对cifar10数据进行分类，并且MPS的结构本身就有个各种各样更新优化方式，如果能将孙正之代码中的思路结合到其中，我相信还会有进一步的突破。</p>
  
       <!-- reward -->
       
@@ -225,32 +201,30 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/21/Study-Report(1123-1129)/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/" rel="tag">量子群智能</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2020/11/21/Study-Report(1123-1129)/" class="article-nav-link">
+      <a href="/2020/11/21/Study-Report(1116-1122)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            GTNC and TSGO
+            第11周学习汇报
           
         </div>
       </a>
     
     
-      <a href="/2020/11/13/LeetcodeSummary/" class="article-nav-link">
+      <a href="/2020/11/15/Study-Report(1109-1115)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">LeetcodeSummary</div>
+        <div class="article-nav-title">量子群智能！！！</div>
       </a>
     
   </nav>

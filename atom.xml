@@ -6,10 +6,31 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-11-23T09:53:27.740Z</updated>
+  <updated>2020-11-29T04:03:42.821Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>校园网认证</title>
+    <link href="http://www.yulezhang.com/2020/11/29/PassbyCpsNet/"/>
+    <id>http://www.yulezhang.com/2020/11/29/PassbyCpsNet/</id>
+    <published>2020-11-29T03:27:17.000Z</published>
+    <updated>2020-11-29T04:03:42.821Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://www.yulezhang.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="骚操作" scheme="http://www.yulezhang.com/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>第11周学习汇报</title>
@@ -427,27 +448,6 @@ lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
     
     
       <category term="转折点" scheme="http://www.yulezhang.com/categories/%E8%BD%AC%E6%8A%98%E7%82%B9/"/>
-    
-    
-      <category term="总结" scheme="http://www.yulezhang.com/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>421总结</title>
-    <link href="http://www.yulezhang.com/2020/04/03/28GraduateSummary/"/>
-    <id>http://www.yulezhang.com/2020/04/03/28GraduateSummary/</id>
-    <published>2020-04-03T14:21:00.000Z</published>
-    <updated>2020-09-26T02:05:38.000Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="日志" scheme="http://www.yulezhang.com/categories/%E6%97%A5%E5%BF%97/"/>
     
     
       <category term="总结" scheme="http://www.yulezhang.com/tags/%E6%80%BB%E7%BB%93/"/>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-12-06T10:56:16.540Z</updated>
+  <updated>2020-12-06T11:08:32.816Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,7 +16,7 @@
     <link href="http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/"/>
     <id>http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/</id>
     <published>2020-12-06T10:56:12.000Z</published>
-    <updated>2020-12-06T10:56:16.540Z</updated>
+    <updated>2020-12-06T11:08:32.816Z</updated>
     
     <summary type="html">
     
@@ -26,7 +26,8 @@
         
           &lt;h2 id=&quot;tsgo的一些说明&quot;&gt;TSGO的一些说明&lt;/h2&gt;
 &lt;h3 id=&quot;偏导数与内积？&quot;&gt;偏导数与内积？&lt;/h3&gt;
-&lt;p class=&#39;katex-block&#39;&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span
+&lt;p&gt;文中对输入样本X的偏导数可以定义为如下的形式&lt;/p&gt;
+&lt;p class=&#39;katex-block&#39;&gt;&lt;span
         
       
     

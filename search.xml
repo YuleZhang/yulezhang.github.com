@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2020/12/01/Study-Report(1130-1206)/</url>
+    <title>手撕代码GTNC</title>
+    <url>/2020/12/06/Study-Report(1130-1206)/</url>
     <content><![CDATA[<h2 id="tsgo的一些说明">TSGO的一些说明</h2>
 <h3 id="偏导数与内积？">偏导数与内积？</h3>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∂</mi><mi>W</mi></msub><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>h</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo>+</mo><mi>h</mi><mi>W</mi><mo stretchy="false">)</mo><mo>−</mo><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo></mrow><mi>h</mi></mfrac></mrow><annotation encoding="application/x-tex">\partial_{W} P(X ; W)=\lim _{h \rightarrow 0} \frac{P(X ; W+h W)-P(X ; W)}{h}
@@ -125,6 +125,9 @@ c-4-3.333-8.333-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667
 <p><img src="E:%5CWebsite%5Csource_posts%5Cassets%5C1607243650714.png" alt="1607243650714"></p>
 <p>最下面的两个曲线图是黄延同学完成的，画的很棒，非常形象的解释了<strong>指数爆炸问题以及裁剪维数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi></mrow><annotation encoding="application/x-tex">\chi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">χ</span></span></span></span>在其中发挥的具体作用</strong></p>
 ]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
   </entry>
   <entry>
     <title>GTNC and TSGO</title>

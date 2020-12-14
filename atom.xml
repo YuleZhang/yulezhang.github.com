@@ -6,17 +6,68 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-12-07T12:16:37.985Z</updated>
+  <updated>2020-12-14T14:21:44.922Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开始写论文啦</title>
+    <link href="http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/"/>
+    <id>http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/</id>
+    <published>2020-12-14T14:21:12.000Z</published>
+    <updated>2020-12-14T14:21:44.922Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;前期HTN工作梳理即GTNC实验&lt;/h1&gt;
+&lt;p&gt;本周在github上建立了属于我们实验室自己的Organization，名称为&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小结</title>
+    <link href="http://www.yulezhang.com/2020/12/08/DeepLearning/"/>
+    <id>http://www.yulezhang.com/2020/12/08/DeepLearning/</id>
+    <published>2020-12-08T12:21:12.000Z</published>
+    <updated>2020-12-14T14:25:20.683Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加&lt;strong&gt;规范、高效并提高封装效果&lt;/strong&gt;以便于快速的进行二次开发，而不能仅仅水平一直停留在&lt;strong&gt;复制粘贴、
+        
+      
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://www.yulezhang.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>手撕代码GTNC</title>
     <link href="http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/"/>
     <id>http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/</id>
     <published>2020-12-06T10:56:12.000Z</published>
-    <updated>2020-12-07T12:16:37.985Z</updated>
+    <updated>2020-12-09T12:40:28.123Z</updated>
     
     <summary type="html">
     
@@ -408,52 +459,6 @@ lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
       <category term="图片压缩" scheme="http://www.yulezhang.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
     
       <category term="TTN" scheme="http://www.yulezhang.com/tags/TTN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>生成个人相册</title>
-    <link href="http://www.yulezhang.com/2020/08/20/32GenPerAlbum/"/>
-    <id>http://www.yulezhang.com/2020/08/20/32GenPerAlbum/</id>
-    <published>2020-08-20T11:10:31.000Z</published>
-    <updated>2020-09-30T01:11:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文章讲解如何利用cos桶+cosbrowser在服务器上构建自己的个人相册&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="网站建设" scheme="http://www.yulezhang.com/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
-    
-    
-      <category term="相册" scheme="http://www.yulezhang.com/tags/%E7%9B%B8%E5%86%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>研究生素养提升公益课</title>
-    <link href="http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/"/>
-    <id>http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/</id>
-    <published>2020-08-16T01:17:33.000Z</published>
-    <updated>2020-09-30T01:12:38.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="综合素质" scheme="http://www.yulezhang.com/tags/%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8/"/>
     
   </entry>
   

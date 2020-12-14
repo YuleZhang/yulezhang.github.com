@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Archives: 2020/12 |  
+    深度学习小结 |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -57,93 +57,222 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  <article class="articles">
+  <article
+  id="post-DeepLearning"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">2020/12</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  深度学习小结
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/08/DeepLearning/" class="article-date">
+  <time datetime="2020-12-08T12:21:12.000Z" itemprop="datePublished">2020-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">964</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/14/Study-Report(1207-1213)/" class="archive-article-date">
-  <time datetime="2020-12-14T14:21:12.000Z" itemprop="datePublished">12/14</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/12/14/Study-Report(1207-1213)/"
-    >开始写论文啦</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/08/DeepLearning/" class="archive-article-date">
-  <time datetime="2020-12-08T12:21:12.000Z" itemprop="datePublished">12/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/12/08/DeepLearning/"
-    >深度学习小结</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/06/Study-Report(1130-1206)/" class="archive-article-date">
-  <time datetime="2020-12-06T10:56:12.000Z" itemprop="datePublished">12/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/12/06/Study-Report(1130-1206)/"
-    >手撕代码GTNC</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加<strong>规范、高效并提高封装效果</strong>以便于快速的进行二次开发，而不能仅仅水平一直停留在<strong>复制粘贴、调包</strong>的程度，很多小工具需要弄清出工作原理，不一定都要复现，但出了问题一定要第一时间能够修改和调试。</p>
+<p>目前比较常用的深度学习框架有很多，有大家都很熟悉的<strong>Tensorflow，有Pytorch，还有Keras、Caffe、PaddlePaddle</strong>等等。我主要用过前三种，对Pytorch最为熟悉，还在Coursera上学习过一整套Pytorch的教程。在进行机器学习或深度学习开发的过程中，需要学习优秀的开源代码，并对照着不断完善自己的代码，这样才能提高，而不仅仅是为了完成某一个功能而进行的开发，要考虑其<strong>简洁性</strong>、<strong>效率</strong>、<strong>复用性</strong>等因素，还要适当的提高内存使用的效率，同时为了便于推广，还要适当的添加一些必要的注释。</p>
+<p>今天是2020年12月8日，随着项目<strong>Experiments_HTN</strong>实验内容的增加，代码重复性很高，而且因为参数的缘故显得十分的臃肿，并且数据集非常大显然是不能直接提交到github上进行保存的，管理和复用时极其不方便，因此，我查阅了一些github上比较优秀的开源项目，想从中学习一些代码管理经验，特别是参数和数据的处理方式。以下开源的项目在一定程度上给了我一些有用的参考</p>
+<ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaussic/text-classification-cnn-rnn">text-classification-cnn-rnn</a>：<strong>3.3K Star</strong>;<strong>1.3K Fork</strong>，该项目使用卷积神经网络以及循环神经网络进行中文文本分类。尽管它采用的是tensorflow框架，但其模型及其参数定义的很简洁，即定义一个Config类来对参数进行管理，是目前我非常欣赏的一种方式</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">yolov5</a>：<strong>6.8K Star;2.2 K Fork</strong>，该项目用于目标检测的研究，采用Pytorch框架，提供了一些较好的模型断点可以用于迁移学习，该项目的参数主要是通过argparse来输入及调用，还有一些参数直接放在函数传参入口</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/ouyanghuiyu/chineseocr_lite">chineseocr_lite</a>：<strong>6K Star;1.2K Fork</strong>中文OCR，支持竖排文字识别，NCNN推理，没有采用上述框架，其参数也是定义在Config文件中</p>
+</li>
+</ul>
+<p>其他还有很多项目，这里就不一一列举了。总的来说，我发现国外的Coder更倾向于将模型的众多参数通过argparse调用，可能是他们大多数采用linux的环境进行开发，这时显然这种方式更加具有优势。而对国内的Coder更倾向将模型的参数保存在一个文件(.yml/.py/.json)中，或者保存在一个单独的类中。</p>
+<p>总之，我还是更能接受将参数保存在类中。由于HTN在实验过程中，经常会采用不同框架的代码，不同更新方式的模型，不同种类的数据(mnist/fashion-mnist/X-ray_Image/cifar10)，因此将数据统一下载或保存到根目录<code>./dataset/</code>下，使得不同框架的模型可以共享，而不同的框架和模型则用不同的文件夹进行区分。至于较大的自定义数据集暂时先存在服务器上，供大家下载。</p>
+<p>参考</p>
+<p><em>1. <a target="_blank" rel="noopener" href="https://awesomeopensource.com/projects/pytorch">Pytorch开源项目汇总</a></em></p>
+<p><em>2.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28475866">吐血整理：PyTorch项目代码与资源列表 | 资源下载</a></em></p>
+ 
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
+    
 
-  
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/12/08/DeepLearning/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/12/14/Study-Report(1207-1213)/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            开始写论文啦
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/12/06/Study-Report(1130-1206)/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">手撕代码GTNC</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -313,6 +442,23 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">

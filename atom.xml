@@ -6,21 +6,65 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-12-14T14:38:31.080Z</updated>
+  <updated>2020-12-20T10:51:19.614Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Paper Writing Week 1</title>
+    <link href="http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/"/>
+    <id>http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/</id>
+    <published>2020-12-20T09:30:12.000Z</published>
+    <updated>2020-12-20T10:51:19.614Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>开始写论文啦</title>
     <link href="http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/"/>
     <id>http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/</id>
     <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2020-12-14T14:38:31.080Z</updated>
+    <updated>2020-12-20T09:32:08.636Z</updated>
     
     <summary type="html">
     
       Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开始写论文啦</title>
+    <link href="http://www.yulezhang.com/2020/12/14/PaperWriting/"/>
+    <id>http://www.yulezhang.com/2020/12/14/PaperWriting/</id>
+    <published>2020-12-14T14:21:12.000Z</published>
+    <updated>2020-12-16T12:52:13.236Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;学堂在线—&lt;a
+        
+      
     
     </summary>
     
@@ -60,20 +104,15 @@
     <link href="http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/"/>
     <id>http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/</id>
     <published>2020-12-06T10:56:12.000Z</published>
-    <updated>2020-12-09T12:40:28.123Z</updated>
+    <updated>2020-12-20T09:32:17.498Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;tsgo的一些说明&quot;&gt;TSGO的一些说明&lt;/h2&gt;
+      &lt;h2 id=&quot;tsgo的一些说明&quot;&gt;TSGO的一些说明&lt;/h2&gt;
 &lt;h3 id=&quot;偏导数与内积？&quot;&gt;偏导数与内积？&lt;/h3&gt;
 &lt;p&gt;文中对输入样本X的偏导数可以定义为如下的形式&lt;/p&gt;
-&lt;p class=&#39;katex-block&#39;&gt;&lt;span
-        
-      
+&lt;p class=&#39;katex-block&#39;&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∂&lt;/mi&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;munder&gt;&lt;mo&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\partial_{W} P(X ; W)=\lim _{h \rightarrow 0} \frac{P(X ; W+h W)-P(X ; W)}{h}
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot; style=&quot;margin-right:0.05556em;&quot;&gt;∂&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.179108em;vertical-align:-0.7521079999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.69444em;&quot;&gt;&lt;span style=&quot;top:-2.347892em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7521079999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.427em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.686em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
     
     </summary>
     
@@ -407,51 +446,6 @@
     
     
       <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unsupervised Learning TNCS</title>
-    <link href="http://www.yulezhang.com/2020/08/30/34Study-Report(0824-0830)/"/>
-    <id>http://www.yulezhang.com/2020/08/30/34Study-Report(0824-0830)/</id>
-    <published>2020-08-30T01:25:33.000Z</published>
-    <updated>2020-09-30T01:09:48.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行&lt;strong&gt;图片压缩&lt;/strong&gt;。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="图片压缩" scheme="http://www.yulezhang.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>量子图像处理及应用</title>
-    <link href="http://www.yulezhang.com/2020/08/23/33Study-Report(0817-0823)/"/>
-    <id>http://www.yulezhang.com/2020/08/23/33Study-Report(0817-0823)/</id>
-    <published>2020-08-23T01:25:33.000Z</published>
-    <updated>2020-09-30T01:09:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzUxMDQzNzEzNA==&amp;amp;mid=2247484527&amp;amp;idx=1&amp;amp;sn=cc8a4dce08140f954d052705f7405b28&amp;amp;chksm=f903b60ece743f1802d5bbafa3db0ce692795419e6df365a1d26e215df7aada060dc0c84a370&amp;amp;scene=21#wechat_redirect&quot;&gt;这篇文章&lt;/a&gt;简要介绍了图像映射到量子态上的几种方式，分别是QImR、qubit&lt;br&gt;
-lattice、FRQI以及NEQR，它们各有特点，详细如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="图片压缩" scheme="http://www.yulezhang.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
-    
-      <category term="TTN" scheme="http://www.yulezhang.com/tags/TTN/"/>
     
   </entry>
   

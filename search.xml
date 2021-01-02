@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2020/12/26/Study-Report(1221-1227)/</url>
+    <title>Paper Writing Week 2</title>
+    <url>/2021/01/01/Study-Report(1221-1227)/</url>
     <content><![CDATA[<ul>
 <li>
 <p>Resize method and autoencoder in HTN?</p>
@@ -42,6 +42,9 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
   </entry>
   <entry>
     <title>Paper Writing Week 1</title>
@@ -925,22 +928,22 @@ size，收缩单位都是上一层EPS的输出张量。</p>
 </li>
 </ul>
 <h2 id="quantum-classical-machine-learning-by-hybrid-tensor-networks">Quantum-Classical Machine learning by Hybrid Tensor Networks</h2>
-<p>论文下载：[这里](download/Reading_Materials/Quantum-Classical Machine learning by Hybrid Tensor Networks.pdf)</p>
+<p>论文下载：<a href="download/Reading_Materials/Hybrid_Tensor_Networks.pdf">这里</a></p>
 <p>论文链接：点击<a href="https://arxiv.org/abs/2005.09428">这里</a></p>
 <h3 id="3-1-介绍">3.1 介绍</h3>
 <p>这篇文章结合<strong>传统张量网络</strong>和<strong>深度学习</strong>提出了一种<strong>量子经典混合张量网络</strong>，能够有效的克服传统张量网络的缺点。这样的<strong>混合张量网络</strong>能够以深度学习的方式与BP、SGD等算法结合，并且论文中还提到，这样一种网络能够作为一种新型的<strong>深度学习算法框架</strong>，如下图</p>
-<img src='./assets/879be0a02961a360ce311a4bb024b0be.png' width='70%'>
+<img src='/assets/879be0a02961a360ce311a4bb024b0be.png' width='70%'>
 <h3 id="3-2-张量网络机器学习的局限性">3.2 张量网络机器学习的局限性</h3>
 <p>同时文中还介绍了<strong>正则张量网络</strong>的一些限制，如下</p>
 <ol>
 <li>表示能力</li>
 </ol>
 <p>张量网络是一个线性函数并且遵从量子力学的叠加原理，这是量子多体系统中张量网络的固有特性，但同时也是建立<strong>强大的机器学习通用分类器的障碍</strong>，所以在处理时一般都通过非线性函数映射成到Hilbert空间，因此<strong>特征映射函数</strong>是张量网络机器学习的一个关键点(类比SVM)。张量网络机器学习TTN需要比经典模型(CNN、FCN等)更多的参数，而文中的<strong>量子经典混合张量网络</strong>需要的参数比TTN还要少的多！参数的比较见下图</p>
-<img src='./assets/4a4d245e651e1944d8cd321820cbb1fb.png' width='60%'>
+<img src='/assets/4a4d245e651e1944d8cd321820cbb1fb.png' width='60%'>
 <ol>
 <li>体系结构的可扩展</li>
 </ol>
-<img src='./assets/4505f794f327f2c207b568ef4019e4f2.png' width='60%'>
+<img src='/assets/4505f794f327f2c207b568ef4019e4f2.png' width='60%'>
 <p>图(a)表示的是神经网络，可以看到<strong>输出神经元权重数目</strong>要大于<strong>输入神经元权重数(<strong>例如全连接层</strong>)</strong>，这使得神经网络能够实现一对多的映射关系。相反图(b)和图©表示的张量网络，只是进行一对一的张量的收缩关系，因此对于单个张量，无法将输入数据映射到多组输出方向上，这一点就<strong>极大的限制了张量网络的可扩展性。</strong></p>
 <h3 id="3-3-混合神经网络">3.3 混合神经网络</h3>
 <p>为了解决张量网络的局限性，一个基本的想法就是通过将<strong>张量网络和神经网络</strong>结合起来，从而引入非线性。而训练HTN的方式则可以采用BP或者SGD算法，那么以BP算法为例，计算第i张量网络层的偏导数的公式如下。</p>
@@ -983,9 +986,9 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mo stretchy="false">⟨</mo><mi>I</mi><mi mathvariant="normal">∣</mi><mi>M</mi><mi mathvariant="normal">∣</mi><mi>I</mi><mo stretchy="false">⟩</mo></mrow><annotation encoding="application/x-tex">c=\langle I|M| I\rangle
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⟨</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mclose">⟩</span></span></span></span></span></p>
 <p>其中M表示测量操作，随后通过神经网络层将输入分成对应的十个类别，训练过程如下图</p>
-<img src='./assets/0968f4a2730b423b10c47be88cc5f44d.png' width='70%'>
+<img src='/assets/0968f4a2730b423b10c47be88cc5f44d.png' width='70%'>
 <p>量子分类器自编码就是将输入的量子态压缩成低维的中间态，将损失函数换位MSE，同时使用PSNR来对比图片压缩前后的差异，对MNIST数据的压缩如下所示。</p>
-<img src='./assets/db1f021ee86472ba575412e96e484a49.png' width='70%'>]]></content>
+<img src='/assets/db1f021ee86472ba575412e96e484a49.png' width='70%'>]]></content>
       <categories>
         <category>周汇报</category>
       </categories>
@@ -996,7 +999,7 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
   <entry>
     <title>Unsupervised Learning TNCS</title>
     <url>/2020/08/30/34Study-Report(0824-0830)/</url>
-    <content><![CDATA[<p>论文下载：[Tensor network compressed sensing with unsupervised machine learning](download/Reading_Materials/Tensor network compressed sensing with unsupervised machine learning.pdf)</p>
+    <content><![CDATA[<p>论文下载：<a href="download/Reading_Materials/Tensor_network_compressed_sensing.pdf">这里</a></p>
 <p>原文入口：<a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033293">这里</a></p>
 <p>简单看了一下这篇论文，它介绍了一种TNCS（Tensor network compressed sensing）算法来进行<strong>图片压缩</strong>。算法的思路是这样的：首先通过TN机器学习算法来将信息（或像素）投影到（也被称为波恩机）上，然后可以将它传递给对方，对方再进行解码还可以恢复到原本的整体数据，整个算法过程如下</p>
 <a id="more"></a>

@@ -6,21 +6,49 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2020-12-20T10:58:39.039Z</updated>
+  <updated>2020-12-27T11:30:47.262Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.yulezhang.com/2020/12/26/Study-Report(1221-1227)/"/>
+    <id>http://www.yulezhang.com/2020/12/26/Study-Report(1221-1227)/</id>
+    <published>2020-12-26T03:14:02.502Z</published>
+    <updated>2020-12-27T11:30:47.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Resize method and autoencoder in HTN?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;principle of autoencoder (MSE)&lt;/li&gt;
+&lt;li&gt;huge image size out of
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Paper Writing Week 1</title>
     <link href="http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/"/>
     <id>http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/</id>
     <published>2020-12-20T09:30:12.000Z</published>
-    <updated>2020-12-20T10:58:39.039Z</updated>
+    <updated>2020-12-20T12:30:48.792Z</updated>
     
     <summary type="html">
     
-      Welcome to my blog, enter password to read.
+      Welcome to my blog, it&#39;s a secret, please enter password to read.
     
     </summary>
     
@@ -50,21 +78,16 @@
   </entry>
   
   <entry>
-    <title>开始写论文啦</title>
+    <title>学堂在线---《如何写好科研论文》秋</title>
     <link href="http://www.yulezhang.com/2020/12/14/PaperWriting/"/>
     <id>http://www.yulezhang.com/2020/12/14/PaperWriting/</id>
     <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2020-12-16T12:52:13.236Z</updated>
+    <updated>2021-01-01T03:03:38.936Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;学堂在线—&lt;a
-        
-      
+      &lt;p&gt;学堂在线—&lt;a href=&quot;https://www.xuetangx.com/learn/THU04011000365/THU04011000365/4233659/video/6387967&quot;&gt;《如何写好科研论文》秋&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;连续阅读相关方向的论文，做一定的积累，一天一篇或者两天一篇，最重要的是感觉不能断，将阅读过程中的一些想法记录下来，同方向的一些经典文章要精读(最少读5遍以上)&lt;/p&gt;
     
     </summary>
     
@@ -79,17 +102,11 @@
     <link href="http://www.yulezhang.com/2020/12/08/DeepLearning/"/>
     <id>http://www.yulezhang.com/2020/12/08/DeepLearning/</id>
     <published>2020-12-08T12:21:12.000Z</published>
-    <updated>2020-12-14T14:25:20.683Z</updated>
+    <updated>2020-12-21T06:07:44.475Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加&lt;strong&gt;规范、高效并提高封装效果&lt;/strong&gt;以便于快速的进行二次开发，而不能仅仅水平一直停留在&lt;strong&gt;复制粘贴、
-        
-      
+      &lt;p&gt;我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加&lt;strong&gt;规范、高效并提高封装效果&lt;/strong&gt;以便于快速的进行二次开发，而不能仅仅水平一直停留在&lt;strong&gt;复制粘贴、调包&lt;/strong&gt;的程度，很多小工具需要弄清出工作原理，不一定都要复现，但出了问题一定要第一时间能够修改和调试。&lt;/p&gt;
     
     </summary>
     
@@ -364,7 +381,7 @@
     <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
     <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
     <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2020-10-11T14:15:36.000Z</updated>
+    <updated>2021-01-01T03:02:50.203Z</updated>
     
     <summary type="html">
     
@@ -407,7 +424,7 @@
     <link href="http://www.yulezhang.com/2020/09/13/36Study-Report(0907-0913)/"/>
     <id>http://www.yulezhang.com/2020/09/13/36Study-Report(0907-0913)/</id>
     <published>2020-09-13T01:17:33.000Z</published>
-    <updated>2020-10-14T14:59:16.000Z</updated>
+    <updated>2021-01-01T03:00:39.459Z</updated>
     
     <summary type="html">
     
@@ -420,32 +437,6 @@
     
     
       <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTN Paper</title>
-    <link href="http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/"/>
-    <id>http://www.yulezhang.com/2020/09/06/35Study-Report(0831-0906)/</id>
-    <published>2020-09-06T01:17:33.000Z</published>
-    <updated>2020-10-11T14:16:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;小程序&quot;&gt;小程序&lt;/h2&gt;
-&lt;p&gt;小程序的开发用了较长的时间，一方面经验不足，一方面是小程序的开发组件还有待完善。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;如何唯一标识用户(_openId)&lt;/p&gt;
-&lt;p&gt;即使用户没有对小程序授权，小程序也可以获取每个访问用户的唯一标识（openId），可以通过云函数进行获取。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   

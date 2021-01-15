@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    深度学习小结 |  
+    量子群智能！！！ |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-DeepLearning"
+  id="post-46Study-Report(1109-1115)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,18 +69,18 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  深度学习小结
+  量子群智能！！！
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/12/08/DeepLearning/" class="article-date">
-  <time datetime="2020-12-08T12:21:12.000Z" itemprop="datePublished">2020-12-08</time>
+      <a href="/2020/11/15/46Study-Report(1109-1115)/" class="article-date">
+  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">2020-11-15</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">964</span>
+            <span class="post-count">2.2k</span>
         </span>
     </span>
 
@@ -97,39 +97,70 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">7 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加<strong>规范、高效并提高封装效果</strong>以便于快速的进行二次开发，而不能仅仅水平一直停留在<strong>复制粘贴、调包</strong>的程度，很多小工具需要弄清出工作原理，不一定都要复现，但出了问题一定要第一时间能够修改和调试。</p>
+  <blockquote>
+<p>本周重要心得：</p>
+<p>我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。</p>
+</blockquote>
 <a id="more"></a>
-<p>目前比较常用的深度学习框架有很多，有大家都很熟悉的<strong>Tensorflow，有Pytorch，还有Keras、Caffe、PaddlePaddle</strong>等等。我主要用过前三种，对Pytorch最为熟悉，还在Coursera上学习过一整套Pytorch的教程。在进行机器学习或深度学习开发的过程中，需要学习优秀的开源代码，并对照着不断完善自己的代码，这样才能提高，而不仅仅是为了完成某一个功能而进行的开发，要考虑其<strong>简洁性</strong>、<strong>效率</strong>、<strong>复用性</strong>等因素，还要适当的提高内存使用的效率，同时为了便于推广，还要适当的添加一些必要的注释。</p>
-<p>今天是2020年12月8日，随着项目<strong>Experiments_HTN</strong>实验内容的增加，代码重复性很高，而且因为参数的缘故显得十分的臃肿，并且数据集非常大显然是不能直接提交到github上进行保存的，管理和复用时极其不方便，因此，我查阅了一些github上比较优秀的开源项目，想从中学习一些代码管理经验，特别是参数和数据的处理方式。以下开源的项目在一定程度上给了我一些有用的参考</p>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaussic/text-classification-cnn-rnn">text-classification-cnn-rnn</a>：<strong>3.3K Star</strong>;<strong>1.3K Fork</strong>，该项目使用卷积神经网络以及循环神经网络进行中文文本分类。尽管它采用的是tensorflow框架，但其模型及其参数定义的很简洁，即定义一个Config类来对参数进行管理，是目前我非常欣赏的一种方式</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">yolov5</a>：<strong>6.8K Star;2.2 K Fork</strong>，该项目用于目标检测的研究，采用Pytorch框架，提供了一些较好的模型断点可以用于迁移学习，该项目的参数主要是通过argparse来输入及调用，还有一些参数直接放在函数传参入口</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://github.com/ouyanghuiyu/chineseocr_lite">chineseocr_lite</a>：<strong>6K Star;1.2K Fork</strong>中文OCR，支持竖排文字识别，NCNN推理，没有采用上述框架，其参数也是定义在Config文件中</p>
-</li>
-</ul>
-<p>其他还有很多项目，这里就不一一列举了。总的来说，我发现国外的Coder更倾向于将模型的众多参数通过argparse调用，可能是他们大多数采用linux的环境进行开发，这时显然这种方式更加具有优势。而对国内的Coder更倾向将模型的参数保存在一个文件(.yml/.py/.json)中，或者保存在一个单独的类中。</p>
-<p>总之，我还是更能接受将参数保存在类中。由于HTN在实验过程中，经常会采用不同框架的代码，不同更新方式的模型，不同种类的数据(mnist/fashion-mnist/X-ray_Image/cifar10)，因此将数据统一下载或保存到根目录<code>./dataset/</code>下，使得不同框架的模型可以共享，而不同的框架和模型则用不同的文件夹进行区分。至于较大的自定义数据集暂时先存在服务器上，供大家下载。</p>
-<p>参考</p>
-<p><em>1. <a target="_blank" rel="noopener" href="https://awesomeopensource.com/projects/pytorch">Pytorch开源项目汇总</a></em></p>
-<p><em>2.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28475866">吐血整理：PyTorch项目代码与资源列表 | 资源下载</a></em></p>
+<p>下面来梳理总结一下本周学习的几篇论文，以及一些比较新鲜的知识点。</p>
+<h4 id="1-robust-supervised-learning-based-on-tensor-network-method">1. <a href="/download/Reading_Materials/08406391.pdf">Robust Supervised Learning Based on Tensor Network Method</a></h4>
+<p>这篇文章介绍了利用张量网络进行监督学习(MNIST分类)，当然这是一般情况的张量链参数又多还非常容易出现梯度消失，因此本文提出了一张将<strong>长张量链分解为短张量链</strong>的方法，从而<strong>减少参数</strong>、<strong>加快收敛速度</strong>、可以通过<strong>SGD</strong>进行更新。</p>
+<p>其主要思想是<strong>将每个神经元与多个图片中的像素相联系</strong>，在每次更新时仅仅用一小批样本去计算梯度，这样又能加速还能优化算法，如下图所示</p>
+<p><img src="/assets/1605420802226.png" alt="1605420802226"></p>
+<p>MNIST每张图片是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>28</mn><mo>∗</mo><mn>28</mn><mo>=</mo><mn>784</mn></mrow><annotation encoding="application/x-tex">28\ast 28=784</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">8</span><span class="mord">4</span></span></span></span>个像素，先将其压缩成为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>14</mn><mo>∗</mo><mn>14</mn><mo>=</mo><mn>196</mn></mrow><annotation encoding="application/x-tex">14\ast 14=196</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">6</span></span></span></span>个像素，然后每7个像素映射到一个神经元<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>上，因此一共对应着28个权重(神经元)，就像图中所表示的那样。下图是<strong>添加了一个线性层的Short-chains网络结构</strong></p>
+<img src="/assets/1605421125052.png" width='50%'>
+<p>此图结构跟上图略有不同，这个图中共有14个MPS态，也就是说图片(196pixels)被分成了14份，每一份有14个像素及其对应的神经元。</p>
+<p>在实验上，这篇文章采用MNIST数据集，讨论了张量链<strong>Error Rate</strong>与<strong>bond strength</strong>和<strong>learning rate</strong>的关系，同时将<strong>LeNet-5</strong>(CNN网络的一种)、<strong>STN(50)</strong>、<strong>STN(10)</strong> <strong>with LT</strong>这三种网络进行对比，尽管LeNet-5准确率更高，但是它有很多的参数、并且更新速度慢，<strong>STN(50)<strong>同样具有这个问题，而经过本文优化的</strong>短张量链STN(10)</strong> with LT则从参数上、收敛速度上都有更好的优势，而且准确率还不会很低。</p>
+<h4 id="2-基于量子群智能优化算法的频谱感知技术研究">2. <a href="/download/Reading_Materials/QuantumGroupIntelligence.pdf">基于量子群智能优化算法的频谱感知技术研究</a></h4>
+<p>借这篇文章了解了一下群智能算法以及其量子版本，比较重要的是学到了<strong>将量子结合到智能算法</strong>的方式。</p>
+<p><strong>群智能计算</strong></p>
+<p>用大自然的智慧来启发我们对各种各样的搜索问题进行近似求解</p>
+<p><img src="/assets/1_R_rzzAvoCg72_So8zKkqHw_meitu_4.jpg" alt="1_R_rzzAvoCg72_So8zKkqHw_meitu_4"></p>
+<p><strong>群智能算法</strong>例如<strong>粒子群算法</strong>、<strong>人工蜂群算法</strong>等通过对群体生物的<strong>觅食性行为进行模拟</strong>具有良好的性能。但是在求解一些复杂优化问题时会存在<strong>收敛速度与收敛经度</strong>之间的矛盾，在求解高维问题时，需要大规模的种群和较多的迭代次数，这无疑增加了计算量和运行时间。而量子群智能计算内容主要包括：<strong>量子粒子群算法、量子蛙跳算法、量子蜂群算法、量子细菌觅食算法、量子神经网络、量子文化算法、量子文化群智能、量子膜群算法</strong>和<strong>多目标量子膜群算法</strong>。量子群智能可以解决例如<strong>多用户检测、频谱分配、决策引擎和频谱感知</strong>等通信技术中的热点和难点问题。</p>
+<p><strong>群智能算法优化的频谱感知方法</strong></p>
+<p>看了一下<strong>混合蛙跳算法SFLA</strong>，它是一种将<strong>全局搜索和局部搜索</strong>结合起来的方法，对数据分成的m个族群不断迭代进化，最终不能能得到各个族群的<strong>最优适应度</strong>和所有族群中的最优适应度。而量子蛙跳算法QSFLA仅在SFLA的基础上<strong>修改了青蛙位置的表示方式以及更新方法</strong>，青蛙的<strong>位置移动</strong>恰好可以用各种<strong>量子门的酉变换</strong>实现。该算法通过<strong>Sphere、Sum Squares、Griewank和Ackley</strong>函数进行了测试，结果表明量子混合蛙跳算法能够较快达到最佳适应度的平均值。量子细菌觅食算法也是类似的思路，只不过改成了用<strong>量子态</strong>表示细菌的位置，用量子门进行趋向性更新，<strong>直到收敛</strong>。</p>
+<p>那<strong>量子混合蛙跳算法</strong>、<strong>量子细菌觅食算法</strong>这些引入量子不确定性的算法是如何应用到<strong>频谱感知技术</strong>中的呢，这时候就体现出数学公式的重要性了。在上一段SFLA的介绍中我们提到了算法的目的是寻找族群<strong>最优适应度</strong>，这个适应度可以理解为满足特定条件的一组解，同loss function的作用一样。目标问题就是<strong>协作频谱感知检测概率最大化</strong>，那么根据这个概率计算公式设计出<strong>适应度函数</strong>就可以解决该实际问题了。</p>
+<h4 id="3-量子并行神经网络">3. <a href="/download/Reading_Materials/%E9%87%8F%E5%AD%90%E5%B9%B6%E8%A1%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.pdf">量子并行神经网络</a></h4>
+<p>在阅读过程中了解到了占据当今机器学习主导地位的<strong>神经网络</strong>一直难以量子化，关键原因在于神经元激活函数是<strong>非线性的和耗散的</strong>，这和量子力学线性可逆的动力学特征相矛盾。<strong>早期量子神经网络</strong>的研究集中于Hopfield等基于关联内存而不是非线性激活函数的，关联内存可以存储n个网络状态，然后对每个输入数据，输出一个与输入有最短汉明距离)的网络状态。Hopfield具有联想和记忆功能，1984解决TSP旅行商问题</p>
+<p><strong>Hopfield Network</strong></p>
+<img src='/assets/1605411072353.png' width="50%">
+<blockquote>
+<p>Encog可以用来绘制各种各样的神经网络结构图，并且可以生成Java、C#、VisualBasic代码</p>
+</blockquote>
+<p>一个简单的Hopfield网络如上图，它是无监督学习，没有输出，只是去匹配一些模式，属于反馈式类型</p>
+<p>这篇文章提出了一种<strong>量子并行神经网络</strong>，神经网络的非线性主要体现在激活函数的作用上，如果没有<strong>非线性函数（又称为激活函数）</strong>，即使<strong>FFNN</strong>(FeedForward Neuro Network)层数再多，也只是一个<strong>线性划分分类器</strong>，用途有限，因此激活函数是大部分ANN的关键组成部分。</p>
+<p>(1) 在先前的量子神经网络工作上做出了改进，提出了一种可完全物理实现可向深度发展的量子神经网络结构模型。<br>
+(2) 利用量子并行性提高神经网络的预测性能，并且采用标准测试集进行数值仿真，验证了量子效应在机器学习中的作用。<br>
+(3) 提出了<strong>量子记忆体</strong>的概念，初步讨论了其在MNIST手写体识别中的应用。</p>
+<p>文中引入了一类新的量子神经元，称为Quron，以此为基础构建完整的QNN，Quron的示意图如下图2所示，y可以通过对x进行酉变换得到。其Quron的量子线路图如下图右侧所示，其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>1</mn></msup><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msup><mi>x</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">x^1...x^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span></span></span></span>表示输入的m个数据，它们还需要转换成二进制的形式用量子态表达， 也就是每个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>对应<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>个量子比特，然后对这些比特进行旋转操作就可得到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>.</p>
+<p><img src="/assets/Snipaste_2020-11-15_16-01-04_meitu_1.jpg" alt="Snipaste_2020-11-15_16-01-04_meitu_1"></p>
+<p>QPNN结构示意图如下所示：</p>
+<img src='/assets/1605431216771.png' width='50%'>
+<p>同时为了计算方便，本文还设计了一个<strong>量子多选门(QMUX)</strong>，它能够为了产生更多<strong>基函数</strong>，进一步利用量子并行性，<strong>同时计算</strong>多个不同权重或结构的神经网络。下面给出一个三层QPNN的量子线路图示例</p>
+<p><img src="/assets/1605431582325.png" alt="1605431582325"></p>
+<p>以上就是本文的主要内容，看的还是有些粗糙，尤其是公式部分，还有些云里雾里，接下来要根据老师的指点继续细读。</p>
+<p>周六晚上同赖老师交流了一下关于最近研究的内容和方向，感觉又明确了不少，近期呢主要有三个方向思路可以继续读论文找结合点：</p>
+<ol>
+<li><strong>量子并行神经网络</strong>和程嵩第四章</li>
+<li>量子<strong>遗传算法</strong>+<strong>多宇宙并行</strong></li>
+<li><a href="/download/Reading_Materials/%E5%9F%BA%E4%BA%8E%E5%BC%A0%E9%87%8F%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%9A%E8%81%9A%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AE%89%E5%85%A8%E5%92%8C%E9%AB%98%E6%95%88%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6.pdf">基于张量的大数据多聚类及其安全和高效方法研究</a>和<a href="/download/Reading_Materials/QuantumApplicationInBigdata.pdf"><strong>量子计算在增量式大数据并行挖掘中的应用</strong></a></li>
+</ol>
+<p>还有老师发的那几张图片，我觉得还需要时间再消化一下，以上就是本周的总结</p>
  
       <!-- reward -->
       
@@ -194,30 +225,32 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/12/08/DeepLearning/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/15/46Study-Report(1109-1115)/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/" rel="tag">量子群智能</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2020/12/14/PaperWriting/" class="article-nav-link">
+      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            学堂在线---《如何写好科研论文》秋
+            第11周学习汇报
           
         </div>
       </a>
     
     
-      <a href="/2020/12/06/Study-Report(1130-1206)/" class="article-nav-link">
+      <a href="/2020/11/13/45LeetcodeSummary/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">手撕代码GTNC</div>
+        <div class="article-nav-title">LeetcodeSummary</div>
       </a>
     
   </nav>

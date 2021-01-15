@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Paper Writing Week 2 |  
+    GTNC and TSGO |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Study-Report(1221-1227)"
+  id="post-49Study-Report(1123-1129)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,15 +69,15 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Paper Writing Week 2
+  GTNC and TSGO
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/01/Study-Report(1221-1227)/" class="article-date">
-  <time datetime="2021-01-01T01:10:12.000Z" itemprop="datePublished">2021-01-01</time>
+      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="article-date">
+  <time datetime="2020-11-29T12:31:17.000Z" itemprop="datePublished">2020-11-29</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">161</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -97,57 +97,46 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <ul>
-<li>
-<p>Resize method and autoencoder in HTN?</p>
+  <blockquote>
+<p>本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化</p>
+</blockquote>
+<a id="more"></a>
+<p>本周首先继续上周总结整理了一下上周日大佬们讲座的核心观点和思想，并简单总结了一下这次讲座带给我的一些启发，同老师交流之后，觉得TSGO或GTNC的这种思路可以结合到HTN的优化上来，进一步的向量子模拟计算靠拢，主要是孙正之同学的一些工作需要进一步的学习和复现。</p>
+<h2 id="generative-tensor-network-classification-model-for-supervised-machine-learning-gtnc">Generative tensor network classification model for supervised machine learning(GTNC)</h2>
+<p>这篇文章主要的是一种聚类的思想，生成型张量网络<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>是定义在希尔伯特空间的L个qubit。训练后的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>通过计算样本和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>之间的欧氏距离进行分类，但是作者在这篇文章中通过采用保真度代替欧式距离，最大保真度对应的簇就是该样本的分类结果。</p>
+<p>在阅读的过程中又学到了一个新的概念叫做<strong>Mercer Condition</strong>，我们都知道在SVM算法中，需要将低维空间映射到核函数上，我们并不需要显式的定义核函数，而是只需要求得投影之后的内积就可以，也就是满足如下式子</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow><mo>=</mo><mrow><mo fence="true">⟨</mo><mi>ϕ</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo fence="true">)</mo></mrow><mo separator="true">,</mo><mi>ϕ</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow><mo fence="true">⟩</mo></mrow></mrow><annotation encoding="application/x-tex">K\left(x_{i}, x_{j}\right)=\left\langle\phi\left(x_{i}\right), \phi\left(x_{j}\right)\right\rangle
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⟨</span><span class="mord mathdefault">ϕ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ϕ</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="mclose delimcenter" style="top:0em;">⟩</span></span></span></span></span></span></p>
+<p>只有当这个核函数是正定的时候，映射<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi></mrow><annotation encoding="application/x-tex">\phi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">ϕ</span></span></span></span>才实际存在，我们将这个条件称作Mercer Condition。</p>
+<p>此外在论文中简单对比了一下GTNC算法和SVM算法的优劣，如下</p>
 <ul>
-<li>principle of autoencoder (MSE)</li>
-<li>huge image size out of memory</li>
-<li>current process methods on big image in Covid-19</li>
+<li><font color='blue'>SVM的效果依赖于核函数的选择，而GTNC的映射方式是比较固定的。</font></li>
+<li><font color='blue'>GTNC基于希尔伯特空间的聚类求距离进行分类，而SVM则是去寻找高维度空间的决策边界。</font></li>
 </ul>
-</li>
-<li>
-<p>Collecting professional vocabulary</p>
-</li>
-<li>
-<p>Process to write a part of article</p>
-<ul>
-<li>Set out the outline idea (which points and angles should be included), then check the corresponding position in the paper, collect a large number of and supplement the outline appropriately. (Good expressions encountered should also be recorded)</li>
-<li>After completing the supplement, you can start to write the middle manuscript, and express it as complete as possible based on the above points.</li>
-<li>Translate Chinese into English, but not copy and paste, but modify the grammar and structure while facing the translation, including grammatical and sentence errors.(powerful tool: <a target="_blank" rel="noopener" href="https://app.grammarly.com/">Grammarly</a>)</li>
-</ul>
-</li>
-<li>
-<p>Compare the citation formats of several well-known publications in machine learning (Bibtex file)</p>
-<ul>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.jmlr.org/"><em>Journal of Machine Learning Research</em></a></p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://link.springer.com/journal/11263"><em>International Journal of Computer Vision</em></a></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Adjust the font in picture</p>
-</li>
-<li>
-<p>Completed Paper Manuscript: section result、discussion、conclusion、introduction、abstract</p>
-</li>
-</ul>
+<p>这里提到一种lazy-learning的训练方式，它不用训练出<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msup><mi mathvariant="normal">Ψ</mi><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{\Psi^{(c)}\right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2380099999999998em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">{</span></span><span class="mord"><span class="mord">Ψ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">}</span></span></span></span></span></span>就能直接把该簇与样本的保真度表示出来</p>
+<h2 id="tangent-space-gradient-optimization-of-tensor-network-for-machine-learning-tsgo">Tangent-Space Gradient Optimization of Tensor Network for Machine Learning(TSGO)</h2>
+<p>基于梯度的优化方法在深度神经网络中经常会出现<strong>梯度消失或者梯度爆炸</strong>的问题，尤其是计算图深度特别深的时候。这篇文章提出的TSGO算法通过<strong>旋转参数向量的角度</strong>来是实现梯度优化，并且<strong>梯度正交于参数向量</strong>，可以限制在切空间中，学习率用<strong>旋转角</strong>表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mi>tan</mi><mo>⁡</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">\eta=\tan \theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mop">tan</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>，这样就能避免<strong>梯度消失及梯度爆炸</strong>。</p>
+<p><img src="/assets/1606644334115.png" alt="1606644334115"></p>
+<p>实验结果如上图所示，左图展示的是loss function和epochs在不同算法下的变化曲线，可以看出TSGO完胜经典中强大通用的Adam优化器。右图横轴是特征数，可以理解为图片大小，纵轴是收敛时的loss function值，可以看出在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mo>&lt;</mo><mn>1</mn><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">Length&lt;12^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">L</span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>时，Adam和TSGO的效果相差不大，而当Legnth特别大时，基于梯度下降的Adam算法就陷入了比较差的收敛值，而TSGO则收敛的效果更好一些。</p>
+<p>TSGO的核心思想是<strong>限制与参数向量正交的梯度</strong>，模型的优化可以通过再希尔伯特空间参数向量的旋转操作实现，TSGO独立于学习率和学习深度，能实现稳健收敛。但TSGO不能用来更新神经网络，这是因为我们无法保证公式3再高度非线性的条件。</p>
+<h2 id="总结">总结</h2>
+<p>此外，我还有幸在github上搜索到了孙正之<a target="_blank" rel="noopener" href="https://github.com/crazybigcat/GTNC">GTNC</a>和<a target="_blank" rel="noopener" href="https://github.com/crazybigcat/TSGO">TSGO</a>的论文代码，这些代码对目前的我而言，相当的宝贵。我一边读代码一边写注释，争取能够在多熟悉一些对量子态的<strong>模拟</strong>、<strong>旋转</strong>等操作，然后再想办法将它结合到HTN中。</p>
+<p>本周基于MPS的HTN表现出了不错的效果，经过一些参数的调试，其在cifar10上的训练效果接近80%，这是我们目前设计的所有的张量网络算法结构中比较好的一个效果了，它能够比较准确的对cifar10数据进行分类，并且MPS的结构本身就有个各种各样更新优化方式，如果能将孙正之代码中的思路结合到其中，我相信还会有进一步的突破。</p>
  
       <!-- reward -->
       
@@ -212,7 +201,7 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2021/01/01/Study-Report(1221-1227)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -223,10 +212,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
+      <a href="/2020/12/06/50Study-Report(1130-1206)/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            手撕代码GTNC
+          
+        </div>
+      </a>
     
-      <a href="/2020/12/20/Study-Report(1214-1220)/" class="article-nav-link">
+    
+      <a href="/2020/11/29/48PassbyCpsNet/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Paper Writing Week 1</div>
+        <div class="article-nav-title">校园网认证</div>
       </a>
     
   </nav>

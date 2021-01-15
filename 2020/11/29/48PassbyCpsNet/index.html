@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    量子群智能！！！ |  
+    校园网认证 |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -58,7 +58,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Study-Report(1109-1115)"
+  id="post-48PassbyCpsNet"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,18 +69,18 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  量子群智能！！！
+  校园网认证
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/11/15/Study-Report(1109-1115)/" class="article-date">
-  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">2020-11-15</time>
+      <a href="/2020/11/29/48PassbyCpsNet/" class="article-date">
+  <time datetime="2020-11-29T03:27:17.000Z" itemprop="datePublished">2020-11-29</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.2k</span>
+            <span class="post-count">271</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">7 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -112,56 +112,7 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <blockquote>
-<p>本周重要心得：</p>
-<p>我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。</p>
-</blockquote>
-<a id="more"></a>
-<p>下面来梳理总结一下本周学习的几篇论文，以及一些比较新鲜的知识点。</p>
-<h4 id="1-robust-supervised-learning-based-on-tensor-network-method">1. <a href="/download/Reading_Materials/08406391.pdf">Robust Supervised Learning Based on Tensor Network Method</a></h4>
-<p>这篇文章介绍了利用张量网络进行监督学习(MNIST分类)，当然这是一般情况的张量链参数又多还非常容易出现梯度消失，因此本文提出了一张将<strong>长张量链分解为短张量链</strong>的方法，从而<strong>减少参数</strong>、<strong>加快收敛速度</strong>、可以通过<strong>SGD</strong>进行更新。</p>
-<p>其主要思想是<strong>将每个神经元与多个图片中的像素相联系</strong>，在每次更新时仅仅用一小批样本去计算梯度，这样又能加速还能优化算法，如下图所示</p>
-<p><img src="/assets/1605420802226.png" alt="1605420802226"></p>
-<p>MNIST每张图片是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>28</mn><mo>∗</mo><mn>28</mn><mo>=</mo><mn>784</mn></mrow><annotation encoding="application/x-tex">28\ast 28=784</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">8</span><span class="mord">4</span></span></span></span>个像素，先将其压缩成为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>14</mn><mo>∗</mo><mn>14</mn><mo>=</mo><mn>196</mn></mrow><annotation encoding="application/x-tex">14\ast 14=196</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mord">6</span></span></span></span>个像素，然后每7个像素映射到一个神经元<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>上，因此一共对应着28个权重(神经元)，就像图中所表示的那样。下图是<strong>添加了一个线性层的Short-chains网络结构</strong></p>
-<img src="/assets/1605421125052.png" width='50%'>
-<p>此图结构跟上图略有不同，这个图中共有14个MPS态，也就是说图片(196pixels)被分成了14份，每一份有14个像素及其对应的神经元。</p>
-<p>在实验上，这篇文章采用MNIST数据集，讨论了张量链<strong>Error Rate</strong>与<strong>bond strength</strong>和<strong>learning rate</strong>的关系，同时将<strong>LeNet-5</strong>(CNN网络的一种)、<strong>STN(50)</strong>、<strong>STN(10)</strong> <strong>with LT</strong>这三种网络进行对比，尽管LeNet-5准确率更高，但是它有很多的参数、并且更新速度慢，<strong>STN(50)<strong>同样具有这个问题，而经过本文优化的</strong>短张量链STN(10)</strong> with LT则从参数上、收敛速度上都有更好的优势，而且准确率还不会很低。</p>
-<h4 id="2-基于量子群智能优化算法的频谱感知技术研究">2. <a href="/download/Reading_Materials/QuantumGroupIntelligence.pdf">基于量子群智能优化算法的频谱感知技术研究</a></h4>
-<p>借这篇文章了解了一下群智能算法以及其量子版本，比较重要的是学到了<strong>将量子结合到智能算法</strong>的方式。</p>
-<p><strong>群智能计算</strong></p>
-<p>用大自然的智慧来启发我们对各种各样的搜索问题进行近似求解</p>
-<p><img src="/assets/1_R_rzzAvoCg72_So8zKkqHw_meitu_4.jpg" alt="1_R_rzzAvoCg72_So8zKkqHw_meitu_4"></p>
-<p><strong>群智能算法</strong>例如<strong>粒子群算法</strong>、<strong>人工蜂群算法</strong>等通过对群体生物的<strong>觅食性行为进行模拟</strong>具有良好的性能。但是在求解一些复杂优化问题时会存在<strong>收敛速度与收敛经度</strong>之间的矛盾，在求解高维问题时，需要大规模的种群和较多的迭代次数，这无疑增加了计算量和运行时间。而量子群智能计算内容主要包括：<strong>量子粒子群算法、量子蛙跳算法、量子蜂群算法、量子细菌觅食算法、量子神经网络、量子文化算法、量子文化群智能、量子膜群算法</strong>和<strong>多目标量子膜群算法</strong>。量子群智能可以解决例如<strong>多用户检测、频谱分配、决策引擎和频谱感知</strong>等通信技术中的热点和难点问题。</p>
-<p><strong>群智能算法优化的频谱感知方法</strong></p>
-<p>看了一下<strong>混合蛙跳算法SFLA</strong>，它是一种将<strong>全局搜索和局部搜索</strong>结合起来的方法，对数据分成的m个族群不断迭代进化，最终不能能得到各个族群的<strong>最优适应度</strong>和所有族群中的最优适应度。而量子蛙跳算法QSFLA仅在SFLA的基础上<strong>修改了青蛙位置的表示方式以及更新方法</strong>，青蛙的<strong>位置移动</strong>恰好可以用各种<strong>量子门的酉变换</strong>实现。该算法通过<strong>Sphere、Sum Squares、Griewank和Ackley</strong>函数进行了测试，结果表明量子混合蛙跳算法能够较快达到最佳适应度的平均值。量子细菌觅食算法也是类似的思路，只不过改成了用<strong>量子态</strong>表示细菌的位置，用量子门进行趋向性更新，<strong>直到收敛</strong>。</p>
-<p>那<strong>量子混合蛙跳算法</strong>、<strong>量子细菌觅食算法</strong>这些引入量子不确定性的算法是如何应用到<strong>频谱感知技术</strong>中的呢，这时候就体现出数学公式的重要性了。在上一段SFLA的介绍中我们提到了算法的目的是寻找族群<strong>最优适应度</strong>，这个适应度可以理解为满足特定条件的一组解，同loss function的作用一样。目标问题就是<strong>协作频谱感知检测概率最大化</strong>，那么根据这个概率计算公式设计出<strong>适应度函数</strong>就可以解决该实际问题了。</p>
-<h4 id="3-量子并行神经网络">3. <a href="/download/Reading_Materials/%E9%87%8F%E5%AD%90%E5%B9%B6%E8%A1%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.pdf">量子并行神经网络</a></h4>
-<p>在阅读过程中了解到了占据当今机器学习主导地位的<strong>神经网络</strong>一直难以量子化，关键原因在于神经元激活函数是<strong>非线性的和耗散的</strong>，这和量子力学线性可逆的动力学特征相矛盾。<strong>早期量子神经网络</strong>的研究集中于Hopfield等基于关联内存而不是非线性激活函数的，关联内存可以存储n个网络状态，然后对每个输入数据，输出一个与输入有最短汉明距离)的网络状态。Hopfield具有联想和记忆功能，1984解决TSP旅行商问题</p>
-<p><strong>Hopfield Network</strong></p>
-<img src='/assets/1605411072353.png' width="50%">
-<blockquote>
-<p>Encog可以用来绘制各种各样的神经网络结构图，并且可以生成Java、C#、VisualBasic代码</p>
-</blockquote>
-<p>一个简单的Hopfield网络如上图，它是无监督学习，没有输出，只是去匹配一些模式，属于反馈式类型</p>
-<p>这篇文章提出了一种<strong>量子并行神经网络</strong>，神经网络的非线性主要体现在激活函数的作用上，如果没有<strong>非线性函数（又称为激活函数）</strong>，即使<strong>FFNN</strong>(FeedForward Neuro Network)层数再多，也只是一个<strong>线性划分分类器</strong>，用途有限，因此激活函数是大部分ANN的关键组成部分。</p>
-<p>(1) 在先前的量子神经网络工作上做出了改进，提出了一种可完全物理实现可向深度发展的量子神经网络结构模型。<br>
-(2) 利用量子并行性提高神经网络的预测性能，并且采用标准测试集进行数值仿真，验证了量子效应在机器学习中的作用。<br>
-(3) 提出了<strong>量子记忆体</strong>的概念，初步讨论了其在MNIST手写体识别中的应用。</p>
-<p>文中引入了一类新的量子神经元，称为Quron，以此为基础构建完整的QNN，Quron的示意图如下图2所示，y可以通过对x进行酉变换得到。其Quron的量子线路图如下图右侧所示，其中<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mn>1</mn></msup><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><msup><mi>x</mi><mi>m</mi></msup></mrow><annotation encoding="application/x-tex">x^1...x^m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span></span></span></span></span></span></span>表示输入的m个数据，它们还需要转换成二进制的形式用量子态表达， 也就是每个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>对应<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>个量子比特，然后对这些比特进行旋转操作就可得到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span>.</p>
-<p><img src="/assets/Snipaste_2020-11-15_16-01-04_meitu_1.jpg" alt="Snipaste_2020-11-15_16-01-04_meitu_1"></p>
-<p>QPNN结构示意图如下所示：</p>
-<img src='/assets/1605431216771.png' width='50%'>
-<p>同时为了计算方便，本文还设计了一个<strong>量子多选门(QMUX)</strong>，它能够为了产生更多<strong>基函数</strong>，进一步利用量子并行性，<strong>同时计算</strong>多个不同权重或结构的神经网络。下面给出一个三层QPNN的量子线路图示例</p>
-<p><img src="/assets/1605431582325.png" alt="1605431582325"></p>
-<p>以上就是本文的主要内容，看的还是有些粗糙，尤其是公式部分，还有些云里雾里，接下来要根据老师的指点继续细读。</p>
-<p>周六晚上同赖老师交流了一下关于最近研究的内容和方向，感觉又明确了不少，近期呢主要有三个方向思路可以继续读论文找结合点：</p>
-<ol>
-<li><strong>量子并行神经网络</strong>和程嵩第四章</li>
-<li>量子<strong>遗传算法</strong>+<strong>多宇宙并行</strong></li>
-<li><a href="/download/Reading_Materials/%E5%9F%BA%E4%BA%8E%E5%BC%A0%E9%87%8F%E7%9A%84%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%9A%E8%81%9A%E7%B1%BB%E5%8F%8A%E5%85%B6%E5%AE%89%E5%85%A8%E5%92%8C%E9%AB%98%E6%95%88%E6%96%B9%E6%B3%95%E7%A0%94%E7%A9%B6.pdf">基于张量的大数据多聚类及其安全和高效方法研究</a>和<a href="/download/Reading_Materials/QuantumApplicationInBigdata.pdf"><strong>量子计算在增量式大数据并行挖掘中的应用</strong></a></li>
-</ol>
-<p>还有老师发的那几张图片，我觉得还需要时间再消化一下，以上就是本周的总结</p>
- 
+  <script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">Please enter the password to read the blog.</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> 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 </div> 
       <!-- reward -->
       
     </div>
@@ -225,12 +176,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/" rel="tag">量子群智能</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/" rel="tag">骚操作</a></li></ul>
 
     </footer>
   </div>
@@ -238,19 +189,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2020/11/21/Study-Report(1116-1122)/" class="article-nav-link">
+      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            第11周学习汇报
+            GTNC and TSGO
           
         </div>
       </a>
     
     
-      <a href="/2020/11/13/LeetcodeSummary/" class="article-nav-link">
+      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">LeetcodeSummary</div>
+        <div class="article-nav-title">第11周学习汇报</div>
       </a>
     
   </nav>

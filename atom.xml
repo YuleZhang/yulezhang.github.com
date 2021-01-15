@@ -6,17 +6,17 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-01-02T01:13:18.276Z</updated>
+  <updated>2021-01-15T03:15:48.608Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Paper Writing Week 2</title>
-    <link href="http://www.yulezhang.com/2021/01/01/Study-Report(1221-1227)/"/>
-    <id>http://www.yulezhang.com/2021/01/01/Study-Report(1221-1227)/</id>
-    <published>2021-01-01T01:10:12.000Z</published>
-    <updated>2021-01-02T01:13:18.276Z</updated>
+    <title>Writing material</title>
+    <link href="http://www.yulezhang.com/2021/01/05/55WritingCorpus/"/>
+    <id>http://www.yulezhang.com/2021/01/05/55WritingCorpus/</id>
+    <published>2021-01-05T12:37:17.000Z</published>
+    <updated>2021-01-15T03:15:48.608Z</updated>
     
     <summary type="html">
     
@@ -24,12 +24,9 @@
       
         
         
-          &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Resize method and autoencoder in HTN?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;principle of autoencoder (MSE)&lt;/li&gt;
-&lt;li&gt;huge image size out of
+          &lt;h1&gt;Merits&lt;/h1&gt;
+&lt;h2 id=&quot;tensor&quot;&gt;Tensor&lt;/h2&gt;
+&lt;p&gt;《Higher-dimension Tensor Completion via Low-rank Tensor Ring Decomposition》Longhao
         
       
     
@@ -42,11 +39,11 @@
   </entry>
   
   <entry>
-    <title>Paper Writing Week 1</title>
-    <link href="http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/"/>
-    <id>http://www.yulezhang.com/2020/12/20/Study-Report(1214-1220)/</id>
+    <title>Science Writing</title>
+    <link href="http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/"/>
+    <id>http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/</id>
     <published>2020-12-20T09:30:12.000Z</published>
-    <updated>2020-12-20T12:30:48.792Z</updated>
+    <updated>2021-01-15T03:16:20.362Z</updated>
     
     <summary type="html">
     
@@ -61,28 +58,9 @@
   </entry>
   
   <entry>
-    <title>开始写论文啦</title>
-    <link href="http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/"/>
-    <id>http://www.yulezhang.com/2020/12/14/Study-Report(1207-1213)/</id>
-    <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2020-12-20T09:32:08.636Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>学堂在线---《如何写好科研论文》秋</title>
-    <link href="http://www.yulezhang.com/2020/12/14/PaperWriting/"/>
-    <id>http://www.yulezhang.com/2020/12/14/PaperWriting/</id>
+    <link href="http://www.yulezhang.com/2020/12/14/52PaperWriting/"/>
+    <id>http://www.yulezhang.com/2020/12/14/52PaperWriting/</id>
     <published>2020-12-14T14:21:12.000Z</published>
     <updated>2021-01-01T03:03:38.936Z</updated>
     
@@ -100,9 +78,28 @@
   </entry>
   
   <entry>
+    <title>开始写论文啦</title>
+    <link href="http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/"/>
+    <id>http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/</id>
+    <published>2020-12-14T14:21:12.000Z</published>
+    <updated>2020-12-20T09:32:08.636Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>深度学习小结</title>
-    <link href="http://www.yulezhang.com/2020/12/08/DeepLearning/"/>
-    <id>http://www.yulezhang.com/2020/12/08/DeepLearning/</id>
+    <link href="http://www.yulezhang.com/2020/12/08/51DeepLearning/"/>
+    <id>http://www.yulezhang.com/2020/12/08/51DeepLearning/</id>
     <published>2020-12-08T12:21:12.000Z</published>
     <updated>2020-12-21T06:07:44.475Z</updated>
     
@@ -120,8 +117,8 @@
   
   <entry>
     <title>手撕代码GTNC</title>
-    <link href="http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/"/>
-    <id>http://www.yulezhang.com/2020/12/06/Study-Report(1130-1206)/</id>
+    <link href="http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/"/>
+    <id>http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/</id>
     <published>2020-12-06T10:56:12.000Z</published>
     <updated>2020-12-20T09:32:17.498Z</updated>
     
@@ -143,8 +140,8 @@
   
   <entry>
     <title>GTNC and TSGO</title>
-    <link href="http://www.yulezhang.com/2020/11/29/Study-Report(1123-1129)/"/>
-    <id>http://www.yulezhang.com/2020/11/29/Study-Report(1123-1129)/</id>
+    <link href="http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/"/>
+    <id>http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/</id>
     <published>2020-11-29T12:31:17.000Z</published>
     <updated>2020-11-29T12:33:34.869Z</updated>
     
@@ -164,8 +161,8 @@
   
   <entry>
     <title>校园网认证</title>
-    <link href="http://www.yulezhang.com/2020/11/29/PassbyCpsNet/"/>
-    <id>http://www.yulezhang.com/2020/11/29/PassbyCpsNet/</id>
+    <link href="http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/"/>
+    <id>http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/</id>
     <published>2020-11-29T03:27:17.000Z</published>
     <updated>2020-11-29T04:03:42.821Z</updated>
     
@@ -185,8 +182,8 @@
   
   <entry>
     <title>第11周学习汇报</title>
-    <link href="http://www.yulezhang.com/2020/11/21/Study-Report(1116-1122)/"/>
-    <id>http://www.yulezhang.com/2020/11/21/Study-Report(1116-1122)/</id>
+    <link href="http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/"/>
+    <id>http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/</id>
     <published>2020-11-21T12:56:17.000Z</published>
     <updated>2020-11-29T11:51:38.716Z</updated>
     
@@ -204,8 +201,8 @@
   
   <entry>
     <title>量子群智能！！！</title>
-    <link href="http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/"/>
-    <id>http://www.yulezhang.com/2020/11/15/Study-Report(1109-1115)/</id>
+    <link href="http://www.yulezhang.com/2020/11/15/46Study-Report(1109-1115)/"/>
+    <id>http://www.yulezhang.com/2020/11/15/46Study-Report(1109-1115)/</id>
     <published>2020-11-15T01:59:17.000Z</published>
     <updated>2020-11-23T09:57:07.843Z</updated>
     
@@ -228,8 +225,8 @@
   
   <entry>
     <title>LeetcodeSummary</title>
-    <link href="http://www.yulezhang.com/2020/11/13/LeetcodeSummary/"/>
-    <id>http://www.yulezhang.com/2020/11/13/LeetcodeSummary/</id>
+    <link href="http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/"/>
+    <id>http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/</id>
     <published>2020-11-13T11:19:38.000Z</published>
     <updated>2020-11-16T01:11:22.000Z</updated>
     
@@ -249,8 +246,8 @@
   
   <entry>
     <title>Tensor Network with maching learning</title>
-    <link href="http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/"/>
-    <id>http://www.yulezhang.com/2020/11/08/Study-Report(1102-1108)/</id>
+    <link href="http://www.yulezhang.com/2020/11/08/44Study-Report(1102-1108)/"/>
+    <id>http://www.yulezhang.com/2020/11/08/44Study-Report(1102-1108)/</id>
     <published>2020-11-08T10:44:30.000Z</published>
     <updated>2020-11-09T07:25:08.000Z</updated>
     
@@ -270,8 +267,8 @@
   
   <entry>
     <title>基于张量的大数据多聚类及其安全和高效方法研究</title>
-    <link href="http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/"/>
-    <id>http://www.yulezhang.com/2020/11/01/Study-Report(1026-1101)/</id>
+    <link href="http://www.yulezhang.com/2020/11/01/43Study-Report(1026-1101)/"/>
+    <id>http://www.yulezhang.com/2020/11/01/43Study-Report(1026-1101)/</id>
     <published>2020-11-01T13:46:21.000Z</published>
     <updated>2020-11-04T03:37:54.000Z</updated>
     
@@ -292,8 +289,8 @@
   
   <entry>
     <title>Overfitting?</title>
-    <link href="http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/"/>
-    <id>http://www.yulezhang.com/2020/10/24/Study-Report(1019-1025)/</id>
+    <link href="http://www.yulezhang.com/2020/10/24/42Study-Report(1019-1025)/"/>
+    <id>http://www.yulezhang.com/2020/10/24/42Study-Report(1019-1025)/</id>
     <published>2020-10-24T02:15:21.000Z</published>
     <updated>2020-11-16T01:13:58.000Z</updated>
     

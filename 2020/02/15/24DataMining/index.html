@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    数据挖掘学习笔记 |  
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-24DataMining"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  数据挖掘学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/02/15/24DataMining/" class="article-date">
+  <time datetime="2020-02-15T12:04:00.000Z" itemprop="datePublished">2020-02-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">6.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">23 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="/images/data-mining.jpg" alt="cover"></p>
+<a id="more"></a>
+<blockquote>
+<p>记笔记的方式，先听课程，然后回忆复述课程里的重要知识点及相关概念，将其写到笔记上，随后看PPT核对</p>
+<p>通过这三轮的反复强化一定可以把知识学牢！</p>
+</blockquote>
+<p>数据挖掘在高校内没有对应的课程或者方向，它是一个融合了数学、统计学、计算机、以及各领域知识的综/合性方向，它涵盖范围很广，遍及互联网的各个角落。它能够实现”数据-&gt;信息-&gt;知识-&gt;决策支持“的转变。</p>
+<h2 id="走进数据科学">走进数据科学</h2>
+<p>相关资料<a href="/download/Introduction.pptx">点击下载</a></p>
+<p><img src="/assets/1581220990738.png" alt="1581220990738"></p>
+<h3 id="大数据的三个特征">大数据的三个特征</h3>
+<ul>
+<li>高容量：从TB到ZB</li>
+<li>多样性：从结构化数据到结构与非结构数据的混合</li>
+<li>高速度：从批处理到如今的实时流数据处理</li>
+</ul>
+<h3 id="应用领域">应用领域</h3>
+<ul>
+<li>公共安全：美国各地区犯罪预测</li>
+<li>健康医疗：根部人不同的DNA开出个性化药方</li>
+<li>城市规划：哪些地方是人口密集区、交通、市场如何部署</li>
+<li>零售行业：针对性广告投放</li>
+<li>运动：美国小棒球社如何挑选潜力球员</li>
+</ul>
+<h3 id="基本概念">基本概念</h3>
+<ul>
+<li>交叉验证：将数据分为训练集和测试集</li>
+<li>混淆矩阵：分为TP(True Positive)、FP(False Positive)、FT和TN，用来评估模型准确率</li>
+<li>ROC曲线：AUC是ROC曲线与x轴围成的面积，用来评估模型的准确率</li>
+</ul>
+<p><img src="/assets/1581221686688.png" alt="1581221686688"></p>
+<h2 id="数据预处理">数据预处理</h2>
+<p>缺失值处理-----&gt;重复值处理-----&gt;类型转换与采样-----&gt;数据描述与可视化</p>
+<h3 id="异常值与重复值检测">异常值与重复值检测</h3>
+<p>数据缺失的原因</p>
+<ul>
+<li>设备故障</li>
+<li>隐私数据没有提供</li>
+<li>数据不适用</li>
+</ul>
+<p>数据缺失的种类</p>
+<ul>
+<li>完全随机的缺失</li>
+<li>跟属性相关的缺失</li>
+<li>不是随机的缺失</li>
+</ul>
+<p><strong>离群点（Outliers）</strong>：跟整体数据差异比较大</p>
+<p><strong>异常点（Anomaly）</strong>：数据由于某种特定的原因导致异常</p>
+<p><strong>LOF（Local Outlier Factor）</strong>：离群点检测算法</p>
+<p>当一个点距离周围的点越近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>r</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">lrd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span></span></span></span>的值就会越大，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>r</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">lrd</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span></span></span></span>的分母相当于平均距离。</p>
+<p><img src="/assets/1582771321867.png" alt="1582771321867"></p>
+<p>LOF的值表示的是相对距离的概念，当<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>r</mi><mi>d</mi><mo stretchy="false">(</mo><mi>B</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">lrd(B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span>远大于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi><mi>r</mi><mi>d</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">lrd(A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mclose">)</span></span></span></span>就说明A的近邻B到它附近的点的距离远小于A到它近邻的距离，那么就是表明A是一个离群点了。LOF值越大表明是离群点可能越大</p>
+<p><strong>重复数据（Duplicate Data）</strong>：不同统计方式的列名不同、统计方式不同、存储方式也可能不同，但是统计的都是同类数据，解决方法是先排序(需要根据背景知识用key排序)再用滑动窗口进行比较去重。</p>
+<h3 id="类型转换与采样">类型转换与采样</h3>
+<p>对于某个属性的不同类别，不能采用简单的012的方式进行编码，因为这改变了不同属性之间的距离，从而可能改变问题复杂度。例子如下</p>
+<p><img src="/assets/1582773085533.png" alt="1582773085533"></p>
+<p>仅仅是将绿色和蓝色交换了位置，分界线就从两条曲线变成了两条直线，问题求解的方式就发生了改变。</p>
+<p>因此在处理这些数据时，往往采用one-hot独热编码，解决了分类器不好处理属性数据的问题，让特征之间的距离计算更加合理</p>
+<p><strong>One-Hot和word2vec</strong></p>
+<p>One-Hot</p>
+<ul>
+<li>优点：一是解决了分类器不好处理离散数据的问题，二是在一定程度上也起到了扩充特征的作用</li>
+<li>缺点：在文本特征表示上有些缺点就非常突出了。首先，它是一个词袋模型，不考虑词与词之间的顺序（文本中词的顺序信息也是很重要的）；其次，它假设词与词相互独立（在大多数情况下，词与词是相互影响的）；最后，它得到的特征是离散稀疏的</li>
+</ul>
+<p>word2vec</p>
+<p>**采样的原因：**1.数据量非常大计算机处理不过来   2.没有办法得到完整的用户数据</p>
+<p>采样的优点：能够用于调整类别比例，例如理工科男女比例，如果采用完整数据集，则明显男生比例很高，不利于模型处理</p>
+<p>**不平衡数据：**不同类别的样本数相差较大，尽管分类器A的准确率高，但是其误判了很重要的5%的数据，并不合理</p>
+<p><img src="/assets/1582773995499.png" alt="1582773995499"></p>
+<p>解决办法</p>
+<ul>
+<li>扩充数据集</li>
+<li>对数据集进行重采样，包括过采样和欠采样</li>
+<li>改变分类算法</li>
+<li>改变评价指标，如PR曲线</li>
+</ul>
+<p>在实际中可以采用除了Acc以外的其它的度量方式如G-mean、F-measure、Recall等等</p>
+<p><strong>边缘采样</strong>：对于几百万的数据，其中有很多数据都是作用不大的，提取其中的边缘点进行计算更有价值，能够节约计算资源</p>
+<h3 id="数据描述与可视化">数据描述与可视化</h3>
+<p>Norlization：Min-max norlization、Z-score</p>
+<p><strong>数据描述</strong>：平均值、中位数、变化程序</p>
+<p><strong>数据可视化</strong>：一维数据直方图、二位数据坐标系、三维数据三维坐标系、高维数据Parallel<br>
+Coordinates</p>
+<h3 id="特征选择">特征选择</h3>
+<p>从多个属性中，找出与问题有一定关联性的属性。</p>
+<p><strong>信息增益</strong></p>
+<p>怎么评价属性好不好？</p>
+<p>答：查看该属性对结果的区分度，用熵Entropy衡量</p>
+<p>信息增益ID3（Information gain）越大属性越好，表示它的跟结果越有关联，通常应用在决策树中</p>
+<p><strong>特征子集搜索</strong></p>
+<p><img src="/assets/1585473917480.png" alt="1585473917480"></p>
+<p><strong>优化算法</strong></p>
+<ul>
+<li>模拟退火</li>
+<li>禁忌搜索</li>
+<li>遗传算法</li>
+</ul>
+<h3 id="特征提取">特征提取</h3>
+<p><strong>特征选择和特征提取的区别</strong></p>
+<p><strong>特征提取</strong>的方法主要是通过属性间的关系，如<strong>组合</strong>不同的属性<strong>得到</strong>新的属性，这样就<strong>改变</strong>了原来的特征空间。<br>
+<strong>特征选择</strong>的方法是从原始特征数据集中<strong>选择</strong>出子集，是一种<strong>包含</strong>的关系，<strong>没有</strong>更改原始的特征空间。</p>
+<p><strong>PCA（Principal Component Analysis）</strong></p>
+<p>无监督学习，不考虑label，将高维数据降维，将其投影到可以分类的方向上（可以通过坐标旋转），数据在该方向上分布越分散越好</p>
+<p>将样本点到投影线的距离表示成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>越小表明从高维投影到低维损失的信息越少</p>
+<p>因此对<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>使用拉格朗日乘数法，最后发现要最大化的值就是特征值</p>
+<p>描述：将数据的协方差矩阵（covariance matrix）进行特征分解，找到特征值最大的特征向量上，投影到该方向上即可在满足最少损失的条件下，将数据降维到n-1、n-2、…、2、1维</p>
+<p><strong>LDA（Linear Discriminant Analysis）</strong></p>
+<p>针对有标签数据，基本思路也是降维，但是要保留的是类的区分属性。LDA在投影时的思想类似于PCA，都是进行坐标旋转，并使得目标函数最大</p>
+<p>目标：令<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span></span>最大化</p>
+<p><img src="/assets/1582795035267.png" alt="1582795035267"></p>
+<p><strong>LDA和PCA例子</strong></p>
+<p><img src="/assets/1582795709134.png" alt="1582795709134"></p>
+<p><strong>LDA的缺点</strong></p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">S_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>可能是奇异矩阵，即行数不等于列数时，逆矩阵不存在</li>
+<li>当不同类的中心点重合时，目标函数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span></span></span></span>为0，不work</li>
+</ul>
+<h2 id="从贝叶斯到决策树">从贝叶斯到决策树</h2>
+<p><a href="NB-DT.pptx">课件下载</a></p>
+<h3 id="监督学习">监督学习</h3>
+<p>一种从数据推测函数的技术，输入是一系列的特征，输出是一个bool值(二分类)或者整数(多分类)</p>
+<h3 id="贝叶斯分类-naive-bayes-classifier">贝叶斯分类(Naive Bayes Classifier)</h3>
+<p>一些贝叶斯应用实例</p>
+<p><strong>癌症</strong>：人群中检测出得癌症的概率是千分之八，人们往往容易产生恐慌</p>
+<p>而从贝叶斯的角度分析，在得癌症的人群中假阳性的概率远大于真正癌症阳性的概率</p>
+<p>这意味着即使体检报告上说得了癌症阳性，但其实上只有百分之20的概率是阳性。</p>
+<p><strong>头疼和流感</strong>：不同的先验概率得到的结果不同</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">H=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span>“Having a headache”           <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo></mrow><annotation encoding="application/x-tex">F=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span></span></span>“Coming down with flu”</p>
+<p>设<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>10</mn><mo separator="true">;</mo><mi>P</mi><mo stretchy="false">(</mo><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>40</mn><mo separator="true">;</mo><mi>P</mi><mo stretchy="false">(</mo><mi>H</mi><mi mathvariant="normal">∣</mi><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">P(H)=1/10;  P(F)=1/40;   P(H|F)=1/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">1</span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">4</span><span class="mord">0</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">2</span></span></span></span>，这意味着患流感人中有50%会头疼，这听起来不可思议。</p>
+<p>但从另一个角度来看头疼的人中只有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mn>8</mn></mrow><annotation encoding="application/x-tex">1/8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord">8</span></span></span></span>的人患了流感，而现实人们往往将其混为一谈，误以为头疼有50%是得了流感</p>
+<p><strong>贝叶斯公式</strong></p>
+<p>​							$  P(A|B)=\frac{P(B|A)P(A)}{P(B)} $</p>
+<p><strong>朴素贝叶斯</strong></p>
+<p>在贝叶斯公式基础上assumpt各个事件是<strong>条件独立</strong>的</p>
+<p>​             				$ P (A,B|G) = P(A|G)P(B|G)          \leftrightarrows                       P(A|G,B) = P(A|G)$</p>
+<p>在实际中的例子</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>C</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>r</mi><mtext>│</mtext><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mo separator="true">,</mo><mi>S</mi><mi>m</mi><mi>o</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false">(</mo><mi>C</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">∣</mi><mi>S</mi><mi>m</mi><mi>o</mi><mi>k</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Cancer│Male,Smoking)=P(Cancer|Smoking)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">│</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span></p>
+<p>即抽烟男性得肺癌得概率等于抽烟者得肺癌的概率，跟性别无关</p>
+<p><strong>肺癌</strong></p>
+<p><strong>应用领域</strong></p>
+<p>文本分类，提取文本中的关键词，作为分类属性，使用贝叶斯分类器计算不同用户感兴趣的类别</p>
+<p>在提取文本关键词时，并不是将文本简单分成词，随后将每一组词都参与运算，这样计算量很大并且效果也不明显，可以提取文章中出现最多的词语来为文章分类标签，那么就只需要统计每个词的频率，简化了公式，也就能够构建词袋模型，每个用户都会有自己的词袋，里面装满了用户的阅读喜好</p>
+<p><img src="/assets/1581422114618.png" alt="1581422114618"></p>
+<h3 id="决策树">决策树</h3>
+<p>决策树的优点是<strong>可解释性好</strong>，侯选属性在决策树中可以使用多次</p>
+<p>决策树中建树的基本规则：信息增益大的属性应放在上层</p>
+<p>当<strong>当前数据子集的标签一致</strong>、<strong>没有更多可用属性</strong>以及<strong>当前数据子集为空</strong>时必须停止树的增长</p>
+<p>决策树剪支从<strong>叶节点</strong>开始</p>
+<p>一些基本概念：</p>
+<ul>
+<li>
+<p>熵(Entropy)：最大值是1，熵越大表示越难分类，即分类更倾向于靠猜</p>
+<p>​					 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>y</mi><mo stretchy="false">(</mo><mi>S</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><mo>∑</mo><msub><mi>p</mi><mi>i</mi></msub><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Entropy(S) = -\sum p_ilog(p_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p>信息增益(Information Gain)：表示经过分类后对熵的优化程度，值越大表示效果越好，每次选取信息增益最大的分类属性作为根节点，以此类推。但当Information Gain接近于1时表明该属性将每个样本都分成一个类别，容易出现过拟合。</p>
+<p>​					<span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \vline at position 32: …y(S)-\sum\frac{\̲v̲l̲i̲n̲e̲ ̲S_V\vline}{\vli…'>Gain(S,A)=Entropy(S)-\sum\frac{\vline S_V\vline}{\vline S\vline}Entropy(S_v)</span></p>
+</li>
+<li>
+<p>奥卡姆的剃刀：如无必要，勿增实体，常用于两种或两种以上假说的取舍上，如果对于同一现象有两种或多种不同的假说，我们应该采取比较简单或可证伪的那一种，世界客观存在即是建立在客观实践之上，正所谓<strong>实践是检验真理的唯一标准</strong></p>
+</li>
+<li>
+<p>过拟合：训练集效果好，可是测试集效果差</p>
+</li>
+</ul>
+<p><strong>ID3决策树</strong></p>
+<p>ID3是比较早期的一种决策树算法，分别对样本的所有属性计算信息增益， 找出信息增益最大的属性作为结点，并将该属性从候选属性中去除，以此类推最终得到一颗决策树。</p>
+<p>但是ID3的缺点也比较明显，当Information Gain每次都接近于1时，很容易造成过拟合，即某个属性将单个样本分到一个个叶节点，这对新来的样本不能进行有效的预测。因此人们在此基础上进行了改进，出现了C4.5</p>
+<p><strong>C4.5决策树</strong></p>
+<p>C4.5算法不直接使用信息增益作为划分样本的主要依据，而是提出了另外一个概念————增益率，它在信息增益的基础上加入了惩罚项Penalized</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi>a</mi><mi>i</mi><mi>n</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>G</mi><mi>a</mi><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><mrow><mi>I</mi><mi>V</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">Gainratio(D,a) = \frac{Gain(D,a)}{IV(a)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault">a</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.53em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">a</span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">G</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">a</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \vline at position 26: …m_{v=1}^V\frac{\̲v̲l̲i̲n̲e̲ ̲D^v\vline}{\vli…'>IV(A)=-\sum_{v=1}^V\frac{\vline D^v\vline}{\vline D\vline}log_2\frac{\vline D^v\vline}{\vline D\vline}</span></p>
+<p>但是同样的这个增益率对可取值数目较少的属性有所偏好，因此C4.5决策树先从候选划分属性中找出信息增益高于平均水平的属性，在从中选择增益率最高的。</p>
+<p><strong>CART决策树</strong></p>
+<p>CART决策树的全称为Classification and Regression Tree,可以应用于分类和回归。采用基尼系数来划分属性</p>
+<p>基尼值</p>
+<p><span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \vline at position 21: …D)=\sum_{k=1}^{\̲v̲l̲i̲n̲e̲ ̲y\vline}\sum_{k…'>Gini(D)=\sum_{k=1}^{\vline y\vline}\sum_{k&#039;}p_kp_{k&#039;}=1-\sum_{k=1}^{\vline y\vline}p_k^2</span></p>
+<p>基尼系数</p>
+<p><span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \vline at position 37: …{v=1}^{V}\frac{\̲v̲l̲i̲n̲e̲ ̲D^v\vline}{\vli…'>GiniIndex (D,a)=\sum_{v=1}^{V}\frac{\vline D^v\vline}{\vline D\vline}Gini(D^v)</span></p>
+<p>因此在候选属性中选择基尼系数最小的属性作为最优划分属性。</p>
+<p><strong>剪支</strong></p>
+<p>树不能太复杂了，会过学习，当然也不能太简单了，否则不足以描述数据的分布</p>
+<p>决策树数据集三个部分：训练集、训练集、验证集(validation set)</p>
+<p>剪一点看一点盯着验证集的误差，在拐点的地方收手，不能再减了</p>
+<p><strong>连续型属性（Continuous Attributes）</strong></p>
+<p>取阈值进行离散化，阈值一般都出现在结果发生变化的地方</p>
+<p>如何取阈值，还要用信息增益评估</p>
+<p>扩展阅读<a target="_blank" rel="noopener" href="https://blog.csdn.net/jiaoyangwm/article/details/79525237">https://blog.csdn.net/jiaoyangwm/article/details/79525237</a></p>
+<h2 id="神经网络"><strong>神经</strong>网络</h2>
+<p><a href="39.106.111.188/download/Neural_Networks.pptx">课件下载</a></p>
+<h3 id="感知机">感知机</h3>
+<p>无法解决线性不可分问题</p>
+<p><strong>梯度下降（Gradient Descent）</strong></p>
+<p>误差沿着每次梯度的方向移动，从而不断调整权重大小，最终能找到解决问题的最佳权重组合</p>
+<p><img src="/assets/1582970841376.png" alt="1582970841376"></p>
+<p>图中学习率<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span></span></span></span>限制权重调整的快慢，通常取0.001。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">t_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表期望输出，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>O</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">O_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示实际输出。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>中的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>则是为了便于平方求导消掉。<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>W</mi><mi>i</mi></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta W_i&lt;0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>则是由于要减小误差，要使<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>不断向误差减小的方向调整</p>
+<p><strong>Delta Rule公式</strong></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>W</mi><mi>i</mi></msub><mo>=</mo><mi>η</mi><msub><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>D</mi></mrow></msub><mo stretchy="false">(</mo><msub><mi>t</mi><mi>d</mi></msub><mo>−</mo><msub><mi>o</mi><mi>d</mi></msub><mo stretchy="false">)</mo><msub><mi>x</mi><mrow><mi>i</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\Delta W_i = \eta \sum_{d\in D}(t_d - o_d)x_{id}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.07708em;vertical-align:-0.32708000000000004em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">η</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.18639799999999984em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">d</span><span class="mrel mtight">∈</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.32708000000000004em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>当期望输出<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>d</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t_d=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>时，假设<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>o</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">o_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>没有那么大，那么<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>d</mi></msub><mo>−</mo><msub><mi>o</mi><mi>d</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t_d-o_d&gt;0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，那么<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>W</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Delta W_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{id}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>同号，这意味着当输入一个正数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>时，权重会增加，进而增大输出，进而使实际输出<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>o</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">o_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>接近<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>d</mi></msub></mrow><annotation encoding="application/x-tex">t_d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>batch learning</strong></p>
+<p>在batch learning模式下，权重调整出现在学习一批样本之后，即将每个样本的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Delta w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>累加起来，最终再修改<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p><strong>stochastic learning</strong></p>
+<p>知错就改，每个样本都会更新<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<h3 id="多层感知机">多层感知机</h3>
+<p>可以解决线性不可分问题，如XOR，原理是将原始问题在隐含层映射成线性可分问题</p>
+<p><img src="/assets/1582972473943.png" alt="1582972473943"></p>
+<p><strong>Sigmoid函数</strong></p>
+<p><img src="/assets/1582972522129.png" alt="1582972522129"></p>
+<h3 id="bp反向传播">BP反向传播</h3>
+<p><strong>对输出层权重的调整</strong></p>
+<p><img src="/assets/1582972912130.png" alt="1582972912130"></p>
+<p>BP算法在误差对输入求偏导的过程同感知机基本一致，唯一不同的是不在假设输出等于输入，而是更换了激活函数sigmoid。由于隐含层不知道期望输出<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">t_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9011879999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>因此不能直接套。</p>
+<p><strong>输入对隐含层的误差分析</strong></p>
+<p>采用反向传播的方式，从输出层倒着向输入层过过渡</p>
+<p><img src="/assets/1582973246391.png" alt="1582973246391"></p>
+<p>从图中可以看到，隐含层的第<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span>个神经元的权重修改量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><msub><mi>w</mi><mrow><mi>j</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\Delta w_{ji}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>是由它指向的各个输出的权重加权和</p>
+<p><strong>延伸</strong></p>
+<p>BP算法是一种更新权重的方法，容易掉到局部最优点，解决方案从不同的起始点出发。</p>
+<p>在权重更新公式中引入冲量有助于摆脱平缓区域</p>
+<p>Elman Network：第T时刻网络的输出取决于当前的网络输入和第T-1时刻网络的内部状态</p>
+<p>Hopfield Network：在一定程度上模拟人脑的联想记忆功能，是<strong>基于内容的检索</strong>，含噪声的模式识别</p>
+<h2 id="支持向量机">支持向量机</h2>
+<p><a href="39.106.111.188/download/Support_Vector_Machines.ppdx">资源下载</a></p>
+<p>线性SVM</p>
+<p>线性分类器</p>
+<p>支持向量(support vector):确定了分界面可以平移范围的数据点，margin越大容错能力越强</p>
+<p>超平面<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>∗</mo><mi>x</mi><mo>+</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">w*x+b=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>的margin大小为<span class='katex-error' title='ParseError: KaTeX parse error: Undefined control sequence: \vline at position 10: \frac{2}{\̲v̲l̲i̲n̲e̲ ̲w\vline}'>\frac{2}{\vline w\vline}</span></p>
+<p><img src="/assets/1581757370434.png" alt="1581757370434"></p>
+<p>Soft Margin:有些点<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo>≱</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">wx+b\not\geq1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，即噪声点使得无法优化margin，于是放宽条件，在求解时加入了惩罚量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi></mrow><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">ε</span></span></span></span></p>
+<p>但在实际推倒之后发现目标函数(objective function)并没有发生很大变化。</p>
+<h3 id="非线性svm">非线性SVM</h3>
+<p>映射到feature space，高维空间得特点是容易分类，可是问题在于计算量很大</p>
+<p><img src="/assets/1581760041535.png" alt="1581760041535"></p>
+<p>kernel trick：利用向量的特性，将高维空间得计算与低维空间得计算等价，巧妙地绕开了高维空间的计算</p>
+<p>String Kernel：专门处理字符串的和函数</p>
+<h3 id="发展过程">发展过程</h3>
+<p><img src="/assets/1581765589562.png" alt="1581765589562"></p>
+<ul>
+<li><strong>VC Dimension</strong></li>
+</ul>
+<p>一个分类模型的Capacity是指不论怎么分配标签，都能将多少个点分开，也就是VC Dimension</p>
+<p><a href="39.106.111.188/download/SVM_Explained.pdf">拓展</a></p>
+<h2 id="聚类分析">聚类分析</h2>
+<p>一个好的聚类算法能够<strong>处理非球形的数据分布</strong>、<strong>能够处理噪点和离群点</strong>、<strong>对样本输入序列不敏感</strong>、<strong>对海量数据的可扩展性</strong></p>
+<p>分割聚类(Partitioning Methods)</p>
+<p>K-means</p>
+<p>Sequential Leader Cluster:处理流数据，迭代一次，不需要初始k</p>
+<p>层次聚类(Hierarchial  Methods)</p>
+<p>EM算法：Model Para和latent Para，迭代收敛求模型参数</p>
+<h3 id="density-based-methods">Density Based Methods</h3>
+<p><strong>DBSCAN</strong></p>
+<h3 id="hierarchical-clustering"><strong>Hierarchical Clustering</strong></h3>
+<p>Agglomerative Methods</p>
+<h2 id="推荐算法">推荐算法</h2>
+<p>PageRank：在Googlez中用的比较多，评价网页重要性的指标</p>
+<h3 id="协同过滤-collaborative-filtering">协同过滤(Collaborative Filtering)</h3>
+<p><strong>Memory-Based CF</strong>：求不同用户或者商品的相似性来预测分数</p>
+<p><strong>Model-Based CF</strong>：将问题转化为分类问题，例如Naive classifier</p>
+<p>三个经常遇到的问题</p>
+<ul>
+<li>Gray Shape：兴趣跟别人不一样，找不到类似的参考</li>
+<li>Shilling Attack：恶意好评或者坏评，水军</li>
+<li>Cold start：一个新用户或者新商品往往还没有数据难以打分</li>
+</ul>
+<p>求不同用户的相关性系数，求出用户对某商品的评分，进而进行适当推荐</p>
+<p>也可以从不同的商品的相关性考虑，进而得到不同商品之间的关系</p>
+<p><strong>TF-IDF的机理</strong></p>
+<h2 id="集成学习">集成学习</h2>
+<p>集成学习是按照一定策略的将不同的模型组合到一起，从而能更好的解决机器学习问题。</p>
+<p>集成学习是一类算法的统称，包含Bagging和Boosting，这两类各自又包含了很多的算法。</p>
+<p>集成学习主要解决两个问题：</p>
+<ol>
+<li>单个模型效果不佳</li>
+<li>解决多个模型的Model Selection问题</li>
+</ol>
+<p>集成学习在机器学习中的位置</p>
+<p><img src="/assets/1582511583363.png" alt="1582511583363"></p>
+<p><strong>Divide and Conquer</strong></p>
+<p>集成学习可以将复杂问题简化为多个简单分类问题，来求的近似解，即分而治之。</p>
+<h3 id="bagging">Bagging</h3>
+<p><strong>Majority Voting</strong>：统计不同分类器的投票结果，选出票数最多的结果作为最终answer</p>
+<p><strong>Weighted Majority Voting</strong>：按照权重投票，不同的分类器的效果不一样，选择加权最大的类别作为answer</p>
+<p><strong>Diversity</strong>：Bagging的前提是各个分类器都不同，不同主要包含三个方面</p>
+<ul>
+<li>
+<p>不同的训练算法：SVM、LinearRegression、DeepLearning等等</p>
+</li>
+<li>
+<p>不同的训练过程：1.不同的初始参数   2.不同的训练集   3.不同的Feature Selection</p>
+</li>
+</ul>
+<p><strong>Bootstrap Samples</strong>：随机抽样，有放回的随机抽取</p>
+<p><strong>Bagging的思想</strong>：Bootstrap Aggregation，对不同的分类器进行Majority Voting</p>
+<p><strong>Ramdom Forest</strong></p>
+<p>随机森林算法是Bagging的一种，这个森林是由多颗决策树构成的，并且这些决策树互不相同。为了保证生成不同的决策树，随机森林算法进行了以下的处理</p>
+<ul>
+<li>Bootstrap Samples：随机抽样，选取一部分数据集</li>
+<li>Ramdom Feature Selection：随机选区一定数量的特征</li>
+</ul>
+<p>因此随机森林的优点也很明显</p>
+<ul>
+<li>随机森林的Cross-Validation不再是传统的divide，而是将随机抽样中一次都没有被选中的样本Out of Bag（大概1/3）作为测试集</li>
+<li>随机森林巧妙地化解了特征选择问题、过拟合问题</li>
+<li>随机森林支持分类和回归问题，只有少量的参数，却有很高的Accuracy</li>
+</ul>
+<h3 id="boosting">Boosting</h3>
+<p><strong>Stacking</strong>：bagging升级版，其工作过程如下图所示，在原有基础分类器上增加了权重，这些权重通过训练器C的训练进行调节，最终利用权重和来决策最终结果。</p>
+<p><img src="/assets/1582517309628.png" alt="1582517309628"></p>
+<p><strong>Boosting思想</strong>：串行训练分类器，对样本引入了权重。当前面的分类器总是将一个样本分错的时候，其权重就会越来越大，那么最新的分类器总是着重训练这些权重较大的样本，从而提高算法的accuracy。下面是boosting的一些特点</p>
+<ul>
+<li>分类器串行生成</li>
+<li>集中训练权重较大的数据点</li>
+<li>输出结合权重进行投票</li>
+<li>可以通过多个弱分类器（accuracy&gt;50%）来训练出强分类器</li>
+</ul>
+<p><strong>boosting算法流程</strong></p>
+<p><img src="/assets/1582517747859.png" alt="1582517747859"></p>
+<p><strong>AdaBoost</strong></p>
+<p>数据挖掘十大算法之一，运用了boosting的思想，每次分类后对样本权重进行调节，输出不同准确率加权和。<br>
+如下如是一个Demo演示训练过程，第一个分类器分出了两个，分错了四个，那么下一次就会在第一个分错的基础上进行二次分类，以此类推，最终得到黑色的不规则图形，完美的将数据分开。可以看出多个弱分类器是完全可以生成一个强分类器的。</p>
+<p><img src="/assets/1582517968500.png" alt="1582517968500"></p>
+<p>公式推导过程：详见<a href="39.106.111.188/download/Ensemble_Learning.pptx">集成学习</a></p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>简单容易使用</li>
+<li>几乎没有需要调整的参数</li>
+<li>训练集可证明误差边界</li>
+<li>不会出现过拟合</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>每次选则的不是最优的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span> ，只是采用贪心策略取的近似值</li>
+<li>不能根据测试样本进行自适应调整</li>
+<li>对噪声比较敏感</li>
+</ul>
+<p><strong>固定权重和动态权重：</strong></p>
+<p>在adaboost中各个样本的权重都是固定的，不会根据输入发生变化，但是实际上有些模型对样本的估计结果并不好。在ReginBoost中引入了动态权重，解决了这个问题</p>
+<p><strong>ReginBoost</strong></p>
+<p>在基础分类器之上添加置信度的预测器，该置信度预测器实际上采用了k近邻的方式评估置信度</p>
+<p><img src="/assets/1582536785047.png" alt="1582536785047"></p>
+<p>对比RegionBoost和Adaboost的训练效果，如下图，左侧为训练误差，右侧为测试误差</p>
+<p><img src="/assets/1582536927758.png" alt="1582536927758"></p>
+<p>很明显可以看到尽管Adaboost的训练误差比较小，最后甚至趋于0，但是其测试误差很大，也就是说它预测的并不可靠。而相反ReginBoost虽然训练误差最终趋于平缓，但是其测试误差越来越小，这才是我们需要的模型。</p>
+<h2 id="进化计算">进化计算</h2>
+<h3 id="全局优化">全局优化</h3>
+<p><strong>旅行商问题（tsp）</strong></p>
+<p>假设有一个旅行商人要拜访n个城市，他必须选择所要走的路径，路径的限制是每个城市只能拜访一次，而且最后要回到原来出发的城市。路径的选择目标是要求得的路径路程为所有路径之中的最小值。</p>
+<p>关键概念</p>
+<ul>
+<li>基于人口的随机优化算法</li>
+<li>内在并行，不容易陷入局部最优点</li>
+</ul>
+<p>经典算法</p>
+<ul>
+<li>
+<p><strong>GA：Genetic Algorithm</strong></p>
+</li>
+<li>
+<p><strong>GP：Genetic Proramming</strong></p>
+</li>
+<li>
+<p>ES：Evolution Strategies</p>
+</li>
+<li>
+<p>EP：Evoluntionary Programming</p>
+</li>
+<li>
+<p>EDA：Estimation of Distribution Algorithm</p>
+</li>
+<li>
+<p>PSO：Particle Swarm Optimization</p>
+</li>
+<li>
+<p>ACO：Ant Colony Optimization</p>
+</li>
+<li>
+<p>DE：Differencial Evoluntion</p>
+</li>
+</ul>
+<p><strong>并行搜索：</strong></p>
+<h3 id="遗传算法-genetic-algorithms">遗传算法(Genetic Algorithms)</h3>
+<p>每个问题的解决方案表示为染色体向量，初始随机生成多个染色体，然后一代代发生进化，基于自然进化的方式一代代进行改良。主要包含以下三方面的内容</p>
+<ol>
+<li>
+<p><strong>表示</strong></p>
+<ul>
+<li>Individual（chromesome）</li>
+<li>Population：a set of individuals</li>
+<li>Offspring：通过基因生成器生成的individuals</li>
+<li>Encoding：Binary Or Gray</li>
+</ul>
+</li>
+<li>
+<p><strong>生成基因</strong></p>
+<ul>
+<li>杂交：在两个染色体之间交换遗传物质</li>
+<li>变异：随机修改选定位置的基因值</li>
+</ul>
+</li>
+<li>
+<p><strong>选择</strong></p>
+<ul>
+<li>Roulette Wheel Selection：轮盘选择法，就是通过丢飞镖选择性状，值越大概率越大，缺点是没法处理负值或有单个值特别高就会漏选较好的变异体</li>
+<li>Rank Selection：利用排名减小值的差距</li>
+<li>Tournament Selection：两个或多个人相互PK，人数越多presure越大</li>
+<li>Elitism Selection：精英选择，后代不一定比双亲好，可能由于变异或者杂交损失一些染色体，复制最好的性状到下一代。</li>
+<li>Offspring Selection：用最老的染色体代替子孙染色体</li>
+</ul>
+</li>
+</ol>
+<p><strong>选择VS杂交VS变异</strong></p>
+<ul>
+<li>选择
+<ul>
+<li>可视为搜索资源分配的调节机制</li>
+<li>进化初期Selection Pressure过大易导致不成熟收敛</li>
+</ul>
+</li>
+<li>杂交
+<ul>
+<li>从好的个体基因生成更好的个体</li>
+<li>是GA的主要搜索方式</li>
+<li>体现出对现有搜索结果的精细利用（Exploitation）</li>
+<li>不影响基因的多样性</li>
+</ul>
+</li>
+<li>变异
+<ul>
+<li>增加基因多样性</li>
+<li>体现出对解空间的各个区域的探索（Exploration）</li>
+<li>通常独立作用于个体的某一位基因</li>
+</ul>
+</li>
+</ul>
+<p>上述过程总的来说是Exploration vs. Exploitation，前者意为探险，即探索不同的区域，主要从基因多样性角度考虑，后者Exploitation则指在某个区域进行更深层次的勘探（Choice）</p>
+<p><strong>GA 框架</strong></p>
+<p><img src="/assets/1582683540858.png" alt="1582683540858"></p>
+<h3 id="遗传编程-genetic-programming">遗传编程(Genetic Programming)</h3>
+<h3 id="可进化硬件-evolvable-things">可进化硬件(Evolvable Things)</h3>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/02/15/24DataMining/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/03/31/25Australia-Trip/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            澳洲之行
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/02/07/23DeployToECS/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hexo部署博客到云服务器ECS</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2021
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blogs
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black" rel="nofollow">豫ICP备2020028918号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blogs"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://yulezhang.com/album/">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>

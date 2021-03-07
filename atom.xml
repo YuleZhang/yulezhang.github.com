@@ -6,17 +6,39 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-02-28T13:47:40.151Z</updated>
+  <updated>2021-03-07T14:23:02.273Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TNML-ACML2020Tutorial</title>
+    <link href="http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/"/>
+    <id>http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/</id>
+    <published>2021-03-07T14:21:17.000Z</published>
+    <updated>2021-03-07T14:23:02.273Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;第38页&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Knowledge Distillation (Hinton et al., NIPS 2014 Workshop)&lt;/p&gt;
+&lt;p&gt;Quantization and Sharing of Weight (Han et al., ICLR 2016)&lt;/p&gt;
+&lt;p&gt;Low-rank Matrix/Tensor Factorization (Novikov et al., NIPS 2015)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>寒假学习汇报</title>
     <link href="http://www.yulezhang.com/2021/02/28/56WinterVacation/"/>
     <id>http://www.yulezhang.com/2021/02/28/56WinterVacation/</id>
     <published>2021-02-28T13:39:17.000Z</published>
-    <updated>2021-02-28T13:47:40.151Z</updated>
+    <updated>2021-03-07T14:22:42.965Z</updated>
     
     <summary type="html">
     
@@ -583,28 +605,6 @@
     
     
       <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensor Operation in Python</title>
-    <link href="http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/"/>
-    <id>http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/</id>
-    <published>2020-09-28T10:37:30.000Z</published>
-    <updated>2020-12-02T11:43:57.167Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;tensor-contracted&quot;&gt;Tensor Contracted&lt;/h2&gt;
-&lt;p&gt;我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。&lt;a href=&quot;https://blog.csdn.net/qq_45777142/article/details/107499465&quot;&gt;刘紫豪同学的博客&lt;/a&gt;里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在&lt;strong&gt;numpy、tensorflow以及Pytorch&lt;/strong&gt;中都提供了&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.einsum.html&quot;&gt;&lt;strong&gt;einsum&lt;/strong&gt;&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.matmul.html&quot;&gt;&lt;strong&gt;matmul&lt;/strong&gt;&lt;/a&gt;,&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html&quot;&gt;&lt;strong&gt;tensordot&lt;/strong&gt;&lt;/a&gt;这三种方式用于计算张量的缩并。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   

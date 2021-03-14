@@ -6,10 +6,40 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-03-07T14:23:02.273Z</updated>
+  <updated>2021-03-14T14:14:28.177Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Grover</title>
+    <link href="http://www.yulezhang.com/2021/03/14/58Grover/"/>
+    <id>http://www.yulezhang.com/2021/03/14/58Grover/</id>
+    <published>2021-03-14T13:21:17.000Z</published>
+    <updated>2021-03-14T14:14:28.177Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Grover算法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;搜索算法是利用计算机的高性能来有目的的穷举一个问题解空间的部分或所有的可能情况，从而求出问题的解的一种方法。现阶段一般有枚举算法、深度优先搜索、广度优先搜索、A*算法、回溯算法、蒙特卡洛树搜索、散列函数等算法。比较常见的一种应用场景就是A到B的最短耗时路径搜索，一般的传统方法我们至少要把所有的路径遍历一遍来求解，而量子Grover算法只需要&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msqrt&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;/msqrt&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(\sqrt(n))&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.24em;vertical-align:-0.30499999999999994em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord sqrt&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.935em;&quot;&gt;&lt;span class=&quot;svg-align&quot; style=&quot;top:-3.2em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3.2em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mopen&quot; style=&quot;padding-left:1em;&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-2.8950000000000005em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3.2em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hide-tail&quot; style=&quot;min-width:1.02em;height:1.28em;&quot;&gt;&lt;svg width=&#39;400em&#39; height=&#39;1.28em&#39; viewBox=&#39;0 0 400000 1296&#39; preserveAspectRatio=&#39;xMinYMin slice&#39;&gt;&lt;path d=&#39;M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.30499999999999994em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;的复杂度就能解决该问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TNML-ACML2020Tutorial</title>
@@ -584,27 +614,6 @@
     
     
       <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTN-Experiment</title>
-    <link href="http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/"/>
-    <id>http://www.yulezhang.com/2020/09/30/38Study-Report(0928-1004)/</id>
-    <published>2020-09-30T02:13:52.000Z</published>
-    <updated>2021-01-01T03:02:50.203Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   

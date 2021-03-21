@@ -6,17 +6,38 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-03-14T14:33:54.552Z</updated>
+  <updated>2021-03-21T05:31:09.979Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HHL_Code</title>
+    <link href="http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/"/>
+    <id>http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/</id>
+    <published>2021-03-20T00:33:14.000Z</published>
+    <updated>2021-03-21T05:31:09.979Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周汇报目前将分为以下三个部分&lt;/p&gt;
+&lt;h1&gt;量子算法回顾&lt;/h1&gt;
+&lt;p&gt;在周二下午的汇报之后发现对量子&lt;strong&gt;傅里叶变换、量子相位估计算法、Shor以及HHL算法&lt;/strong&gt;理解的还不够透彻，下面列出了一些遗留的疑难问题的讨论和补充。汇报PPT点击&lt;a href=&quot;/download/QuantumAlgorithm/20190721-%E9%87%8F%E5%AD%90%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98-%E5%BC%A0%E5%AE%87.pptx&quot;&gt;此处&lt;/a&gt;下载&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Grover</title>
     <link href="http://www.yulezhang.com/2021/03/14/58Grover/"/>
     <id>http://www.yulezhang.com/2021/03/14/58Grover/</id>
     <published>2021-03-14T13:21:17.000Z</published>
-    <updated>2021-03-14T14:33:54.552Z</updated>
+    <updated>2021-03-14T14:39:16.425Z</updated>
     
     <summary type="html">
     
@@ -87,7 +108,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2021/01/05/55WritingCorpus/"/>
     <id>http://www.yulezhang.com/2021/01/05/55WritingCorpus/</id>
     <published>2021-01-05T12:37:17.000Z</published>
-    <updated>2021-01-22T02:39:43.958Z</updated>
+    <updated>2021-03-20T11:12:24.927Z</updated>
     
     <summary type="html">
     
@@ -97,180 +118,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
 &lt;ul&gt;
 &lt;li&gt;In this section, we evaluate the superior aspects as well as the limitations of the proposed model by taking into account the state-of-art models&lt;/li&gt;
 &lt;li&gt;The results show that EVGO outperforms all the algorithms in comparison for all experiments.&lt;/li&gt;
-&lt;li&gt;Our work, which takes the hybrid approach of developing a population-based model that is then adjusted to COVID-19 mortality rates, has several strengths.&lt;/li&gt;
-&lt;li&gt;This work also has several limitations. first,second,third&lt;/li&gt;
-&lt;li&gt;The correction method used in this study, using a linear probability model, is coarse, and could result in significant bias if the populations are sufficiently different.&lt;/li&gt;
-&lt;li&gt;Last and most important, without individual-level data, there is no way to test the resulting predictions.&lt;/li&gt;
-&lt;li&gt;The process consists of two steps: first the formation of chromate/phosphate treated layer on the surface of aluminium and secondly anodizing in a sulphuric acid solution.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;introduce-others-work&quot;&gt;Introduce others’ work&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Examples of research in this ares include [1-3]. Much of this work concerns…&lt;/li&gt;
-&lt;li&gt;The scientific workflow for the majority of empirical studies, starting with a predefined &lt;em&gt;research&lt;/em&gt; question and proceeding with&lt;/li&gt;
-&lt;li&gt;Part of the research challenges faced in this field has thus been transferred to the computer scirence domain.。&lt;/li&gt;
-&lt;li&gt;A variety of measures have been suggested for describing the accuracy of land-cover classifications.&lt;/li&gt;
-&lt;li&gt;Numerous accuracy measures have been proposed for summarizing the information contained in this error matrix&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;Phrase&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Last and most important/Last but not least&lt;/li&gt;
-&lt;li&gt;From then on、But in addition to this、Essentially、 Subsequent developments generalized this to other scenarios、Moreover、In particular、in principle、As such、Generally speaking、For instance、 In the modern formulation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;Vocabulary&lt;/h1&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;English&lt;/th&gt;
-&lt;th&gt;中文&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;spatial information&lt;/td&gt;
-&lt;td&gt;空间信息&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;conjugate gradient (CG) method&lt;/td&gt;
-&lt;td&gt;共轭梯度法&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;exponentially faster/speedup&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;are compelling for&lt;/td&gt;
-&lt;td&gt;因…令人信服&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;winsome field&lt;/td&gt;
-&lt;td&gt;美好的领域&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;discrimination capacity&lt;/td&gt;
-&lt;td&gt;判别能力&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;representation power&lt;/td&gt;
-&lt;td&gt;表示能力&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;transparency and interpretability&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tremendous impact&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;support the decision-making&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;probabilistic interpretation of quantum circuits&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;open access data repositories&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;respiratory distress&lt;/td&gt;
-&lt;td&gt;呼吸窘迫&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;take sth into consideration&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;state-of-the-art performance&lt;/td&gt;
-&lt;td&gt;一流性能&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;triggered extensive interests&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;In the ongoing process&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;On this motivation&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;treat suspected COVID-19 cases&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;triage for COVID-19 suspect cases&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;global social and economic disruption&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;enormously benefit from&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;peek into &lt;strong&gt;black-box models&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Data merging&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;shed light and provide insights into&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;articulate model interpretability&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;execution time and energy required for CNN&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;high-performance computing&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;provides sufficient computing&lt;/em&gt; and storage &lt;em&gt;resources&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;optimal combination of hyperparameter values&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;advanced data &lt;strong&gt;analytics methods&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;reduce dimension&lt;/em&gt; and remove &lt;em&gt;noise&lt;/em&gt; features&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;expensive &lt;em&gt;computational costs&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;the hotspot of the current research&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;strongly-correlated quantum lattice systems&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;In some practical scenieso, especially in medicine and health care,&lt;/p&gt;
-&lt;h1&gt;Merits&lt;/h1&gt;
-&lt;h2 id=&quot;tensor&quot;&gt;Tensor&lt;/h2&gt;
-&lt;p&gt;《Higher-dimension Tensor Completion via Low-rank Tensor Ring Decomposition》Longhao Yuan&lt;/p&gt;
     
     </summary>
     
@@ -591,29 +439,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>刻意练习读书笔记</title>
-    <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
-    <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
-    <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2020-11-16T01:11:52.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;训练时长和训练方法&lt;/p&gt;
-&lt;p&gt;训练方法可能是间断性调整的（往往在当前方法遇到瓶颈，无法提高时）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在任何行业或者领域中，最有效和最强大的那类联系，都通过充分利用人类的身体与大脑的适应能力，来逐步的塑造和提升他们的技能，以做到一些过去不可能的事情。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
     
   </entry>
   

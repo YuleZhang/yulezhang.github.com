@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    周汇报 |  
+    周报-26 |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -57,305 +57,222 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  <article class="articles">
+  <article
+  id="post-60ReadBook"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">周汇报</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  周报-26
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/27/60ReadBook/" class="article-date">
+  <time datetime="2021-03-27T13:15:14.000Z" itemprop="datePublished">2021-03-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="archive-article-date">
-  <time datetime="2020-11-29T12:31:17.000Z" itemprop="datePublished">11/29</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/29/49Study-Report(1123-1129)/"
-    >GTNC and TSGO</a> 
-</h2>
+  <p>总结了一下华为软挑比赛，同时整理了一下<a href="http://www.yulezhang.com/2021/03/28/62QML-Collections/">量子机器学习的代码学习资料</a>，并对二维MERA结构进行了数据集拓展、阅读《智能时代》。</p>
+<a id="more"></a>
+<h1>算法实践</h1>
+<p>本周将假期学的<strong>Quantum Tensor Network in Machine Learning An Application to Tiny Object Classification</strong>这篇论文的代码又重新复习了一下，作者通过二维的张量网络结构进行小目标分类。而医学图像，尤其对新冠肺炎图像，它也属于这种小目标图像的范畴。因为该论文讨论的是二维的MERA结构，能够保留图片的局部信息，那么它的识别效果应该比单MPS架构要好很多，并且相比GTNC这里用到极少的环境变量，响应需要更新的参数也会少很多。因此这次实验主要从<strong>识别精度、参数量、运行时间</strong>三个角度进行评估。</p>
+<p>在代码方面较之前增加了MERA的层数以应对更大的图片，同时增加了对新冠肺炎图片的处理和读取(loader模块)，修改了MPS的输入输出参数，使得MERA各个层之间传递的bond对应起来。关于实验结果，由于新馆肺炎图像比较大，处理起来比较慢，因此还没有得到完整的结果</p>
+<h1>《智能时代》</h1>
+<p>几个体现数据作用的例子</p>
+<ol>
+<li>托勒密小圆套大圆来求星星运动轨迹，这种想法影响了人类一千多年</li>
+<li>日本的公司根据<strong>王进喜大庆油田的照片</strong>推断出一系列油田相关的信息，一举中标</li>
+<li>盖洛普利用统计学+数据问卷收集民意，成功预测美国大选</li>
+<li>IBM的语音识别基于数据的突破</li>
+<li>量变到质变，Google机器翻译打败传统AI（手动编写语法逻辑）</li>
+</ol>
+<p>如果说数据的相关性我还知道一些的话（之前做过基于Apriori的关联分析），那么数据的完备性则是我平时一直忽略的点。数据的完备性指的是，你的样本要尽可能的涵盖大部分的情况或者对象。举个例子而言，比如预测大选的时候，调研不能只考虑精英那批人的意见，而要收集到各个阶层、不同收入、不同知识文化水平等人的完整意见，这样能够使得样本尽可能的完整，这方面的例子有Google机器翻译、斯维尔预测50+1州投票情况。</p>
+<p>另外就是从托勒密到伽利略、再到牛顿、瓦特、莱特兄弟，他们都是基于机械思维，这种思维是改变了人类工作方式的革命性的方法论，并且在工业革命和全球工业化中起到了决定性的作用。但今天我们面临的复杂情况，已经不在能用几个定律就讲清楚了，难以找到确定性是现在社会的常态。**而大数据科学基础是信息论，它的本质就是利用信息消除不确定性。大数据时代，量变带来质变，信息论的思维让过去很多问题迎刃而解。**一个典型的例子就是Google和Microsoft搜索引擎之争，这完全是数据层面的竞争。尽管Microsoft的搜索算法同样先进，但他的Bing显然没有Google那么庞大的历史搜索记录，因此就很难去进一步提高结果推荐质量。可见数据的竞争，尤其是大数据对各行各业、各个领域都产生了革命性的作用。</p>
+<p>将大数据的思维应用到<strong>医学图像领域</strong>的分析中来，要想用数据去遍布各个病例，那就要求医院能够提供大量的样本。而实际生活中，各个医院可能还没有在各种设备中有意识的收集数据，并且不同医院采用不同的管理系统，采用不同的设备处理信息，因此可能得到的数据会因设备参数而产生差异，再加上有些病例比较罕见。这种种原因意味着医学大数据还需要沉淀和积累，于是目前大家普遍采用的还是<strong>基于机械思维的图像分割算法</strong>，通过对医学图像的各种基于规则的分割，把图片的特征提取出来，然后再进行建模和预测。</p>
  
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="archive-article-date">
-  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">11/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/21/47Study-Report(1116-1122)/"
-    >第11周学习汇报</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/15/46Study-Report(1109-1115)/" class="archive-article-date">
-  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">11/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/15/46Study-Report(1109-1115)/"
-    >量子群智能！！！</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/08/44Study-Report(1102-1108)/" class="archive-article-date">
-  <time datetime="2020-11-08T10:44:30.000Z" itemprop="datePublished">11/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/08/44Study-Report(1102-1108)/"
-    >Tensor Network with maching learning</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/01/43Study-Report(1026-1101)/" class="archive-article-date">
-  <time datetime="2020-11-01T13:46:21.000Z" itemprop="datePublished">11/01</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/01/43Study-Report(1026-1101)/"
-    >基于张量的大数据多聚类及其安全和高效方法研究</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/24/42Study-Report(1019-1025)/" class="archive-article-date">
-  <time datetime="2020-10-24T02:15:21.000Z" itemprop="datePublished">10/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/24/42Study-Report(1019-1025)/"
-    >Overfitting?</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/17/41Study-Report(1012-1018)/" class="archive-article-date">
-  <time datetime="2020-10-17T03:04:28.000Z" itemprop="datePublished">10/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/17/41Study-Report(1012-1018)/"
-    >GA and TN Decomposition</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/11/40Study-Report(1005-1011)/" class="archive-article-date">
-  <time datetime="2020-10-11T02:30:52.000Z" itemprop="datePublished">10/11</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/11/40Study-Report(1005-1011)/"
-    >HTN+Covid-19（OOM和参数）</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/30/38Study-Report(0928-1004)/" class="archive-article-date">
-  <time datetime="2020-09-30T02:13:52.000Z" itemprop="datePublished">09/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/09/30/38Study-Report(0928-1004)/"
-    >HTN-Experiment</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/28/37Study-Report(0921-0927)/" class="archive-article-date">
-  <time datetime="2020-09-28T10:37:30.000Z" itemprop="datePublished">09/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/09/28/37Study-Report(0921-0927)/"
-    >Tensor Operation in Python</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">上一页</a><a class="page-number" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/page/3/">3</a><a class="extend next" rel="next" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/page/3/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2021/03/27/60ReadBook/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/03/28/62QML-Collections/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            量子机器学习资料整理
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/03/27/61HuaweiSoftwareContest/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">华为软件精英挑战赛</div>
+      </a>
+    
   </nav>
-  
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -525,6 +442,23 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">

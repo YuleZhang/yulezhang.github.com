@@ -1,6 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>量子机器学习资料整理</title>
+    <url>/2021/03/28/62QML-Collections/</url>
+    <content><![CDATA[<p>由于目前张量网络的工作逐渐增多，很多实验室都封装了自己的张量收缩算法包，同时还有一些论文给出了具体的工作，在此归类梳理一下方便日后的学习。</p>
+<h2 id="workshop">Workshop</h2>
+<ul>
+<li><a href="https://tensorworkshop.github.io/2020/index.html"><strong>IJCAL</strong></a>: International Workshop on Tensor Network Representations in Machine Learning</li>
+<li><a href="https://tensorworkshop.github.io/NeurIPS2020/"><strong>NeurIPS2020</strong></a>: Quantum tensor networks in machine learning</li>
+<li><a href="http://ipam.ucla.edu/wp-content/uploads/2019/09/TMWS2-Poster.pdf">ipam</a>: Tensor Network States and Applications, <strong>APRIL 19 - 23, 2021</strong></li>
+</ul>
+<a id="more"></a>
+<h2 id="learning-materials">Learning Materials</h2>
+<ul>
+<li><a href="https://github.com/ranshiju/TN_tutorial">TN_tutorial</a>是冉仕举老师对张量网络机器学习的一个详细的介绍，该仓库是<a href="https://www.bilibili.com/video/BV17z411i7yM?p=1">Bilibili视频</a>的配套代码，搭配食用效果更佳。</li>
+<li><a href="https://www.tensors.net/"><strong>Tensors</strong>.net</a>是一个开源的网站，里面图解了各种张量网络算法，并给出了Python/Matlab/Julia的相关实现，简直良心</li>
+<li><a href="https://paperswithcode.com/task/tensor-networks">Tensor Networks</a>提供了一些张量网络机器学习的视频、论文以及对应代码，也是做了于本仓库类似的内容，推荐大家结合代码去学习，事半功倍！</li>
+<li><a href="https://github.com/krishnakumarsekar/awesome-quantum-machine-learning">awesome-quantum-machine-learning</a>包含了全网所有的量子机器学习基础知识，算法，研究材料，项目以及项目描述，例如<strong>量子遗传算法、量子隐马尔可夫模型、基于主成分分析的量子分类算法</strong>等等，有很多比较<strong>前沿的工作</strong>在里面。</li>
+<li><a href="https://tensornetwork.org/">tensornetwork.org</a>张量网络算法、理论和软件的介绍</li>
+</ul>
+<h2 id="tensor-network-library"><strong>Tensor network library</strong></h2>
+<p>大部分张量网络收缩库都是基于Python，还有少量的C++、Matlab，在下面会注明</p>
+<ul>
+<li><a href="https://github.com/google/TensorNetwork">TensorNetwork</a>，Google于2019年开源的Python库，目前应用最为广泛</li>
+<li><a href="https://github.com/qmlcode/qml">qml</a>是用于量子机器学习的Python工具包，有回归、预测、学习曲线等等，能省很多功夫去造轮子</li>
+<li><a href="https://github.com/netket/netket">netket</a>是一个开源代码项目，它提供了用于通过ANN和ML研究多体量子系统的前沿方法，它是基于JAX构建的Python库。</li>
+<li><a href="https://github.com/tenpy/tenpy">tenpy</a> Python库，用于模拟具有张量网络的高度相关的量子系统，有比较详细的文档和算法演示示例（例如TEBD和DMRG）</li>
+<li><a href="https://github.com/OriginQ/QPanda-2">PyQPanda</a>是<strong>本源量子</strong>开发的量子计算编程框架，提供了详细的文档和量子算法介绍，能够通过线路模拟算法。</li>
+<li><a href="https://github.com/andrewdarmawan/tncontract">tncontract</a> Python的开源张量网络库，比较小众，采用Numpy库做为后端，包含很多用于一维和二维张量网络的算法。</li>
+<li><a href="https://github.com/emstoudenmire/TNML">TNML(<strong>C++</strong>)</a>  出自大佬<a href="https://github.com/emstoudenmire/TNML/commits?author=emstoudenmire">emstoudenmire</a>之手</li>
+<li><a href="https://github.com/ITensor/ITensor">ITensor(C++)</a> 高效的张量网络计算库，提供了相关文档</li>
+</ul>
+<h2 id="survery-updating">Survery（Updating…）</h2>
+<ul>
+<li>Segmenting two-dimensional structures with strided tensor networks <a href="https://github.com/raghavian/strided-tenet">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (CVPR 2021)</li>
+</ul>
+</li>
+<li>Generative tensor network classification model for supervised machine learning <a href="https://arxiv.org/abs/1903.10742">[arXiv]</a> <a href="https://github.com/crazybigcat/GTNC">[Github]</a>
+<ul>
+<li>Zheng-Zhi Sun, et al. (PRB 2020)</li>
+</ul>
+</li>
+<li>Tangent-Space Gradient Optimization of Tensor Network for Machine Learning  <a href="https://arxiv.org/abs/2001.04029">[arXiv]</a> <a href="https://github.com/crazybigcat/TSGO">[Github]</a>
+<ul>
+<li>Zheng-Zhi Sun, et al. (PRE 2020)</li>
+</ul>
+</li>
+<li>Multi-layered tensor networks for image classification <a href="https://arxiv.org/abs/2011.06982">[arXiv]</a> <a href="https://github.com/raghavian/mltn">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (NeurIPS 2020)</li>
+</ul>
+</li>
+<li>Quantum Tensor Network in Machine Learning: An Application to Tiny Object Classification <a href="https://arxiv.org/pdf/2101.03154.pdf">[arXiv]</a> <a href="https://github.com/timqqt/MERA_Image_Classification">[Github]</a>
+<ul>
+<li>Fanjie Kong et al. (NeurIPS 2020)</li>
+</ul>
+</li>
+<li>Tensor Networks for Medical Image Classification <a href="https://github.com/raghavian/loTeNet_pytorch/">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (MIDL 2020)</li>
+</ul>
+</li>
+<li>Deep convolutional tensor network <a href="https://arxiv.org/abs/2005.14506">[arXiv]</a> <a href="https://github.com/philip-bl/dctn">[Github]</a>
+<ul>
+<li>Philip Blagoveschensky et al. (Preprint. Under review 2020)</li>
+</ul>
+</li>
+<li>Quantum-Classical Machine learning by Hybrid Tensor Networks <a href="https://arxiv.org/abs/2005.09428">[arXiv]</a> <a href="https://github.com/dingliu0305/Hybrid-Tensor-Network">[Github]</a></li>
+<li>Machine Learning by Two-Dimensional Hierarchical Tensor Networks: A Quantum Information Theoretic Perspective on Deep Architectures <a href="https://arxiv.org/abs/1710.04833">[arXiv]</a> <a href="https://github.com/dingliu0305/Tree-Tensor-Networks-in-Machine-Learning">[Github]</a>
+<ul>
+<li>Ding Liu et al. (NJP 2019)</li>
+</ul>
+</li>
+<li>Unsupervised Generative Modeling Using Matrix Product States <a href="https://arxiv.org/abs/1709.01662">[arXiv]</a> <a href="https://github.com/congzlwag/UnsupGenModbyMPS">[Github]</a>
+<ul>
+<li>Zhao-Yu Han et al. (PRX 2018)</li>
+</ul>
+</li>
+<li>Supervised Learning with Quantum-Inspired Tensor Networks <a href="https://github.com/emstoudenmire/TNML">[Github]</a>
+<ul>
+<li>E.M. Stoudenmire et al. (NIPS 2016)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>周报-26</title>
+    <url>/2021/03/27/60ReadBook/</url>
+    <content><![CDATA[<p>总结了一下华为软挑比赛，同时整理了一下<a href="http://www.yulezhang.com/2021/03/28/62QML-Collections/">量子机器学习的代码学习资料</a>，并对二维MERA结构进行了数据集拓展、阅读《智能时代》。</p>
+<a id="more"></a>
+<h1>算法实践</h1>
+<p>本周将假期学的<strong>Quantum Tensor Network in Machine Learning An Application to Tiny Object Classification</strong>这篇论文的代码又重新复习了一下，作者通过二维的张量网络结构进行小目标分类。而医学图像，尤其对新冠肺炎图像，它也属于这种小目标图像的范畴。因为该论文讨论的是二维的MERA结构，能够保留图片的局部信息，那么它的识别效果应该比单MPS架构要好很多，并且相比GTNC这里用到极少的环境变量，响应需要更新的参数也会少很多。因此这次实验主要从<strong>识别精度、参数量、运行时间</strong>三个角度进行评估。</p>
+<p>在代码方面较之前增加了MERA的层数以应对更大的图片，同时增加了对新冠肺炎图片的处理和读取(loader模块)，修改了MPS的输入输出参数，使得MERA各个层之间传递的bond对应起来。关于实验结果，由于新馆肺炎图像比较大，处理起来比较慢，因此还没有得到完整的结果</p>
+<h1>《智能时代》</h1>
+<p>几个体现数据作用的例子</p>
+<ol>
+<li>托勒密小圆套大圆来求星星运动轨迹，这种想法影响了人类一千多年</li>
+<li>日本的公司根据<strong>王进喜大庆油田的照片</strong>推断出一系列油田相关的信息，一举中标</li>
+<li>盖洛普利用统计学+数据问卷收集民意，成功预测美国大选</li>
+<li>IBM的语音识别基于数据的突破</li>
+<li>量变到质变，Google机器翻译打败传统AI（手动编写语法逻辑）</li>
+</ol>
+<p>如果说数据的相关性我还知道一些的话（之前做过基于Apriori的关联分析），那么数据的完备性则是我平时一直忽略的点。数据的完备性指的是，你的样本要尽可能的涵盖大部分的情况或者对象。举个例子而言，比如预测大选的时候，调研不能只考虑精英那批人的意见，而要收集到各个阶层、不同收入、不同知识文化水平等人的完整意见，这样能够使得样本尽可能的完整，这方面的例子有Google机器翻译、斯维尔预测50+1州投票情况。</p>
+<p>另外就是从托勒密到伽利略、再到牛顿、瓦特、莱特兄弟，他们都是基于机械思维，这种思维是改变了人类工作方式的革命性的方法论，并且在工业革命和全球工业化中起到了决定性的作用。但今天我们面临的复杂情况，已经不在能用几个定律就讲清楚了，难以找到确定性是现在社会的常态。**而大数据科学基础是信息论，它的本质就是利用信息消除不确定性。大数据时代，量变带来质变，信息论的思维让过去很多问题迎刃而解。**一个典型的例子就是Google和Microsoft搜索引擎之争，这完全是数据层面的竞争。尽管Microsoft的搜索算法同样先进，但他的Bing显然没有Google那么庞大的历史搜索记录，因此就很难去进一步提高结果推荐质量。可见数据的竞争，尤其是大数据对各行各业、各个领域都产生了革命性的作用。</p>
+<p>将大数据的思维应用到<strong>医学图像领域</strong>的分析中来，要想用数据去遍布各个病例，那就要求医院能够提供大量的样本。而实际生活中，各个医院可能还没有在各种设备中有意识的收集数据，并且不同医院采用不同的管理系统，采用不同的设备处理信息，因此可能得到的数据会因设备参数而产生差异，再加上有些病例比较罕见。这种种原因意味着医学大数据还需要沉淀和积累，于是目前大家普遍采用的还是<strong>基于机械思维的图像分割算法</strong>，通过对医学图像的各种基于规则的分割，把图片的特征提取出来，然后再进行建模和预测。</p>
+]]></content>
+      <categories>
+        <category>周汇报</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>华为软件精英挑战赛</title>
+    <url>/2021/03/27/61HuaweiSoftwareContest/</url>
+    <content><![CDATA[<p>能够承认自己的普通并非易事</p>
+<a id="more"></a>
+<ul>
+<li>初赛
+<ul>
+<li>[x] 03-10 9:00：公布初赛赛题，大赛网站开放赛题、赛题包下载</li>
+<li>[x] 03-10 9:00 —— 03-24 18:00：初赛练习阶段</li>
+<li>[x] 03-10 9:00：公布练习数据集，开启线上训练赛</li>
+<li>[x] 03-24 18:00 —— 3月25日 9:00 ：关闭在线训练作品提交窗口</li>
+<li>[x] 03-25 9:00 —— 03-27 18:00 ：初赛参赛作品提交阶段</li>
+<li>[ ] 03-25 9:00：大赛网站更新正式赛数据集并恢复提交</li>
+<li>[ ] 03-27 18:00：初赛截止提交</li>
+<li>[ ] 03-27 18:00 —— 3月28日 12:00 系统评阅</li>
+<li>[ ] 03-28 12:00：公示初赛获奖名单及成绩</li>
+<li>[ ] 03-29 12:00：公布最终初赛获奖名单及成绩</li>
+</ul>
+</li>
+</ul>
+<p>到今天为止，为期两周的华为软挑比赛告一段落，我们队没能进入复赛，有些可惜，但很正常，毕竟大家都是第一次参加，而且平时科研任务也比较重。所以当我在18点之前拼命的提交最后一波结果的时候，我已经提前接受了，至少我不后悔。这次比赛确实给我上了一课。</p>
+<p><strong>文档</strong></p>
+<p>原本我认为Coding是最重要的，不要讨论那么多，先把写出来再说，最少得写一个Demo出来罢。以至于初期我一直反感于建辉一直整理文档，整来整去没有一点进度，还不如调几个bug想办法优化优化baseline。但随着后来的开发，我渐渐的发现有文档的好处。随着代码中变量和函数的增加，越来越难以记住各种各样的定义，有了文档能够随时的进行比对，知道哪个变量里面存什么字段、作用是什么，不仅方便自己，其他人看的时候也能统一来操作。这也就是为什么公司和企业一直都要写文档写手册，尽管自己看起来真的很繁琐很多余，但它发挥的作用确实是不可替代的。</p>
+<p><strong>算法逻辑</strong></p>
+<p>我一直以为算法它直接写就行，写着写着就明白了。可近些日子无论是写算法还是写<code>CodeCraft.cpp</code>程序，都能感觉到有些题目或者函数比较复杂，牵扯到的变量比较多，而且逻辑不容易梳理清楚，这个时候我就越写越乱，越写越头疼，写不下去，最后还是得笔画半天才能设计出来。通过小组讨论和沟通的过程，我体会到当我们从优化角度达成一致的时候，或者处理思路一致的时候效率是最高的，写代码真的就是个体力活了。以后要继续从事这方面的工作，还是要先思考再动手。否则会忽视很多细节问题，后期对开发造成阻碍。</p>
+<p><strong>团队协作</strong></p>
+<p>其实我和其他人，尤其是大家水平相差不大的同学合作写一个项目的机会并不多。在这次合作中，我确实感觉到了众人拾柴火焰高的感觉，每个人都能补充一些细节出来，让程序更加完善。由于我和建辉的关注点或者说是对程序的了解程度不一样，导致我俩总是很难通过qq几条消息达成一致，于是我体会到面对面沟通讨论带来的益处，并且这种不同视角也总是能够互相突破对方的难关。但不得不说，在整个比赛中，我们沟通的不是很充分。</p>
+<p><strong>其他</strong></p>
+<p>最后就是我要面临科研和比赛的平衡，我已经不是一次两次遇上这种需要平衡双方的问题了。但是我次次都做不好，因为沉迷这个总会忽略哪个，单线程的思维是我的优点也是我的缺点。平衡不好就会导致我的生活一团糟，因为两方面我都想兼顾，并且有时候还贪婪，如果发现没有以前做的好我就会bad mood，也许就是太浮躁罢。关于赛题本身（虚拟机分配服务器），涉及到博弈论的知识和算法，可能大家采用的都是贪心策略，可我们也许对这个思想理解的不是很到位，加上时间的原因，导致很多地方没有完善好，有些可惜了，再接再厉！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>HHL and TEBD</title>
     <url>/2021/03/20/59CodeBreakthrough/</url>
     <content><![CDATA[<p>本周汇报目前将分为以下三个部分</p>

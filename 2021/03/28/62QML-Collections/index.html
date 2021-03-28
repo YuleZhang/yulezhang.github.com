@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    周汇报 |  
+    量子机器学习资料整理 |  
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -57,305 +57,278 @@ var _hmt = _hmt || [];
       
     <main class="content on">
       <section class="outer">
-  
-  <article class="articles">
+  <article
+  id="post-62QML-Collections"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">周汇报</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  量子机器学习资料整理
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/28/62QML-Collections/" class="article-date">
+  <time datetime="2021-03-28T12:50:00.000Z" itemprop="datePublished">2021-03-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2020" class="archive-year">2020</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">787</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="archive-article-date">
-  <time datetime="2020-11-29T12:31:17.000Z" itemprop="datePublished">11/29</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/29/49Study-Report(1123-1129)/"
-    >GTNC and TSGO</a> 
-</h2>
+  <p>由于目前张量网络的工作逐渐增多，很多实验室都封装了自己的张量收缩算法包，同时还有一些论文给出了具体的工作，在此归类梳理一下方便日后的学习。</p>
+<h2 id="workshop">Workshop</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://tensorworkshop.github.io/2020/index.html"><strong>IJCAL</strong></a>: International Workshop on Tensor Network Representations in Machine Learning</li>
+<li><a target="_blank" rel="noopener" href="https://tensorworkshop.github.io/NeurIPS2020/"><strong>NeurIPS2020</strong></a>: Quantum tensor networks in machine learning</li>
+<li><a target="_blank" rel="noopener" href="http://ipam.ucla.edu/wp-content/uploads/2019/09/TMWS2-Poster.pdf">ipam</a>: Tensor Network States and Applications, <strong>APRIL 19 - 23, 2021</strong></li>
+</ul>
+<a id="more"></a>
+<h2 id="learning-materials">Learning Materials</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ranshiju/TN_tutorial">TN_tutorial</a>是冉仕举老师对张量网络机器学习的一个详细的介绍，该仓库是<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17z411i7yM?p=1">Bilibili视频</a>的配套代码，搭配食用效果更佳。</li>
+<li><a target="_blank" rel="noopener" href="https://www.tensors.net/"><strong>Tensors</strong>.net</a>是一个开源的网站，里面图解了各种张量网络算法，并给出了Python/Matlab/Julia的相关实现，简直良心</li>
+<li><a target="_blank" rel="noopener" href="https://paperswithcode.com/task/tensor-networks">Tensor Networks</a>提供了一些张量网络机器学习的视频、论文以及对应代码，也是做了于本仓库类似的内容，推荐大家结合代码去学习，事半功倍！</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/krishnakumarsekar/awesome-quantum-machine-learning">awesome-quantum-machine-learning</a>包含了全网所有的量子机器学习基础知识，算法，研究材料，项目以及项目描述，例如<strong>量子遗传算法、量子隐马尔可夫模型、基于主成分分析的量子分类算法</strong>等等，有很多比较<strong>前沿的工作</strong>在里面。</li>
+<li><a target="_blank" rel="noopener" href="https://tensornetwork.org/">tensornetwork.org</a>张量网络算法、理论和软件的介绍</li>
+</ul>
+<h2 id="tensor-network-library"><strong>Tensor network library</strong></h2>
+<p>大部分张量网络收缩库都是基于Python，还有少量的C++、Matlab，在下面会注明</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/TensorNetwork">TensorNetwork</a>，Google于2019年开源的Python库，目前应用最为广泛</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/qmlcode/qml">qml</a>是用于量子机器学习的Python工具包，有回归、预测、学习曲线等等，能省很多功夫去造轮子</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/netket/netket">netket</a>是一个开源代码项目，它提供了用于通过ANN和ML研究多体量子系统的前沿方法，它是基于JAX构建的Python库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tenpy/tenpy">tenpy</a> Python库，用于模拟具有张量网络的高度相关的量子系统，有比较详细的文档和算法演示示例（例如TEBD和DMRG）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/OriginQ/QPanda-2">PyQPanda</a>是<strong>本源量子</strong>开发的量子计算编程框架，提供了详细的文档和量子算法介绍，能够通过线路模拟算法。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/andrewdarmawan/tncontract">tncontract</a> Python的开源张量网络库，比较小众，采用Numpy库做为后端，包含很多用于一维和二维张量网络的算法。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/emstoudenmire/TNML">TNML(<strong>C++</strong>)</a>  出自大佬<a target="_blank" rel="noopener" href="https://github.com/emstoudenmire/TNML/commits?author=emstoudenmire">emstoudenmire</a>之手</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ITensor/ITensor">ITensor(C++)</a> 高效的张量网络计算库，提供了相关文档</li>
+</ul>
+<h2 id="survery-updating">Survery（Updating…）</h2>
+<ul>
+<li>Segmenting two-dimensional structures with strided tensor networks <a target="_blank" rel="noopener" href="https://github.com/raghavian/strided-tenet">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (CVPR 2021)</li>
+</ul>
+</li>
+<li>Generative tensor network classification model for supervised machine learning <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.10742">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/crazybigcat/GTNC">[Github]</a>
+<ul>
+<li>Zheng-Zhi Sun, et al. (PRB 2020)</li>
+</ul>
+</li>
+<li>Tangent-Space Gradient Optimization of Tensor Network for Machine Learning  <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2001.04029">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/crazybigcat/TSGO">[Github]</a>
+<ul>
+<li>Zheng-Zhi Sun, et al. (PRE 2020)</li>
+</ul>
+</li>
+<li>Multi-layered tensor networks for image classification <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.06982">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/raghavian/mltn">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (NeurIPS 2020)</li>
+</ul>
+</li>
+<li>Quantum Tensor Network in Machine Learning: An Application to Tiny Object Classification <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2101.03154.pdf">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/timqqt/MERA_Image_Classification">[Github]</a>
+<ul>
+<li>Fanjie Kong et al. (NeurIPS 2020)</li>
+</ul>
+</li>
+<li>Tensor Networks for Medical Image Classification <a target="_blank" rel="noopener" href="https://github.com/raghavian/loTeNet_pytorch/">[Github]</a>
+<ul>
+<li>Raghavendra Selvan et al. (MIDL 2020)</li>
+</ul>
+</li>
+<li>Deep convolutional tensor network <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14506">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/philip-bl/dctn">[Github]</a>
+<ul>
+<li>Philip Blagoveschensky et al. (Preprint. Under review 2020)</li>
+</ul>
+</li>
+<li>Quantum-Classical Machine learning by Hybrid Tensor Networks <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.09428">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/dingliu0305/Hybrid-Tensor-Network">[Github]</a></li>
+<li>Machine Learning by Two-Dimensional Hierarchical Tensor Networks: A Quantum Information Theoretic Perspective on Deep Architectures <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1710.04833">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/dingliu0305/Tree-Tensor-Networks-in-Machine-Learning">[Github]</a>
+<ul>
+<li>Ding Liu et al. (NJP 2019)</li>
+</ul>
+</li>
+<li>Unsupervised Generative Modeling Using Matrix Product States <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1709.01662">[arXiv]</a> <a target="_blank" rel="noopener" href="https://github.com/congzlwag/UnsupGenModbyMPS">[Github]</a>
+<ul>
+<li>Zhao-Yu Han et al. (PRX 2018)</li>
+</ul>
+</li>
+<li>Supervised Learning with Quantum-Inspired Tensor Networks <a target="_blank" rel="noopener" href="https://github.com/emstoudenmire/TNML">[Github]</a>
+<ul>
+<li>E.M. Stoudenmire et al. (NIPS 2016)</li>
+</ul>
+</li>
+</ul>
  
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="archive-article-date">
-  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">11/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/21/47Study-Report(1116-1122)/"
-    >第11周学习汇报</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/15/46Study-Report(1109-1115)/" class="archive-article-date">
-  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">11/15</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/15/46Study-Report(1109-1115)/"
-    >量子群智能！！！</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/08/44Study-Report(1102-1108)/" class="archive-article-date">
-  <time datetime="2020-11-08T10:44:30.000Z" itemprop="datePublished">11/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/08/44Study-Report(1102-1108)/"
-    >Tensor Network with maching learning</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/01/43Study-Report(1026-1101)/" class="archive-article-date">
-  <time datetime="2020-11-01T13:46:21.000Z" itemprop="datePublished">11/01</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/11/01/43Study-Report(1026-1101)/"
-    >基于张量的大数据多聚类及其安全和高效方法研究</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/24/42Study-Report(1019-1025)/" class="archive-article-date">
-  <time datetime="2020-10-24T02:15:21.000Z" itemprop="datePublished">10/24</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/24/42Study-Report(1019-1025)/"
-    >Overfitting?</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/17/41Study-Report(1012-1018)/" class="archive-article-date">
-  <time datetime="2020-10-17T03:04:28.000Z" itemprop="datePublished">10/17</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/17/41Study-Report(1012-1018)/"
-    >GA and TN Decomposition</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/11/40Study-Report(1005-1011)/" class="archive-article-date">
-  <time datetime="2020-10-11T02:30:52.000Z" itemprop="datePublished">10/11</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/10/11/40Study-Report(1005-1011)/"
-    >HTN+Covid-19（OOM和参数）</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/30/38Study-Report(0928-1004)/" class="archive-article-date">
-  <time datetime="2020-09-30T02:13:52.000Z" itemprop="datePublished">09/30</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/09/30/38Study-Report(0928-1004)/"
-    >HTN-Experiment</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/28/37Study-Report(0921-0927)/" class="archive-article-date">
-  <time datetime="2020-09-28T10:37:30.000Z" itemprop="datePublished">09/28</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2020/09/28/37Study-Report(0921-0927)/"
-    >Tensor Operation in Python</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">上一页</a><a class="page-number" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/page/3/">3</a><a class="extend next" rel="next" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/page/3/">下一页</a>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2021/03/28/62QML-Collections/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/03/27/60ReadBook/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">周报-26</div>
+      </a>
+    
   </nav>
-  
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -525,6 +498,23 @@ var _hmt = _hmt || [];
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">

@@ -6,10 +6,71 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-03-21T05:42:33.443Z</updated>
+  <updated>2021-03-28T13:16:06.835Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>量子机器学习资料整理</title>
+    <link href="http://www.yulezhang.com/2021/03/28/62QML-Collections/"/>
+    <id>http://www.yulezhang.com/2021/03/28/62QML-Collections/</id>
+    <published>2021-03-28T12:50:00.000Z</published>
+    <updated>2021-03-28T13:16:06.835Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于目前张量网络的工作逐渐增多，很多实验室都封装了自己的张量收缩算法包，同时还有一些论文给出了具体的工作，在此归类梳理一下方便日后的学习。&lt;/p&gt;
+&lt;h2 id=&quot;workshop&quot;&gt;Workshop&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tensorworkshop.github.io/2020/index.html&quot;&gt;&lt;strong&gt;IJCAL&lt;/strong&gt;&lt;/a&gt;: International Workshop on Tensor Network Representations in Machine Learning&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tensorworkshop.github.io/NeurIPS2020/&quot;&gt;&lt;strong&gt;NeurIPS2020&lt;/strong&gt;&lt;/a&gt;: Quantum tensor networks in machine learning&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ipam.ucla.edu/wp-content/uploads/2019/09/TMWS2-Poster.pdf&quot;&gt;ipam&lt;/a&gt;: Tensor Network States and Applications, &lt;strong&gt;APRIL 19 - 23, 2021&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="学习" scheme="http://www.yulezhang.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>周报-26</title>
+    <link href="http://www.yulezhang.com/2021/03/27/60ReadBook/"/>
+    <id>http://www.yulezhang.com/2021/03/27/60ReadBook/</id>
+    <published>2021-03-27T13:15:14.000Z</published>
+    <updated>2021-03-28T13:20:39.209Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结了一下华为软挑比赛，同时整理了一下&lt;a href=&quot;http://www.yulezhang.com/2021/03/28/62QML-Collections/&quot;&gt;量子机器学习的代码学习资料&lt;/a&gt;，并对二维MERA结构进行了数据集拓展、阅读《智能时代》。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>华为软件精英挑战赛</title>
+    <link href="http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/"/>
+    <id>http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/</id>
+    <published>2021-03-27T10:00:00.000Z</published>
+    <updated>2021-03-28T12:58:12.507Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;能够承认自己的普通并非易事&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>HHL and TEBD</title>
@@ -374,71 +435,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="Overfitting" scheme="http://www.yulezhang.com/tags/Overfitting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Overfitting?</title>
-    <link href="http://www.yulezhang.com/2020/10/24/42Study-Report(1019-1025)/"/>
-    <id>http://www.yulezhang.com/2020/10/24/42Study-Report(1019-1025)/</id>
-    <published>2020-10-24T02:15:21.000Z</published>
-    <updated>2020-11-16T01:13:58.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="Overfitting" scheme="http://www.yulezhang.com/tags/Overfitting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GA and TN Decomposition</title>
-    <link href="http://www.yulezhang.com/2020/10/17/41Study-Report(1012-1018)/"/>
-    <id>http://www.yulezhang.com/2020/10/17/41Study-Report(1012-1018)/</id>
-    <published>2020-10-17T03:04:28.000Z</published>
-    <updated>2020-11-16T01:14:34.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本周为了更好地理解论文的思路，我又重新回顾了&lt;a href=&quot;https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/&quot;&gt;学堂在线的数据挖掘课程&lt;/a&gt;，对一些重点知识进行了简单的记录。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="GA" scheme="http://www.yulezhang.com/tags/GA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTN+Covid-19（OOM和参数）</title>
-    <link href="http://www.yulezhang.com/2020/10/11/40Study-Report(1005-1011)/"/>
-    <id>http://www.yulezhang.com/2020/10/11/40Study-Report(1005-1011)/</id>
-    <published>2020-10-11T02:30:52.000Z</published>
-    <updated>2020-10-11T14:15:26.000Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="HTN" scheme="http://www.yulezhang.com/tags/HTN/"/>
     
   </entry>
   

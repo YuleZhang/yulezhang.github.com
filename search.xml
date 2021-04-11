@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>FCTN-Decomposition</title>
+    <url>/2021/04/11/63FCTN-Decomposition/</url>
+    <content><![CDATA[<p>本周花了大量时间精读FCTN，还联系上了原作者郑博士，弄懂了论文中的公式推到部分。 同时这次的学习也将之前忽略的很多细节也抓了起来，比如参数复杂度、计算复杂度等等，不提高自己对公式的理解是没法提高论文的档次的，这篇文章的公式恰好不是很难，便于入门。</p>
+<a id="more"></a>
+<p>具体的细节都放在PPT里了，这里总结一下对这篇文章的梳理和理解。作者提出了<strong>Fully-Connected Tensor Network Decomposition</strong>（后面简称FCTN）方法，是基于常用张量网络TT、TR的创新，有以下两个主要优点</p>
+<ol>
+<li>能保证FCTN分解网络中任意两个张量的关联性</li>
+<li><strong>transpositional invariable</strong></li>
+</ol>
+<p>上述两个优点是TR或者TT所不具备的，TR和TN仅能保证相邻张量的关联性，并且只有在<strong>特殊情况下交换张量间的顺序</strong>才能保证收缩结果一致。而FCTN则可以容许任意的交换张量的收缩顺序，而结果始终保持一致。</p>
+<p>后续作者又提出了一种基于FCTN的应用，那就是张量补全(tensor completion)，TC问题是张量网络经常面临的一种问题，可以用来处理数据点缺失的问题，可以应用到交通、视频补帧等实际生活中。作者按照一般性的思路，设计了FCTN-TC问题的目标函数，<strong>基于PAM求解器定义子问题中更新<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi mathvariant="script">G</mi><mrow><mi>k</mi><mo>:</mo><mi>N</mi></mrow><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msubsup><mo separator="true">,</mo><msup><mi mathvariant="script">X</mi><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\mathcal{G}_{k: N}^{(s)}, \mathcal{X}^{(s)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3461079999999999em;vertical-align:-0.30130799999999996em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.0593em;">G</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.398692em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">:</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-3.2197999999999998em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">s</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.30130799999999996em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.14643em;">X</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">s</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>的方式</strong>，随后给出了算法的伪代码，整个过程还是比较容易理解的。</p>
+<p>随后作者将提出的FCTN-TC分别拿到虚构的和实际的数据集上去测试实践，用MSE和PSNR来评估图片恢复前后的效果，最后给出结论。在PPT中，我减少了背景知识的介绍，增加了对公式的推导和证明，并尽量用图片来展示计算和收缩过程，方便自己理解也方便其他人理解，下面是我阅读过程中的一些笔记和证明。</p>
+<p><img src="/assets/image-20210411110135305.png" alt="image-20210411110135305"></p>
+<p>本来想结合代码印证一下的，没想到作者设了密码，下周一才能给我。我计划下周将论文Matlab代码拆解一下，讲给大家听，至于batch样本训练还没来得及写。下周实验一下。</p>
+]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+  </entry>
+  <entry>
     <title>量子机器学习资料整理</title>
     <url>/2021/03/28/62QML-Collections/</url>
     <content><![CDATA[<p>由于目前张量网络的工作逐渐增多，很多实验室都封装了自己的张量收缩算法包，同时还有一些论文给出了具体的工作，在此归类梳理一下方便日后的学习。</p>
@@ -34,6 +54,7 @@
 </ul>
 <h2 id="survery-with-code-updating">Survery with code（Updating…）</h2>
 <ul>
+<li><strong>Fully-Connected Tensor Network Decomposition and Its Application to Higher-Order Tensor Completion</strong> <a href="https://qibinzhao.github.io/publications/AAAI2021_Yu_Bang_Zheng/AAAI2021_FCTN_Decomposition_ybz.pdf">[Paper]</a> <a href="https://qibinzhao.github.io//publications/AAAI2021_Yu_Bang_Zheng/code_FCTN_Decomposition.zip">[Code]</a></li>
 <li>Segmenting two-dimensional structures with strided tensor networks <a href="https://github.com/raghavian/strided-tenet">[Github]</a>
 <ul>
 <li>Raghavendra Selvan et al. (CVPR 2021)</li>
@@ -594,6 +615,7 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <li>The correction method used in this study, using a linear probability model, is coarse, and could result in significant bias if the populations are sufficiently different.</li>
 <li>Last and most important, without individual-level data, there is no way to test the resulting predictions.</li>
 <li>The process consists of two steps: first the formation of chromate/phosphate treated layer on the surface of aluminium and secondly anodizing in a sulphuric acid solution.</li>
+<li>The proposed LoTeNet model is used to learn decision functions in high dimensional spaces in a supervised learning set-up and is optimized end-toend by backpropagating the error signal through the tensor network.</li>
 </ul>
 <h2 id="introduce-others-work">Introduce others’ work</h2>
 <ul>
@@ -606,7 +628,7 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <h1>Phrase</h1>
 <ul>
 <li>Last and most important/Last but not least</li>
-<li>From then on、But in addition to this、Essentially、 Subsequent developments generalized this to other scenarios、Moreover、In particular、in principle、As such、Generally speaking、For instance、 In the modern formulation</li>
+<li>From then on、But in addition to this、Essentially、 Subsequent developments generalized this to other scenarios、Moreover、In particular、in principle、As such、Generally speaking、For instance、 In the modern formulation、fall short. 、see the light</li>
 </ul>
 <h1>Vocabulary</h1>
 <table>

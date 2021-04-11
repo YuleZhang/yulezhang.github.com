@@ -88,7 +88,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">630</span>
+            <span class="post-count">631</span>
         </span>
     </span>
 
@@ -119,9 +119,9 @@ var _hmt = _hmt || [];
 </ol>
 <p>上述两个优点是TR或者TT所不具备的，TR和TN仅能保证相邻张量的关联性，并且只有在<strong>特殊情况下交换张量间的顺序</strong>才能保证收缩结果一致。而FCTN则可以容许任意的交换张量的收缩顺序，而结果始终保持一致。</p>
 <p>后续作者又提出了一种基于FCTN的应用，那就是张量补全(tensor completion)，TC问题是张量网络经常面临的一种问题，可以用来处理数据点缺失的问题，可以应用到交通、视频补帧等实际生活中。作者按照一般性的思路，设计了FCTN-TC问题的目标函数，<strong>基于PAM求解器定义子问题中更新<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi mathvariant="script">G</mi><mrow><mi>k</mi><mo>:</mo><mi>N</mi></mrow><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msubsup><mo separator="true">,</mo><msup><mi mathvariant="script">X</mi><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\mathcal{G}_{k: N}^{(s)}, \mathcal{X}^{(s)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.3461079999999999em;vertical-align:-0.30130799999999996em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.0593em;">G</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.398692em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">:</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span><span style="top:-3.2197999999999998em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">s</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.30130799999999996em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.14643em;">X</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">s</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>的方式</strong>，随后给出了算法的伪代码，整个过程还是比较容易理解的。</p>
-<p>随后作者将提出的FCTN-TC分别拿到虚构的和实际的数据集上去测试实践，用MSE和PSNR来评估图片恢复前后的效果，最后给出结论。在PPT中，我减少了背景知识的介绍，增加了对公式的推导和证明，并尽量用图片来展示计算和收缩过程，方便自己理解也方便其他人理解，下面是我阅读过程中的一些笔记和证明。</p>
+<p>随后作者将提出的FCTN-TC分别拿到虚构的和实际的数据集上去测试实践，用MSE和PSNR来评估图片恢复前后的效果，最后给出结论。在PPT中，我减少了背景知识的介绍，<strong>增加了对公式的推导和证明</strong>，<strong>并尽量用图片来展示计算和收缩过程</strong>，方便自己理解也方便其他人理解，下面是我阅读过程中的一些笔记和证明。</p>
 <p><img src="/assets/image-20210411110135305.png" alt="image-20210411110135305"></p>
-<p>本来想结合代码印证一下的，没想到作者设了密码，下周一才能给我。我计划下周将论文Matlab代码拆解一下，讲给大家听，至于batch样本训练还没来得及写。下周实验一下。</p>
+<p>本来想结合代码印证一下的，没想到作者设了密码，下周一才能给我。我计划下周将论文Matlab代码拆解一下，讲给大家听，至于batch样本训练还没来得及写。下周也实验一下。</p>
  
       <!-- reward -->
       

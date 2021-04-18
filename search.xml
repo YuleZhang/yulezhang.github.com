@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>FCTN-Decomposition-Code</title>
+    <url>/2021/04/18/64FCTN-Code-Analysis/</url>
+    <content><![CDATA[<p>本周主要是想抓紧把之前TTN和MPO作用batch的思路落实一下，并理解FCTN的matlab代码</p>
+<a id="more"></a>
+<p>目前已经封装好了<strong>feature_map、load_xray_image、images_squeeze</strong>图片等函数，封装好之后想要可以很方便的调用出来，能够快速处理不同模型的输入。但当务之急还是找到合适的复杂一些的医学数据集，例如脑部数据集。</p>
+<p>同时又查了一下<strong>downsamples</strong>和<strong>resize</strong>函数的区别。发现这是两种不同的图像维度减少方式，一个是基于<strong>线性插值法</strong>，一个是从<strong>信号系统</strong>那里借鉴过来的思想，图像金字塔包括<strong>高斯金字塔</strong>和拉普拉斯金字塔，它是图像中多尺度表达的一种，最主要用于<strong>图像的分割</strong>，是一种以多分辨率来解释图像的有效但概念简单的结构。简单来说，图像金字塔就是用来进行<strong>图像缩放</strong>的。能够有效的用来处理规模比较大的医学数据集，可以尝试用这种方法处理一下。毕竟之前用的都是resize。</p>
+<p>上采样：就是图片放大，使用<strong>PryUp</strong>函数。上采样的步骤：先将图像在每个方向放大为原来的两倍，新增的行和列用0填充，再使用先前同样的内核与放大后的图像卷积，获得新增像素的近似值。</p>
+<p>下采样：就是图片缩小，使用<strong>PyrDown</strong>函数。下采样步骤：先将图片进行高斯内核卷积，再将所有偶数列去除。</p>
+<p>resize()函数：CV库的resize参数比较丰富，也经常被用来处理图片，不过不论是skimage、torch或者Opencv的resize，它们都能够提供新维度下像素的计算方式，常见的方法有以下几种</p>
+<ul>
+<li>INTER_NEAREST - 最邻近插值</li>
+<li>INTER_LINEAR - 双线性插值，如果最后一个参数你不指定，默认使用这种方法</li>
+<li>INTER_AREA - 区域插值（使用像素区域关系进行重采样） resampling using pixel area relation. It may be a preferred method for image decimation, as it gives moire’-free results. But when the image is zoomed, it is similar to the INTER_NEAREST method.</li>
+<li>INTER_CUBIC - 三次样条插值 （超过4x4像素邻域内的双立方插值）</li>
+<li>INTER_LANCZOS4 - Lanczos插值（超过8x8像素邻域内的Lanczos插值）</li>
+</ul>
+<p>几种常用方法的效率为</p>
+<p><strong>最邻近插值&gt;双线性插值&gt;双立方插值&gt;Lanczos插值</strong></p>
+<p>但是效率和效果是反比的，所以根据自己的情况酌情使用。若要缩小图像，一般情形下最好用 <strong>CV_INTER_AREA</strong> 来插值，而若要放大图像，一般情况下最好用 <strong>CV_INTER_CUBIC</strong> （效率不高，慢，不推荐使用）或 <strong>CV_INTER_LINEAR</strong> （效率较高，速度较快，推荐使用）。在此前的算法中都是采用了默认的<strong>双线性插值法</strong>来进行图片的缩放，可以尝试将<strong>小波变化、DFT、拉普拉斯变换</strong>等操作进行预处理</p>
+<p>在回顾TTN代码的时候，遇到了不平衡数据集的问题，又重新将不平衡数据集会带来的问题、误差、解决办法回忆了一边。原来不平衡的数据确实也能产生高的准确率，但这样的准确率是没有意义的。例如说对于癌症的识别，识别的关键就在癌症的识别效果上。可如果数据集不平衡，就可能造成这样的情况，即模型对任意的患者识别为正常，这样也有很高的准确率，但是这样的工作就没有意义了。想到自己之前在写论文的时候，也是不仅采用准确率，而是结合<strong>混淆矩阵、敏感度、召回率</strong>等进行多角度评估，避免实验特殊性，这一点也是得到了印证。</p>
+<p><a href="https://www.jiqizhixin.com/articles/021704">机器学习中如何处理不平衡数据？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/275750668">OpenCV计算机视觉学习（7）——图像金字塔（高斯金字塔，拉普拉斯金字塔）</a></p>
+]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+  </entry>
+  <entry>
     <title>FCTN-Decomposition</title>
     <url>/2021/04/11/63FCTN-Decomposition/</url>
     <content><![CDATA[<p>本周花了大量时间精读FCTN，还联系上了原作者郑博士，弄懂了论文中的公式推到部分。 同时这次的学习也将之前忽略的很多细节也抓了起来，比如参数复杂度、计算复杂度等等，不提高自己对公式的理解是没法提高论文的档次的，这篇文章的公式恰好不是很难，便于入门。</p>
 <a id="more"></a>
-<p>具体的细节都放在PPT里了，这里总结一下对这篇文章的梳理和理解。作者提出了<strong>Fully-Connected Tensor Network Decomposition</strong>（后面简称FCTN）方法，是基于常用张量网络TT、TR的创新，有以下两个主要优点</p>
+<p>具体的细节都放在<a href="/download/FCTN-Decomposition-YuZhang-20210411.pptx">PPT</a>里了，这里总结一下对这篇文章的梳理和理解。作者提出了<strong>Fully-Connected Tensor Network Decomposition</strong>（后面简称FCTN）方法，是基于常用张量网络TT、TR的创新，有以下两个主要优点</p>
 <ol>
 <li>能保证FCTN分解网络中任意两个张量的关联性</li>
 <li><strong>transpositional invariable</strong></li>

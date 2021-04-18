@@ -6,17 +6,36 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-04-11T03:11:51.320Z</updated>
+  <updated>2021-04-18T12:59:18.931Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FCTN-Decomposition-Code</title>
+    <link href="http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/"/>
+    <id>http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/</id>
+    <published>2021-04-18T12:59:00.000Z</published>
+    <updated>2021-04-18T12:59:18.931Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周主要是想抓紧把之前TTN和MPO作用batch的思路落实一下，并理解FCTN的matlab代码&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>FCTN-Decomposition</title>
     <link href="http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/"/>
     <id>http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/</id>
     <published>2021-04-11T02:41:00.000Z</published>
-    <updated>2021-04-11T03:11:51.320Z</updated>
+    <updated>2021-04-18T10:47:58.958Z</updated>
     
     <summary type="html">
     
@@ -411,27 +430,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="leetcode" scheme="http://www.yulezhang.com/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tensor Network with maching learning</title>
-    <link href="http://www.yulezhang.com/2020/11/08/44Study-Report(1102-1108)/"/>
-    <id>http://www.yulezhang.com/2020/11/08/44Study-Report(1102-1108)/</id>
-    <published>2020-11-08T10:44:30.000Z</published>
-    <updated>2020-11-09T07:25:08.000Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="GA" scheme="http://www.yulezhang.com/tags/GA/"/>
     
   </entry>
   

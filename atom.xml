@@ -6,10 +6,31 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-04-18T12:59:18.931Z</updated>
+  <updated>2021-04-25T10:58:23.690Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TGAN and GenPU</title>
+    <link href="http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/"/>
+    <id>http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/</id>
+    <published>2021-04-23T02:35:00.000Z</published>
+    <updated>2021-04-25T10:58:23.690Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;bilibili-robust-low-tubal-rank-tensor-recovery-from-binary-measurements&quot;&gt;【&lt;a href=&quot;https://www.bilibili.com/s/video/BV1QK4y1N7dp&quot;&gt;bilibili&lt;/a&gt;】&lt;strong&gt;Robust Low-tubal-rank Tensor Recovery from Binary Measurements&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;在看这个视频时，顺带又回顾了一下张量秩的概念，目前并没有给出统一的很明确的定义，张量秩的定义往往跟分解算法有关&lt;/p&gt;
+&lt;p&gt;在CP分解中，张量的秩定义如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>FCTN-Decomposition-Code</title>
@@ -409,27 +430,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="量子群智能" scheme="http://www.yulezhang.com/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetcodeSummary</title>
-    <link href="http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/"/>
-    <id>http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/</id>
-    <published>2020-11-13T11:19:38.000Z</published>
-    <updated>2020-11-16T01:11:22.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Leetcode算法刷题总结&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="leetcode" scheme="http://www.yulezhang.com/tags/leetcode/"/>
     
   </entry>
   

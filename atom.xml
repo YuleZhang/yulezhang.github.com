@@ -6,17 +6,17 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-04-29T03:02:56.897Z</updated>
+  <updated>2021-05-02T12:46:43.513Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TGen-NU</title>
-    <link href="http://www.yulezhang.com/2021/04/29/66CodeDetect/"/>
-    <id>http://www.yulezhang.com/2021/04/29/66CodeDetect/</id>
-    <published>2021-04-29T02:59:00.000Z</published>
-    <updated>2021-04-29T03:02:56.897Z</updated>
+    <title>TGen-NU model fusion</title>
+    <link href="http://www.yulezhang.com/2021/05/02/66CodeDetect/"/>
+    <id>http://www.yulezhang.com/2021/05/02/66CodeDetect/</id>
+    <published>2021-05-02T12:46:00.000Z</published>
+    <updated>2021-05-02T12:46:43.513Z</updated>
     
     <summary type="html">
     
@@ -24,9 +24,12 @@
       
         
         
-          &lt;p&gt;4月29日 发现问题&lt;/p&gt;
-&lt;p&gt;tensorflow和pytorch中的张量乘积结果不一致&lt;/p&gt;
-&lt;p&gt;在tensorflow中不需要保证张量&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math
+          &lt;p&gt;本周工作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TGAN生成X-ray图片&lt;/li&gt;
+&lt;li&gt;GenPU生成X-ray图片&lt;/li&gt;
+&lt;li&gt;设计&lt;strong&gt;TGen-NU&lt;/strong&gt;模型，并尝试生成X-ray图片&lt;/li&gt;
+&lt;li&gt;解决归一化问题&lt;sup&gt;[1]&lt;/sup&gt;
         
       
     

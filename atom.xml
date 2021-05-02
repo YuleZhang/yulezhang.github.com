@@ -6,10 +6,37 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-04-25T11:26:16.123Z</updated>
+  <updated>2021-04-29T03:02:56.897Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TGen-NU</title>
+    <link href="http://www.yulezhang.com/2021/04/29/66CodeDetect/"/>
+    <id>http://www.yulezhang.com/2021/04/29/66CodeDetect/</id>
+    <published>2021-04-29T02:59:00.000Z</published>
+    <updated>2021-04-29T03:02:56.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;4月29日 发现问题&lt;/p&gt;
+&lt;p&gt;tensorflow和pytorch中的张量乘积结果不一致&lt;/p&gt;
+&lt;p&gt;在tensorflow中不需要保证张量&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math
+        
+      
+    
+    </summary>
+    
+    
+      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TGAN and GenPU</title>
@@ -406,30 +433,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>量子群智能！！！</title>
-    <link href="http://www.yulezhang.com/2020/11/15/46Study-Report(1109-1115)/"/>
-    <id>http://www.yulezhang.com/2020/11/15/46Study-Report(1109-1115)/</id>
-    <published>2020-11-15T01:59:17.000Z</published>
-    <updated>2020-11-23T09:57:07.843Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周重要心得：&lt;/p&gt;
-&lt;p&gt;我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-    
-      <category term="量子群智能" scheme="http://www.yulezhang.com/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   

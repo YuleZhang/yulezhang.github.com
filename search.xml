@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>TGen-NU</title>
+    <url>/2021/04/29/66CodeDetect/</url>
+    <content><![CDATA[<p>4月29日 发现问题</p>
+<p>tensorflow和pytorch中的张量乘积结果不一致</p>
+<p>在tensorflow中不需要保证张量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">X</mi></mrow><annotation encoding="application/x-tex">\mathcal{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.14643em;">X</span></span></span></span></span>收缩前后取值在0-1之间，而是用一个minimize方法就能最小化参数（权重矩阵和偏差）。而在pytorch中，张量收缩的结果不在0-1之间就导致激活函数会将该结果激活到1或0附近，就会看到如下的空白格，无论迭代多少次都是这样，因为超过范围了。而不进行归一化也无法有效进行损失函数的计算（与较小标签值例如0，1等相差太大）。</p>
+<p><img src="/assets/image-20210429110035654.png" alt="image-20210429110035654"></p>
+<p>但是采用pytorch中的Normalize方法又会固定的将判别器的输出变成1，因为映射成(batch, 1, 1)的格式再归一化确实就是1.</p>
+]]></content>
+      <categories>
+        <category>周报</category>
+      </categories>
+  </entry>
+  <entry>
     <title>TGAN and GenPU</title>
     <url>/2021/04/23/65TGAN-GenPU/</url>
     <content><![CDATA[<h3 id="bilibili-robust-low-tubal-rank-tensor-recovery-from-binary-measurements">【<a href="https://www.bilibili.com/s/video/BV1QK4y1N7dp">bilibili</a>】<strong>Robust Low-tubal-rank Tensor Recovery from Binary Measurements</strong></h3>

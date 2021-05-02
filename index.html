@@ -158,6 +158,61 @@ var _hmt = _hmt || [];
     
     
     <article
+  id="post-66CodeDetect"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/04/29/66CodeDetect/"
+    >TGen-NU</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/04/29/66CodeDetect/" class="article-date">
+  <time datetime="2021-04-29T02:59:00.000Z" itemprop="datePublished">2021-04-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>4月29日 发现问题</p>
+<p>tensorflow和pytorch中的张量乘积结果不一致</p>
+<p>在tensorflow中不需要保证张量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">X</mi></mrow><annotation encoding="application/x-tex">\mathcal{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.14643em;">X</span></span></span></span></span>收缩前后取值在0-1之间，而是用一个minimize方法就能最小化参数（权重矩阵和偏差）。而在pytorch中，张量收缩的结果不在0-1之间就导致激活函数会将该结果激活到1或0附近，就会看到如下的空白格，无论迭代多少次都是这样，因为超过范围了。而不进行归一化也无法有效进行损失函数的计算（与较小标签值例如0，1等相差太大）。</p>
+<p><img src="/assets/image-20210429110035654.png" alt="image-20210429110035654"></p>
+<p>但是采用pytorch中的Normalize方法又会固定的将判别器的输出变成1，因为映射成(batch, 1, 1)的格式再归一化确实就是1.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
   id="post-65TGAN-GenPU"
   class="article article-type-post"
   itemscope
@@ -642,60 +697,6 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>Quantization and Sharing of Weight (Han et al., ICLR 2016)</p>
 <p>Low-rank Matrix/Tensor Factorization (Novikov et al., NIPS 2015)</p> 
       <a class="article-more-link" href="/2021/03/07/57TNML-ACML2020Tutorial/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-56WinterVacation"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/02/28/56WinterVacation/"
-    >寒假学习汇报</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/02/28/56WinterVacation/" class="article-date">
-  <time datetime="2021-02-28T13:39:17.000Z" itemprop="datePublished">2021-02-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  Welcome to my blog, it's a secret, please enter password to read. 
-      <a class="article-more-link" href="/2021/02/28/56WinterVacation/"
         >阅读更多...</a
       >
        

@@ -197,32 +197,11 @@ var _hmt = _hmt || [];
 <li>基本完成TGen-NU的生成任务，但仍存在<strong>不稳定、不收敛</strong>问题<sup>[2]</sup></li>
 <li>查阅学习GAN的公式推导、扩展资料如<strong>WGAN、DCGAN</strong>等</li>
 <li>新思路：把MPS融入到GenPU/TGen-NU模型中</li>
-</ul>
-<p>4月29日 发现问题</p>
-<p>【1】归一化问题及处理思路</p>
-<p>直接原因：张量的初始化</p>
-<p>预备知识：<strong>高斯白噪声</strong></p>
-<p>所谓高斯白噪声(White Gaussian Noise)中的高斯是指<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/828907">概率分布</a>是正态函数，而<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%99%BD%E5%99%AA%E5%A3%B0/4062223">白噪声</a>是指它的二阶矩不相关，一阶矩为常数，是指先后信号在时间上的相关性。高斯白噪声是分析信道加性噪声的理想模型，通信中的主要噪声源——<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%83%AD%E5%99%AA%E5%A3%B0/10790461">热噪声</a>就属于这类噪声。在数学之美的网页作弊中，也提到有高斯白噪声。</p>
-<p>下面步入正题，由于效果，我在GenPU模型中避开了高斯白噪声的初始化，而仅让它们满足取值在0-1之间。于是在pytorch中出现<strong>张量收缩的结果不在0-1之间的问题</strong>，就导致激活函数会将该结果激活到1或0附近，就会看到如下的空白格，无论迭代多少次都是这样，因为判别器失效了。</p>
-<img src='/assets/image-20210429110035654.png' width="60%">
-<p>但是采用pytorch中的Normalize方法又会固定的将判别器的输出变成1，因为映射成(batch, 1)的格式再按第二个维度归一化确实就是1，此外Normalize操作也会破坏学习到的概率分布（实验结论）。</p>
-<p>那transform.Normalize()是怎么工作的呢？以上面代码为例，ToTensor()能够把灰度范围从0-255变换到0-1之间，而后面的transform.Normalize()则把0-1变换到(-1,1).具体地说，对每个通道而言，Normalize执行以下操作：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>=</mo><mo stretchy="false">(</mo><mi>i</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>e</mi><mo>−</mo><mi>m</mi><mi>e</mi><mi>a</mi><mi>n</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>s</mi><mi>t</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">image=(image-mean)/std
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span></span></span></span></span></p>
-<p>其中mean和std分别通过(0.5,0.5,0.5)和(0.5,0.5,0.5)进行指定。原来的0-1最小值0则变成(0-0.5)/0.5=-1，而最大值1则变成(1-0.5)/0.5=1.</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://discuss.pytorch.org/t/understanding-transform-normalize/21730/21">Pytorch discuss</a></p>
-<p>So if we encounter grayscale images, we will use</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;transforms.Normalize([0.5], [0.5])</span><br></pre></td></tr></table></figure>
-<p>and if we encounter RGB( 3 channels ) , we will use the following</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;transforms.Normalize(mean&#x3D;[0.485, 0.456, 0.406],</span><br><span class="line">                    std&#x3D;[0.229, 0.224, 0.225]) </span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>【2】不稳定、不收敛、模式崩溃问题</p>
-<p>在上述基础上，我又将<strong>处理二维输入数据的张量网络层</strong>改成处理高阶张量的张量网络层，这时又出现了另一个问题。那就是正样本的生成器生成的数据规范正常、逐渐收敛、而<strong>负样本生成器</strong>一直学习不到正确的概率分布。我又尝试对问题进行定位，将unlabelled discriminator中的张量层改回了线性层，然后再训练，也就是出了<strong>无标签判别器</strong>之外，其他的判别器和生成器都是采用张量网络层了，这次实验让我发现就是<strong>无标签判别器处理的问题</strong>。</p>
-<p>我尝试修改了一些网络的权重参数来降低模型训练难度，并发现了一个很奇怪的现象，那就是我的<strong>负样本生成器和正样本生成器</strong>不收敛了，就是初始阶段两个生成器都能拟合数据，随着迭代次数的推进，权重的改变，导致学习到的分布又没了。这说明我之前的<strong>负样本生成器</strong>本是生成了分布的，但是可能迭代次数太多，就跳过了那个最佳的迭代轮数。</p>
-<p>在网上查阅了相关资料，我发现确实有学者在讨论并尝试改进<strong>GAN网络的训练不稳定不收敛问题</strong>，除此之外GAN网络还有模式崩溃问题。模式崩溃问题指的是GAN网络最终只需学到几个别的样本，并且跟样本完全一样，这类似于神经网络里常见的过拟合问题。</p>
-<p>经过TGAN网络结构中判别器层的重新设计，增加了判别器的参数，初步解决负样本生成器的生成问题，不过是否存在模式崩溃问题需要进一步实验，通过MNIST测试。</p>
- 
+</ul> 
+      <a class="article-more-link" href="/2021/05/02/66CodeDetect/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>

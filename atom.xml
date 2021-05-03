@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-05-02T12:46:43.513Z</updated>
+  <updated>2021-05-03T01:27:05.058Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,22 +16,20 @@
     <link href="http://www.yulezhang.com/2021/05/02/66CodeDetect/"/>
     <id>http://www.yulezhang.com/2021/05/02/66CodeDetect/</id>
     <published>2021-05-02T12:46:00.000Z</published>
-    <updated>2021-05-02T12:46:43.513Z</updated>
+    <updated>2021-05-03T01:27:05.058Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;本周工作&lt;/p&gt;
+      &lt;p&gt;本周工作&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;TGAN生成X-ray图片&lt;/li&gt;
 &lt;li&gt;GenPU生成X-ray图片&lt;/li&gt;
 &lt;li&gt;设计&lt;strong&gt;TGen-NU&lt;/strong&gt;模型，并尝试生成X-ray图片&lt;/li&gt;
-&lt;li&gt;解决归一化问题&lt;sup&gt;[1]&lt;/sup&gt;
-        
-      
+&lt;li&gt;解决归一化问题&lt;sup&gt;[1]&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;基本完成TGen-NU的生成任务，但仍存在&lt;strong&gt;不稳定、不收敛&lt;/strong&gt;问题&lt;sup&gt;[2]&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;查阅学习GAN的公式推导、扩展资料如&lt;strong&gt;WGAN、DCGAN&lt;/strong&gt;等&lt;/li&gt;
+&lt;li&gt;新思路：把MPS融入到GenPU/TGen-NU模型中&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     

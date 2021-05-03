@@ -13,6 +13,7 @@
 <li>查阅学习GAN的公式推导、扩展资料如<strong>WGAN、DCGAN</strong>等</li>
 <li>新思路：把MPS融入到GenPU/TGen-NU模型中</li>
 </ul>
+<a id="more"></a>
 <p>4月29日 发现问题</p>
 <p>【1】归一化问题及处理思路</p>
 <p>直接原因：张量的初始化</p>

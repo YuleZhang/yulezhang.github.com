@@ -6,307 +6,10 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-07-25T13:18:52.710Z</updated>
+  <updated>2021-05-03T08:01:28.468Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Vacation_Week3</title>
-    <link href="http://www.yulezhang.com/2021/07/25/77SummerVacation_Week3/"/>
-    <id>http://www.yulezhang.com/2021/07/25/77SummerVacation_Week3/</id>
-    <published>2021-07-25T14:04:00.000Z</published>
-    <updated>2021-07-25T13:18:52.710Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本周学习了《Learning Relevant Features of Data with Multi-scale Tensor Networks》、《Isometric Tensor Network States in Two
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vacation_Week1</title>
-    <link href="http://www.yulezhang.com/2021/07/11/75SummerVacation_Week1/"/>
-    <id>http://www.yulezhang.com/2021/07/11/75SummerVacation_Week1/</id>
-    <published>2021-07-11T14:04:00.000Z</published>
-    <updated>2021-07-12T02:44:30.938Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本周是我们暑假特训的第一周，重点阅读了《Number-State Preserving Tensor Networks as Classifiers for Supervised Learning 》和《Generative tensor network
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vacation_Week1</title>
-    <link href="http://www.yulezhang.com/2021/07/11/76SummerVacation_Week2/"/>
-    <id>http://www.yulezhang.com/2021/07/11/76SummerVacation_Week2/</id>
-    <published>2021-07-11T14:04:00.000Z</published>
-    <updated>2021-07-18T06:43:47.846Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本周重点阅读了《Compact Neural Networks based on the Multiscale Entanglement Renormalization Ansatz》(MERA)和《Tensor networks for unsupervised
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/06/20/73ExploreScheme_7/"/>
-    <id>http://www.yulezhang.com/2021/06/20/73ExploreScheme_7/</id>
-    <published>2021-06-20T14:05:00.000Z</published>
-    <updated>2021-06-20T13:27:14.239Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;论文修改&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;[x] 与AI的可解释性模型进行对比&lt;/li&gt;
-&lt;li&gt;[x] 2分类3分类的生成的标签值&lt;/li&gt;
-&lt;li&gt;[x] 假图片分类准确率计算&lt;/li&gt;
-&lt;li&gt;[x]
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/06/20/74ExploreScheme_8/"/>
-    <id>http://www.yulezhang.com/2021/06/20/74ExploreScheme_8/</id>
-    <published>2021-06-20T14:05:00.000Z</published>
-    <updated>2021-06-22T01:50:49.581Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;论文修改&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;also、certain、several不要用，which少出现，要简化&lt;/li&gt;
-&lt;li&gt;The update algorithm of TNs is mainly related to two factors:  
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/06/06/71ExploreScheme_5/"/>
-    <id>http://www.yulezhang.com/2021/06/06/71ExploreScheme_5/</id>
-    <published>2021-06-06T14:05:00.000Z</published>
-    <updated>2021-06-06T14:05:27.624Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;本周工作&quot;&gt;本周工作&lt;/h2&gt;
-&lt;p&gt;论文修改&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[x] introduction翻修&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[x] 添加PEPS的补充说明&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[x]
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/06/06/72ExploreScheme_6/"/>
-    <id>http://www.yulezhang.com/2021/06/06/72ExploreScheme_6/</id>
-    <published>2021-06-06T14:05:00.000Z</published>
-    <updated>2021-06-14T03:29:15.883Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;之前一直不明白为什么程序里要每次保存模型，然后读取模型进行计算准确率。多此一举，为什么不让所有的操作都在内存中完成呢。今天我突然明白原因了，就是因为GTNC的参数太多，之前标签训练完的模型占据着大量的参数，如果不保存，不同标签的参数内存就会累加，可想而知，很容易溢出了。&lt;/
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/05/17/69ExploreScheme_3/"/>
-    <id>http://www.yulezhang.com/2021/05/17/69ExploreScheme_3/</id>
-    <published>2021-05-17T12:46:00.000Z</published>
-    <updated>2021-07-11T11:34:35.265Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;本周工作&quot;&gt;本周工作&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;继续搜索GTNC的参数&lt;strong&gt;map_dim,&lt;/strong&gt; 结果如图1所示，batch
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/05/17/70ExploreScheme_4/"/>
-    <id>http://www.yulezhang.com/2021/05/17/70ExploreScheme_4/</id>
-    <published>2021-05-17T12:46:00.000Z</published>
-    <updated>2021-05-30T12:42:35.513Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;本周工作&quot;&gt;本周工作&lt;/h2&gt;
-&lt;h3
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>talks</title>
-    <link href="http://www.yulezhang.com/2021/05/12/68ExploreScheme_2/"/>
-    <id>http://www.yulezhang.com/2021/05/12/68ExploreScheme_2/</id>
-    <published>2021-05-12T13:38:00.000Z</published>
-    <updated>2021-05-19T13:28:46.318Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Experiments</title>
-    <link href="http://www.yulezhang.com/2021/05/06/67ExploreScheme_1/"/>
-    <id>http://www.yulezhang.com/2021/05/06/67ExploreScheme_1/</id>
-    <published>2021-05-06T10:52:00.000Z</published>
-    <updated>2021-05-12T14:34:13.866Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>TGen-NU model fusion</title>
@@ -498,6 +201,233 @@ c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
 s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
 c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
 M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.30499999999999994em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;的复杂度就能解决该问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TNML-ACML2020Tutorial</title>
+    <link href="http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/"/>
+    <id>http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/</id>
+    <published>2021-03-07T14:21:17.000Z</published>
+    <updated>2021-03-07T14:23:02.273Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;第38页&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Knowledge Distillation (Hinton et al., NIPS 2014 Workshop)&lt;/p&gt;
+&lt;p&gt;Quantization and Sharing of Weight (Han et al., ICLR 2016)&lt;/p&gt;
+&lt;p&gt;Low-rank Matrix/Tensor Factorization (Novikov et al., NIPS 2015)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>寒假学习汇报</title>
+    <link href="http://www.yulezhang.com/2021/02/28/56WinterVacation/"/>
+    <id>http://www.yulezhang.com/2021/02/28/56WinterVacation/</id>
+    <published>2021-02-28T13:39:17.000Z</published>
+    <updated>2021-03-07T14:22:42.965Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, it&#39;s a secret, please enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Writing material</title>
+    <link href="http://www.yulezhang.com/2021/01/05/55WritingCorpus/"/>
+    <id>http://www.yulezhang.com/2021/01/05/55WritingCorpus/</id>
+    <published>2021-01-05T12:37:17.000Z</published>
+    <updated>2021-07-13T02:03:53.782Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This essay are used to collect excellent sentences or vocabularies in paper writing releated to machine learning.&lt;/p&gt;
+&lt;h1&gt;Sentences&lt;/h1&gt;
+&lt;h2 id=&quot;describe-our-method&quot;&gt;Describe our method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;In this section, we evaluate the superior aspects as well as the limitations of the proposed model by taking into account the state-of-art models&lt;/li&gt;
+&lt;li&gt;The results show that EVGO outperforms all the algorithms in comparison for all experiments.&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Science Writing</title>
+    <link href="http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/"/>
+    <id>http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/</id>
+    <published>2020-12-20T09:30:12.000Z</published>
+    <updated>2021-01-15T03:16:20.362Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, it&#39;s a secret, please enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>学堂在线---《如何写好科研论文》秋</title>
+    <link href="http://www.yulezhang.com/2020/12/14/52PaperWriting/"/>
+    <id>http://www.yulezhang.com/2020/12/14/52PaperWriting/</id>
+    <published>2020-12-14T14:21:12.000Z</published>
+    <updated>2021-01-01T03:03:38.936Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学堂在线—&lt;a href=&quot;https://www.xuetangx.com/learn/THU04011000365/THU04011000365/4233659/video/6387967&quot;&gt;《如何写好科研论文》秋&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;连续阅读相关方向的论文，做一定的积累，一天一篇或者两天一篇，最重要的是感觉不能断，将阅读过程中的一些想法记录下来，同方向的一些经典文章要精读(最少读5遍以上)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>开始写论文啦</title>
+    <link href="http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/"/>
+    <id>http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/</id>
+    <published>2020-12-14T14:21:12.000Z</published>
+    <updated>2020-12-20T09:32:08.636Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小结</title>
+    <link href="http://www.yulezhang.com/2020/12/08/51DeepLearning/"/>
+    <id>http://www.yulezhang.com/2020/12/08/51DeepLearning/</id>
+    <published>2020-12-08T12:21:12.000Z</published>
+    <updated>2020-12-21T06:07:44.475Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加&lt;strong&gt;规范、高效并提高封装效果&lt;/strong&gt;以便于快速的进行二次开发，而不能仅仅水平一直停留在&lt;strong&gt;复制粘贴、调包&lt;/strong&gt;的程度，很多小工具需要弄清出工作原理，不一定都要复现，但出了问题一定要第一时间能够修改和调试。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://www.yulezhang.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>手撕代码GTNC</title>
+    <link href="http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/"/>
+    <id>http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/</id>
+    <published>2020-12-06T10:56:12.000Z</published>
+    <updated>2020-12-20T09:32:17.498Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;tsgo的一些说明&quot;&gt;TSGO的一些说明&lt;/h2&gt;
+&lt;h3 id=&quot;偏导数与内积？&quot;&gt;偏导数与内积？&lt;/h3&gt;
+&lt;p&gt;文中对输入样本X的偏导数可以定义为如下的形式&lt;/p&gt;
+&lt;p class=&#39;katex-block&#39;&gt;&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∂&lt;/mi&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;/msub&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;munder&gt;&lt;mo&gt;&lt;mi&gt;lim&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;/munder&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\partial_{W} P(X ; W)=\lim _{h \rightarrow 0} \frac{P(X ; W+h W)-P(X ; W)}{h}
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot; style=&quot;margin-right:0.05556em;&quot;&gt;∂&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.179108em;vertical-align:-0.7521079999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop op-limits&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.69444em;&quot;&gt;&lt;span style=&quot;top:-2.347892em;margin-left:0em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mrel mtight&quot;&gt;→&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;mop&quot;&gt;lim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.7521079999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mopen nulldelimiter&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mfrac&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.427em;&quot;&gt;&lt;span style=&quot;top:-2.314em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.23em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;frac-line&quot; style=&quot;border-bottom-width:0.04em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.677em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:3em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.13889em;&quot;&gt;W&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.686em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose nulldelimiter&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GTNC and TSGO</title>
+    <link href="http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/"/>
+    <id>http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/</id>
+    <published>2020-11-29T12:31:17.000Z</published>
+    <updated>2020-11-29T12:33:34.869Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>校园网认证</title>
+    <link href="http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/"/>
+    <id>http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/</id>
+    <published>2020-11-29T03:27:17.000Z</published>
+    <updated>2020-11-29T04:03:42.821Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="http://www.yulezhang.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="骚操作" scheme="http://www.yulezhang.com/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第11周学习汇报</title>
+    <link href="http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/"/>
+    <id>http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/</id>
+    <published>2020-11-21T12:56:17.000Z</published>
+    <updated>2020-11-29T11:51:38.716Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, enter password to read.
     
     </summary>
     

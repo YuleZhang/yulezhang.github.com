@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
     
     
     <article
-  id="post-67ExploreScheme_1"
+  id="post-56WinterVacation"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -169,191 +169,30 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/05/06/67ExploreScheme_1/"
-    >Experiments</a> 
+  <a class="article-title" href="/2021/02/28/56WinterVacation/"
+    >寒假学习汇报</a> 
 </h2>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/05/06/67ExploreScheme_1/" class="article-date">
-  <time datetime="2021-05-06T10:52:00.000Z" itemprop="datePublished">2021-05-06</time>
+      <a href="/2021/02/28/56WinterVacation/" class="article-date">
+  <time datetime="2021-02-28T13:39:17.000Z" itemprop="datePublished">2021-02-28</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="压缩感知">压缩感知</h2>
-<p>从智能时代到数学之美，吴军先生以具象的语言将一个个传奇的算法本质揭露了出来。近代采用计算机解决<strong>机器翻译、计算机视觉、自然语言处理等领域问题</strong>的关键就在于将数据的处理过程比作一个通信模型的滤波过程。通信过程中的去噪、滤波等同于机器学习中的特征提取过程，这一思想为计算机智能化开辟了道路，为许多难题提供了方向。</p>
-<p>在我看来压缩感知CS也是其中一种，它是一个针对信号采样的技术，它通过一些手段，实现了“<strong>压缩的采样</strong>”，<strong>准确说是在采样过程中完成了数据压缩的过程</strong>。在压缩感知之前，我们信奉的都是奈奎斯特的采样定理——<strong>采样频率必须大于信号最高频率的两倍</strong>，这样能防止信号发生混叠。</p>
-<p>而压缩采样就是采用<strong>随机的亚采样</strong>去重建恢复原信号，他有两个条件</p>
-<ol>
-<li>信号在频域稀疏</li>
-<li>随机亚采样</li>
-</ol>
-<p>陶哲轩和Candès又证明： **独立同分布的高斯随机测量矩阵可以成为普适的压缩感知测量矩阵。**于是满足高斯分布的随机测量矩阵就成了CS最常用的观测矩阵。可以用来恢复图像</p>
-<h2 id="tgen-nu模型完善">TGen_NU模型完善</h2>
-<ul>
-<li>
-<p>通过采用<strong>不同的权重和偏差初始化方式</strong>解决<strong>负样本生成器</strong>生成不收敛问题，pytorch官方提供的常用的权重初始化方式有以下几种，详见<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/nn.init.html">TORCH.NN.INIT</a></p>
-<ul>
-<li><code>torch.nn.init.constant_(tensor, val)</code>：数据全为同一个常数val</li>
-<li><code>torch.nn.init.xavier_normal_(tensor, gain=1.0)</code>：<strong>正态分布</strong>，数据从分布<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">N</mi><mrow><mo fence="true">(</mo><mn>0</mn><mo separator="true">,</mo><msup><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">d</mi></mrow><mn>2</mn></msup><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal{N}\left(0, \mathrm{std}^{2}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484579999999998em;vertical-align:-0.35001em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.14736em;">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">s</span><span class="mord mathrm">t</span><span class="mord mathrm">d</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span>中采样</li>
-<li><code>torch.nn.init.xavier_uniform_(tensor, gain=1.0)</code>：<strong>均匀分布</strong>，数据从分布<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">U</mi><mo stretchy="false">(</mo><mo>−</mo><mi>a</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{U}(-a, a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span></span></span></span>中采样</li>
-<li><code>torch.nn.init.kaiming_uniform_(tensor, a=0, mode='fan_in', nonlinearity='leaky_relu')</code>：数据服从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">U</mi><mo stretchy="false">(</mo><mtext> -bound, bound) </mtext></mrow><annotation encoding="application/x-tex">\mathcal{U}(\text { -bound, bound) }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span><span class="mopen">(</span><span class="mord text"><span class="mord"> -bound, bound) </span></span></span></span></span>的均匀分布</li>
-<li><code>torch.nn.init.kaiming_normal_(tensor, a=0, mode='fan_in', nonlinearity='leaky_relu')</code>：数据服从$$\mathcal{N}\left(0, \mathrm{std}^{2}\right)$$的正态分布</li>
-<li><code>torch.nn.init.normal_(tensor, mean=0.0, std=1.0)</code>：数据服从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">N</mi><mrow><mo fence="true">(</mo><msup><mtext> mean, std </mtext><mn>2</mn></msup><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal{N}\left(\text { mean, std }^{2}\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484579999999998em;vertical-align:-0.35001em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.14736em;">N</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord text"><span class="mord"> mean, std </span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span>的正态分布</li>
-<li>``torch.nn.init.uniform_(tensor, a=0.0, b=1.0)`：数据服从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">U</mi><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{U}(a, b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span>的均匀分布</li>
-</ul>
-<p>在实验中采用的是重新计算a值的均匀分布<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">U</mi><mo stretchy="false">(</mo><mo>−</mo><mi>a</mi><mo separator="true">,</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{U}(-a, a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span><span class="mopen">(</span><span class="mord">−</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span></span></span></span>，这种方式能够很好的解决生成器不收敛的问题。简单分析原因，这可能与权重的更新有关，如果初始权重不好会有两种情况，第一种就是GAN收敛于局部最优导致的过拟合，第二种就是梯度消失，这都会导致生成器学不到样本的概率分布，并且不同的分布方式也对实验生成的效果有较大影响。</p>
-</li>
-<li>
-<p>修改模型结构，使生成模型生成的图片更加平滑、更加逼真，可以尝试增加<strong>张量层层数、迭代次数等</strong>，来提高生成器的表现。</p>
-</li>
-</ul>
-<p>实验过程记录</p>
-<table>
-<thead>
-<tr>
-<th>负样本(新冠)标签</th>
-<th>正样本(正常)标签</th>
-<th>负样本标签比例</th>
-<th>负样本loss权重</th>
-<th>无标签loss权重</th>
-<th>正样本loss权重</th>
-<th>无标签loss权重</th>
-<th><em><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>Result</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></em>__</th>
-<th>参数</th>
-<th>补充</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.1</td>
-<td>0.9</td>
-<td>0.005</td>
-<td>0.1</td>
-<td>1.0</td>
-<td>100</td>
-<td>1.0</td>
-<td><img src="/assets/image-20210506222107177.png" alt="image-20210506222107177"> 1600 epochs</td>
-<td><strong>216003</strong></td>
-<td>基于Linear层构建的GAN</td>
-</tr>
-<tr>
-<td>0.1</td>
-<td>0.9</td>
-<td>0.005</td>
-<td>0.1</td>
-<td>1.0</td>
-<td>100</td>
-<td>1.0</td>
-<td><img src="/assets/image-20210506190329814.png" alt="image-20210506190329814">1600 epochs</td>
-<td><strong>10595</strong></td>
-<td>完全是tensor_layer层构建的GAN</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0.002</td>
-<td>0.1</td>
-<td>1.0</td>
-<td>100</td>
-<td>0.9</td>
-<td><img src="/assets/image-20210509182802732.png" alt="image-20210509182802732">640 epochs</td>
-<td><strong>10595</strong></td>
-<td>完全是tensor_layer层构建的GAN</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0.002</td>
-<td><strong>0.01</strong></td>
-<td>1.0</td>
-<td>100</td>
-<td>1.0</td>
-<td><img src="/assets/image-20210509183111477.png" alt="image-20210509183111477"></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>关于TGen_PU的一些思考，TGAN中仅仅用MNIST数据集和合成的数据集来验证GAN网络的效果，是否已经考虑到TGAN在实际场景中的不足呢。另外Gen_PU中正负样本判别器的权重设置也很离谱，并且它将直接影响到正反例生成器的生成效果，就需要找到一个正负样本判别器都生成不错的平衡。综上来说，<strong>初始的分布</strong>和<strong>loss的权重组合</strong>是本实验中影响实验结果的两个重要参数。</p>
-<h2 id="gtnc实验记录">GTNC实验记录</h2>
-<p><strong>平衡数据集约Coivd-19 3616，Normal 3939训练效果</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>训练曲线图</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sqrt_linear_map, 32*32</td>
-<td><img src='/assets/sqrt_linear_map.png' width="50%"></td>
-</tr>
-<tr>
-<td>Hibert_space, 32*32</td>
-<td><img src='/assets/Figure_many_body_Hilbert_space.png' width="50%"></td>
-</tr>
-<tr>
-<td>Hibert_space, 45*45</td>
-<td><img src='/assets/Figure_1-1620555613962.png' width="50%"></td>
-</tr>
-</tbody>
-</table>
-<p><img src="/assets/Figure_1-1620557189627.png" alt="Figure_1"></p>
-<h2 id="paper-a-critic-evaluation-of-methods-for-covid-19-automatic-detection-from-x-ray-images">【<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.12823">Paper</a>】<strong>A Critic Evaluation of Methods for COVID-19 Automatic Detection from X-Ray Images</strong></h2>
-<p>这篇文章主要讨论了测试方法的fairness，文中讨论了当下基于X-ray图片的Covid-19图像分类中存在的严重的评估问题。以CNN为基础的神经网络仅学习到了针对<strong>特定数据集的特征或学习了X-Ray machine的成像特点</strong>，而不具有一般性。文中提到的被肯定的测试方法大多有如下的特点</p>
-<ul>
-<li>训练集和测试集没有交叠(Wang et al. [26])</li>
-<li>用不同来源的数据集来进行测试([28])</li>
-<li>采用前后投影策略([29])</li>
-<li>基于GAN网络构建分类器，来避免学习特定数据集本身的特征</li>
-</ul>
-<p>给了四个数据集分别是<strong>NIH dataset、CHE dataset、KAG dataset、COV dataset</strong>。由于COV数据集样本比较少，没有进行train_test_split，而是采用11折交叉验证的去训练和测试。对于COV数据集的训练和测试采用了两种不同的方式，第一种称为PAT-OUT，在每一折中防止病人重叠。而与之对应的DOC-OUT表示同一医生上传的扫描结果放到同一折中，这样能防止网络学习到特定的<strong>医院信息</strong>或者<strong>相关设备</strong></p>
-<p>论文中基于这四类数据集开展了两组实验，第一组实验都基于DOC-OUT数据，实验过程和结果如下</p>
-<h3 id="第一组实验">第一组实验</h3>
-<p><strong>图片加黑块</strong></p>
-<p>作者把图片中包含的特征信息进行了剔除(用黑块代替肺部的特征信息)，如下图所示</p>
-<img src='/assets/image-20210509170957661.png' width="60%">
-<p><strong>图片预处理</strong></p>
-<p>同时作者通过对图片进行预处理，即应用对比度受限的<strong>自适应直方图均衡化图像</strong>，并通过<strong>切割图像的上下部分来裁剪图像</strong>，以使新图像的高度在其宽度的**90％至100％**之间，得到的效果如下</p>
-<img src='/assets/image-20210509172207568.png' width="60%">
-<p>用三种方式对数据进行处理，分别进行实验</p>
-<ul>
-<li>第一种300*300带有黑块的图片</li>
-<li>第二种270*270带有黑块的图片</li>
-<li>第三种大小为240*240且经<strong>预处理后</strong>的图片</li>
-</ul>
-<p>实验中用AlexNet对其训练并按不同的数据集进行二分类（每次选两个不同的数据集进行分类），分类得到的结果准确率都非常高，几乎都在100%作用。最佳的结果应该是在0.5左右，这意味着没有实际特征很难通过模型区分不同的数据集。但实际情况恰恰相反，在第一种和第二种处理方式种，每个数据集都因它独特的特征而很容易被辨识出来。</p>
-<p>而在第三种处理方式中，也就是经过图片预处理后，COV数据集的混淆矩阵表明该数据集已经变得很难区分，它的预测结果基本上在各个类别上都是比较均衡的。</p>
-<p><img src="/assets/image-20210509172942415.png" alt="image-20210509172942415"></p>
-<h3 id="第二组实验">第二组实验</h3>
-<p>采用AlexNet网络训练分类<strong>NIH dataset、CHE dataset、KAG dataset</strong>中的任意两个数据集与COV混合后进行训练，随后用剩下的数据集和COV剩下的那个fold进行测试。采用了PAT-OUT和DOC-OUT两种模式，标签为COV和non-COV，实验结果如下</p>
-<p><img src="/assets/image-20210509175255873.png" alt="image-20210509175255873"></p>
-<p>不同数据集的分布如下图所示</p>
-<img src='/assets/image-20210509180908211.png' width="50%">
-<p>上面假定COV数据集是没有可以学习的特殊特征的，这是因为COV数据集的渠道是多源的，它来自于全世界医生的上传结果。所以在进行实验时，要么我们可以找到大规模这样的多源数据集，要么需要通过预处理方法<strong>消除依赖于数据集本身的特征</strong>。</p>
- 
+  Welcome to my blog, it's a secret, please enter password to read. 
+      <a class="article-more-link" href="/2021/02/28/56WinterVacation/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -373,7 +212,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-66CodeDetect"
+  id="post-55WritingCorpus"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -384,36 +223,33 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/05/02/66CodeDetect/"
-    >TGen-NU model fusion</a> 
+  <a class="article-title" href="/2021/01/05/55WritingCorpus/"
+    >Writing material</a> 
 </h2>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/05/02/66CodeDetect/" class="article-date">
-  <time datetime="2021-05-02T12:46:00.000Z" itemprop="datePublished">2021-05-02</time>
+      <a href="/2021/01/05/55WritingCorpus/" class="article-date">
+  <time datetime="2021-01-05T12:37:17.000Z" itemprop="datePublished">2021-01-05</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>本周工作</p>
+  <p>This essay are used to collect excellent sentences or vocabularies in paper writing releated to machine learning.</p>
+<h1>Sentences</h1>
+<h2 id="describe-our-method">Describe our method</h2>
 <ul>
-<li>TGAN生成X-ray图片</li>
-<li>GenPU生成X-ray图片</li>
-<li>设计<strong>TGen-NU</strong>模型，并尝试生成X-ray图片</li>
-<li>解决归一化问题<sup>[1]</sup></li>
-<li>基本完成TGen-NU的生成任务，但仍存在<strong>不稳定、不收敛</strong>问题<sup>[2]</sup></li>
-<li>查阅学习GAN的公式推导、扩展资料如<strong>WGAN、DCGAN</strong>等</li>
-<li>新思路：把MPS融入到GenPU/TGen-NU模型中</li>
+<li>In this section, we evaluate the superior aspects as well as the limitations of the proposed model by taking into account the state-of-art models</li>
+<li>The results show that EVGO outperforms all the algorithms in comparison for all experiments.</li>
 </ul> 
-      <a class="article-more-link" href="/2021/05/02/66CodeDetect/"
+      <a class="article-more-link" href="/2021/01/05/55WritingCorpus/"
         >阅读更多...</a
       >
        
@@ -436,7 +272,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-65TGAN-GenPU"
+  id="post-54Study-Report(1214-0115)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -447,240 +283,16 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/04/23/65TGAN-GenPU/"
-    >TGAN and GenPU</a> 
+  <a class="article-title" href="/2020/12/20/54Study-Report(1214-0115)/"
+    >Science Writing</a> 
 </h2>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/04/23/65TGAN-GenPU/" class="article-date">
-  <time datetime="2021-04-23T02:35:00.000Z" itemprop="datePublished">2021-04-23</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="bilibili-robust-low-tubal-rank-tensor-recovery-from-binary-measurements">【<a target="_blank" rel="noopener" href="https://www.bilibili.com/s/video/BV1QK4y1N7dp">bilibili</a>】<strong>Robust Low-tubal-rank Tensor Recovery from Binary Measurements</strong></h3>
-<p>在看这个视频时，顺带又回顾了一下张量秩的概念，目前并没有给出统一的很明确的定义，张量秩的定义往往跟分解算法有关</p>
-<p>在CP分解中，张量的秩定义如下</p> 
-      <a class="article-more-link" href="/2021/04/23/65TGAN-GenPU/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-64FCTN-Code-Analysis"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/04/18/64FCTN-Code-Analysis/"
-    >FCTN-Decomposition-Code</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/04/18/64FCTN-Code-Analysis/" class="article-date">
-  <time datetime="2021-04-18T12:59:00.000Z" itemprop="datePublished">2021-04-18</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>本周主要是想抓紧把之前TTN和MPO作用batch的思路落实一下，并理解FCTN的matlab代码</p> 
-      <a class="article-more-link" href="/2021/04/18/64FCTN-Code-Analysis/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-63FCTN-Decomposition"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/04/11/63FCTN-Decomposition/"
-    >FCTN-Decomposition</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/04/11/63FCTN-Decomposition/" class="article-date">
-  <time datetime="2021-04-11T02:41:00.000Z" itemprop="datePublished">2021-04-11</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>本周花了大量时间精读FCTN，还联系上了原作者郑博士，弄懂了论文中的公式推到部分。 同时这次的学习也将之前忽略的很多细节也抓了起来，比如参数复杂度、计算复杂度等等，不提高自己对公式的理解是没法提高论文的档次的，这篇文章的公式恰好不是很难，便于入门。</p> 
-      <a class="article-more-link" href="/2021/04/11/63FCTN-Decomposition/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-62QML-Collections"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/03/28/62QML-Collections/"
-    >量子机器学习资料整理</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/03/28/62QML-Collections/" class="article-date">
-  <time datetime="2021-03-28T12:50:00.000Z" itemprop="datePublished">2021-03-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>由于目前张量网络的工作逐渐增多，很多实验室都封装了自己的张量收缩算法包，同时还有一些论文给出了具体的工作，在此归类梳理一下方便日后的学习。</p>
-<h2 id="workshop">Workshop</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://tensorworkshop.github.io/2020/index.html"><strong>IJCAL</strong></a>: International Workshop on Tensor Network Representations in Machine Learning</li>
-<li><a target="_blank" rel="noopener" href="https://tensorworkshop.github.io/NeurIPS2020/"><strong>NeurIPS2020</strong></a>: Quantum tensor networks in machine learning</li>
-<li><a target="_blank" rel="noopener" href="http://ipam.ucla.edu/wp-content/uploads/2019/09/TMWS2-Poster.pdf">ipam</a>: Tensor Network States and Applications, <strong>APRIL 19 - 23, 2021</strong></li>
-</ul> 
-      <a class="article-more-link" href="/2021/03/28/62QML-Collections/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-60ReadBook"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/03/27/60ReadBook/"
-    >周报-26</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/03/27/60ReadBook/" class="article-date">
-  <time datetime="2021-03-27T13:15:14.000Z" itemprop="datePublished">2021-03-27</time>
+      <a href="/2020/12/20/54Study-Report(1214-0115)/" class="article-date">
+  <time datetime="2020-12-20T09:30:12.000Z" itemprop="datePublished">2020-12-20</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -690,8 +302,8 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>总结了一下华为软挑比赛，同时整理了一下<a href="http://www.yulezhang.com/2021/03/28/62QML-Collections/">量子机器学习的代码学习资料</a>，并对二维MERA结构进行了数据集拓展、阅读《智能时代》。</p> 
-      <a class="article-more-link" href="/2021/03/27/60ReadBook/"
+  Welcome to my blog, it's a secret, please enter password to read. 
+      <a class="article-more-link" href="/2020/12/20/54Study-Report(1214-0115)/"
         >阅读更多...</a
       >
        
@@ -714,7 +326,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-61HuaweiSoftwareContest"
+  id="post-52PaperWriting"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -725,66 +337,16 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/03/27/61HuaweiSoftwareContest/"
-    >华为软件精英挑战赛</a> 
+  <a class="article-title" href="/2020/12/14/52PaperWriting/"
+    >学堂在线---《如何写好科研论文》秋</a> 
 </h2>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/27/61HuaweiSoftwareContest/" class="article-date">
-  <time datetime="2021-03-27T10:00:00.000Z" itemprop="datePublished">2021-03-27</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>能够承认自己的普通并非易事</p> 
-      <a class="article-more-link" href="/2021/03/27/61HuaweiSoftwareContest/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-59CodeBreakthrough"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/03/20/59CodeBreakthrough/"
-    >HHL and TEBD</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/03/20/59CodeBreakthrough/" class="article-date">
-  <time datetime="2021-03-20T00:33:14.000Z" itemprop="datePublished">2021-03-20</time>
+      <a href="/2020/12/14/52PaperWriting/" class="article-date">
+  <time datetime="2020-12-14T14:21:12.000Z" itemprop="datePublished">2020-12-14</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -794,10 +356,9 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p>本周汇报目前将分为以下三个部分</p>
-<h1>量子算法回顾</h1>
-<p>在周二下午的汇报之后发现对量子<strong>傅里叶变换、量子相位估计算法、Shor以及HHL算法</strong>理解的还不够透彻，下面列出了一些遗留的疑难问题的讨论和补充。汇报PPT点击<a href="/download/QuantumAlgorithm/20190721-%E9%87%8F%E5%AD%90%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98-%E5%BC%A0%E5%AE%87.pptx">此处</a>下载</p> 
-      <a class="article-more-link" href="/2021/03/20/59CodeBreakthrough/"
+  <p>学堂在线—<a target="_blank" rel="noopener" href="https://www.xuetangx.com/learn/THU04011000365/THU04011000365/4233659/video/6387967">《如何写好科研论文》秋</a></p>
+<p>连续阅读相关方向的论文，做一定的积累，一天一篇或者两天一篇，最重要的是感觉不能断，将阅读过程中的一些想法记录下来，同方向的一些经典文章要精读(最少读5遍以上)</p> 
+      <a class="article-more-link" href="/2020/12/14/52PaperWriting/"
         >阅读更多...</a
       >
        
@@ -820,7 +381,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-58Grover"
+  id="post-53Study-Report(1207-1213)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -831,16 +392,16 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2021/03/14/58Grover/"
-    >Grover</a> 
+  <a class="article-title" href="/2020/12/14/53Study-Report(1207-1213)/"
+    >开始写论文啦</a> 
 </h2>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/14/58Grover/" class="article-date">
-  <time datetime="2021-03-14T13:21:17.000Z" itemprop="datePublished">2021-03-14</time>
+      <a href="/2020/12/14/53Study-Report(1207-1213)/" class="article-date">
+  <time datetime="2020-12-14T14:21:12.000Z" itemprop="datePublished">2020-12-14</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
@@ -850,19 +411,286 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><strong>Grover算法</strong></p>
-<p>搜索算法是利用计算机的高性能来有目的的穷举一个问题解空间的部分或所有的可能情况，从而求出问题的解的一种方法。现阶段一般有枚举算法、深度优先搜索、广度优先搜索、A*算法、回溯算法、蒙特卡洛树搜索、散列函数等算法。比较常见的一种应用场景就是A到B的最短耗时路径搜索，一般的传统方法我们至少要把所有的路径遍历一遍来求解，而量子Grover算法只需要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msqrt><mo stretchy="false">(</mo></msqrt><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\sqrt(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.30499999999999994em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mopen" style="padding-left:1em;">(</span></span><span style="top:-2.8950000000000005em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.30499999999999994em;"><span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>的复杂度就能解决该问题。</p> 
-      <a class="article-more-link" href="/2021/03/14/58Grover/"
+  Welcome to my blog, enter password to read. 
+      <a class="article-more-link" href="/2020/12/14/53Study-Report(1207-1213)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-51DeepLearning"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/08/51DeepLearning/"
+    >深度学习小结</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/08/51DeepLearning/" class="article-date">
+  <time datetime="2020-12-08T12:21:12.000Z" itemprop="datePublished">2020-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>我接触深度学习已经有一段时间了，特别是现在读研究生还是离不开机器学习这方面的内容，因此我需要不断地提高这方面的水平，每一次编码都要比以往更加<strong>规范、高效并提高封装效果</strong>以便于快速的进行二次开发，而不能仅仅水平一直停留在<strong>复制粘贴、调包</strong>的程度，很多小工具需要弄清出工作原理，不一定都要复现，但出了问题一定要第一时间能够修改和调试。</p> 
+      <a class="article-more-link" href="/2020/12/08/51DeepLearning/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-50Study-Report(1130-1206)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/12/06/50Study-Report(1130-1206)/"
+    >手撕代码GTNC</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/12/06/50Study-Report(1130-1206)/" class="article-date">
+  <time datetime="2020-12-06T10:56:12.000Z" itemprop="datePublished">2020-12-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="tsgo的一些说明">TSGO的一些说明</h2>
+<h3 id="偏导数与内积？">偏导数与内积？</h3>
+<p>文中对输入样本X的偏导数可以定义为如下的形式</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∂</mi><mi>W</mi></msub><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>h</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo>+</mo><mi>h</mi><mi>W</mi><mo stretchy="false">)</mo><mo>−</mo><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo></mrow><mi>h</mi></mfrac></mrow><annotation encoding="application/x-tex">\partial_{W} P(X ; W)=\lim _{h \rightarrow 0} \frac{P(X ; W+h W)-P(X ; W)}{h}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.179108em;vertical-align:-0.7521079999999999em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.347892em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mrel mtight">→</span><span class="mord mtight">0</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7521079999999999em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">h</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p> 
+      <a class="article-more-link" href="/2020/12/06/50Study-Report(1130-1206)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-49Study-Report(1123-1129)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/29/49Study-Report(1123-1129)/"
+    >GTNC and TSGO</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="article-date">
+  <time datetime="2020-11-29T12:31:17.000Z" itemprop="datePublished">2020-11-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/11/29/49Study-Report(1123-1129)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-48PassbyCpsNet"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/29/48PassbyCpsNet/"
+    >校园网认证</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/29/48PassbyCpsNet/" class="article-date">
+  <time datetime="2020-11-29T03:27:17.000Z" itemprop="datePublished">2020-11-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  Welcome to my blog, enter password to read. 
+      <a class="article-more-link" href="/2020/11/29/48PassbyCpsNet/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/" rel="tag">骚操作</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-47Study-Report(1116-1122)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/21/47Study-Report(1116-1122)/"
+    >第11周学习汇报</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="article-date">
+  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">2020-11-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  Welcome to my blog, enter password to read. 
+      <a class="article-more-link" href="/2020/11/21/47Study-Report(1116-1122)/"
         >阅读更多...</a
       >
        
@@ -890,7 +718,7 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

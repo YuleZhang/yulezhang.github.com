@@ -6,10 +6,36 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-05-03T08:01:28.468Z</updated>
+  <updated>2021-08-17T12:55:13.381Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Notice</title>
+    <link href="http://www.yulezhang.com/2021/08/17/67Notice/"/>
+    <id>http://www.yulezhang.com/2021/08/17/67Notice/</id>
+    <published>2021-08-17T12:55:00.000Z</published>
+    <updated>2021-08-17T12:55:13.381Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;网站公告&lt;/h1&gt;
+&lt;p&gt;Hello，大家好，很久没发博客了。最近更换了服务器，配置了域名的SSL，使得网站更加稳定。这篇文章是对目前该博客内容的一些说明。之前的文章主要是每周汇报的迁移，直接放到网站上来了，也没有做调整。导致有时内容很不连续，而且都是比较硬核的专业知识，
+        
+      
+    
+    </summary>
+    
+    
+      <category term="free talk" scheme="http://www.yulezhang.com/categories/free-talk/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TGen-NU model fusion</title>
@@ -415,25 +441,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="骚操作" scheme="http://www.yulezhang.com/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第11周学习汇报</title>
-    <link href="http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/"/>
-    <id>http://www.yulezhang.com/2020/11/21/47Study-Report(1116-1122)/</id>
-    <published>2020-11-21T12:56:17.000Z</published>
-    <updated>2020-11-29T11:51:38.716Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
     
   </entry>
   

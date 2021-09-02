@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
 <link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
 
 </html>
-
+<script type='text/javascript' src='/js/prism.js'></script>
 <body>
   <div id="app">
     
@@ -156,6 +156,172 @@ var _hmt = _hmt || [];
     
     
     
+    
+    <article
+  id="post-68CombinationLeetcode"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/09/02/68CombinationLeetcode/"
+    >力扣排列组合问题梳理（超详细）</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/09/02/68CombinationLeetcode/" class="article-date">
+  <time datetime="2021-09-02T06:56:00.000Z" itemprop="datePublished">2021-09-02</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="递归与回溯">递归与回溯</h2>
+<ol>
+<li>Letter Combinations of a Phone Number</li>
+</ol>
+<p>给出一个数字字符串，返回这个数字字符串能表示的所有字母组合</p>
+<ul>
+<li>字符串的合法性</li>
+<li>空字符串</li>
+<li>多个解的顺序</li>
+</ul>
+<p>回溯法是暴力解法的一个主要实现手段</p>
+<ol>
+<li>Restore IP Addresses</li>
+</ol>
+<p>给一个数字字符串，为这个数字子字符串加上三个点，使其成为一个合法的ip地址，返回所有的合法ip地址</p>
+<ul>
+<li>如给定字符串&quot;25525511135&quot;</li>
+<li>返回{“255.255.11.135”, “255.255.111.35”}</li>
+</ul>
+<ol>
+<li>Palindrome Partitioning</li>
+</ol>
+<p>给出一个字符串，拆分这个字符串，使得所有拆分的子串都是回文字符串，返回所有的拆分可能</p>
+<ul>
+<li>给定字符串s=“aab”</li>
+<li>结果为[[“aa”, “b”], [“a”, “a”, “b”]]</li>
+</ul>
+<ol>
+<li>Permutations</li>
+</ol>
+<p>给定一个整形数组，其中各个元素都不相同，返回这些元素所有排列的可能。全排列问题，其递归形式为</p>
+<p><img src="/assets/image.png" alt="Image"></p>
+<p>注意变量的恢复</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; used;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">generatePermutation</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums, <span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; p)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(index == nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">       res.push_back(p);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">       <span class="keyword">if</span>(!used[i])&#123;</span><br><span class="line">           p.push_back(nums[i]);</span><br><span class="line">           used[i] = <span class="literal">true</span>;</span><br><span class="line">           generatePermutation(nums, index+<span class="number">1</span>, p);</span><br><span class="line">           p.pop_back();</span><br><span class="line">           used[i] = <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Permutations II</li>
+</ol>
+<p>给定一个整型数组，其中可能有相同的元素，返回这些元素所有排列的可能</p>
+<ul>
+<li>如对于[1,1,2]</li>
+<li>返回[[1,1,2],[1,2,1],[2,1,1]]</li>
+</ul>
+<h2 id="组合问题">组合问题</h2>
+<p>给出两个整数n和k，求在1…n这n个数字中选出k个数字的所有组合</p>
+<ul>
+<li>如n=4, k = 2</li>
+<li>结果为[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</li>
+</ul>
+<p>注意不能重复，因此每次从上一个数字之后开始取</p>
+<details>
+<p class="hey">vector<vector<int>> ans;
+int n, k;
+void getComb(int depth, vector<int>& tmp, int start){
+    if(depth == k){
+        ans.push_back(tmp);
+        return;
+    }
+    for(int i = start+1;i <= n;i++){
+        tmp.push_back(i);
+        getComb(depth+1, tmp, i);
+        tmp.pop_back();
+    }
+}
+vector<vector<int>> combine(int n, int k) {
+    this->n = n;
+    this->k = k;
+    vector<int> tmp;
+    getComb(0, tmp, 0);
+    return ans;
+}</p>
+</details>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getComb</span><span class="params">(<span class="keyword">int</span> depth, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tmp, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(depth == k)&#123;</span><br><span class="line">        ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start+<span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        tmp.push_back(i);</span><br><span class="line">        getComb(depth+<span class="number">1</span>, tmp, i);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combine</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;n = n;</span><br><span class="line">    <span class="keyword">this</span>-&gt;k = k;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    getComb(<span class="number">0</span>, tmp, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上就是回溯算法求解组合问题</p>
+<p>但当n和k的规模大了以后就会比较吃力，采用<strong>回溯法的剪支</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getComb</span><span class="params">(<span class="keyword">int</span> depth, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tmp, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(depth == k)&#123;</span><br><span class="line">        ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当前已经有tmp.size()个元素，还要在[1,n]中找出k-tmp.size()个</span></span><br><span class="line">    <span class="comment">// 则i最多为n - (k-c.size()) + 1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start;i &lt;= n - (k-c.<span class="built_in">size</span>()) + <span class="number">1</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(i);</span><br><span class="line">        getComb(depth+<span class="number">1</span>, tmp, i);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combine</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;n = n;</span><br><span class="line">    <span class="keyword">this</span>-&gt;k = k;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    getComb(<span class="number">0</span>, tmp, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>39. Combination Sum</strong></p>
+<p>给出一个集合，其中所有的元素各不相同，以及一个数字T。寻找所有该集合中的元素组合，使得组合中的所有元素和为T。（注意集合中每一个元素可以使用多次）</p>
+<ul>
+<li>如给定集合nums=[2,3,6,7], T=7</li>
+<li>返回[[7], [2,2,3]]</li>
+<li>代码，排序加快搜索速度</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">        ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt; n &amp;&amp; target-arr[i]&gt;=<span class="number">0</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(arr[i]);</span><br><span class="line">        dfs(arr, target-arr[i], tmp, i);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    n = candidates.size();</span><br><span class="line">    sort(candidates.begin(), candidates.end());</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    dfs(candidates, target, tmp, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>40. Combination Sum II</strong></p>
+<p>给出一个集合，其中元素可能相同，以及一个数字T。寻找所有该集合中的元素组合，使得组合中所有元素的和为T。（注意：集合中每一个元素只能用一次）</p>
+<ul>
+<li><strong>代码——巧妙地去重</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tmp, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">            ans.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt; arr.<span class="built_in">size</span>() &amp;&amp; target-arr[i] &gt;= <span class="number">0</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; arr[i] == arr[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> copy = arr[i];</span><br><span class="line">                arr[i] = <span class="number">0</span>;</span><br><span class="line">                tmp.push_back(copy);</span><br><span class="line">                dfs(arr, target-copy, tmp, i+<span class="number">1</span>);</span><br><span class="line">                arr[i] = copy;</span><br><span class="line">                tmp.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum2</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = candidates.<span class="built_in">size</span>();</span><br><span class="line">        sort(candidates.<span class="built_in">begin</span>(), candidates.<span class="built_in">end</span>()); <span class="comment">// 排个序，加快搜索效率</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        dfs(candidates, target, tmp, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>216. Combination Sum III</strong></p>
+<p>在1-9这九个数字中，选出k个数字，每个数字只能使用一次，使得其和为n</p>
+<ul>
+<li>如n=7, k = 3, 结果为【【1，2，4】】</li>
+<li>代码</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; flag;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> n, <span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt;= <span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!flag[i])&#123;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            tmp.push_back(i);</span><br><span class="line">            dfs(k<span class="number">-1</span>, n-i, i, tmp);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">            flag[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum3</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    flag = <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(<span class="number">10</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    dfs(k, n, <span class="number">1</span>, tmp);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>377. Combination Sum IV</strong></p>
+<p>给定一组不同的整数 nums 和一个目标整数目标，返回加起来为目标的可能组合数。 答案保证适合 32 位整数。</p>
+<ul>
+<li>如nums = [1,2,3], target = 4，结果为7</li>
+<li>代码</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">        ans++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>() &amp;&amp; target-nums[i]&gt;=<span class="number">0</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(nums[i]);</span><br><span class="line">        dfs(nums, target-nums[i], tmp);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    sort(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    ans = <span class="number">0</span>;</span><br><span class="line">    dfs(nums, target, tmp);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面四个力扣的组合问题是递归问题中的典型代表，通过对这些题目的理解和细节对比能够轻而易举总结处一套模板出来。尽管在Combination Sum IV中这样的模板因超时而无法AC，但这并不影响我们对这一类问题的理解。仔细观察这些题目中<strong>细微的区别与解法的调整</strong>，这是模板定制的基本功。下面再次的进行梳理：</p>
+<ol>
+<li>对于数组中<strong>有重复元素</strong>，但每个只能使用一次（Combination Sum II）</li>
+<li>数组数字各不相同，数字可以重复使用，结果可以重复（Combination Sum IV）</li>
+<li>数组数字各不相同，数字可以重复使用，结果不可以重复（Combination Sum）</li>
+<li>对于数字各不相同，且不能重复使用（Combination Sum III）</li>
+</ol>
+<p>从上面这四种条件中，我整理出以下的应对方案：</p>
+<ol>
+<li>对于数组中有重复元素的情况，如果不加以区别，会造成重复的结果，举例来说[1,1,2,5,7]要凑成8。直接套用模板时难免出现结果中有两个[1,2,5],[1,7]的情况。这时候可以在循环中加入去重的语句，避免同一个数字重复的在一次搜索中两次作为起点，也就是</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; arr[i] == arr[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>对于结果可以重复的就是模板直接求出来的结果</li>
+<li>对于不可以重复，可以在递归过程中引入index来标记上一次查的位置，让每次新的位置只能在上一次之后，就避免了结果重复的问题，见Combination Sum II。</li>
+</ol>
+<p>组合问题是计算机中一类比较重要的问题，它的扩展问题可以是子集问题（No. 78, No. 90）,也可以是岛屿问题（<a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-islands/">No. 200</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-islands-ii/">No. 305</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-distinct-islands/">No. 694</a>）等等，尽管形式丰富，但主要是围绕递归和回溯来展开的，以点及面可以逐步解决此类问题。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
     
     <article
   id="post-67Notice"
@@ -642,71 +808,6 @@ var _hmt = _hmt || [];
 <h1>量子算法回顾</h1>
 <p>在周二下午的汇报之后发现对量子<strong>傅里叶变换、量子相位估计算法、Shor以及HHL算法</strong>理解的还不够透彻，下面列出了一些遗留的疑难问题的讨论和补充。汇报PPT点击<a href="/download/QuantumAlgorithm/20190721-%E9%87%8F%E5%AD%90%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98-%E5%BC%A0%E5%AE%87.pptx">此处</a>下载</p> 
       <a class="article-more-link" href="/2021/03/20/59CodeBreakthrough/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
-    <article
-  id="post-58Grover"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/03/14/58Grover/"
-    >Grover</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/03/14/58Grover/" class="article-date">
-  <time datetime="2021-03-14T13:21:17.000Z" itemprop="datePublished">2021-03-14</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><strong>Grover算法</strong></p>
-<p>搜索算法是利用计算机的高性能来有目的的穷举一个问题解空间的部分或所有的可能情况，从而求出问题的解的一种方法。现阶段一般有枚举算法、深度优先搜索、广度优先搜索、A*算法、回溯算法、蒙特卡洛树搜索、散列函数等算法。比较常见的一种应用场景就是A到B的最短耗时路径搜索，一般的传统方法我们至少要把所有的路径遍历一遍来求解，而量子Grover算法只需要<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msqrt><mo stretchy="false">(</mo></msqrt><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\sqrt(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.30499999999999994em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mopen" style="padding-left:1em;">(</span></span><span style="top:-2.8950000000000005em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.30499999999999994em;"><span></span></span></span></span></span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span>的复杂度就能解决该问题。</p> 
-      <a class="article-more-link" href="/2021/03/14/58Grover/"
         >阅读更多...</a
       >
        

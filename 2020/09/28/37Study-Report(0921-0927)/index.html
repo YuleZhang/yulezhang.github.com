@@ -2,36 +2,32 @@
 
 
 <html lang="zh-Hans">
+  
 
-
-<head>
-  <meta charset="utf-8" />
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    Tensor Operation in Python |  
-  </title>
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Tensor Operation in Python |  YuleZhang&#39;s Blogs</title>
   <meta name="generator" content="hexo-theme-ayer">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
 <link rel="stylesheet" href="/dist/main.css">
 
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
-
-  
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
 <link rel="stylesheet" href="/css/custom.css">
-
-  
-  
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
-  
-  
-
-  
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -43,11 +39,25 @@ var _hmt = _hmt || [];
 </script>
 
 
-<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
 </html>
-<script type='text/javascript' src='/js/prism.js'></script>
+
+
 <body>
   <div id="app">
     
@@ -73,6 +83,7 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
      
     <div class="article-meta">
@@ -116,7 +127,7 @@ var _hmt = _hmt || [];
 <p>我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45777142/article/details/107499465">刘紫豪同学的博客</a>里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在<strong>numpy、tensorflow以及Pytorch</strong>中都提供了<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html"><strong>einsum</strong></a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html"><strong>matmul</strong></a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html"><strong>tensordot</strong></a>这三种方式用于计算张量的缩并。</p>
 <a id="more"></a>
 <p>举一个例子来说，假设A是一个3阶张量（三个指标维度为i,j,k），而B是一个4阶张量（j,k,m,n）。假如我们现在要将A张量的j,k两个指标和B张量的j,k两个指标进行缩并，得到一个<code>i*m*n</code>的三阶张量C，来看看代码里是怎么样的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C = np.einsum(<span class="string">&#x27;ijk,jkmn-&gt;imn&#x27;</span>, A, B)</span><br><span class="line">C = np.matmul(tf.expand_dims(A,<span class="number">1</span>), B)</span><br><span class="line">C = np.tensordot(A, B, [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C = np.einsum(<span class="string">&#x27;ijk,jkmn-&gt;imn&#x27;</span>, A, B)</span><br><span class="line">C = np.matmul(tf.expand_dims(A,<span class="number">1</span>), B)</span><br><span class="line">C = np.tensordot(A, B, [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
 <p>在性能方面三个函数没有很大的差异，当然对于较小的矩阵<strong>np.matmul</strong>可能更加有效，因为它将生成一个更简单的<strong>张量流图</strong>，操作更少，因此每个操作的调用成本更低。在循环或含条件参数的地方，可以通过tensordot进行<strong>动态缩并</strong>。当然也有一些developer为了方便，开发了专门的张量运算库例如**<a target="_blank" rel="noopener" href="https://github.com/andrewdarmawan/tncontract">tncontract</a>、<a target="_blank" rel="noopener" href="https://github.com/google/TensorNetwork">TensorNetwork</a>(Google开发)，<a target="_blank" rel="noopener" href="https://github.com/torch/torch7">Pytorch</a><strong>里也封装了各种各样的张量运算，在这里不仅能张量缩并，还能几句话实现非常复杂的</strong>张量参数反向迭代更新**，降低了张量的操作难度。</p>
 <p>总之，各界大佬早已经定义好了各种张量网络运算的工具，适当了解对开发是非常有帮助的。当然，选择一种自己顺手的工具要方便的多，对其他的方法也得了解。</p>
 <blockquote>
@@ -125,7 +136,7 @@ var _hmt = _hmt || [];
 <h1>Learning of Pytorch</h1>
 <p><a target="_blank" rel="noopener" href="https://github.com/dingliu0305/Hybrid-Tensor-Network">论文HTN代码</a>基于pytorch深度学习框架，而这个框架下有很多的方法和理论基础，于是在Coursera上在线学习<a target="_blank" rel="noopener" href="https://www.coursera.org/learn/deep-neural-networks-with-pytorch/home/welcome">Deep Neural Networks with PyTorch</a>课程。这个课程非常详细的从基本数据结构Tensor开始讲起，每节视频3-10分钟，配套有视频代码，都可以在线运行、查看输出和讲解，每节视频都有配套的<strong>代码练习</strong>（这一点是至关重要的），而且不会很难，就是简单需要改几处，然后慢慢的增加难度。非常推荐对pytorch感兴趣的人去学习。</p>
 <p>一边学着pytorch，一边我又多次去尝试读代码，思路慢慢理清楚了，程序的设计思路和方式，每一步的输出格式、内容也通过一次次调试弄明白了。中间遇到的那个问题，即代码中没有包含计算Accuracy部分已经补充完整，在output1计算出之后，通过以下代码计算每个batch_size的准确率</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pred_y = torch.max(output1, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">sum = int(torch.sum(pred_y == b_y))</span><br><span class="line">accuracy = sum / BATCH_SIZE</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pred_y = torch.max(output1, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">sum = int(torch.sum(pred_y == b_y))</span><br><span class="line">accuracy = sum / BATCH_SIZE</span><br></pre></td></tr></table></figure>
 <p>还有一个坑就是，程序在开始运行的时候准确率只有10%，训练了好几个batch_size也没有明显的提升，于是就一步步追根溯源去查看backward更新函数，各种调试，最后发现人家写的还是对的。</p>
 <p>那么问题出在哪里了呢，我在调试过程中发现，在反向传播BP更新参数那部分很复杂，每一层都有相当多的参数（尤其是张量网络层），例如最上一层是<code>16*16*3*3*3*3*3</code>，然后是<code>8*8*3*3*3*3*3</code>就是按照TTN的结构以此类推。参数这么多我估计得训练很多轮，于是就只能先跑几轮看看效果，不看不知道，一看吓一跳</p>
 <p><img src="/assets/1601029097250_meitu_1.jpg" alt="1601029097250"></p>
@@ -284,6 +295,7 @@ var _hmt = _hmt || [];
 </style>
 
  
+   
      
 </article>
 
@@ -313,7 +325,7 @@ var _hmt = _hmt || [];
         
         
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
   <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
 </span>
@@ -339,9 +351,10 @@ var _hmt = _hmt || [];
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -349,8 +362,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -422,12 +434,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -450,39 +456,39 @@ var _hmt = _hmt || [];
   </div>
 </div>
     
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
-
-
+ 
 <script src="/js/tocbot.min.js"></script>
 
 <script>
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
 <script src="/dist/main.js"></script>
 
 <!-- ImageViewer -->
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -587,11 +593,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
+</script> 
 <!-- MathJax -->
-
-<script type="text/x-mathjax-config">
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -611,43 +615,35 @@ var _hmt = _hmt || [];
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
-  }
+    mathjax: true,
+  };
 </script>
 
 <!-- Katex -->
-
-
+ 
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
         
     
-
-
+ 
 <!-- busuanzi  -->
-
-
+ 
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
-
-
+ 
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
-
-
+ 
 <script src="/js/clickBoom2.js"></script>
-
-
+ 
 <!-- CodeCopy -->
-
-
+ 
 <link rel="stylesheet" href="/css/clipboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
   function wait(callback, seconds) {
     var timelag = null;
@@ -701,9 +697,14 @@ var _hmt = _hmt || [];
     initCopyCode();
   }(window, document);
 </script>
-
-
+ 
 <!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
 
     
@@ -724,6 +725,8 @@ var _hmt = _hmt || [];
     }
 </style>
     
+    
+
   </div>
 </body>
 

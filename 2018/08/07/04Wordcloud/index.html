@@ -2,36 +2,32 @@
 
 
 <html lang="zh-Hans">
+  
 
-
-<head>
-  <meta charset="utf-8" />
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    python之wordcloud教程 |  
-  </title>
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>python之wordcloud教程 |  YuleZhang&#39;s Blogs</title>
   <meta name="generator" content="hexo-theme-ayer">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
 <link rel="stylesheet" href="/dist/main.css">
 
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
-
-  
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
 <link rel="stylesheet" href="/css/custom.css">
-
-  
-  
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
-  
-  
-
-  
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -43,11 +39,25 @@ var _hmt = _hmt || [];
 </script>
 
 
-<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
 </html>
-<script type='text/javascript' src='/js/prism.js'></script>
+
+
 <body>
   <div id="app">
     
@@ -73,6 +83,7 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
      
     <div class="article-meta">
@@ -124,7 +135,7 @@ Anaconda详细安装使用教程</a></p>
 <p>首先打开你的jupyter notebook环境，还是通过win+r,输入jupyter notebook，回车。等待几十秒，跳转到页面里，就可以开始使用jupyter了。jupyter的教程网上有很多，这里就不再赘述，只介绍wordcloud的相关使用方法。<br>
 需要数据及源码的单击进入<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1dV9u3aSV1flT3F6diTy_tA">百度云</a>，密码: rugu ，进行下载<br>
 下面是实现词云的详细代码及注释（#之后为注释内容）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,STOPWORDS,ImageColorGenerator</span><br><span class="line"> </span><br><span class="line"><span class="comment">#backgroup_Image = plt.imread(&#x27;F:/man.jpg&#x27;) #笼罩图</span></span><br><span class="line"> </span><br><span class="line">f = open(<span class="string">&#x27;F:\人工智能.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>).read()  <span class="comment">#生成词云的文档</span></span><br><span class="line">wordcloud = WordCloud(</span><br><span class="line">        background_color = <span class="string">&#x27;white&#x27;</span>, <span class="comment">#背景颜色，根据图片背景设置，默认为黑色</span></span><br><span class="line">        <span class="comment">#mask = backgroup_Image, #笼罩图</span></span><br><span class="line">        font_path = <span class="string">&#x27;C:\Windows\Fonts\STZHONGS.TTF&#x27;</span>,<span class="comment">#若有中文需要设置才会显示中文</span></span><br><span class="line">        width = <span class="number">1000</span>,</span><br><span class="line">        height = <span class="number">860</span>,</span><br><span class="line">        margin = <span class="number">2</span>).generate(f) <span class="comment"># generate 可以对全部文本进行自动分词</span></span><br><span class="line"><span class="comment">#参数 width，height，margin分别对应宽度像素，长度像素，边缘空白处</span></span><br><span class="line"> </span><br><span class="line">plt.imshow(wordcloud)</span><br><span class="line">plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"> </span><br><span class="line"><span class="comment">#保存图片：默认为此代码保存的路径</span></span><br><span class="line">wordcloud.to_file(<span class="string">&#x27;touxiang.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,STOPWORDS,ImageColorGenerator</span><br><span class="line"> </span><br><span class="line"><span class="comment">#backgroup_Image = plt.imread(&#x27;F:/man.jpg&#x27;) #笼罩图</span></span><br><span class="line"> </span><br><span class="line">f = open(<span class="string">&#x27;F:\人工智能.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>).read()  <span class="comment">#生成词云的文档</span></span><br><span class="line">wordcloud = WordCloud(</span><br><span class="line">        background_color = <span class="string">&#x27;white&#x27;</span>, <span class="comment">#背景颜色，根据图片背景设置，默认为黑色</span></span><br><span class="line">        <span class="comment">#mask = backgroup_Image, #笼罩图</span></span><br><span class="line">        font_path = <span class="string">&#x27;C:\Windows\Fonts\STZHONGS.TTF&#x27;</span>,<span class="comment">#若有中文需要设置才会显示中文</span></span><br><span class="line">        width = <span class="number">1000</span>,</span><br><span class="line">        height = <span class="number">860</span>,</span><br><span class="line">        margin = <span class="number">2</span>).generate(f) <span class="comment"># generate 可以对全部文本进行自动分词</span></span><br><span class="line"><span class="comment">#参数 width，height，margin分别对应宽度像素，长度像素，边缘空白处</span></span><br><span class="line"> </span><br><span class="line">plt.imshow(wordcloud)</span><br><span class="line">plt.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"> </span><br><span class="line"><span class="comment">#保存图片：默认为此代码保存的路径</span></span><br><span class="line">wordcloud.to_file(<span class="string">&#x27;touxiang.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="参考">参考</h2>
 <p><em>Anaconda安装教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/program_developer/article/details/79677557">https://blog.csdn.net/program_developer/article/details/79677557</a></em></p>
 <p><em>Conda管理python包：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dennis_shaw/article/details/77535659">https://blog.csdn.net/dennis_shaw/article/details/77535659</a></em></p>
@@ -269,6 +280,7 @@ Anaconda详细安装使用教程</a></p>
 </style>
 
  
+   
      
 </article>
 
@@ -298,7 +310,7 @@ Anaconda详细安装使用教程</a></p>
         
         
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
   <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
 </span>
@@ -324,9 +336,10 @@ Anaconda详细安装使用教程</a></p>
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -334,8 +347,7 @@ Anaconda详细安装使用教程</a></p>
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -407,12 +419,6 @@ Anaconda详细安装使用教程</a></p>
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -435,39 +441,39 @@ Anaconda详细安装使用教程</a></p>
   </div>
 </div>
     
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
-
-
+ 
 <script src="/js/tocbot.min.js"></script>
 
 <script>
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
 <script src="/dist/main.js"></script>
 
 <!-- ImageViewer -->
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -572,11 +578,9 @@ Anaconda详细安装使用教程</a></p>
         })
     }
     viewer_init()
-</script>
-
+</script> 
 <!-- MathJax -->
-
-<script type="text/x-mathjax-config">
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -596,43 +600,35 @@ Anaconda详细安装使用教程</a></p>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
-  }
+    mathjax: true,
+  };
 </script>
 
 <!-- Katex -->
-
-
+ 
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
         
     
-
-
+ 
 <!-- busuanzi  -->
-
-
+ 
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
-
-
+ 
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
-
-
+ 
 <script src="/js/clickBoom2.js"></script>
-
-
+ 
 <!-- CodeCopy -->
-
-
+ 
 <link rel="stylesheet" href="/css/clipboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
   function wait(callback, seconds) {
     var timelag = null;
@@ -686,9 +682,14 @@ Anaconda详细安装使用教程</a></p>
     initCopyCode();
   }(window, document);
 </script>
-
-
+ 
 <!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
 
     
@@ -709,6 +710,8 @@ Anaconda详细安装使用教程</a></p>
     }
 </style>
     
+    
+
   </div>
 </body>
 

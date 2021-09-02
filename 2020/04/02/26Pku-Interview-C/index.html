@@ -2,36 +2,32 @@
 
 
 <html lang="zh-Hans">
+  
 
-
-<head>
-  <meta charset="utf-8" />
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-    复试之C/C++系列问题 |  
-  </title>
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>复试之C/C++系列问题 |  YuleZhang&#39;s Blogs</title>
   <meta name="generator" content="hexo-theme-ayer">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
 <link rel="stylesheet" href="/dist/main.css">
 
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
-
-  
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
 <link rel="stylesheet" href="/css/custom.css">
-
-  
-  
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
-  
-  
-
-  
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -43,11 +39,25 @@ var _hmt = _hmt || [];
 </script>
 
 
-<link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
-<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
 
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blogs" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
 </html>
-<script type='text/javascript' src='/js/prism.js'></script>
+
+
 <body>
   <div id="app">
     
@@ -73,6 +83,7 @@ var _hmt = _hmt || [];
 </h1>
  
 
+      
     </header>
      
     <div class="article-meta">
@@ -126,14 +137,14 @@ var _hmt = _hmt || [];
 <h3 id="指针数组-数组指针">指针数组、数组指针</h3>
 <p>（1）指针数组：首先它是一个数组，数组的元素都是指针，数组占多少个字节由数组本身的大小决定，每一个元素都是一个指针，在32 位系统下任何类型的指针永远是占4 个字节。它是“储存指针的数组”的简称。<br>
 （2）数组指针：首先它是一个指针，它指向一个数组。在32 位系统下任何类型的指针永远是占4 个字节，至于它指向的数组占多少字节，不知道，具体要看数组大小。它是“指向数组的指针”的简称。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *arr[<span class="number">4</span>] = &#123;<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>, <span class="string">&quot;shannxi&quot;</span>, <span class="string">&quot;xian&quot;</span>&#125;; </span><br><span class="line"><span class="comment">//arr[4]是一个定义的数组。把它对应到对应到内存中，arr是一个在栈区,有四个元素的数组，而每一个元素又是一个指针，所以说它的四个元素各占四个字节，所以变量arr的大小是16个字节。arr+1会跳过四个字节。也就是一个指针的大小 。</span></span><br><span class="line"><span class="keyword">char</span> (*pa)[<span class="number">4</span>]; <span class="comment">//pa是一个指针指向一个char [4]的数组</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> *arr[<span class="number">4</span>] = &#123;<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>, <span class="string">&quot;shannxi&quot;</span>, <span class="string">&quot;xian&quot;</span>&#125;; </span><br><span class="line"><span class="comment">//arr[4]是一个定义的数组。把它对应到对应到内存中，arr是一个在栈区,有四个元素的数组，而每一个元素又是一个指针，所以说它的四个元素各占四个字节，所以变量arr的大小是16个字节。arr+1会跳过四个字节。也就是一个指针的大小 。</span></span><br><span class="line"><span class="keyword">char</span> (*pa)[<span class="number">4</span>]; <span class="comment">//pa是一个指针指向一个char [4]的数组</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="c-内存布局">C++内存布局</h3>
 <p>（1）栈区（stack）：由编译器自动分配释放，存放函数的参数值，局部变量值等，其操作方法类似数据结构中的栈。<br>
 （2）堆区（heap）：一般由程序员分配释放，与数据结构中的堆毫无关系，分配方式类似于链表。<br>
 （3）全局/静态区（static）：全局变量和静态变量的存储是放在一起的，在程序编译时分配。<br>
 （4）文字常量区：存放常量字符串。<br>
 （5）程序代码区：存放函数体（类的成员函数、全局函数）的二进制代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">0</span>; <span class="comment">//全局初始化区</span></span><br><span class="line"><span class="keyword">char</span> *p1; <span class="comment">//全局未初始化区</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> b; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> s[]=<span class="string">&quot;bb&quot;</span>; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p2; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p3=<span class="string">&quot;123&quot;</span>; <span class="comment">//其中，“123\0”常量区，p3在栈区</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> c=<span class="number">0</span>; <span class="comment">//全局区</span></span><br><span class="line">	p1=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">10</span>); <span class="comment">//10个字节区域在堆区</span></span><br><span class="line">	<span class="built_in">strcpy</span>(p1,<span class="string">&quot;123&quot;</span>); <span class="comment">//&quot;123\0&quot;在常量区，编译器 可能 会优化为和p3的指向同一块区域</span></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">0</span>; <span class="comment">//全局初始化区</span></span><br><span class="line"><span class="keyword">char</span> *p1; <span class="comment">//全局未初始化区</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> b; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> s[]=<span class="string">&quot;bb&quot;</span>; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p2; <span class="comment">//栈</span></span><br><span class="line">	<span class="keyword">char</span> *p3=<span class="string">&quot;123&quot;</span>; <span class="comment">//其中，“123\0”常量区，p3在栈区</span></span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> c=<span class="number">0</span>; <span class="comment">//全局区</span></span><br><span class="line">	p1=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="number">10</span>); <span class="comment">//10个字节区域在堆区</span></span><br><span class="line">	<span class="built_in">strcpy</span>(p1,<span class="string">&quot;123&quot;</span>); <span class="comment">//&quot;123\0&quot;在常量区，编译器 可能 会优化为和p3的指向同一块区域</span></span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
 <h3 id="c-c-内存分配有三种方式：">C/C++内存分配有三种方式：</h3>
 <p>（1）从静态存储区域分配。内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在。例如全局变量，static变量。<br>
 （2）在栈上创建。在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元自动被释放。栈内存分配运算内置于处理器的指令集中，效率很高，但是分配的内存容量有限。<br>
@@ -352,6 +363,7 @@ var _hmt = _hmt || [];
 </style>
 
  
+   
      
 </article>
 
@@ -381,7 +393,7 @@ var _hmt = _hmt || [];
         
         
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
   <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
 </span>
@@ -407,9 +419,10 @@ var _hmt = _hmt || [];
       </li>
     </ul>
   </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
@@ -417,8 +430,7 @@ var _hmt = _hmt || [];
   <i class="ri-moon-line"></i>
 </div>
 
-      </div>
-    </main>
+    </div>
     <aside class="sidebar on">
       <button class="navbar-toggle"></button>
 <nav class="navbar">
@@ -490,12 +502,6 @@ var _hmt = _hmt || [];
 </div>
 </div>
     </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
     <div id="mask"></div>
 
 <!-- #reward -->
@@ -518,39 +524,39 @@ var _hmt = _hmt || [];
   </div>
 </div>
     
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
-
-
+ 
 <script src="/js/tocbot.min.js"></script>
 
 <script>
   tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
   });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
 <script src="/dist/main.js"></script>
 
 <!-- ImageViewer -->
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -655,11 +661,9 @@ var _hmt = _hmt || [];
         })
     }
     viewer_init()
-</script>
-
+</script> 
 <!-- MathJax -->
-
-<script type="text/x-mathjax-config">
+ <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
       tex2jax: {
           inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
@@ -679,43 +683,35 @@ var _hmt = _hmt || [];
 <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
   var ayerConfig = {
-    mathjax: true
-  }
+    mathjax: true,
+  };
 </script>
 
 <!-- Katex -->
-
-
+ 
     
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
         
     
-
-
+ 
 <!-- busuanzi  -->
-
-
+ 
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
-
-
+ 
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
-
-
+ 
 <script src="/js/clickBoom2.js"></script>
-
-
+ 
 <!-- CodeCopy -->
-
-
+ 
 <link rel="stylesheet" href="/css/clipboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
   function wait(callback, seconds) {
     var timelag = null;
@@ -769,9 +765,14 @@ var _hmt = _hmt || [];
     initCopyCode();
   }(window, document);
 </script>
-
-
+ 
 <!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
 
 
     
@@ -792,6 +793,8 @@ var _hmt = _hmt || [];
     }
 </style>
     
+    
+
   </div>
 </body>
 

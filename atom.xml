@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-09-02T13:56:47.435Z</updated>
+  <updated>2021-09-03T04:05:18.532Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,19 +16,15 @@
     <link href="http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/"/>
     <id>http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/</id>
     <published>2021-09-02T06:56:00.000Z</published>
-    <updated>2021-09-02T13:56:47.435Z</updated>
+    <updated>2021-09-03T04:05:18.532Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;递归与回溯&quot;&gt;递归与回溯&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Letter Combinations of a Phone
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;说明：本文基于慕课《&lt;a href=&quot;https://coding.imooc.com/class/82.html&quot;&gt;玩转算法面试 从真题到思维全面提升算法思维&lt;/a&gt;》，并加入了一些自己的理解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;递归与回溯框架&quot;&gt;递归与回溯框架&lt;/h2&gt;
+&lt;p&gt;对于递归本身，可以结合二叉树的性质去理解，不是本文讨论的重点。本文讨论了更一般的递归问题和回溯的算法思想，这些问题在本质上也属于树形问题。顾名思义，对于问题解的讨论可以用一颗树来进行表示。来看一些例题&lt;/p&gt;
     
     </summary>
     

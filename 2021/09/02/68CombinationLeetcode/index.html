@@ -15,6 +15,18 @@
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
        
 <link rel="stylesheet" href="/dist/main.css">
 
@@ -95,7 +107,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.8k</span>
+            <span class="post-count">2.3k</span>
         </span>
     </span>
 
@@ -104,7 +116,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">7 min</span>
+            <span class="post-count">10 min</span>
         </span>
     </span>
 </div>
@@ -119,42 +131,55 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="递归与回溯">递归与回溯</h2>
-<ol>
-<li>Letter Combinations of a Phone Number</li>
-</ol>
+  <blockquote>
+<p>说明：本文基于慕课《<a target="_blank" rel="noopener" href="https://coding.imooc.com/class/82.html">玩转算法面试 从真题到思维全面提升算法思维</a>》，并加入了一些自己的理解。</p>
+</blockquote>
+<h2 id="递归与回溯框架">递归与回溯框架</h2>
+<p>对于递归本身，可以结合二叉树的性质去理解，不是本文讨论的重点。本文讨论了更一般的递归问题和回溯的算法思想，这些问题在本质上也属于树形问题。顾名思义，对于问题解的讨论可以用一颗树来进行表示。来看一些例题</p>
+<a id="more"></a>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/">17. Letter Combinations of a Phone Number</a></strong></p>
+<blockquote>
 <p>给出一个数字字符串，返回这个数字字符串能表示的所有字母组合</p>
+</blockquote>
+<p>在梳理算法思路时还要确定以下情况的处理：</p>
 <ul>
 <li>字符串的合法性</li>
 <li>空字符串</li>
 <li>多个解的顺序</li>
 </ul>
+<p>这是一个典型的树形问题，例如对于字符串”23“而言，字符&quot;2&quot;能表示字符&quot;a&quot;, “b”, “c”。字符&quot;3&quot;能表示&quot;d&quot;,“e”,“f”。</p>
+<img src='/assets/image-20210903085804118.png' width='40%'>
+<p>那么就能构建出图中所示的一棵树，用digits表示数字字符串，s(digits)是digits所能代表的字母字符串，则</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mi>s</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>l</mi><mi>e</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>+</mo><mi>s</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>l</mi><mi>e</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>+</mo><mi>l</mi><mi>e</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>+</mo><mi>s</mi><mo stretchy="false">[</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">]</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+&amp;s(digits[0, ..., n-1])\\
+&amp;=letter(digits[0]) + s(digits[1, ..., n-1])\\
+&amp;=letter(digits[0]) + letter(digits[1]) + s[digits[2, ..., n-1]]
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.5em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-3em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span><span style="top:-1.4999999999999991em;"><span class="pstrut" style="height:2.84em;"></span><span class="mord"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">]</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>在上述公式中，求解<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(digits[0,...,n-1])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span>需要递归调用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>d</mi><mi>i</mi><mi>g</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(digits[1,...,n-1])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span>，以此类推。代码如下</p>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; dict;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">string</span> digits, <span class="keyword">int</span> depth, <span class="built_in">string</span> &amp;curStr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(depth == digits.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ans.push_back(curStr);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch:dict[digits[depth]])&#123;</span><br><span class="line">            curStr[depth] = ch;</span><br><span class="line">            dfs(digits, depth+<span class="number">1</span>, curStr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">letterCombinations</span><span class="params">(<span class="built_in">string</span> digits)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = digits.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(n, <span class="string">&#x27;#&#x27;</span>)</span></span>;</span><br><span class="line">        dict[<span class="string">&#x27;2&#x27;</span>] = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;3&#x27;</span>] = <span class="string">&quot;def&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;4&#x27;</span>] = <span class="string">&quot;ghi&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;5&#x27;</span>] = <span class="string">&quot;jkl&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;6&#x27;</span>] = <span class="string">&quot;mno&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;7&#x27;</span>] = <span class="string">&quot;pqrs&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;8&#x27;</span>] = <span class="string">&quot;tuv&quot;</span>;</span><br><span class="line">        dict[<span class="string">&#x27;9&#x27;</span>] = <span class="string">&quot;wxyz&quot;</span>;</span><br><span class="line">        dfs(digits, <span class="number">0</span>, str);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p>回溯法是暴力解法的一个主要实现手段</p>
-<ol start="2">
-<li>Restore IP Addresses</li>
-</ol>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/restore-ip-addresses/">Restore IP Addresses</a></strong></p>
 <p>给一个数字字符串，为这个数字子字符串加上三个点，使其成为一个合法的ip地址，返回所有的合法ip地址</p>
 <ul>
 <li>如给定字符串&quot;25525511135&quot;</li>
 <li>返回{“255.255.11.135”, “255.255.111.35”}</li>
 </ul>
-<ol start="3">
-<li>Palindrome Partitioning</li>
-</ol>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/palindrome-partitioning/">Palindrome Partitioning</a></strong></p>
 <p>给出一个字符串，拆分这个字符串，使得所有拆分的子串都是回文字符串，返回所有的拆分可能</p>
 <ul>
 <li>给定字符串s=“aab”</li>
 <li>结果为[[“aa”, “b”], [“a”, “a”, “b”]]</li>
 </ul>
-<ol start="4">
-<li>Permutations</li>
-</ol>
+<h2 id="排列问题">排列问题</h2>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/permutations/">Permutations</a></strong></p>
 <p>给定一个整形数组，其中各个元素都不相同，返回这些元素所有排列的可能。全排列问题，其递归形式为</p>
 <p><img src="/assets/image.png" alt="Image"></p>
 <p>注意变量的恢复</p>
-<ol start="5">
-<li>Permutations II</li>
-</ol>
+<p><strong><a target="_blank" rel="noopener" href="https://leetcode.com/problems/permutations-ii/">Permutations II</a></strong></p>
 <p>给定一个整型数组，其中可能有相同的元素，返回这些元素所有排列的可能</p>
 <ul>
 <li>如对于[1,1,2]</li>
@@ -167,7 +192,10 @@ var _hmt = _hmt || [];
 <li>结果为[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]</li>
 </ul>
 <p>注意不能重复，因此每次从上一个数字之后开始取，但当n和k的规模大了以后就会比较吃力，采用<strong>回溯法的剪支</strong></p>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getComb</span><span class="params">(<span class="keyword">int</span> depth, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tmp, <span class="keyword">int</span> start)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(depth == k)&#123;</span><br><span class="line">        ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当前已经有tmp.size()个元素，还要在[1,n]中找出k-tmp.size()个</span></span><br><span class="line">    <span class="comment">// 则i最多为n - (k-c.size()) + 1</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start;i &lt;= n - (k-c.<span class="built_in">size</span>()) + <span class="number">1</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(i);</span><br><span class="line">        getComb(depth+<span class="number">1</span>, tmp, i);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combine</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;n = n;</span><br><span class="line">    <span class="keyword">this</span>-&gt;k = k;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    getComb(<span class="number">0</span>, tmp, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p><strong>39. Combination Sum</strong></p>
 <p>给出一个集合，其中所有的元素各不相同，以及一个数字T。寻找所有该集合中的元素组合，使得组合中的所有元素和为T。（注意集合中每一个元素可以使用多次）</p>
 <ul>
@@ -175,27 +203,38 @@ var _hmt = _hmt || [];
 <li>返回[[7], [2,2,3]]</li>
 <li>代码，排序加快搜索速度</li>
 </ul>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">        ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt; n &amp;&amp; target-arr[i]&gt;=<span class="number">0</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(arr[i]);</span><br><span class="line">        dfs(arr, target-arr[i], tmp, i);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    n = candidates.size();</span><br><span class="line">    sort(candidates.begin(), candidates.end());</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    dfs(candidates, target, tmp, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p><strong>40. Combination Sum II</strong></p>
 <p>给出一个集合，其中元素可能相同，以及一个数字T。寻找所有该集合中的元素组合，使得组合中所有元素的和为T。（注意：集合中每一个元素只能用一次）</p>
 <ul>
 <li><strong>代码——巧妙地去重</strong></li>
 </ul>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; tmp, <span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">            ans.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt; arr.<span class="built_in">size</span>() &amp;&amp; target-arr[i] &gt;= <span class="number">0</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; arr[i] == arr[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(arr[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> copy = arr[i];</span><br><span class="line">                arr[i] = <span class="number">0</span>;</span><br><span class="line">                tmp.push_back(copy);</span><br><span class="line">                dfs(arr, target-copy, tmp, i+<span class="number">1</span>);</span><br><span class="line">                arr[i] = copy;</span><br><span class="line">                tmp.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum2</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = candidates.<span class="built_in">size</span>();</span><br><span class="line">        sort(candidates.<span class="built_in">begin</span>(), candidates.<span class="built_in">end</span>()); <span class="comment">// 排个序，加快搜索效率</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">        dfs(candidates, target, tmp, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p><strong>216. Combination Sum III</strong></p>
 <p>在1-9这九个数字中，选出k个数字，每个数字只能使用一次，使得其和为n</p>
 <ul>
 <li>如n=7, k = 3, 结果为【【1，2，4】】</li>
 <li>代码</li>
 </ul>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; flag;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> n, <span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(k == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) ans.push_back(tmp);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt;= <span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!flag[i])&#123;</span><br><span class="line">            flag[i] = <span class="literal">true</span>;</span><br><span class="line">            tmp.push_back(i);</span><br><span class="line">            dfs(k<span class="number">-1</span>, n-i, i, tmp);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">            flag[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">combinationSum3</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    flag = <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(<span class="number">10</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    dfs(k, n, <span class="number">1</span>, tmp);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p><strong>377. Combination Sum IV</strong></p>
 <p>给定一组不同的整数 nums 和一个目标整数目标，返回加起来为目标的可能组合数。 答案保证适合 32 位整数。</p>
 <ul>
 <li>如nums = [1,2,3], target = 4，结果为7</li>
-<li>代码</li>
 </ul>
+<div style="margin-top: -20px;"><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div><div class="fold">
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;tmp)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target == <span class="number">0</span>)&#123;</span><br><span class="line">        ans++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.<span class="built_in">size</span>() &amp;&amp; target-nums[i]&gt;=<span class="number">0</span>;i++)&#123;</span><br><span class="line">        tmp.push_back(nums[i]);</span><br><span class="line">        dfs(nums, target-nums[i], tmp);</span><br><span class="line">        tmp.pop_back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">combinationSum4</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    sort(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    ans = <span class="number">0</span>;</span><br><span class="line">    dfs(nums, target, tmp);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div><div class="fold_hider"><div class="close hider_title"><span style="color:gray;font-size:12px">点击查看代码</span></div></div></div>
 <p>上面四个力扣的组合问题是递归问题中的典型代表，通过对这些题目的理解和细节对比能够轻而易举总结处一套模板出来。尽管在Combination Sum IV中这样的模板因超时而无法AC，但这并不影响我们对这一类问题的理解。仔细观察这些题目中<strong>细微的区别与解法的调整</strong>，这是模板定制的基本功。下面再次的进行梳理：</p>
 <ol>
 <li>对于数组中<strong>有重复元素</strong>，但每个只能使用一次（Combination Sum II）</li>
@@ -204,14 +243,10 @@ var _hmt = _hmt || [];
 <li>对于数字各不相同，且不能重复使用（Combination Sum III）</li>
 </ol>
 <p>从上面这四种条件中，我整理出以下的应对方案：</p>
-<ol>
-<li>对于数组中有重复元素的情况，如果不加以区别，会造成重复的结果，举例来说[1,1,2,5,7]要凑成8。直接套用模板时难免出现结果中有两个[1,2,5],[1,7]的情况。这时候可以在循环中加入去重的语句，避免同一个数字重复的在一次搜索中两次作为起点，也就是</li>
-</ol>
+<p>1.对于数组中有重复元素的情况，如果不加以区别，会造成重复的结果，举例来说[1,1,2,5,7]要凑成8。直接套用模板时难免出现结果中有两个[1,2,5],[1,7]的情况。这时候可以在循环中加入去重的语句，避免同一个数字重复的在一次搜索中两次作为起点，也就是</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; arr[i] == arr[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>对于结果可以重复的就是模板直接求出来的结果</li>
-<li>对于不可以重复，可以在递归过程中引入index来标记上一次查的位置，让每次新的位置只能在上一次之后，就避免了结果重复的问题，见Combination Sum II。</li>
-</ol>
+<p>2.对于结果可以重复的就是模板直接求出来的结果</p>
+<p>3.对于不可以重复，可以在递归过程中引入index来标记上一次查的位置，让每次新的位置只能在上一次之后，就避免了结果重复的问题，见Combination Sum II。</p>
 <p>组合问题是计算机中一类比较重要的问题，它的扩展问题可以是子集问题（No. 78, No. 90）,也可以是岛屿问题（<a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-islands/">No. 200</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-islands-ii/">No. 305</a>, <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-distinct-islands/">No. 694</a>）等等，尽管形式丰富，但主要是围绕递归和回溯来展开的，以点及面可以逐步解决此类问题。</p>
  
       <!-- reward -->
@@ -374,10 +409,11 @@ var _hmt = _hmt || [];
       <li>
         
         
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
 </span>
         
       </li>
@@ -680,6 +716,7 @@ var _hmt = _hmt || [];
  
 <!-- busuanzi  -->
  
+  
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
  
 <!-- ClickLove -->

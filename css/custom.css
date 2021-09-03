@@ -1,3 +1,19 @@
+.hider_title {
+  font-family: "Microsoft Yahei";
+  cursor: pointer;
+}
+.close:before {
+  content: "▼";
+}
+.open:before {
+  content: "▲";
+}
+.post-body div.fold_hider {
+  margin-left: 1.5em;
+}
+.post-body div.fold {
+  margin-top: -15px;
+}
 .sidebar {
   left: -8rem;
   width: 8rem;

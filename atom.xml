@@ -6,17 +6,40 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-09-03T04:05:18.532Z</updated>
+  <updated>2021-09-03T06:16:59.308Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>腾讯字节实习面试总结</title>
+    <link href="http://www.yulezhang.com/2021/09/03/69InternSummary/"/>
+    <id>http://www.yulezhang.com/2021/09/03/69InternSummary/</id>
+    <published>2021-09-03T05:10:00.000Z</published>
+    <updated>2021-09-03T06:16:59.308Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期想找一份关于后台开发的实习，全力准备了一个半月的算法，当前此前也有零碎的刷题。然后就直接投简历了，收到腾讯和字节两家面试通知，面试问题如下。&lt;/p&gt;
+&lt;h3 id=&quot;腾讯&quot;&gt;腾讯&lt;/h3&gt;
+&lt;p&gt;腾讯面经，部门主要是做AI算法的呈现&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实习" scheme="http://www.yulezhang.com/categories/%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣排列组合问题梳理（超详细）</title>
     <link href="http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/"/>
     <id>http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/</id>
     <published>2021-09-02T06:56:00.000Z</published>
-    <updated>2021-09-03T04:05:18.532Z</updated>
+    <updated>2021-09-03T05:09:34.743Z</updated>
     
     <summary type="html">
     
@@ -29,15 +52,19 @@
     </summary>
     
     
+      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="http://www.yulezhang.com/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Notice</title>
+    <title>网站公告</title>
     <link href="http://www.yulezhang.com/2021/08/17/67Notice/"/>
     <id>http://www.yulezhang.com/2021/08/17/67Notice/</id>
     <published>2021-08-17T12:55:00.000Z</published>
-    <updated>2021-08-17T13:23:03.309Z</updated>
+    <updated>2021-09-03T06:20:09.579Z</updated>
     
     <summary type="html">
     
@@ -45,15 +72,15 @@
       
         
         
-          &lt;h1&gt;网站公告&lt;/h1&gt;
-&lt;p&gt;Hello，大家好，很久没发博客了。最近更换了服务器，配置了域名的SSL，使得网站更加稳定。这篇文章是对目前该博客内容的一些说明。之前的文章主要是每周汇报的迁移，直接放到网站上来了，也没有做调整。导致有时内容很不连续，而且都是比较硬核的专业知识，
+          &lt;hr&gt;
+&lt;p&gt;Hello，大家好，很久没发博客了。最近更换了服务器，配置了域名的SSL，使得网站更加稳定。这篇文章是对目前该博客内容的一些说明。之前的文章主要是每周汇报的迁移，直接放到网站上来了，也没有做调整。导致有时内容很不连续，而且都是比较硬核的专业知识，那时候网站对我来说
         
       
     
     </summary>
     
     
-      <category term="free talk" scheme="http://www.yulezhang.com/categories/free-talk/"/>
+      <category term="公告" scheme="http://www.yulezhang.com/categories/%E5%85%AC%E5%91%8A/"/>
     
     
   </entry>
@@ -63,7 +90,7 @@
     <link href="http://www.yulezhang.com/2021/05/02/66CodeDetect/"/>
     <id>http://www.yulezhang.com/2021/05/02/66CodeDetect/</id>
     <published>2021-05-02T12:46:00.000Z</published>
-    <updated>2021-05-03T08:01:28.468Z</updated>
+    <updated>2021-09-03T05:37:20.721Z</updated>
     
     <summary type="html">
     
@@ -81,7 +108,9 @@
     </summary>
     
     
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="实验复现" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E5%AE%9E%E9%AA%8C%E5%A4%8D%E7%8E%B0/"/>
     
     
   </entry>
@@ -91,7 +120,7 @@
     <link href="http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/"/>
     <id>http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/</id>
     <published>2021-04-23T02:35:00.000Z</published>
-    <updated>2021-04-25T11:26:16.123Z</updated>
+    <updated>2021-09-03T05:37:32.843Z</updated>
     
     <summary type="html">
     
@@ -102,7 +131,9 @@
     </summary>
     
     
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
@@ -112,7 +143,7 @@
     <link href="http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/"/>
     <id>http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/</id>
     <published>2021-04-18T12:59:00.000Z</published>
-    <updated>2021-04-18T12:59:18.931Z</updated>
+    <updated>2021-09-03T05:37:45.603Z</updated>
     
     <summary type="html">
     
@@ -121,7 +152,9 @@
     </summary>
     
     
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="实验复现" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E5%AE%9E%E9%AA%8C%E5%A4%8D%E7%8E%B0/"/>
     
     
   </entry>
@@ -131,7 +164,7 @@
     <link href="http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/"/>
     <id>http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/</id>
     <published>2021-04-11T02:41:00.000Z</published>
-    <updated>2021-04-18T10:47:58.958Z</updated>
+    <updated>2021-09-03T05:37:55.608Z</updated>
     
     <summary type="html">
     
@@ -140,7 +173,9 @@
     </summary>
     
     
-      <category term="周报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%8A%A5/"/>
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>
@@ -150,7 +185,7 @@
     <link href="http://www.yulezhang.com/2021/03/28/62QML-Collections/"/>
     <id>http://www.yulezhang.com/2021/03/28/62QML-Collections/</id>
     <published>2021-03-28T12:50:00.000Z</published>
-    <updated>2021-04-04T07:00:29.408Z</updated>
+    <updated>2021-09-03T05:18:32.356Z</updated>
     
     <summary type="html">
     
@@ -165,17 +200,17 @@
     </summary>
     
     
-      <category term="学习" scheme="http://www.yulezhang.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="资料整理" scheme="http://www.yulezhang.com/categories/%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/"/>
     
     
   </entry>
   
   <entry>
-    <title>周报-26</title>
+    <title>《智能时代》读书笔记</title>
     <link href="http://www.yulezhang.com/2021/03/27/60ReadBook/"/>
     <id>http://www.yulezhang.com/2021/03/27/60ReadBook/</id>
     <published>2021-03-27T13:15:14.000Z</published>
-    <updated>2021-03-28T13:47:22.959Z</updated>
+    <updated>2021-09-03T05:57:39.112Z</updated>
     
     <summary type="html">
     
@@ -183,6 +218,8 @@
     
     </summary>
     
+    
+      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
@@ -194,7 +231,7 @@
     <link href="http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/"/>
     <id>http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/</id>
     <published>2021-03-27T10:00:00.000Z</published>
-    <updated>2021-03-28T12:58:12.507Z</updated>
+    <updated>2021-09-03T05:26:12.543Z</updated>
     
     <summary type="html">
     
@@ -202,6 +239,8 @@
     
     </summary>
     
+    
+      <category term="随笔" scheme="http://www.yulezhang.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
@@ -211,7 +250,7 @@
     <link href="http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/"/>
     <id>http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/</id>
     <published>2021-03-20T00:33:14.000Z</published>
-    <updated>2021-03-21T05:42:33.443Z</updated>
+    <updated>2021-09-03T05:38:17.665Z</updated>
     
     <summary type="html">
     
@@ -224,6 +263,8 @@
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
     
   </entry>
   
@@ -232,7 +273,7 @@
     <link href="http://www.yulezhang.com/2021/03/14/58Grover/"/>
     <id>http://www.yulezhang.com/2021/03/14/58Grover/</id>
     <published>2021-03-14T13:21:17.000Z</published>
-    <updated>2021-03-14T14:39:16.425Z</updated>
+    <updated>2021-09-03T05:38:24.627Z</updated>
     
     <summary type="html">
     
@@ -254,6 +295,8 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
     
   </entry>
   
@@ -262,7 +305,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/"/>
     <id>http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/</id>
     <published>2021-03-07T14:21:17.000Z</published>
-    <updated>2021-03-07T14:23:02.273Z</updated>
+    <updated>2021-09-03T05:38:35.778Z</updated>
     
     <summary type="html">
     
@@ -276,6 +319,8 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
     
   </entry>
   
@@ -284,7 +329,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2021/02/28/56WinterVacation/"/>
     <id>http://www.yulezhang.com/2021/02/28/56WinterVacation/</id>
     <published>2021-02-28T13:39:17.000Z</published>
-    <updated>2021-03-07T14:22:42.965Z</updated>
+    <updated>2021-09-03T05:38:47.826Z</updated>
     
     <summary type="html">
     
@@ -295,6 +340,8 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
     
   </entry>
   
@@ -303,7 +350,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2021/01/05/55WritingCorpus/"/>
     <id>http://www.yulezhang.com/2021/01/05/55WritingCorpus/</id>
     <published>2021-01-05T12:37:17.000Z</published>
-    <updated>2021-07-13T02:03:53.782Z</updated>
+    <updated>2021-09-03T05:39:14.266Z</updated>
     
     <summary type="html">
     
@@ -320,25 +367,10 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Science Writing</title>
-    <link href="http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/"/>
-    <id>http://www.yulezhang.com/2020/12/20/54Study-Report(1214-0115)/</id>
-    <published>2020-12-20T09:30:12.000Z</published>
-    <updated>2021-01-15T03:16:20.362Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, it&#39;s a secret, please enter password to read.
-    
-    </summary>
+      <category term="论文写作" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/"/>
     
     
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
+      <category term="语料" scheme="http://www.yulezhang.com/tags/%E8%AF%AD%E6%96%99/"/>
     
   </entry>
   
@@ -347,7 +379,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/12/14/52PaperWriting/"/>
     <id>http://www.yulezhang.com/2020/12/14/52PaperWriting/</id>
     <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2021-01-01T03:03:38.936Z</updated>
+    <updated>2021-09-03T05:39:58.295Z</updated>
     
     <summary type="html">
     
@@ -359,24 +391,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>开始写论文啦</title>
-    <link href="http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/"/>
-    <id>http://www.yulezhang.com/2020/12/14/53Study-Report(1207-1213)/</id>
-    <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2020-12-20T09:32:08.636Z</updated>
-    
-    <summary type="html">
-    
-      Welcome to my blog, enter password to read.
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+      <category term="论文写作" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/"/>
     
     
   </entry>
@@ -386,7 +401,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/12/08/51DeepLearning/"/>
     <id>http://www.yulezhang.com/2020/12/08/51DeepLearning/</id>
     <published>2020-12-08T12:21:12.000Z</published>
-    <updated>2020-12-21T06:07:44.475Z</updated>
+    <updated>2021-09-03T05:20:44.192Z</updated>
     
     <summary type="html">
     
@@ -395,7 +410,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     </summary>
     
     
-      <category term="深度学习" scheme="http://www.yulezhang.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
@@ -405,7 +420,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/"/>
     <id>http://www.yulezhang.com/2020/12/06/50Study-Report(1130-1206)/</id>
     <published>2020-12-06T10:56:12.000Z</published>
-    <updated>2020-12-20T09:32:17.498Z</updated>
+    <updated>2021-09-03T05:40:15.418Z</updated>
     
     <summary type="html">
     
@@ -420,6 +435,8 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
     
   </entry>
   
@@ -428,7 +445,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/"/>
     <id>http://www.yulezhang.com/2020/11/29/49Study-Report(1123-1129)/</id>
     <published>2020-11-29T12:31:17.000Z</published>
-    <updated>2020-11-29T12:33:34.869Z</updated>
+    <updated>2021-09-03T05:40:24.443Z</updated>
     
     <summary type="html">
     
@@ -441,6 +458,33 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
     
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络应用——基于DNS绕开校园网认证</title>
+    <link href="http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/"/>
+    <id>http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/</id>
+    <published>2020-11-29T03:27:17.000Z</published>
+    <updated>2021-09-03T05:41:56.456Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这篇文章我想分享一下我与校园网斗智斗勇的过程哈哈哈&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="技术改变生活" scheme="http://www.yulezhang.com/categories/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="计算机网络" scheme="http://www.yulezhang.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="骚操作" scheme="http://www.yulezhang.com/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   

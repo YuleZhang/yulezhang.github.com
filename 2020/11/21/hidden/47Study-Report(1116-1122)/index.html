@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>2020量子物理与智能计算交叉研讨会(QCAI2020)总结 |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-hidden/47Study-Report(1116-1122)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  2020量子物理与智能计算交叉研讨会(QCAI2020)总结
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/21/hidden/47Study-Report(1116-1122)/" class="article-date">
+  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">2020-11-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">5.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">18 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>本周继续根据上周的研究思路读论文学习，以下是一些学习收获</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="量子并行神经网络和程嵩第四章">量子并行神经网络和程嵩第四章</h2>
+<p>本周重新温习了一下Bilibili冉仕举的《张量网络基础课程视频》，主要复习了纠缠熵面积律和MPO简述这一部分，纠缠熵面积定律的内容是：</p>
+<p><strong>对于D维格点系统的量子态，将体系二分后，两部分之间的纠缠熵满足</strong></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>∼</mo><mi>O</mi><mo stretchy="false">(</mo><msup><mi>l</mi><mrow><mi>D</mi><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S \sim O(l^{D-1})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.141331em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中l代表空间尺度</p>
+<p><strong>推论</strong>：MPS满足一维量子态的纠缠熵面积定律，一维纠缠熵面积定律S是一个常数，<strong>只与辅助指标的维度有关</strong>。</p>
+<p>二维纠缠熵面积定律意味着一条直线无法对张量网络态进行二分，例如PEPS就满足的是<strong>二维量子态纠缠熵面积定律</strong>，要切分出PEPS中的一块，必须沿两个方向，如下图所示。</p>
+<img src='/assets/1605964125053.png' width='50%'>
+<p>MPO与一维热力学计算，TEBD可以用于计算一维格点模型的热力学性质，被称为线性张量重整化群算法。TEBD算法思路有两种.第一种是可以仅用一层MPS，让<strong>张量网络进行逐层收缩到MPS</strong>上，第二种是可以用<strong>MPO表示并直接进行收缩</strong>，最终都是为了<strong>计算有限温度密度算符</strong>。看完之后我又回过头来看程嵩的第四章，感觉很多地方豁然开朗，就能看明白了</p>
+<p>总结一下程嵩第四章的内容就是用<strong>MPO代替神经网络的全连接层</strong>，因为全连接层参数实在是太多了，因此这种方式可减少参数，并基于<strong>MNIST和CIFAR10</strong>进行了实验，下面一张图就可概况本章的核心思想。这是一个不错的思路，可以直接用于任何具有全连接层的神经网络，HTN中的线性层可以考虑用MPO进行替换。</p>
+<img src='/assets/1605964223417.png' width='50%'>
+<p>另外<strong>量子并行神经网络</strong>又看了一遍，在这次细看的过程中有一些困惑同时又有一些新的收获。</p>
+<p>困惑呢就是有两个公式推不出来，一个是<strong>神经元y的叠加态表示</strong>，另一个是<strong>概率的计算（用到了欧拉公式）</strong>，问了他们也还是没弄出来，只能先放一放，纠结这个意义也确实不大。</p>
+<p>新收获就是<strong>Quron可以看作sigmoid神经元的量子化版本</strong>，是为了引入非线性，基于测量与编码。同时这个量子多选门MUX的目的是为了<strong>更多的基函数</strong>，进一步利用量子并行性，同时计算多个不同权重或结构的神经网络。</p>
+<p>同时在<font color='red'>A quantum-implementable neural network model</font>这篇文章中也了解到这个量子多选门<strong>MUX也是充当了一个Dropout层</strong>的作用，通过相位theta每次随机的丢弃一些神经元，这样能够显著的减少计算的开销，改善分类结果。但是实验部分讲解不是特别详细，仅是贴出了实验结果，实验细节不太清楚，比如如何用MATLAB进行量子线路模拟就不是很清楚。</p>
+<p>将上面的两个方案结合到一起就是一个不错的创新，程嵩这个MPO代替全连接层的方案基于张量网络，完全可以<strong>通过引入张量网络的量子态表示和运算</strong>，构造出<strong>Quantum MPO</strong>用于神经网络结构的优化，从而<strong>减少参数并提高算法的效率</strong>。最后我将这个思路进行了简单的整理，记录在了Overleaf上，目前实验部分还是很抽象，思路不清晰。</p>
+<h2 id="量子遗传算法-多宇宙并行">量子遗传算法+多宇宙并行</h2>
+<p>量子多宇宙并行算法主要是提出了一种<strong>神经网络中的权重初始化方式</strong>.因为一般的神经网格的权重都是随机初始化的,这可能会存在梯度消失或者梯度爆炸的问题.这篇文章QGA算法通过,针对在同一个宇宙内部的量子个体,算法采用的是量子旋门调整来搜索最优解.文中采用的量子交叉策略如下</p>
+<p>（1）按单个宇宙中染色体种群整体30%概率从染色体种群中选取个体.</p>
+<p>（2）对1）中选择的染色体种群分别进行一次测量，得到一组确定<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Pa_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><msub><mi>b</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">Pb_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，计算它们的适应度值.</p>
+<p>（3）以星形宇宙模型为例，首先在模型中选取另一个宇宙，以该宇宙的最终演化目标作为当前个体的演化方向，然后对选取的量子染色体个体进行一次量子旋转门的演化操作.</p>
+<p>（4）重复1）~3）操作，直到全部宇宙都完成量子个体的交叉操作.</p>
+<p>实验中的ORL人脸识别率约在90%左右，仅给出不同算法的运行时间上的差别，但不知数据是否可靠，因为这篇文章缺乏实验细节，即采用什么平台来模拟或者实现量子门的运算和操作。对量子比特的操作也很简单，只是做了一个旋转角的操作.在这里遗传算法是为了优化权值，适应度函数也没给，相当粗糙了.</p>
+<h2 id="2020量子物理与智能计算交叉研讨会-qcai2020"><a target="_blank" rel="noopener" href="https://qcaitju.github.io/qcai2020/#3">2020量子物理与智能计算交叉研讨会(QCAI2020)</a></h2>
+<p>此次“量子物理与智能计算交叉研讨会”将讨论量子物理、计算机科学与技术、人工智能等交叉学科的前沿进展，以及目前量子科技发展的挑战和机会。主题包括（且不限于）<strong>人工智能在量子物理的应用、量子人工智能、量子机器学习、量子信息检索、自然语言处理、现阶段量子技术和人工智能技术的挑战</strong>等，与我目前的研究方向非常吻合，同时也是之前刘丁老师推荐我参加的workshop。</p>
+<p>这次分享的大佬还是蛮多的，我就简单总结回顾一下几个我印象比较深的老师。</p>
+<h3 id="翟荟-清华大学-：quantum-information-scrambling-and-quantum-neural-network">翟荟（清华大学）：Quantum Information Scrambling and Quantum Neural Network</h3>
+<ul>
+<li><em>Shen, Huitao, et al. “Information scrambling in quantum neural networks.” Physical Review Letters 124.20 (2020): 200504.</em></li>
+</ul>
+<p>在这个汇报里，主要是提出了一种<font color='red'>量子神经网络的概念</font>，量子神经网络的概念与经典神经网络的概念对比如下图所示</p>
+<img src='/assets/1605966045957.png' width='70%'>
+<p>从图中可以看到，从经典到量子，对应着以下变化</p>
+<ul>
+<li>输入从向量变成了波函数</li>
+<li>从各种各样的函数(线性矩阵变换+非线性激活函数作用)变成了酉变换</li>
+<li>输出从<strong>数字</strong>(一般表示预测类别或者预测值)变成了<strong>测量</strong></li>
+<li>经典通过对输入信息进行特征抽取，而量子神经网络则保存所有输入信息(可逆)</li>
+</ul>
+<p>这里定义了<strong>平均Operator size</strong>去刻画一个量子门电路的结构（主要是看进行了多少有效的酉变换）</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">e</mi></mrow><mo stretchy="true">‾</mo></mover><mo>=</mo><mo>∫</mo><mi>d</mi><mover accent="true"><mi mathvariant="script">U</mi><mo>^</mo></mover><mi mathvariant="normal">size</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><msup><mover accent="true"><mi mathvariant="script">U</mi><mo>^</mo></mover><mo lspace="0em" rspace="0em">†</mo></msup><mover accent="true"><mi>M</mi><mo>^</mo></mover><mover accent="true"><mi mathvariant="script">U</mi><mo>^</mo></mover><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\overline{\mathrm{Size}}=\int d \hat{\mathcal{U}} \operatorname{size}\left(\hat{\mathcal{U}}^{\dagger} \hat{M} \hat{\mathcal{U}}\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8833300000000001em;vertical-align:0em;"></span><span class="mord overline"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8833300000000001em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">S</span><span class="mord mathrm">i</span><span class="mord mathrm">z</span><span class="mord mathrm">e</span></span></span></span><span style="top:-3.80333em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.22225em;vertical-align:-0.86225em;"></span><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mord mathrm">s</span><span class="mord mathrm">i</span><span class="mord mathrm">z</span><span class="mord mathrm">e</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">†</span></span></span></span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">U</span></span></span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></p>
+<p>常见的量子门电路结构如下</p>
+<p><img src='/assets/1606116270218.png' width='80%'></img></p>
+<p>而将这些一块一块的酉变换电路进行集成，从而批量能设计出深度量子线路结构，而作者呢通过实验验证，这个<strong>cubic结构的OperatorSize最高</strong>，采用不同的结构进行监督学习任务，查看loss和acc可以发现模型的准确率跟刚刚提到的指标Operator Size成正相关，也就是说还是Cubic结构的模型效果最好，BrickWall效果最差。</p>
+<p>另外一个指标Tripartite Information用来描写信息扩散的程度，也通过各种各样的实验去验证不同结构和深度的互信息关联程度。</p>
+<h3 id="吕定顺-华为2012实验室-：hiq3-0量子计算模拟器及开发者工具">吕定顺（华为2012实验室）：HiQ3.0量子计算模拟器及开发者工具</h3>
+<p>HiQ3.0是<strong>量子计算模拟器</strong>，它能帮助我们设计并实现一些复杂的量子线路，这对科研者帮助很大，能够帮我们快速高效的进行建模。与此类似的还有百度的量浆、量脉、量易伏等等，阿里的<strong>太章</strong>量子电路模拟器，其背后是有强大的云计算资源支持。这部分比较重要的是了解一些这些<strong>不同量子计算工具的优劣</strong>，从而选择一款适合我们目前开发研究的工具。</p>
+<p>华为量子计算平台所包含的一些主要功能</p>
+<p><img src="/assets/1606119321882.png" alt="1606119321882"></p>
+<p>下面这张图是国内大厂的量子方面的研究进展</p>
+<p><img src="/assets/1606119270410.png" alt="1606119270410"></p>
+<p>国内外未来量子计算技术的发展方向</p>
+<p><img src="/assets/1606119394174.png" alt="1606119394174"></p>
+<h3 id="nlp专场">NLP专场</h3>
+<p>这部分主要由以下三位老师进行解释,由于我对NLP不是很了解,因此将其放在一起</p>
+<ul>
+<li><em>Guo, Qipeng, et al. “Star-transformer.” arXiv preprint arXiv:1902.09113 (2019).</em></li>
+<li><em>Niu, Yilin, et al. “Improved word representation learning with sememes.” Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2017.</em></li>
+<li><em>Xin, Ji, et al. “Improving Neural Fine-Grained Entity Typing With Knowledge Attention.” AAAI. 2018.</em></li>
+</ul>
+<p><strong>邱锡鹏（复旦大学）/刘知远（清华大学）/张鹏（天津大学）</strong></p>
+<h4 id="nlp的一些简单介绍">NLP的一些简单介绍</h4>
+<ul>
+<li>让计算机去理解和使用人类语言，都是在完成一个<strong>语义结构预测</strong>的功能，这个领域有很多任务如下图所示</li>
+</ul>
+<img src='/assets/1606120552900.png' width='80%'>
+<ul>
+<li>对语言的深度理解需要一定的知识</li>
+</ul>
+<img src='/assets/1606121213477.png' width='70%'>
+<pre><code> 如图所示，人类知识分为不同的层次，从语义的层次理解*“The summer is like an oven.”*，**通过层层递进，在不同的语境中同样一句话表达不同的含义，那么这就需要计算机掌握对不同层次知识的理解**。
+</code></pre>
+<h4 id="nlp的一般处理过程">NLP的一般处理过程</h4>
+<ul>
+<li>
+<p>将句子进行分词、word2vec生成词向量、将词向量输入各种神经网络训练、最后进行评价</p>
+</li>
+<li>
+<p>NLP常用的一些模型</p>
+</li>
+</ul>
+<p><img src="/assets/1606042451941.png" alt="1606042451941"></p>
+<p>目前最适合NLP的模型是Transformer，还有一些可以迁移的预训练模型，如下所示</p>
+<img src='/assets/1606124086939.png' width='80%'>
+<ul>
+<li>Devlin, Jacob, et al. “Bert: Pre-training of deep bidirectional transformers for language understanding.” <em>arXiv preprint arXiv:1810.04805</em> (2018).</li>
+</ul>
+<p>Google Bert语言模型，NLP的领域的重要进展，在机器阅读理解顶级水平测试SQuAD1.1(Wikipedia articles question-answer pairs)中表现出惊人的成绩，目前cited: 12577</p>
+<p><img src="/assets/1606648026391.png" alt="1606648026391"></p>
+<p>常用的中文汉字有 3500 个，这些字组合成词汇，中文词汇数量高达 50 万个。假如词向量的维度是 512，那么语言模型的参数数量，至少是512 * 50万 = 256M。</p>
+<h4 id="nlp与量子理论">NLP与量子理论</h4>
+<p>先来看看量子信息检索的发展阶段</p>
+<p><img src="/assets/1606124610617.png" alt="1606124610617"></p>
+<p>在建模句子的序列关系时，利用酉演化可以很好的模拟马尔科夫链的过程，将每个词映射成一元向量，作为量子系统的输入，用量子概率去建模语言。</p>
+<p>单词表示成投影算子，词组表示，文档测量算子表示。经典概率计算语言模型和量子版本的语言模型对比见下图</p>
+<p><img src="/assets/1606124765562.png" alt="1606124765562"></p>
+<p>因此量子语言模型的优势为</p>
+<ul>
+<li>使用密度矩阵建模一句话的概率分布</li>
+<li>密度矩阵的维度不用随着词表的维度增加而增加</li>
+</ul>
+<p>HowNet语义知识库：<a target="_blank" rel="noopener" href="https://openhownet.thunlp.org/">这里</a></p>
+<p><strong>清华大学NLP实验室: <a target="_blank" rel="noopener" href="https://github.com/thunlp">Github地址</a></strong></p>
+<h3 id="刘丁-天津工业大学-和冉仕举-首都师范大学">刘丁（天津工业大学）和冉仕举（首都师范大学）</h3>
+<p>这是我们非常熟悉的两位大佬啦,我相信不用我再进行过多的介绍,他们的资料在此次Workshop官网上有很多介绍,我们目前做的很多工作内容与他们两个密切相关,同时他们的论文大部分我们也都读过,因此停下来整体感觉还是比较棒的.</p>
+<p>刘丁老师呢主要讲了<strong>Unitary algorithm inspired by MERA</strong>那篇文章,就是用<strong>五阶环境张量E和T进行分解处理来更新张量网络</strong>,还有就是那篇<strong>HTN</strong>了,看了不知多少遍的那篇.</p>
+<ul>
+<li><em>Liu, Ding, et al. “Machine learning by unitary tensor network of hierarchical tree structure.” New Journal of Physics 21.7 (2019): 073059.</em></li>
+<li><em>Liu, Ding, Zekun Yao, and Quan Zhang. “Quantum-Classical Machine learning by Hybrid Tensor Networks.” arXiv preprint arXiv:2005.09428 (2020).</em></li>
+</ul>
+<p>整个过程中他也反复的提到了<strong>参数过多/过拟合</strong>的问题,同时他也抛出了他的一些思考,如下图所示,这些问题也是目前我们正在想办法去解决的部分</p>
+<ul>
+<li>
+<p><strong>有关张量网络机器学习的部分理论问题尚未廓清</strong></p>
+<p>—  参数复杂度、泛化误差界、稳定性、面积率对表征能力的影响等等</p>
+</li>
+<li>
+<p><strong>张量网络是否适用于构建大规模的深度学习模型？</strong></p>
+</li>
+<li>
+<p><strong>张量网络适用于何种机器学习问题？</strong></p>
+<p>—  输入数据可以用更适空间张量网络来表征的问题</p>
+<p>—  概率图模型</p>
+</li>
+<li>
+<p><strong>量子线路如何实现神经网络中的非线性变换和扇出操作？</strong></p>
+</li>
+<li>
+<p>目前基于张量网络的机器学习方案在机器学习的各个研究领域中距离SOTA的实验结果尚有较大距离，我们甚至不确定张量网络是否有可能逼近这些SOTA的结果</p>
+</li>
+</ul>
+<p><img src="/assets/1606047524642.png" alt="1606047524642"></p>
+<p>这里解释一下SOTA(State-of-the-Art),它表示目前最高水平的论文中的机器学习算法应用结果,在<a target="_blank" rel="noopener" href="https://paperswithcode.com/sota">Browse State-of-the-Art</a>里列出了各个领域目前最好的一些Benchmark,同时还都提供有代码,大家有兴趣的可以去查阅.</p>
+<p>冉老师呢文章超级多,可是今天他就讲了一个BTN,论文信息如下</p>
+<ul>
+<li><em>Ran, Shi-Ju. “Bayesian Tensor Network and Optimization Algorithm for Probabilistic Machine Learning.” arXiv preprint arXiv:1912.12923 (2019).</em></li>
+</ul>
+<p>这篇文章提出了一个基于概率诠释的张量网络,叫做**贝叶斯张量网络,<strong>其作用类似于MPS/PEPS/TTN等张量网络,但是其</strong>可解释性更强,**它能够处理张量网络计算中指数大的问题,同时也能避免出现神经网络中出现的梯度消失问题,在未来BTN可能用于解决更多的物理方面的模拟问题.</p>
+<p>总结一下就是<strong>刘老师和冉老师这次提出的两个模型是不太一样的,刘老师提出的是一种Framework,其中的张量网络还是TTN/MPS这些,而冉老师直接提出一种新的张量网络结构用于解决一些特殊的问题.当然这两种算法都可用于解决各种各样的监督学习任务.</strong></p>
+<h3 id="孙正之-中国科学院大学-：tensor-network-a-bridge-of-quantum-physics-and-machine-learning">孙正之（中国科学院大学）：Tensor Network: A Bridge of Quantum Physics and Machine Learning</h3>
+<p>孙老师的报告有一段我没有听到,他主要介绍的是以下两篇论文的工作</p>
+<ul>
+<li><em>Yang, Y., Sun, Z. Z., Ran, S. J., &amp; Su, G. (2020). Visualizing Quantum Phases And Identifying Quantum Phase Transitions By Nonlinear Dimensionality Reduction. arXiv e-prints, arXiv-2006.</em></li>
+<li><em>Sun, Zheng-Zhi, et al. “Generative tensor network classification model for supervised machine learning.” Physical Review B 101.7 (2020): 075135.</em></li>
+</ul>
+<p>GTNC定义了一种基于量子的角度旋转去代替BP算法,用fidelities代替欧式距离/曼哈顿距离,很少的参数</p>
+<p>我个人觉得挺棒的,非常推荐大家去阅读,了解以下处理的一些思路.</p>
+<h3 id="潘峰-中国科学院理论物理研究所-：任意结构张量网络收缩">潘峰（中国科学院理论物理研究所）：任意结构张量网络收缩</h3>
+<p>报告全称为*《Contracting Arbitrary Tensor Networks: General Approximate Algorithm and Applications in Graphical Models and Quantum Circuit Simulations》*，这个任意张量网络结构的收缩倒是令人耳目一新。</p>
+<p>无论是google还是QAOA量子线路，在线路上的酉变换并不一定都是有规律的(这跟昨天翟荟的思路恰好不一样)，大部分量子门的分布具有一定的随机性，谷歌量子计算机线路见下图（这是我第一次看到）</p>
+<img src='/assets/1606037151929.png' width='80%'>
+<p>QAOA的线路：</p>
+<p><img src="/assets/1606037204566.png" alt="1606037204566"></p>
+<p>上面两个图就包含很多的随机性，同时实验表明einsum缩并顺序对计算耗时影响很大，尤其是当张量的数目和阶数都非常大的时候,在讲的过程中倒是举了一个例子,待收缩的<strong>张量网络结构及收缩过程</strong>如下</p>
+<img src='/assets/1606037904082.png' width='80%'>
+<p>上图收缩过程的代码: <a target="_blank" rel="noopener" href="https://github.com/panzhang83/catn">点击这里</a>,收缩的思路是先任意选择张量进行缩并,优先选缩并后物理指标维度小,作者任务这样的启发式搜索是比较可行的,但是这跟人工指定没有很大的区别,费事也费力,<strong>如果能够自动搜索任意张量网络的缩并路径那就牛逼了</strong>,这块能否用遗传算法演化拓扑结构,是一个值得考虑的内容.</p>
+<p>实验结果分析如下,通过对比不同张量网络收缩过程的误差率体现算法的性能,可以看到误差已经非常接近机器误差了,这跟严格解释已经没有什么区别了.</p>
+<p><img src="/assets/1606038001668.png" alt="1606038001668"></p>
+<p>一些可能存在的问题:冉老师提了几个比较好的问题,如下</p>
+<ol>
+<li>能不能用临界矩阵来帮助寻找合适的缩并顺序,作者回答在每两个MPS态收缩之后,张量网络结构发生变化(辅助指标维度等信息),结构变化就很难直接用邻接矩阵表示了</li>
+<li>有没有将这个算法与TEBD\HOTRG等算法进行比较,冉老师认为<font color='red'><strong>TEBD已经可以很好的处理任意张量网络收缩问题</strong></font></li>
+<li>SVD裁剪是否是基于全局正则形式,回答不是,作者的实现仅仅是定义单个mps的正则形式</li>
+</ol>
+<h3 id="马星宇-中国科学院大学-：机器学习方法在先进功能材料设计中的应用"><strong>马星宇（中国科学院大学）：机器学习方法在先进功能材料设计中的应用</strong></h3>
+<p>马星宇同学将机器学习应用到材料领域，并介绍了目前业界内的一些研究工作，例如<strong>无监督机器学习预测锂离子电导率</strong>、<strong>压缩感知算法预测钙钛矿的稳定性</strong>、<strong>生成的机器学习模型VAE预测晶体结构</strong></p>
+<p>本文主要内容：<strong>机器学习加速发现二维光电材料(例如二维铁电金属)，通过机器学习预测光伏带隙</strong>，下图是预测过程的一些具体步骤</p>
+<img src='/assets/1606036608266.png' width='60%'>
+<p>对于材料性质而言，<strong>回归学习</strong>的意义更大，<strong>压缩感知算法给出物理可解释性</strong>。</p>
+<p>机器学习在材料领域的应用有以下的问题存在，如何提出更好的算法、模型、方案来处理这些问题是值得深思的，下面这张图给出<strong>机器学习应用与材料领域</strong>相关的一些问题</p>
+<img src='/assets/1606044629244.png' width='80%'>
+<p>这张图能够带给我们思考，如何将我们学习的一些算法或者知识应用到不同的领域，这或许也是量子张量网络机器学习的用武之地。其中的一个特点就是，对于实际领域的应用，一般很少直接用深度学习进行模型的训练和预测，这可能是因为这些具体的领域需要一定的专业知识解释相关的现象，而传统的机器学习算法例如PCA/SVM/DT等算法显然更有优势，那么<strong>将张量网络用到材料科学当中？？？张量网络也可以做监督学习，正好弥补神经网络的不足。</strong></p>
+<h2 id="最后总结">最后总结</h2>
+<p>最后将本次Workshop的一些收获和New Idea总结如下</p>
+<ol>
+<li><font color='blue'>HTN和BTN能否能推广应用到<strong>TIS预测</strong>/<strong>物理</strong>/材料/<strong>目标检测</strong>等领域发挥他们更大的价值</font></li>
+<li><font color='blue'>任意张量网络收缩的顺序能否通过程序自行设计(例如<strong>基于邻接矩阵的遗传算法</strong>)</font></li>
+<li><font color='blue'>量子张量网络能否应用到材料或化学等领域,取代经典的机器学习(重点是考虑可解释性方面)</font></li>
+<li><font color='blue'><strong>张量网络表示词向量进行自然语言的处理</strong></font></li>
+<li><font color='blue'><strong>增量式量子语言模型处理</strong>，结合增量大数据处理思想</font></li>
+</ol>
+<h2 id="参考学习资料">参考学习资料</h2>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51413773">NLP必读：十分钟读懂谷歌BERT模型</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/11/21/hidden/47Study-Report(1116-1122)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/11/29/48PassbyCpsNet/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            计算机网络应用——基于DNS绕开校园网认证
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/11/15/hidden/46Study-Report(1109-1115)/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">量子群智能！！！</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2023
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

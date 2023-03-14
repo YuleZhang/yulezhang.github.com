@@ -6,10 +6,33 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2021-09-06T02:32:11.044Z</updated>
+  <updated>2023-03-14T13:40:12.162Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023秋招总结</title>
+    <link href="http://www.yulezhang.com/2023/03/14/70CampusRecruitment/"/>
+    <id>http://www.yulezhang.com/2023/03/14/70CampusRecruitment/</id>
+    <published>2023-03-14T13:39:40.000Z</published>
+    <updated>2023-03-14T13:40:12.162Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;秋招&quot;&gt;秋招&lt;/h3&gt;
+&lt;p&gt;秋招可选岗位&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/image-20230314211200522.png&quot; alt=&quot;image-20230314211200522&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实习" scheme="http://www.yulezhang.com/categories/%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>腾讯字节实习面试总结</title>
@@ -464,29 +487,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
     
       <category term="旅行" scheme="http://www.yulezhang.com/tags/%E6%97%85%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据挖掘学习笔记</title>
-    <link href="http://www.yulezhang.com/2020/02/15/24DataMining/"/>
-    <id>http://www.yulezhang.com/2020/02/15/24DataMining/</id>
-    <published>2020-02-15T12:04:00.000Z</published>
-    <updated>2021-09-03T05:59:30.259Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/data-mining.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机理论基础" scheme="http://www.yulezhang.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="数据挖掘" scheme="http://www.yulezhang.com/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     
   </entry>
   

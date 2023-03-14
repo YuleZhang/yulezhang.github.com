@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2023秋招总结</title>
+    <url>/2023/03/14/70CampusRecruitment/</url>
+    <content><![CDATA[<h3 id="秋招">秋招</h3>
+<p>秋招可选岗位</p>
+<p><img src="/assets/image-20230314211200522.png" alt="image-20230314211200522"></p>
+<a id="more"></a>
+<p>秋招的一些重要节点，可以提前准备、提前关注。</p>
+<p><img src="/assets/image-20230314212942026.png" alt="image-20230314212942026"></p>
+<h3 id="总结">总结</h3>
+<p><strong>基本概况</strong></p>
+<p>从7月起就开始陆陆续续投简历，准备简历，准备项目。到11月才陆陆续续发offer，秋招接近尾声，共计四个月的秋招阶段。整个秋招流程之长、难度之大超出预期。在秋招过程中，按照时间顺序分别拿到了兴业数金、百度、猿辅导、旷视、得物五家的秋招offer，拿到蒸汽记忆、蔚来两家的实习offer，同时在快手、奇安信、深信服三家的面试走到了HR面后没有下文。据不完全统计，在投递了近50家企业后，共接到13家公司共31轮面试，其中有3轮没有通过，分别是字节二面、美团二面、理想汽车一面，面试通过率90%。投递岗位主要集中在GO语言开发、软件/后端/服务端开发，地点集中在北京上海。</p>
+<p><strong>感受体会</strong></p>
+<p>2023届秋招真的是哀鸿遍野。疫情风控，经济下行，全球公司大规模裁员，招聘名额大幅缩减，反观应届生数量达到上千万，再创新高。头部公司不得不提高门槛，开始在求职的各个关口设卡，例如卡学历、卡实习、卡项目经历或者弄kpi面。其中最有效也是最直接的筛选标准就是学历，例如Oppo、TP-Link等，面试仅面向部分头部985，单是这个条件就卡掉了成千上万的人。不同公司在筛选这一关的规则不同，不过学历是一个很常用的筛选指标，按照今年的形式看来211其实已经有些不够用了。算法岗可能更惨烈，985学历也不见得好使。我觉得这种情况下，要不就减少预期要不就卷出实力，把握住每一次的面试机会，疯狂训练提高。对于想卷出实力的，更应该早早做好准备，去实习、去储备基础知识、去准备项目。</p>
+<p>在准备的过程，最重要的当属实习，在实习过程中你会不断地接触更加复杂抽象的程序设计问题，补足学校教育中存在的不足。它将不仅作为一份经历呈现在简历中，而是全面提升个人对程序设计的理解（例如多线程多进程、rpc通信、分布式锁、定时器、消息队列、多级缓存等等），这些不仅能成为面试里的谈资，更是有助于理解和记忆其他面经，了解大型程序设计过程。其次就是语言选择，在秋招岗位中，Java岗位偏多，其次是C++，GO，不同公司风格不同，网上是都可以查到的。面试中难免会问到语言，这时就要对语言的一些高级特性有所了解。</p>
+<p>要说秋招之前最重要的实习、项目，那么秋招开始之后最重要的就是信息和调整。要坚持投递，好饭不怕晚，好事不怕迟。本人在十月之后就停止了投递，但这个时候仍有很多中小型互联网公司收尾以及大部分的银行国企刚开始，因此还可以再捞一捞机会。对于笃定互联网的同学，要及时总结面试经验，补充面经。</p>
+<p>未来几年秋招可能有所缓解，只希望大家坚定心中的信念，勇往直前。</p>
+<h3 id="资料">资料</h3>
+<p><strong>基础面经系列</strong></p>
+<ul>
+<li>
+<p><strong>小林Coding</strong>：<a href="https://xiaolincoding.com/">https://xiaolincoding.com/</a></p>
+</li>
+<li>
+<p><strong>海外兔</strong>：<a href="https://osjobs.net/topk/">https://osjobs.net/topk/</a></p>
+</li>
+<li>
+<p><strong>interview-go</strong>：<a href="https://github.com/lifei6671/interview-go">https://github.com/lifei6671/interview-go</a></p>
+</li>
+<li>
+<p><strong>interview-guide</strong>：<a href="https://github.com/csguide-dabai/interview-guide">https://github.com/csguide-dabai/interview-guide</a></p>
+</li>
+<li>
+<p><strong>Java-Notes</strong>：<a href="https://github.com/PansonPanson/Java-Notes">https://github.com/PansonPanson/Java-Notes</a></p>
+</li>
+<li>
+<p><strong>Java-Guide</strong>：<a href="https://github.com/Snailclimb/JavaGuide">https://github.com/Snailclimb/JavaGuide</a></p>
+</li>
+<li>
+<p><strong>backend-interview</strong>：<a href="https://github.com/yongxinz/backend-interview">https://github.com/yongxinz/backend-interview</a></p>
+</li>
+</ul>
+<p><strong>趁手项目系列</strong></p>
+<ul>
+<li>
+<p><a href="https://github.com/codecrafters-io/build-your-own-x">build-your-own-x</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo">Awesome-GitHub-Repo</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>实习</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>腾讯字节实习面试总结</title>
     <url>/2021/09/03/69InternSummary/</url>
     <content><![CDATA[<p>近期想找一份关于后台开发的实习，全力准备了一个半月的算法，当前此前也有零碎的刷题。然后就直接投简历了，收到腾讯和字节两家面试通知，面试问题如下。</p>

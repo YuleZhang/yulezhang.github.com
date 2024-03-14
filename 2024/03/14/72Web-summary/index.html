@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Web技术梳理 |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-72Web-summary"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Web技术梳理
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/14/72Web-summary/" class="article-date">
+  <time datetime="2024-03-14T14:47:40.000Z" itemprop="datePublished">2024-03-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">9 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="/images/web.jpg" alt="cover"></p>
+<p>经常迷惑于各种前端技术，有了js/html/css三件套，但又有React/Angualar/Vue等各种技术，新技术框架层出不穷，搞得人晕头转向，今天咱们就来捋一捋。</p>
+<a id="more"></a>
+<h1>静态网页/网站</h1>
+<p><strong>静态网页</strong>是存放在服务器中的HTML文件，它们是提前生成、渲染好的，用户在请求时直接返回准备好的页面。</p>
+<p><strong>静态网站生成器</strong>是一种工具，用于从文本文件（如Markdown）创建静态HTML文件。它们不依赖于数据库或服务器端处理，生成的网站包含固定内容，每个页面都是在构建时生成好的。这些生成器通常支持主题、插件和模板，使得自定义网站变得简单。</p>
+<h2 id="特点"><strong>特点</strong></h2>
+<ul>
+<li><strong>服务器依赖</strong>：静态网站生成器不依赖于服务器端语言（如PHP、Python等）或数据库。而传统的Web前后端框架（如Express）通常需要服务器端处理和数据库支持。</li>
+<li><strong>性能</strong>：静态网站加载速度通常更快，因为它们只包含固定的HTML、CSS和JavaScript文件，没有数据库查询或服务器端渲染的延迟。</li>
+<li><strong>安全性</strong>：静态网站由于没有数据库或服务器端脚本，因此相对更安全。</li>
+<li><strong>易于部署</strong>：静态网站可以在任何标准的Web服务器上托管，甚至可以使用CDN进行分发，部署过程简单。Github Page为每个用户提供了免费的静态网站托管服务，便于搭建个人博客。</li>
+</ul>
+<h2 id="常见框架">常见框架</h2>
+<ol>
+<li><strong>Jekyll</strong>: 一款Ruby语言编写的静态网站生成器，尤其适合与GitHub Pages结合使用，广泛用于个人博客、项目文档。</li>
+<li><strong>Gatsby</strong>: 基于React的现代静态网站生成器，适用于构建复杂的动态网站和应用程序，如电子商务站点、内容聚合站点。</li>
+<li><strong>Next.js</strong>: 虽然主要是一个React框架，但它提供静态网站生成的能力，适合创建SEO友好的Web应用。</li>
+<li><strong>VuePress</strong>: 由Vue.js驱动的静态网站生成器，特别适用于编写技术文档和博客。</li>
+<li><strong>Pelican</strong>: 使用Python编写，适用于博客和个人网站的构建。</li>
+<li><strong>Hugo</strong>：用Go编写的静态网站生成器，快的页面渲染速度，优化了大型网站的构建过程。</li>
+<li><strong>Hexo</strong>：使用Node.js，支持多种模版引擎，例如EJS、Pug，有丰富的社区主题可供选择，易于安装。</li>
+</ol>
+<p>这些生成器一般用于<strong>创建个人或公司博客、文档站点、营销网站、简历、产品展示页</strong>等，特别是<strong>当内容不经常改变时非常有效</strong>。并且使用起来方便，一般不需要懂代码，仅专注于书写内容即可，操作简单。</p>
+<p>总结来说，静态网站生成器与传统的Web前后端框架最大的区别在于它们生成的是静态内容，这在部署、性能、安全性方面提供了优势，但同时也限制了动态内容处理的能力。</p>
+<h1>动态网站</h1>
+<p>在用户访问时进行渲染、数据库读写，动态生成HTML并将内容返回给客户端。这个过程中涉及到前后端的交互，前端负责页面的布局、样式等内容的呈现。而后端负责处理<strong>数据存储和管理</strong>、<strong>与客户端通信并处理请求</strong>、**用户认证与授权、集成第三方服务(网关、电子邮件等)**以及一些性能优化操作。因此下面分成两部分来进行梳理。</p>
+<h2 id="前端框架">前端框架</h2>
+<p>前端框架是一种工具，它为开发人员提供了一组预先编写好的代码和库，以帮助构建高效、互动且功能丰富的网站或网页应用程序的前端部分。前端通常指的是用户在网页浏览器中看到和与之交互的部分，包括<strong>布局、设计、图像、文本和表单</strong>等。</p>
+<h3 id="特点">特点</h3>
+<ol>
+<li><strong>结构化的代码组织</strong>：前端框架提供了组织HTML、CSS和JavaScript代码的标准方式，使得代码更加模块化和可重用。</li>
+<li><strong>快速开发</strong>：由于包含了大量预先编写的代码，开发人员可以快速构建复杂的界面和功能，减少重复编写代码的工作。</li>
+<li><strong>响应式设计</strong>：很多前端框架提供了响应式设计的功能，使网站能够适应不同大小的屏幕和设备。</li>
+<li><strong>丰富的界面组件</strong>：提供各种用户界面组件，如按钮、表单、导航栏等，方便开发人员实现复杂的用户界面。</li>
+<li><strong>互动和动态功能</strong>：支持创建交互式元素和动态内容，提高用户体验。</li>
+</ol>
+<h3 id="流行的前端框架">流行的前端框架</h3>
+<ol>
+<li><strong>React</strong>（由Facebook开发）：用于构建用户界面的JavaScript库，特别强调组件化和状态管理。</li>
+<li><strong>Angular</strong>（由Google支持）：一个完整的前端框架，提供了从模板到测试的一系列功能。</li>
+<li><strong>Vue.js</strong>：一个轻量级的框架，以其简单易学和灵活性著称。</li>
+<li><strong>Bootstrap</strong>：一个以CSS为中心的框架，重点是响应式设计和网页组件。</li>
+</ol>
+<p>这些框架大大简化了前端开发工作，使开发人员能够专注于创建具有吸引力、交互性和良好用户体验的Web应用程序。在选择框架时，通常会考虑项目的特定需求、团队的熟悉度以及框架的社区支持和生态系统。更具体的框架对比和讨论见<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904200556511246">https://juejin.cn/post/6844904200556511246</a>，这里不再展开。</p>
+<h3 id="示例">示例</h3>
+<p>下面以一个例子来说明使用前端框架前后的开发差异，如果我想再页面上添加一个按钮。使用原生的js代码如下</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!-- 创建一个自定义按钮 --&gt;</span><br><span class="line">&lt;button id=&quot;nativeButton&quot;&gt;Native JS Button&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  #nativeButton &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">    color: white;</span><br><span class="line">    border: none;</span><br><span class="line">    padding: 10px 20px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin: 4px 2px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    border-radius: 8px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  #nativeButton:hover &#123;</span><br><span class="line">    background-color: darkblue;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  document.getElementById(&quot;nativeButton&quot;).addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">    alert(&quot;Button clicked!&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>而使用Bootstrap组件，只需要两行。并且不用担心跨浏览器出现的兼容性问题。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!-- 引入Bootstrap --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个Bootstrap按钮 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Bootstrap Button&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>因此使用构建好的前端框架能够帮助我们快速的设计页面，提高开发效率。对于样式更高的需求可以通过添加自定义的css来解决。</p>
+<h2 id="后端技术">后端技术</h2>
+<h3 id="rust">Rust</h3>
+<ol>
+<li><strong>Actix-Web</strong>: 性能强劲，为构建高效的Web服务提供了简单的异步编程模型。</li>
+<li><strong>Rocket</strong>: 提供易用性和可扩展性，适合快速开发。</li>
+<li><strong>Tide</strong>: 聚焦于快速和简洁的API，使用简单。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 与React, Vue.js或Angular等前端框架搭配使用效果良好。</p>
+<h3 id="python">Python</h3>
+<ol>
+<li><strong>Django</strong>: 功能全面，包括ORM、模板引擎、路由等，适合快速开发大型应用。</li>
+<li><strong>Flask</strong>: 轻量级，灵活性高，适合小型到中型应用。</li>
+<li><strong>FastAPI</strong>: 基于标准Python类型提示的现代、快速(高性能)Web框架。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 可以与Angular, React或Vue.js等现代JavaScript框架结合使用。</p>
+<h3 id="go">Go</h3>
+<ol>
+<li><strong>Gin</strong>: 轻量级、性能优越，适合构建RESTful API。</li>
+<li><strong>Beego</strong>: 遵循MVC模式，提供了一个全栈框架。</li>
+<li><strong>Echo</strong>: 高性能、可扩展，简化HTTP服务器的构建。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 适合与Vue.js, React或Angular等配合使用。</p>
+<h3 id="java">Java</h3>
+<ol>
+<li><strong>Spring Boot</strong>: 提供了快速开发大型应用的全栈解决方案。</li>
+<li><strong>Quarkus</strong>: 专为GraalVM和HotSpot优化，提供了低内存占用和快速启动的Java堆栈。</li>
+<li><strong>Micronaut</strong>: 为构建模块化、易于测试的JVM应用程序提供了现代、JVM原生全栈框架。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 与React, Angular或Vue.js等前端框架结合，能提供良好的全栈体验。</p>
+<h2 id="总结">总结</h2>
+<p>将<strong>前端框架</strong>和常用的<strong>后端技术</strong>组合起来，便得到了各种各样的开发方案，也就是动态网页技术。总结见下表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>后端语言/框架</strong></td>
+<td><strong>后端Web框架</strong></td>
+<td><strong>特点简述</strong></td>
+<td><strong>推荐搭配前端框架</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>Actix-Web</td>
+<td>高性能, 异步编程模型</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Rocket</td>
+<td>易用性好, 适合快速开发</td>
+<td>Angular, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Tide</td>
+<td>简洁API, 使用简单</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Django</td>
+<td>功能全面, 适合大型应用</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Flask</td>
+<td>轻量级, 灵活性高</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>FastAPI</td>
+<td>现代, 高性能</td>
+<td>Angular, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Gin</td>
+<td>轻量级, 性能优越</td>
+<td>Vue.js, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Beego</td>
+<td>MVC模式, 全栈框架</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Echo</td>
+<td>高性能, 可扩展</td>
+<td>Vue.js, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Spring Boot</td>
+<td>全栈解决方案, 快速开发</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Quarkus</td>
+<td>针对GraalVM优化, 低内存占用</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Micronaut</td>
+<td>模块化, 易于测试</td>
+<td>Vue.js, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Java servlet</td>
+<td>提供对请求处理的精细控制，有较好的性能</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>Express</td>
+<td>灵活, 大量中间件支持</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>NestJS</td>
+<td>支持TypeScript, 结合OOP、FP和FRP</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Koa</td>
+<td>由Express原班人马打造, 使用更现代的JavaScript</td>
+<td>Vue.js, React</td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td>Tauri</td>
+<td>用于构建桌面应用, 性能强</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Tomcat</td>
+<td>Java Servlet容器, 主要用于托管Java应用</td>
+<td>JSP, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这个表格涵盖了多种不同的后端技术栈和它们通常与之搭配的前端框架。选择特定技术栈应基于项目需求、团队熟悉度以及项目的特定目标。例如，如果项目侧重于前后端分离，那么选择如React或Vue.js这样的前端框架，并与任意提供RESTful或GraphQL API的后端框架搭配使用将是一个不错的选择。如果项目侧重于快速开发和部署，则可能选择像Django或Spring Boot这样的全栈框架。对于需要桌面应用的项目，Tauri则是一个有趣的选择。</p>
+<p>以上便是个人总结，如有不对的地方请大家及时提建议纠正，感谢。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2024/03/14/72Web-summary/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2023/04/28/71ChatgptAccount/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Chatgpt使用及账号出售</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2024
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

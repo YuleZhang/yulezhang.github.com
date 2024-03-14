@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>GA and TN Decomposition |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-41Study-Report(1012-1018)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  GA and TN Decomposition
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/10/17/41Study-Report(1012-1018)/" class="article-date">
+  <time datetime="2020-10-17T03:04:28.000Z" itemprop="datePublished">2020-10-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本周为了更好地理解论文的思路，我又重新回顾了<a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/">学堂在线的数据挖掘课程</a>，对一些重点知识进行了简单的记录。</p>
+<a id="more"></a>
+<h2 id="the-introduction-of-genetic-algorithm">The Introduction of Genetic Algorithm</h2>
+<blockquote>
+<p>遗传算法（Genetic Algorithm, GA）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。</p>
+</blockquote>
+<p>从几十亿年前的单细胞生命体，经过漫长的自然进化，地球上最终有了像人类这样高度发达的生命体，所以说进化的威力是十分强大的。同时我们经常讨论的人工智能，其实还是基于固定的硬件和结构，它的能力会受到一定的限制。想象一下如果计算机的各类硬件能够自动的进化，那就很有可能在未来实现真正的强人工智能。</p>
+<p>What can EAs do for us?</p>
+<ul>
+<li>Optimization</li>
+<li>Help people understand the envolution in nature.</li>
+</ul>
+<p>What is Optimization?</p>
+<ul>
+<li>search the optimal solution from candidates based on <strong>certain performance criteria</strong>.</li>
+<li>Accomplish a predefined task to the highest standard</li>
+</ul>
+<img src='/assets/1602914947968.png' width='80%'>
+<h3 id="global-optimization">Global Optimization</h3>
+<p>Portfolio Optimization、Travelling Salesman Problem、Knapsack Problem、Bin Packing Problem、Feature Selection Problem, these questions are difficult to solve or caculate in polynomial time.</p>
+<p>只用local search搜索最优值？容易陷入局部最优值</p>
+<p>有parallel search，多个点同时开始进行搜索，避免陷入局部最优值</p>
+<p>推荐一本书Blondie24：Playing at the edge of AI</p>
+<h3 id="genetic-algorithm">Genetic Algorithm</h3>
+<p><strong>GA算法</strong>基于生物学的背景，1975年由<strong>John Holland</strong>在论文《Adaptation in Natural and Artificial Systems》中提出，受到达尔文理论的启发，主要包含以下过程：<strong>染色体表达、杂交、变异、选择</strong>。其中涉及到的一些原则如下：</p>
+<ol>
+<li>将待解决的问题表示成染色体</li>
+<li>最开始的解决方案往往是随机生成的</li>
+<li>通过一代代的变异和选择，个体能够自然的进化</li>
+</ol>
+<p>GA算法的主要过程如下图所示：</p>
+<img src='/assets/1603027568447.png' width='80%'>
+<h4 id="染色体表达">染色体表达</h4>
+<p>Individual（Chromosome）：表示问题的特定解决方案的一个向量，向量中的每一个值都是参数</p>
+<p>Population：由多个个体组成，GA每次进化多个个体，通过<strong>并行搜索</strong>，进行<strong>全局最优化</strong></p>
+<p>Offspring：通过基因生成器生成的新的个体，希望能够有更优秀的结果</p>
+<p>Encoding：二进制还是格雷码，如何编码TSP问题</p>
+<p>格雷码的特点是它表示的每一个类别的编码之间<strong>只有一位的差别</strong>，而二进制0与7之间就距离很远，这不利于表达各个个体之间的并行关系。</p>
+<h4 id="选择">选择</h4>
+<ol>
+<li>轮盘法：主要是通过各个值的占比关系，来对基因进行选择，值大的被选中的机会就大，但<strong>无法处理负数</strong></li>
+<li>等级法：将不同的取值分为不同的Rank，就像学生成绩从0-100变为ABCD一样，通过Rank的引入，能够极大的避免优质资源在一开始就<strong>过度的聚集</strong>。</li>
+<li>锦标赛选拔：每次从Individuals中选择两个或三个，对它们进行PK，PK胜利的留下继续进行遗传，失败的被淘汰。这里要注意一个问题就是每次选择的个数越多，就越容易淘汰掉有潜力的个体，当所有个体都被选择，问题就又变成了<strong>轮盘法</strong></li>
+<li>精英选择：将后代中表现非常突出的基因保存到下一代，避免由于一两次偶尔的杂交或突变而直接丢掉。这一点就跟我们高考中的保送一样，有一部分同学成绩非常优秀，可能由于考试发挥的问题而被淘汰，因此如果有保送，那么好的基因也许能得以保留。</li>
+</ol>
+<h4 id="杂交">杂交</h4>
+<p>单点杂交：从某一处基因开始，其后A和B染色体的所有基因进行互换</p>
+<p>两点杂交：指定两个基因，A和B染色体在两点之间的基因片段进行互换</p>
+<p>统一性杂交（uniform crossover）：选择出要杂交的基因位置，将染色体对应位置的基因进行互换</p>
+<h4 id="变异">变异</h4>
+<p>变异主要为了保证基因的多样性，如果仅仅是一些已有的基因不断杂交，可能整个群体的上限是被限定的，而通过变异这种方式引入随机性的突变，能够较好的脱离局部最优值，从而找到问题的更优解。</p>
+<h2 id="evolutionary-topology-search-for-tensor-network-decomposition">Evolutionary Topology Search for Tensor Network Decomposition</h2>
+<p>由于备选的solutions随着张量阶数增加指数增大，因此<strong>TN分解的最优拓扑结构</strong>是很难通过搜索解决的。但在这篇论文中，作者采用遗传算法解决这个问题。文中将复杂的拓扑结构编码为二进制字串，并且开发了遗产元算法在Hamming空间中寻找最优拓扑结构，并且通过实验结果验证了<strong>算法生成的拓扑结构</strong>相比于传统TT、TR的巨大优势。</p>
+<p>这篇论文的张量分解方法可以应用到<strong>图片的降维处理</strong>中，HTN网络因为在张量网络层采用了TTN结构，产生了大量的参数，因此如果能够对图片进行预处理操作，从而提取一部分信息之后，再将二维的图片矩阵作为HTN的输入，那么相信模型的训练速度和效果会上升一个台阶。</p>
+<h2 id="bayesian-tensor-network-with-polynomial-complexity-for-probabilistic-machine-learning">Bayesian Tensor Network with Polynomial Complexity for Probabilistic Machine Learning</h2>
+<p>冉仕举老师的BTN网络，他自己定义了BTN的网络结构，类似于TTN，但是收缩过程不一样，他设计了两种结构BTN1和BTN2，并且这个BTN网络不是简单的用<strong>Adam或者SGD</strong>优化，这两种方式无法保证更新时的归一化，它自己定义了优化方式，然后跟Adam对比了一下，优点是复杂度和收敛效果。HTN参数过多就在于它采用TTN结构，进行不同层直接张量收缩时需要大量的辅助张量，来完成从2阶—&gt;5阶—&gt;新2阶的过渡</p>
+<p>下面这张图是<strong>TTN网络</strong>的<strong>计算复杂度</strong></p>
+<p><img src="/assets/QQ%E5%9B%BE%E7%89%8720201018215648.png" alt="QQ图片20201018215648"></p>
+<p>下面这张图片是<strong>BTN的计算复杂度</strong></p>
+<img src='/assets/QQ图片20201018215842.png' width="50%">
+<p>可以看到两个算法的复杂度相差不大，对于<strong>HTN的优化</strong>可能没有很大的影响，但是论文给出了算法，可以借鉴参考，学习它的<strong>网络设计</strong>和<strong>自定义的反向传播算法</strong>。</p>
+<h2 id="目前的实验进展">目前的实验进展</h2>
+<p>本周开始上课，稍微有一些不适应，加上考试，Colab也一直断线，因此很多实验的思路和想法都被耽搁。于是就主要想再通过论文找找新的途径，主要在看那篇GA设计TN Decomposition的思路，想对数据进行个预处理，当然也可以简单的通过Tucker分解再训练，都是比较好的思路。</p>
+<p>同时程序也写了好几版的代码，设计了一版<strong>Kfold多次交叉验证</strong>的训练方式，这样有利于处理这样的小规模样本数据。又设计了一版<strong>模型断点保存+直接多次fit</strong>的方式，来进行优化，目前的训练效果如下图所示</p>
+<p><img src="/assets/1603030360249.png" alt="1603030360249"></p>
+<p>训练了100轮，准确率还是比较低，loss一直在降低，最小值为0.631103。但是准确率确没有大幅度上升，而是不断地波动，因此还需要继续分析原因。</p>
+<h2 id="releated-links">Releated Links:</h2>
+<ol>
+<li>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ae5157c26af9">[算法]超详细的遗传算法（Genetic Algorithm）解析</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/fcc6470935784c29bbc7346425da24c8/">[学堂在线80240372X]数据挖掘——进化计算（视频）</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="http://vlambda.com/wz_wzio4B63sm.html">详解贝叶斯张量网络（二）：概率性图像识别</a></p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener" href="https://github.com/ranshiju/BayesianTN">ranshiju/BayesianTN算法代码</a></p>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/10/17/41Study-Report(1012-1018)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GA/" rel="tag">GA</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/10/24/42Study-Report(1019-1025)/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Overfitting?
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/10/11/40Study-Report(1005-1011)/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">HTN+Covid-19（OOM和参数）</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2024
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

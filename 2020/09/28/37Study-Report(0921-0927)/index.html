@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>RPC |  YuleZhang&#39;s Blog</title>
+      <title>Tensor Operation in Python |  YuleZhang&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <main class="content on">
       <section class="outer">
   <article
-  id="post-71RemoteProcedureCall"
+  id="post-37Study-Report(0921-0927)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -91,7 +91,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  RPC
+  Tensor Operation in Python
 </h1>
  
 
@@ -99,11 +99,11 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2023/03/14/71RemoteProcedureCall/" class="article-date">
-  <time datetime="2023-03-14T13:39:40.000Z" itemprop="datePublished">2023-03-14</time>
+      <a href="/2020/09/28/37Study-Report(0921-0927)/" class="article-date">
+  <time datetime="2020-09-28T10:37:30.000Z" itemprop="datePublished">2020-09-28</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AE%9E%E4%B9%A0/">实习</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E5%AE%9E%E9%AA%8C%E5%A4%8D%E7%8E%B0/">实验复现</a>
   </div>
   
 <div class="word_count">
@@ -111,7 +111,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">399</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -120,7 +120,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -135,13 +135,35 @@ var _hmt = _hmt || [];
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>远程服务调用(Remote Procedure Call, RPC)出现的目的就是为了让计算机能够与调用本地方法一样去调用远程方法，这是早在1990年之前定义分布式运算环境(Distributed Computing Environment, DCE)中就提出的问题。尽管&quot;调用远程方法&quot;和&quot;调用本地方法&quot;仅两字之差，但若要兼顾简单、透明、性能、正确、鲁棒、一致等特点，两者就不可同日而语了。在RPC中会涉及到网络请求，带来了很多新的问题，例如远程服务在哪里（服务发现）、有多少个（负载均衡），网络出现分区、超时或者服务出错了怎么办（熔断、隔离、降级），方法或参数的返回结果如何表示（序列化协议），信息如何传输（传输协议），服务权限如何管理（认证、授权），如何保证通信安全（网络安全层）等。</p>
-<p>进程间通信(Inter-Process Communication, IPC)</p>
-<h2 id="rpc定义">RPC定义</h2>
-<p>所有RPC协议无论怎样设计，主要都是解决以下三个基本问题</p>
-<h3 id="如何表示数据">如何表示数据</h3>
-<p>这里的数据包括传递给方法的参数以及方法执行后的返回值。有效地做法就是将交互双方所涉及到的数据转化为某种事先约定好的<strong>中立数据流格式</strong>来进行传输，同时<strong>将数据流转换回不同语言中对应的数据类型</strong>来使用。在RPC中称之为<strong>序列化和反序列化</strong>，过程如下图所示：</p>
-<p><img src="/assets/DataStream.png" alt="DataStream"></p>
+  <h2 id="tensor-contracted">Tensor Contracted</h2>
+<p>我们都知道诸如MPS、TTN、PEPS这些常见张量网络，那么相信你对张量缩并一定不陌生。<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45777142/article/details/107499465">刘紫豪同学的博客</a>里详细的介绍了张量之间的各种运算和应用。那么体现到代码里是什么样子的呢？其实，张量的缩并操作在python语言中有各种各样的表达方式，在<strong>numpy、tensorflow以及Pytorch</strong>中都提供了<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.einsum.html"><strong>einsum</strong></a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html"><strong>matmul</strong></a>,<a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html"><strong>tensordot</strong></a>这三种方式用于计算张量的缩并。</p>
+<a id="more"></a>
+<p>举一个例子来说，假设A是一个3阶张量（三个指标维度为i,j,k），而B是一个4阶张量（j,k,m,n）。假如我们现在要将A张量的j,k两个指标和B张量的j,k两个指标进行缩并，得到一个<code>i*m*n</code>的三阶张量C，来看看代码里是怎么样的</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C = np.einsum(<span class="string">&#x27;ijk,jkmn-&gt;imn&#x27;</span>, A, B)</span><br><span class="line">C = np.matmul(tf.expand_dims(A,<span class="number">1</span>), B)</span><br><span class="line">C = np.tensordot(A, B, [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+<p>在性能方面三个函数没有很大的差异，当然对于较小的矩阵<strong>np.matmul</strong>可能更加有效，因为它将生成一个更简单的<strong>张量流图</strong>，操作更少，因此每个操作的调用成本更低。在循环或含条件参数的地方，可以通过tensordot进行<strong>动态缩并</strong>。当然也有一些developer为了方便，开发了专门的张量运算库例如**<a target="_blank" rel="noopener" href="https://github.com/andrewdarmawan/tncontract">tncontract</a>、<a target="_blank" rel="noopener" href="https://github.com/google/TensorNetwork">TensorNetwork</a>(Google开发)，<a target="_blank" rel="noopener" href="https://github.com/torch/torch7">Pytorch</a><strong>里也封装了各种各样的张量运算，在这里不仅能张量缩并，还能几句话实现非常复杂的</strong>张量参数反向迭代更新**，降低了张量的操作难度。</p>
+<p>总之，各界大佬早已经定义好了各种张量网络运算的工具，适当了解对开发是非常有帮助的。当然，选择一种自己顺手的工具要方便的多，对其他的方法也得了解。</p>
+<blockquote>
+<p>PS：<strong>SVD分解中，U是左奇异矩阵，可以用于行数的压缩，V是右奇异矩阵，可以用于列数的降维</strong></p>
+</blockquote>
+<h1>Learning of Pytorch</h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/dingliu0305/Hybrid-Tensor-Network">论文HTN代码</a>基于pytorch深度学习框架，而这个框架下有很多的方法和理论基础，于是在Coursera上在线学习<a target="_blank" rel="noopener" href="https://www.coursera.org/learn/deep-neural-networks-with-pytorch/home/welcome">Deep Neural Networks with PyTorch</a>课程。这个课程非常详细的从基本数据结构Tensor开始讲起，每节视频3-10分钟，配套有视频代码，都可以在线运行、查看输出和讲解，每节视频都有配套的<strong>代码练习</strong>（这一点是至关重要的），而且不会很难，就是简单需要改几处，然后慢慢的增加难度。非常推荐对pytorch感兴趣的人去学习。</p>
+<p>一边学着pytorch，一边我又多次去尝试读代码，思路慢慢理清楚了，程序的设计思路和方式，每一步的输出格式、内容也通过一次次调试弄明白了。中间遇到的那个问题，即代码中没有包含计算Accuracy部分已经补充完整，在output1计算出之后，通过以下代码计算每个batch_size的准确率</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pred_y = torch.max(output1, <span class="number">1</span>)[<span class="number">1</span>]</span><br><span class="line">sum = int(torch.sum(pred_y == b_y))</span><br><span class="line">accuracy = sum / BATCH_SIZE</span><br></pre></td></tr></table></figure>
+<p>还有一个坑就是，程序在开始运行的时候准确率只有10%，训练了好几个batch_size也没有明显的提升，于是就一步步追根溯源去查看backward更新函数，各种调试，最后发现人家写的还是对的。</p>
+<p>那么问题出在哪里了呢，我在调试过程中发现，在反向传播BP更新参数那部分很复杂，每一层都有相当多的参数（尤其是张量网络层），例如最上一层是<code>16*16*3*3*3*3*3</code>，然后是<code>8*8*3*3*3*3*3</code>就是按照TTN的结构以此类推。参数这么多我估计得训练很多轮，于是就只能先跑几轮看看效果，不看不知道，一看吓一跳</p>
+<p><img src="/assets/1601029097250_meitu_1.jpg" alt="1601029097250"></p>
+<p>仅仅经过两轮就整体上看到了test acc的增长，尽管每次的幅度很小（这意味着学习率很低）。上述仅仅2个epoch就耗费了大约两个小时的时间，因此我将更高的epoch次数（50+）放到了服务器上，以便于能昼夜不停地尽快得到最好的结果，目前fashion-mnist最高准确率达到90%，跟论文中的描述一致，40-50epoch基本没有变化，可能参数已经接近收敛了，重新设计网络或许能改善效果。</p>
+<p>对于上述方案，可以改进的参数和设计还有很多，例如<strong>学习率的大小</strong>，<strong>张量网络层</strong>和神经网络层的结构都可以进行调整。代码中神经网络层部分仅仅用了<strong>两个线性层</strong>作为补充，而诸如<strong>CNN、RNN</strong>等神经网络结构也可以一定程度上提高准确率。这篇论文代码只给了fashion-MNIST的代码，MNIST的代码已经在跑了，同时我还在尝试修改网络的结构，以达到更好的效果。</p>
+<p>经过一晚上的设计，终于研究出了以下（含卷积层）的混合神经网络，下面将在MNIST上训练并查看这种设计的效果。</p>
+<p><img src="/assets/1601211309856.png" alt="1601211309856"></p>
+<p>还有一些tensorboard和torch库的基本知识，内容比较多，就不再一一列举啦，以上就是本周的汇报。</p>
+<h2 id="releated-links">Releated Links:</h2>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/37987839/how-can-i-run-tensorboard-on-a-remote-server#comment83193829_40413202"><em>1. How can I run Tensorboard on a remote server?</em></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24739717/article/details/103068009"><em>2. 学习笔记|Pytorch使用教程20(TensorBoard使用（一）</em></a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101157166"><em><strong>3. einsum初探</strong></em></a></p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/tensorboard.html"><em>4. TORCH.UTILS.TENSORBOARD</em></a></p>
+<p><a href="tensorflow.org/tensorboard/graphs"><em>5. Pytorch官方文档</em></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/out_of_memory_error/article/details/81434907"><em>6. pytorch在MNIST上采用CNN的例子</em></a></p>
  
       <!-- reward -->
       
@@ -206,12 +228,12 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2023/03/14/71RemoteProcedureCall/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2020/09/28/37Study-Report(0921-0927)/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/" rel="tag">张量基础</a></li></ul>
 
     </footer>
   </div>
@@ -219,19 +241,19 @@ var _hmt = _hmt || [];
    
   <nav class="article-nav">
     
-      <a href="/2023/03/14/70CampusRecruitment/" class="article-nav-link">
+      <a href="/2020/09/30/38Study-Report(0928-1004)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            2023秋招总结
+            HTN-Experiment
           
         </div>
       </a>
     
     
-      <a href="/2021/09/03/69InternSummary/" class="article-nav-link">
+      <a href="/2020/09/13/36Study-Report(0907-0913)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">腾讯字节实习面试总结</div>
+        <div class="article-nav-title">《张量网络基础课程》第六章</div>
       </a>
     
   </nav>
@@ -295,7 +317,7 @@ var _hmt = _hmt || [];
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2015-2024
         <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
       </li>
     </ul>

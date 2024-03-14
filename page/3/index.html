@@ -181,7 +181,7 @@ var _hmt = _hmt || [];
     
     
     <article
-  id="post-25Australia-Trip"
+  id="post-50Study-Report(1130-1206)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -192,8 +192,8 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/03/31/25Australia-Trip/"
-    >澳洲之行</a> 
+  <a class="article-title" href="/2020/12/06/50Study-Report(1130-1206)/"
+    >手撕代码GTNC</a> 
 </h2>
  
 
@@ -201,19 +201,23 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2020/03/31/25Australia-Trip/" class="article-date">
-  <time datetime="2020-03-31T12:04:00.000Z" itemprop="datePublished">2020-03-31</time>
+      <a href="/2020/12/06/50Study-Report(1130-1206)/" class="article-date">
+  <time datetime="2020-12-06T10:56:12.000Z" itemprop="datePublished">2020-12-06</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%85%E8%A1%8C/">旅行</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/Australia.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2020/03/31/25Australia-Trip/"
+  <h2 id="tsgo的一些说明">TSGO的一些说明</h2>
+<h3 id="偏导数与内积？">偏导数与内积？</h3>
+<p>文中对输入样本X的偏导数可以定义为如下的形式</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∂</mi><mi>W</mi></msub><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi>h</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo>+</mo><mi>h</mi><mi>W</mi><mo stretchy="false">)</mo><mo>−</mo><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">;</mo><mi>W</mi><mo stretchy="false">)</mo></mrow><mi>h</mi></mfrac></mrow><annotation encoding="application/x-tex">\partial_{W} P(X ; W)=\lim _{h \rightarrow 0} \frac{P(X ; W+h W)-P(X ; W)}{h}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.179108em;vertical-align:-0.7521079999999999em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.347892em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">h</span><span class="mrel mtight">→</span><span class="mord mtight">0</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7521079999999999em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">h</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p> 
+      <a class="article-more-link" href="/2020/12/06/50Study-Report(1130-1206)/"
         >阅读更多...</a
       >
        
@@ -226,8 +230,6 @@ var _hmt = _hmt || [];
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
     </footer>
   </div>
 
@@ -238,7 +240,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-24DataMining"
+  id="post-49Study-Report(1123-1129)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -249,8 +251,8 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/02/15/24DataMining/"
-    >数据挖掘学习笔记</a> 
+  <a class="article-title" href="/2020/11/29/49Study-Report(1123-1129)/"
+    >GTNC and TSGO</a> 
 </h2>
  
 
@@ -258,19 +260,21 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2020/02/15/24DataMining/" class="article-date">
-  <time datetime="2020-02-15T12:04:00.000Z" itemprop="datePublished">2020-02-15</time>
+      <a href="/2020/11/29/49Study-Report(1123-1129)/" class="article-date">
+  <time datetime="2020-11-29T12:31:17.000Z" itemprop="datePublished">2020-11-29</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a> / <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">计算机理论基础</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/data-mining.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2020/02/15/24DataMining/"
+  <blockquote>
+<p>本周主要是对HTN的结构进行优化设计，将其应用于Cifar10，并尝试用GTNC和TSGO的方式对其进行优化</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/11/29/49Study-Report(1123-1129)/"
         >阅读更多...</a
       >
        
@@ -283,8 +287,6 @@ var _hmt = _hmt || [];
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
-
     </footer>
   </div>
 
@@ -295,7 +297,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-23DeployToECS"
+  id="post-48PassbyCpsNet"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -306,8 +308,8 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/02/07/23DeployToECS/"
-    >Hexo部署博客到云服务器ECS</a> 
+  <a class="article-title" href="/2020/11/29/48PassbyCpsNet/"
+    >计算机网络应用——基于DNS绕开校园网认证</a> 
 </h2>
  
 
@@ -315,289 +317,8 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2020/02/07/23DeployToECS/" class="article-date">
-  <time datetime="2020-02-07T07:51:00.000Z" itemprop="datePublished">2020-02-07</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><img src="/images/aliyunPlan.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2020/02/07/23DeployToECS/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-20Baidu-XJTU_BigData_Contest"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/07/01/20Baidu-XJTU_BigData_Contest/"
-    >西安交大&amp;百度竞赛总结</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/07/01/20Baidu-XJTU_BigData_Contest/" class="article-date">
-  <time datetime="2019-07-01T07:25:00.000Z" itemprop="datePublished">2019-07-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AB%9E%E8%B5%9B/">竞赛</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><img src="/images/BaiDuContest.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/07/01/20Baidu-XJTU_BigData_Contest/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-18K-means&amp;MeanShift"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/04/04/18K-means&MeanShift/"
-    >K-means与MeanShift</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/04/04/18K-means&MeanShift/" class="article-date">
-  <time datetime="2019-04-04T11:29:06.000Z" itemprop="datePublished">2019-04-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a> / <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">计算机理论基础</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><img src="/images/machine.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/04/04/18K-means&MeanShift/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/k-means/" rel="tag">k-means</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-19Deep-Learning"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/04/04/19Deep-Learning/"
-    >浅谈深度学习</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/04/04/19Deep-Learning/" class="article-date">
-  <time datetime="2019-04-04T11:29:06.000Z" itemprop="datePublished">2019-04-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><img src="/images/nuralNetwork.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/04/04/19Deep-Learning/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-16LanQiao&amp;SS"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/03/25/16LanQiao&SS/"
-    >蓝桥杯和软微</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/03/25/16LanQiao&SS/" class="article-date">
-  <time datetime="2019-03-25T09:35:25.000Z" itemprop="datePublished">2019-03-25</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><img src="/images/contest.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/03/25/16LanQiao&SS/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag">蓝桥杯</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-    
-</article>
-
-    
-    <article
-  id="post-15JDComment-Spider"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/02/26/15JDComment-Spider/"
-    >京东手机评论爬虫</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2019/02/26/15JDComment-Spider/" class="article-date">
-  <time datetime="2019-02-26T06:48:03.000Z" itemprop="datePublished">2019-02-26</time>
+      <a href="/2020/11/29/48PassbyCpsNet/" class="article-date">
+  <time datetime="2020-11-29T03:27:17.000Z" itemprop="datePublished">2020-11-29</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/">技术改变生活</a>
@@ -607,8 +328,10 @@ var _hmt = _hmt || [];
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/jdSpider.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/02/26/15JDComment-Spider/"
+  <blockquote>
+<p>这篇文章我想分享一下我与校园网斗智斗勇的过程哈哈哈</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/11/29/48PassbyCpsNet/"
         >阅读更多...</a
       >
        
@@ -621,7 +344,7 @@ var _hmt = _hmt || [];
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/" rel="tag">骚操作</a></li></ul>
 
     </footer>
   </div>
@@ -633,7 +356,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-14HolmesThinking"
+  id="post-47Study-Report(1116-1122)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -644,8 +367,8 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/01/20/14HolmesThinking/"
-    >《福尔摩斯思考术》读书笔记(2)</a> 
+  <a class="article-title" href="/2020/11/21/47Study-Report(1116-1122)/"
+    >2020量子物理与智能计算交叉研讨会(QCAI2020)总结</a> 
 </h2>
  
 
@@ -653,19 +376,21 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2019/01/20/14HolmesThinking/" class="article-date">
-  <time datetime="2019-01-20T07:16:10.000Z" itemprop="datePublished">2019-01-20</time>
+      <a href="/2020/11/21/47Study-Report(1116-1122)/" class="article-date">
+  <time datetime="2020-11-21T12:56:17.000Z" itemprop="datePublished">2020-11-21</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/HolmesThinking.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/01/20/14HolmesThinking/"
+  <blockquote>
+<p>本周继续根据上周的研究思路读论文学习，以下是一些学习收获</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/11/21/47Study-Report(1116-1122)/"
         >阅读更多...</a
       >
        
@@ -688,7 +413,7 @@ var _hmt = _hmt || [];
 
     
     <article
-  id="post-12CS-Preparation"
+  id="post-46Study-Report(1109-1115)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -699,8 +424,8 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/01/13/12CS-Preparation/"
-    >计算机考研备考规划</a> 
+  <a class="article-title" href="/2020/11/15/46Study-Report(1109-1115)/"
+    >量子群智能！！！</a> 
 </h2>
  
 
@@ -708,19 +433,22 @@ var _hmt = _hmt || [];
     </header>
      
     <div class="article-meta">
-      <a href="/2019/01/13/12CS-Preparation/" class="article-date">
-  <time datetime="2019-01-13T08:36:10.000Z" itemprop="datePublished">2019-01-13</time>
+      <a href="/2020/11/15/46Study-Report(1109-1115)/" class="article-date">
+  <time datetime="2020-11-15T01:59:17.000Z" itemprop="datePublished">2020-11-15</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
   </div>
    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <p><img src="/images/cs-preparation.jpg" alt="cover"></p> 
-      <a class="article-more-link" href="/2019/01/13/12CS-Preparation/"
+  <blockquote>
+<p>本周重要心得：</p>
+<p>我发现对我而言，文章的大意和思路能够很快的把握，但对细节的理解就比较吃力了。但如果总是不理解细节，就永远呆在”门外面“，那可不是一个合格的Reasearcher.总之，要学会判断。</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/11/15/46Study-Report(1109-1115)/"
         >阅读更多...</a
       >
        
@@ -733,7 +461,295 @@ var _hmt = _hmt || [];
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%80%83%E7%A0%94/" rel="tag">考研</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%8F%E5%AD%90%E7%BE%A4%E6%99%BA%E8%83%BD/" rel="tag">量子群智能</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-45LeetcodeSummary"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/13/45LeetcodeSummary/"
+    >LeetcodeSummary</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/13/45LeetcodeSummary/" class="article-date">
+  <time datetime="2020-11-13T11:19:38.000Z" itemprop="datePublished">2020-11-13</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Leetcode算法刷题总结</p> 
+      <a class="article-more-link" href="/2020/11/13/45LeetcodeSummary/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-44Study-Report(1102-1108)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/08/44Study-Report(1102-1108)/"
+    >Tensor Network with maching learning</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/08/44Study-Report(1102-1108)/" class="article-date">
+  <time datetime="2020-11-08T10:44:30.000Z" itemprop="datePublished">2020-11-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  Welcome to my blog, enter password to read. 
+      <a class="article-more-link" href="/2020/11/08/44Study-Report(1102-1108)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GA/" rel="tag">GA</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-43Study-Report(1026-1101)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/01/43Study-Report(1026-1101)/"
+    >基于张量的大数据多聚类及其安全和高效方法研究</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/11/01/43Study-Report(1026-1101)/" class="article-date">
+  <time datetime="2020-11-01T13:46:21.000Z" itemprop="datePublished">2020-11-01</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="迁移学习和实验">迁移学习和实验</h2>
+<p>迁移学习(Transfer learning) 顾名思义就是就是把已学训练好的模型参数迁移到新的模型来帮助新模型训练。考虑到大部分数据或任务是存在相关性的，所以通过迁移学习我们可以将已经学到的模型参数（也可理解为模型学到的知识）通过某种方式来分享给新模型从而加快并优化模型的学习效率不用像大多数网络那样从零学习（starting from scratch）</p> 
+      <a class="article-more-link" href="/2020/11/01/43Study-Report(1026-1101)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Overfitting/" rel="tag">Overfitting</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-42Study-Report(1019-1025)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/24/42Study-Report(1019-1025)/"
+    >Overfitting?</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/10/24/42Study-Report(1019-1025)/" class="article-date">
+  <time datetime="2020-10-24T02:15:21.000Z" itemprop="datePublished">2020-10-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E5%AE%9E%E9%AA%8C%E5%A4%8D%E7%8E%B0/">实验复现</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <blockquote>
+<p>本周继续上周工作，为了解决训练时长过长和参数过多的问题，展开了一系列的实验</p>
+</blockquote> 
+      <a class="article-more-link" href="/2020/10/24/42Study-Report(1019-1025)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Overfitting/" rel="tag">Overfitting</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+    <article
+  id="post-41Study-Report(1012-1018)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/17/41Study-Report(1012-1018)/"
+    >GA and TN Decomposition</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/10/17/41Study-Report(1012-1018)/" class="article-date">
+  <time datetime="2020-10-17T03:04:28.000Z" itemprop="datePublished">2020-10-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/">周汇报</a> / <a class="article-category-link" href="/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/">理论基础</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>本周为了更好地理解论文的思路，我又重新回顾了<a target="_blank" rel="noopener" href="https://v1-www.xuetangx.com/courses/course-v1:TsinghuaX+80240372X+sp/courseware/8bf3fea77c8c4a519351c37c507b1b11/e84a28477aa348d58d77bb1d52168e80/">学堂在线的数据挖掘课程</a>，对一些重点知识进行了简单的记录。</p> 
+      <a class="article-more-link" href="/2020/10/17/41Study-Report(1012-1018)/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GA/" rel="tag">GA</a></li></ul>
 
     </footer>
   </div>
@@ -750,7 +766,7 @@ var _hmt = _hmt || [];
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>
@@ -761,7 +777,7 @@ var _hmt = _hmt || [];
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2015-2024
         <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
       </li>
     </ul>

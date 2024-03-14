@@ -6,17 +6,56 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2023-03-14T14:02:35.474Z</updated>
+  <updated>2024-03-14T15:08:36.765Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web技术梳理</title>
+    <link href="http://www.yulezhang.com/2024/03/14/72Web-summary/"/>
+    <id>http://www.yulezhang.com/2024/03/14/72Web-summary/</id>
+    <published>2024-03-14T14:47:40.000Z</published>
+    <updated>2024-03-14T15:08:36.765Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/web.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;经常迷惑于各种前端技术，有了js/html/css三件套，但又有React/Angualar/Vue等各种技术，新技术框架层出不穷，搞得人晕头转向，今天咱们就来捋一捋。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://www.yulezhang.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Chatgpt使用及账号出售</title>
+    <link href="http://www.yulezhang.com/2023/04/28/71ChatgptAccount/"/>
+    <id>http://www.yulezhang.com/2023/04/28/71ChatgptAccount/</id>
+    <published>2023-04-28T05:27:40.000Z</published>
+    <updated>2024-03-14T15:09:19.044Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/openai.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;chatgpt使用体验&quot;&gt;Chatgpt使用体验&lt;/h2&gt;
+&lt;p&gt;自打用chatgpt已经两三个月了，作为追热点的一员，能明显感觉到它的&lt;strong&gt;社区、生态、相关研究&lt;/strong&gt;正在迅速铺开。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2023秋招总结</title>
     <link href="http://www.yulezhang.com/2023/03/14/70CampusRecruitment/"/>
     <id>http://www.yulezhang.com/2023/03/14/70CampusRecruitment/</id>
     <published>2023-03-14T13:39:40.000Z</published>
-    <updated>2023-03-14T14:02:35.474Z</updated>
+    <updated>2024-03-14T15:09:56.602Z</updated>
     
     <summary type="html">
     
@@ -31,6 +70,25 @@
     
     
       <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>力扣1044-Longest Duplicate Substring C++</title>
+    <link href="http://www.yulezhang.com/2021/10/01/70leetcode-1044/"/>
+    <id>http://www.yulezhang.com/2021/10/01/70leetcode-1044/</id>
+    <published>2021-10-01T08:15:00.000Z</published>
+    <updated>2024-03-14T15:08:46.582Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/assets/1635668255065.png&quot; alt=&quot;1635668255065&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
     
   </entry>
   
@@ -113,6 +171,71 @@
   </entry>
   
   <entry>
+    <title>TGAN and GenPU</title>
+    <link href="http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/"/>
+    <id>http://www.yulezhang.com/2021/04/23/65TGAN-GenPU/</id>
+    <published>2021-04-23T02:35:00.000Z</published>
+    <updated>2021-09-03T05:37:34.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;bilibili-robust-low-tubal-rank-tensor-recovery-from-binary-measurements&quot;&gt;【&lt;a href=&quot;https://www.bilibili.com/s/video/BV1QK4y1N7dp&quot;&gt;bilibili&lt;/a&gt;】&lt;strong&gt;Robust Low-tubal-rank Tensor Recovery from Binary Measurements&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;在看这个视频时，顺带又回顾了一下张量秩的概念，目前并没有给出统一的很明确的定义，张量秩的定义往往跟分解算法有关&lt;/p&gt;
+&lt;p&gt;在CP分解中，张量的秩定义如下&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>FCTN-Decomposition-Code</title>
+    <link href="http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/"/>
+    <id>http://www.yulezhang.com/2021/04/18/64FCTN-Code-Analysis/</id>
+    <published>2021-04-18T12:59:00.000Z</published>
+    <updated>2021-09-03T05:37:46.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周主要是想抓紧把之前TTN和MPO作用batch的思路落实一下，并理解FCTN的matlab代码&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="实验复现" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E5%AE%9E%E9%AA%8C%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>FCTN-Decomposition</title>
+    <link href="http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/"/>
+    <id>http://www.yulezhang.com/2021/04/11/63FCTN-Decomposition/</id>
+    <published>2021-04-11T02:41:00.000Z</published>
+    <updated>2021-09-03T05:37:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周花了大量时间精读FCTN，还联系上了原作者郑博士，弄懂了论文中的公式推到部分。 同时这次的学习也将之前忽略的很多细节也抓了起来，比如参数复杂度、计算复杂度等等，不提高自己对公式的理解是没法提高论文的档次的，这篇文章的公式恰好不是很难，便于入门。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>量子机器学习资料整理</title>
     <link href="http://www.yulezhang.com/2021/03/28/62QML-Collections/"/>
     <id>http://www.yulezhang.com/2021/03/28/62QML-Collections/</id>
@@ -178,6 +301,29 @@
   </entry>
   
   <entry>
+    <title>HHL and TEBD</title>
+    <link href="http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/"/>
+    <id>http://www.yulezhang.com/2021/03/20/59CodeBreakthrough/</id>
+    <published>2021-03-20T00:33:14.000Z</published>
+    <updated>2021-09-03T05:38:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本周汇报目前将分为以下三个部分&lt;/p&gt;
+&lt;h1&gt;量子算法回顾&lt;/h1&gt;
+&lt;p&gt;在周二下午的汇报之后发现对量子&lt;strong&gt;傅里叶变换、量子相位估计算法、Shor以及HHL算法&lt;/strong&gt;理解的还不够透彻，下面列出了一些遗留的疑难问题的讨论和补充。汇报PPT点击&lt;a href=&quot;/download/QuantumAlgorithm/20190721-%E9%87%8F%E5%AD%90%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98-%E5%BC%A0%E5%AE%87.pptx&quot;&gt;此处&lt;/a&gt;下载&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Grover</title>
     <link href="http://www.yulezhang.com/2021/03/14/58Grover/"/>
     <id>http://www.yulezhang.com/2021/03/14/58Grover/</id>
@@ -234,6 +380,56 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
   </entry>
   
   <entry>
+    <title>寒假学习汇报</title>
+    <link href="http://www.yulezhang.com/2021/02/28/56WinterVacation/"/>
+    <id>http://www.yulezhang.com/2021/02/28/56WinterVacation/</id>
+    <published>2021-02-28T13:39:17.000Z</published>
+    <updated>2021-09-03T05:38:48.000Z</updated>
+    
+    <summary type="html">
+    
+      Welcome to my blog, it&#39;s a secret, please enter password to read.
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Writing material</title>
+    <link href="http://www.yulezhang.com/2021/01/05/55WritingCorpus/"/>
+    <id>http://www.yulezhang.com/2021/01/05/55WritingCorpus/</id>
+    <published>2021-01-05T12:37:17.000Z</published>
+    <updated>2021-09-03T05:39:16.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This essay are used to collect excellent sentences or vocabularies in paper writing releated to machine learning.&lt;/p&gt;
+&lt;h1&gt;Sentences&lt;/h1&gt;
+&lt;h2 id=&quot;describe-our-method&quot;&gt;Describe our method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;In this section, we evaluate the superior aspects as well as the limitations of the proposed model by taking into account the state-of-art models&lt;/li&gt;
+&lt;li&gt;The results show that EVGO outperforms all the algorithms in comparison for all experiments.&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
+    
+      <category term="论文写作" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/"/>
+    
+    
+      <category term="语料" scheme="http://www.yulezhang.com/tags/%E8%AF%AD%E6%96%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>学堂在线---《如何写好科研论文》秋</title>
     <link href="http://www.yulezhang.com/2020/12/14/52PaperWriting/"/>
     <id>http://www.yulezhang.com/2020/12/14/52PaperWriting/</id>
@@ -271,222 +467,6 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     
       <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络应用——基于DNS绕开校园网认证</title>
-    <link href="http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/"/>
-    <id>http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/</id>
-    <published>2020-11-29T03:27:17.000Z</published>
-    <updated>2021-09-03T05:41:56.456Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇文章我想分享一下我与校园网斗智斗勇的过程哈哈哈&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="技术改变生活" scheme="http://www.yulezhang.com/categories/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="计算机网络" scheme="http://www.yulezhang.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="骚操作" scheme="http://www.yulezhang.com/tags/%E9%AA%9A%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetcodeSummary</title>
-    <link href="http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/"/>
-    <id>http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/</id>
-    <published>2020-11-13T11:19:38.000Z</published>
-    <updated>2021-09-03T05:43:04.705Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Leetcode算法刷题总结&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《刻意练习》读书笔记</title>
-    <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
-    <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
-    <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2021-09-03T05:57:48.635Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;训练时长和训练方法&lt;/p&gt;
-&lt;p&gt;训练方法可能是间断性调整的（往往在当前方法遇到瓶颈，无法提高时）&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;在任何行业或者领域中，最有效和最强大的那类联系，都通过充分利用人类的身体与大脑的适应能力，来逐步的塑造和提升他们的技能，以做到一些过去不可能的事情。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="读书笔记" scheme="http://www.yulezhang.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="刻意练习" scheme="http://www.yulezhang.com/tags/%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>生成个人相册</title>
-    <link href="http://www.yulezhang.com/2020/08/20/32GenPerAlbum/"/>
-    <id>http://www.yulezhang.com/2020/08/20/32GenPerAlbum/</id>
-    <published>2020-08-20T11:10:31.000Z</published>
-    <updated>2021-09-03T05:54:38.593Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文章讲解如何利用cos桶+cosbrowser在服务器上构建自己的个人相册&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="网站建设" scheme="http://www.yulezhang.com/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
-    
-      <category term="技术改变生活" scheme="http://www.yulezhang.com/categories/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="相册" scheme="http://www.yulezhang.com/tags/%E7%9B%B8%E5%86%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>研究生素养提升公益课</title>
-    <link href="http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/"/>
-    <id>http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/</id>
-    <published>2020-08-16T01:17:33.000Z</published>
-    <updated>2021-09-03T05:54:28.451Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="综合素质" scheme="http://www.yulezhang.com/tags/%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片映射+TEBD+DMRG</title>
-    <link href="http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/"/>
-    <id>http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/</id>
-    <published>2020-08-09T02:17:33.000Z</published>
-    <updated>2021-09-03T05:54:21.123Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;矩阵乘积态MPS表达多体系统基态&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="图片压缩" scheme="http://www.yulezhang.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
-    
-      <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>决策树</title>
-    <link href="http://www.yulezhang.com/2020/04/03/27Decision-Tree/"/>
-    <id>http://www.yulezhang.com/2020/04/03/27Decision-Tree/</id>
-    <published>2020-04-03T14:21:00.000Z</published>
-    <updated>2021-09-03T05:59:18.965Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文部分图片、材料来自于课程&lt;a href=&quot;https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms&quot;&gt;Python3 入门机器学习&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先来看一个招聘的例子，这就是一颗决策树，根据不同的问题进行一步步划分，最终将结果氛围录用和考察两类&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机理论基础" scheme="http://www.yulezhang.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="机器学习" scheme="http://www.yulezhang.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复试之C/C++系列问题</title>
-    <link href="http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/"/>
-    <id>http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/</id>
-    <published>2020-04-02T12:04:00.000Z</published>
-    <updated>2021-09-03T05:28:28.012Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;c-c-中为什么有引用&quot;&gt;C/C++中为什么有引用&lt;/h3&gt;
-&lt;p&gt;C++之所以增加引用类型, 主要是把它作为函数参数,以扩充函数传递数据的功能。&lt;/p&gt;
-&lt;p&gt;引用是一个常量指针占四个字节，编译器在编译时对引用作了更严格的限制，与普通指针相比更加安全。详细见&lt;a href=&quot;https://www.cnblogs.com/ronny/p/3662556.html&quot;&gt;C++的那些事：你真的了解引用吗&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="http://www.yulezhang.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="C/C++" scheme="http://www.yulezhang.com/tags/C-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>澳洲之行</title>
-    <link href="http://www.yulezhang.com/2020/03/31/25Australia-Trip/"/>
-    <id>http://www.yulezhang.com/2020/03/31/25Australia-Trip/</id>
-    <published>2020-03-31T12:04:00.000Z</published>
-    <updated>2021-09-03T05:23:11.288Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/Australia.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="旅行" scheme="http://www.yulezhang.com/categories/%E6%97%85%E8%A1%8C/"/>
-    
-    
-      <category term="旅行" scheme="http://www.yulezhang.com/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   

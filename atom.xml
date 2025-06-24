@@ -6,17 +6,108 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yulezhang.com/"/>
-  <updated>2023-03-14T14:02:35.474Z</updated>
+  <updated>2025-06-23T15:04:12.101Z</updated>
   <id>http://www.yulezhang.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android camera开发扫盲</title>
+    <link href="http://www.yulezhang.com/2025/06/22/73-android-architecture/"/>
+    <id>http://www.yulezhang.com/2025/06/22/73-android-architecture/</id>
+    <published>2025-06-22T08:32:40.000Z</published>
+    <updated>2025-06-23T15:04:12.101Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/android-basic.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;本文为android架构扫盲，主要是为了理清一些android开发中的基本概念&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://www.yulezhang.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>qcom cdsp培训</title>
+    <link href="http://www.yulezhang.com/2025/06/22/74-qcom-dsp-train/"/>
+    <id>http://www.yulezhang.com/2025/06/22/74-qcom-dsp-train/</id>
+    <published>2025-06-22T08:32:40.000Z</published>
+    <updated>2025-06-22T15:54:10.268Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/web.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;本周16、17两天参加了高通cdsp的培训，第一天主要以llm/sd大模型和sm8850为主，第二天主要以dsp和一些工具为主。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://www.yulezhang.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Web技术梳理</title>
+    <link href="http://www.yulezhang.com/2024/03/14/72Web-summary/"/>
+    <id>http://www.yulezhang.com/2024/03/14/72Web-summary/</id>
+    <published>2024-03-14T14:47:40.000Z</published>
+    <updated>2025-06-22T07:35:22.360Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/web.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;经常迷惑于各种前端技术，有了js/html/css三件套，但又有React/Angualar/Vue等各种技术，新技术框架层出不穷，搞得人晕头转向，今天咱们就来捋一捋。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://www.yulezhang.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Chatgpt使用及账号出售</title>
+    <link href="http://www.yulezhang.com/2023/04/28/71ChatgptAccount/"/>
+    <id>http://www.yulezhang.com/2023/04/28/71ChatgptAccount/</id>
+    <published>2023-04-28T05:27:40.000Z</published>
+    <updated>2023-05-04T08:57:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​&lt;/p&gt;
+&lt;h2 id=&quot;chatgpt使用体验&quot;&gt;Chatgpt使用体验&lt;/h2&gt;
+&lt;p&gt;自打用chatgpt已经两三个月了，作为追热点的一员，能明显感觉到它的&lt;strong&gt;社区、生态、相关研究&lt;/strong&gt;正在迅速铺开。&lt;/p&gt;
+&lt;p&gt;在研究上，我有两个比较印象深刻的进展&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;浙大和微软&lt;/strong&gt;联合推出&lt;strong&gt;HuggingGPT&lt;/strong&gt;，能够自动分析AI任务所涉及到的模型，然后去HuggingFace上自动调用。&lt;/li&gt;
+&lt;li&gt;Github上开源的实验室项目&lt;a href=&quot;https://github.com/Significant-Gravitas/Auto-GPT&quot;&gt;&lt;strong&gt;Auto-GPT&lt;/strong&gt;&lt;/a&gt;、&lt;a href=&quot;https://github.com/reworkd/AgentGPT&quot;&gt;&lt;strong&gt;AgentGPT&lt;/strong&gt;&lt;/a&gt;与HuggingGPT不同之处在于，它将AI任务交给Chatgpt来进行拆解，并转化成一个个子任务，类似于okr，然后再通过chrome搜索或者selenium流量等方式整合资源。属于在线搜索+推理的GPT，功能强大。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2023秋招总结</title>
     <link href="http://www.yulezhang.com/2023/03/14/70CampusRecruitment/"/>
     <id>http://www.yulezhang.com/2023/03/14/70CampusRecruitment/</id>
     <published>2023-03-14T13:39:40.000Z</published>
-    <updated>2023-03-14T14:02:35.474Z</updated>
+    <updated>2023-03-14T14:02:36.000Z</updated>
     
     <summary type="html">
     
@@ -35,11 +126,38 @@
   </entry>
   
   <entry>
+    <title>RPC</title>
+    <link href="http://www.yulezhang.com/2023/03/14/71RemoteProcedureCall/"/>
+    <id>http://www.yulezhang.com/2023/03/14/71RemoteProcedureCall/</id>
+    <published>2023-03-14T13:39:40.000Z</published>
+    <updated>2023-03-15T03:35:14.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;远程服务调用(Remote Procedure Call, RPC)出现的目的就是为了让计算机能够与调用本地方法一样去调用远程方法，这是早在1990年之前定义分布式运算环境(Distributed Computing Environment,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="实习" scheme="http://www.yulezhang.com/categories/%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+      <category term="随笔" scheme="http://www.yulezhang.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>腾讯字节实习面试总结</title>
     <link href="http://www.yulezhang.com/2021/09/03/69InternSummary/"/>
     <id>http://www.yulezhang.com/2021/09/03/69InternSummary/</id>
     <published>2021-09-03T05:10:00.000Z</published>
-    <updated>2021-09-06T02:32:11.044Z</updated>
+    <updated>2021-09-06T02:32:12.000Z</updated>
     
     <summary type="html">
     
@@ -62,7 +180,7 @@
     <link href="http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/"/>
     <id>http://www.yulezhang.com/2021/09/02/68CombinationLeetcode/</id>
     <published>2021-09-02T06:56:00.000Z</published>
-    <updated>2021-09-03T05:09:34.743Z</updated>
+    <updated>2021-09-03T05:09:36.000Z</updated>
     
     <summary type="html">
     
@@ -87,7 +205,7 @@
     <link href="http://www.yulezhang.com/2021/05/02/66CodeDetect/"/>
     <id>http://www.yulezhang.com/2021/05/02/66CodeDetect/</id>
     <published>2021-05-02T12:46:00.000Z</published>
-    <updated>2021-09-03T05:37:20.721Z</updated>
+    <updated>2021-09-03T05:37:22.000Z</updated>
     
     <summary type="html">
     
@@ -117,7 +235,7 @@
     <link href="http://www.yulezhang.com/2021/03/28/62QML-Collections/"/>
     <id>http://www.yulezhang.com/2021/03/28/62QML-Collections/</id>
     <published>2021-03-28T12:50:00.000Z</published>
-    <updated>2021-09-03T05:18:32.356Z</updated>
+    <updated>2021-09-03T05:18:34.000Z</updated>
     
     <summary type="html">
     
@@ -142,7 +260,7 @@
     <link href="http://www.yulezhang.com/2021/03/27/60ReadBook/"/>
     <id>http://www.yulezhang.com/2021/03/27/60ReadBook/</id>
     <published>2021-03-27T13:15:14.000Z</published>
-    <updated>2021-09-03T05:57:39.112Z</updated>
+    <updated>2021-09-03T05:57:40.000Z</updated>
     
     <summary type="html">
     
@@ -163,7 +281,7 @@
     <link href="http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/"/>
     <id>http://www.yulezhang.com/2021/03/27/61HuaweiSoftwareContest/</id>
     <published>2021-03-27T10:00:00.000Z</published>
-    <updated>2021-09-03T05:26:12.543Z</updated>
+    <updated>2021-09-03T05:26:14.000Z</updated>
     
     <summary type="html">
     
@@ -182,7 +300,7 @@
     <link href="http://www.yulezhang.com/2021/03/14/58Grover/"/>
     <id>http://www.yulezhang.com/2021/03/14/58Grover/</id>
     <published>2021-03-14T13:21:17.000Z</published>
-    <updated>2021-09-03T05:38:24.627Z</updated>
+    <updated>2021-09-03T05:38:26.000Z</updated>
     
     <summary type="html">
     
@@ -214,7 +332,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/"/>
     <id>http://www.yulezhang.com/2021/03/07/57TNML-ACML2020Tutorial/</id>
     <published>2021-03-07T14:21:17.000Z</published>
-    <updated>2021-09-03T05:38:35.778Z</updated>
+    <updated>2021-09-03T05:38:36.000Z</updated>
     
     <summary type="html">
     
@@ -238,7 +356,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/12/14/52PaperWriting/"/>
     <id>http://www.yulezhang.com/2020/12/14/52PaperWriting/</id>
     <published>2020-12-14T14:21:12.000Z</published>
-    <updated>2021-09-03T05:39:58.295Z</updated>
+    <updated>2021-09-03T05:40:00.000Z</updated>
     
     <summary type="html">
     
@@ -260,7 +378,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/12/08/51DeepLearning/"/>
     <id>http://www.yulezhang.com/2020/12/08/51DeepLearning/</id>
     <published>2020-12-08T12:21:12.000Z</published>
-    <updated>2021-09-03T05:20:44.192Z</updated>
+    <updated>2021-09-03T05:20:46.000Z</updated>
     
     <summary type="html">
     
@@ -279,7 +397,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/"/>
     <id>http://www.yulezhang.com/2020/11/29/48PassbyCpsNet/</id>
     <published>2020-11-29T03:27:17.000Z</published>
-    <updated>2021-09-03T05:41:56.456Z</updated>
+    <updated>2021-09-03T05:41:58.000Z</updated>
     
     <summary type="html">
     
@@ -304,7 +422,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/"/>
     <id>http://www.yulezhang.com/2020/11/13/45LeetcodeSummary/</id>
     <published>2020-11-13T11:19:38.000Z</published>
-    <updated>2021-09-03T05:43:04.705Z</updated>
+    <updated>2021-09-03T05:43:06.000Z</updated>
     
     <summary type="html">
     
@@ -325,7 +443,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/09/30/39DelibratePractice/"/>
     <id>http://www.yulezhang.com/2020/09/30/39DelibratePractice/</id>
     <published>2020-09-30T02:30:52.000Z</published>
-    <updated>2021-09-03T05:57:48.635Z</updated>
+    <updated>2021-09-03T05:57:50.000Z</updated>
     
     <summary type="html">
     
@@ -348,7 +466,7 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     <link href="http://www.yulezhang.com/2020/08/20/32GenPerAlbum/"/>
     <id>http://www.yulezhang.com/2020/08/20/32GenPerAlbum/</id>
     <published>2020-08-20T11:10:31.000Z</published>
-    <updated>2021-09-03T05:54:38.593Z</updated>
+    <updated>2021-09-03T05:54:40.000Z</updated>
     
     <summary type="html">
     
@@ -359,134 +477,12 @@ M1001 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/
     </summary>
     
     
-      <category term="网站建设" scheme="http://www.yulezhang.com/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
-    
       <category term="技术改变生活" scheme="http://www.yulezhang.com/categories/%E6%8A%80%E6%9C%AF%E6%94%B9%E5%8F%98%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="网站建设" scheme="http://www.yulezhang.com/categories/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
     
     
       <category term="相册" scheme="http://www.yulezhang.com/tags/%E7%9B%B8%E5%86%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>研究生素养提升公益课</title>
-    <link href="http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/"/>
-    <id>http://www.yulezhang.com/2020/08/16/31Study-Report(0810-0816)/</id>
-    <published>2020-08-16T01:17:33.000Z</published>
-    <updated>2021-09-03T05:54:28.451Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本周主要是观看学习了知网研学研究生素养提升课，以及学习层次树张量网络的英文论文（Liu_2019_New_J._Phys._21_073059）和代码。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="综合素质" scheme="http://www.yulezhang.com/tags/%E7%BB%BC%E5%90%88%E7%B4%A0%E8%B4%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片映射+TEBD+DMRG</title>
-    <link href="http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/"/>
-    <id>http://www.yulezhang.com/2020/08/09/30Study-Report(0802-0809)/</id>
-    <published>2020-08-09T02:17:33.000Z</published>
-    <updated>2021-09-03T05:54:21.123Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;矩阵乘积态MPS表达多体系统基态&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="周汇报" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/"/>
-    
-      <category term="理论基础" scheme="http://www.yulezhang.com/categories/%E5%91%A8%E6%B1%87%E6%8A%A5/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="图片压缩" scheme="http://www.yulezhang.com/tags/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/"/>
-    
-      <category term="张量基础" scheme="http://www.yulezhang.com/tags/%E5%BC%A0%E9%87%8F%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>决策树</title>
-    <link href="http://www.yulezhang.com/2020/04/03/27Decision-Tree/"/>
-    <id>http://www.yulezhang.com/2020/04/03/27Decision-Tree/</id>
-    <published>2020-04-03T14:21:00.000Z</published>
-    <updated>2021-09-03T05:59:18.965Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文部分图片、材料来自于课程&lt;a href=&quot;https://github.com/liuyubobobo/Play-with-Machine-Learning-Algorithms&quot;&gt;Python3 入门机器学习&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先来看一个招聘的例子，这就是一颗决策树，根据不同的问题进行一步步划分，最终将结果氛围录用和考察两类&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机理论基础" scheme="http://www.yulezhang.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/"/>
-    
-      <category term="算法" scheme="http://www.yulezhang.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="机器学习" scheme="http://www.yulezhang.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复试之C/C++系列问题</title>
-    <link href="http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/"/>
-    <id>http://www.yulezhang.com/2020/04/02/26Pku-Interview-C/</id>
-    <published>2020-04-02T12:04:00.000Z</published>
-    <updated>2021-09-03T05:28:28.012Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;c-c-中为什么有引用&quot;&gt;C/C++中为什么有引用&lt;/h3&gt;
-&lt;p&gt;C++之所以增加引用类型, 主要是把它作为函数参数,以扩充函数传递数据的功能。&lt;/p&gt;
-&lt;p&gt;引用是一个常量指针占四个字节，编译器在编译时对引用作了更严格的限制，与普通指针相比更加安全。详细见&lt;a href=&quot;https://www.cnblogs.com/ronny/p/3662556.html&quot;&gt;C++的那些事：你真的了解引用吗&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="http://www.yulezhang.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="C/C++" scheme="http://www.yulezhang.com/tags/C-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>澳洲之行</title>
-    <link href="http://www.yulezhang.com/2020/03/31/25Australia-Trip/"/>
-    <id>http://www.yulezhang.com/2020/03/31/25Australia-Trip/</id>
-    <published>2020-03-31T12:04:00.000Z</published>
-    <updated>2021-09-03T05:23:11.288Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/Australia.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="旅行" scheme="http://www.yulezhang.com/categories/%E6%97%85%E8%A1%8C/"/>
-    
-    
-      <category term="旅行" scheme="http://www.yulezhang.com/tags/%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>android camera开发扫盲 |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-73-android-architecture"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  android camera开发扫盲
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/06/22/73-android-architecture/" class="article-date">
+  <time datetime="2025-06-22T08:32:40.000Z" itemprop="datePublished">2025-06-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">8 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><img src="/images/android-basic.png" alt="cover"></p>
+<p>本文为android架构扫盲，主要是为了理清一些android开发中的基本概念</p>
+<a id="more"></a>
+<h2 id="aosp架构">AOSP架构</h2>
+<p>AOSP架构如下图所示</p>
+<p><img src="./assets/android-stack.svg" alt="AOSP 软件堆栈架构。"></p>
+<p>其中Linux Kernel为纯开源项目，但其他层则包含上下游商业合作</p>
+<p>各个部分的作用从命名看都一目了然，这里不再赘述，详细描述见https://source.android.com/docs/core/architecture?hl=zh-cn</p>
+<h2 id="android应用上下游">Android应用上下游</h2>
+<p>下面以camera应用为例，来介绍一下整个android开发上下游的合作商，整个上下游合作链条为<strong>ARM → 芯片厂（HAL/BSP） → OEM（ROM/硬件） → 算法厂（增强功能） → 用户</strong></p>
+<p>整体开发层级以及上下游厂商如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>层级</strong></th>
+<th style="text-align:left"><strong>负责方</strong></th>
+<th style="text-align:left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>硬件层</strong></td>
+<td style="text-align:left">ARM、台积电（制造）、索尼（传感器）</td>
+<td style="text-align:left">ARM Cortex-X1、IMX789 传感器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>内核/BSP</strong></td>
+<td style="text-align:left">高通、联发科</td>
+<td style="text-align:left">Linux 内核 + 定制驱动</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>HAL 层</strong></td>
+<td style="text-align:left">高通（基础 HAL）、OEM（定制）</td>
+<td style="text-align:left">Camera HAL、Audio HAL</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Android 框架层</strong></td>
+<td style="text-align:left">谷歌（AOSP）、OEM（定制）</td>
+<td style="text-align:left">Activity Manager、MIUI 桌面</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>应用层</strong></td>
+<td style="text-align:left">谷歌（GMS）、OEM（预装应用）</td>
+<td style="text-align:left">Play 商店、小米音乐</td>
+</tr>
+</tbody>
+</table>
+<p>下面以<strong>camera相机算法为例</strong>介绍一下深入了解一下各个公司在层级中扮演的角色</p>
+<h3 id="1-arm"><strong>1) ARM</strong></h3>
+<p>当前市面上几乎90%以上的手机芯片均采用arm架构，比如苹果、高通、联发科、紫光展锐的芯片，就连麒麟也是arm架构。当然inter x86架构在某些高性能移动设备中也有应用，但份额过少。</p>
+<ul>
+<li><strong>角色</strong>：提供 <strong>CPU/GPU 指令集架构（ISA）</strong> 和 <strong>核心设计</strong>（如 Cortex-A78、Mali-G78）</li>
+<li><strong>开发层</strong>：
+<ul>
+<li><strong>硬件层</strong>：定义芯片的底层架构（如 ARMv8-A 指令集）</li>
+<li><strong>BSP（Board Support Package）</strong>：提供核心的 CPU/GPU 驱动和固件（如 Mali GPU 驱动）</li>
+</ul>
+</li>
+<li><strong>影响</strong>：
+<ul>
+<li>芯片厂商（如高通、联发科）需获得 ARM 授权，基于其 IP 设计 SoC</li>
+<li>Android 系统需适配 ARM 指令集（如 AArch64 支持）</li>
+</ul>
+</li>
+<li><strong>产出</strong>：它自己不设计芯片，只是卖授权，IP等，然后从全球芯片厂商那里收授权费</li>
+</ul>
+<h3 id="2-qualcomm或-mtk"><strong>2) Qualcomm或 MTK</strong></h3>
+<ul>
+<li>
+<p><strong>角色</strong>：SoC（系统级芯片）供应商，高通提供 <strong>骁龙（Snapdragon）</strong> 系列芯片（如 SM8850/骁龙 888），MTK提供天玑系列芯片（如DX-4）。</p>
+</li>
+<li>
+<p><strong>开发层</strong>：</p>
+<ul>
+<li><strong>硬件层</strong>：集成 ARM CPU/GPU、自研 DSP（Hexagon）、ISP（Spectra）、基带等</li>
+<li><strong>BSP/HAL 层</strong>：
+<ul>
+<li><strong>内核驱动</strong>（如 Camera Sensor Driver、Display Driver）</li>
+<li><strong>硬件抽象层（HAL）</strong>：实现 Android 定义的 HAL 接口（如 <code>Camera HAL</code>、<code>Audio HAL</code>）</li>
+<li><strong>qcom专有库</strong>：如 GPU 驱动（Adreno）、AI 引擎（Hexagon NN）、ISP 算法（Spectra ISP 支持 HDR/Remosaic）、CamX架构</li>
+</ul>
+</li>
+<li><strong>Android 框架适配</strong>：提供芯片相关的优化（如 Power Management、AI 加速）</li>
+</ul>
+<p>注意这里高通采用的是自研的adreno gpu架构，而mtk采用的是arm mali gpu，但两者都支持OpenCL、Vulkan、OpenGL等API调用接口</p>
+</li>
+<li>
+<p><strong>关键输出</strong>：</p>
+<ul>
+<li><strong>SoC 芯片</strong>（如骁龙 888）</li>
+<li><strong>BSP 包</strong>（Board Support Package，含内核驱动、HAL 实现、固件）</li>
+<li><strong>专有闭源库</strong>（如 GPU 驱动、ISP 算法库）</li>
+</ul>
+</li>
+<li>
+<p><strong>产出</strong>：提供高性能soc</p>
+</li>
+</ul>
+<h3 id="3-oem-小米-华为-苹果等">3) OEM（小米/华为/苹果等）</h3>
+<ul>
+<li>
+<p><strong>角色</strong>：设备制造商，负责硬件整合和软件定制</p>
+</li>
+<li>
+<p><strong>开发层</strong>：</p>
+<ul>
+<li><strong>硬件层</strong>：选择传感器（如索尼 IMX766）、屏幕、电池等外围硬件</li>
+<li><strong>BSP 适配</strong>：修改高通/联发科的 BSP 以适配自家硬件（如 Camera Sensor 驱动调优）</li>
+<li><strong>HAL 层</strong>：
+<ul>
+<li>实现或定制 <strong>Vendor HAL</strong>（如 <code>Camera HAL</code> 调用高通 ISP 算法）</li>
+<li>修改 Camera HAL 以支持自家传感器（如三星 HM3）</li>
+<li>开发 <strong>设备专属功能</strong>（如小米的夜景模式、华为的 RYYB 色彩处理、小米的快充 HAL）</li>
+</ul>
+</li>
+<li><strong>Android 框架修改</strong>（依赖于Google Android 授权新版）：
+<ul>
+<li>定制 UI（如 MIUI、EMUI）</li>
+<li>添加 OEM 专属 API（如华为的 HMS Core）</li>
+</ul>
+</li>
+<li><strong>ROM（Firmware）</strong>：
+<ul>
+<li>包含 <strong>Android 系统镜像</strong>（基于 AOSP 修改）、<strong>内核</strong>、<strong>HAL 实现</strong>、<strong>预装应用</strong>。</li>
+<li>可能锁定 Bootloader（防止用户刷机）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>关键输出</strong>：</p>
+<ul>
+<li><strong>设备专属 ROM</strong>（如 MIUI for Xiaomi）</li>
+<li><strong>闭源 HAL 实现</strong>（如华为的相机算法库）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：苹果（Apple）是封闭生态，不使用 Android，但其供应链类似（ARM 指令集 + 自研芯片 + 闭源系统）。</p>
+</blockquote>
+<blockquote>
+<p>**注：<strong>ROM</strong>指 OEM 提供的 **设备专属系统镜像，包含：</p>
+<ul>
+<li>修改后的 Android 系统（基于 AOSP）</li>
+<li>内核（可能打上 OEM 补丁）</li>
+<li>预装应用（如小米商店、华为云服务）</li>
+<li>闭源 HAL 和驱动</li>
+</ul>
+<p>例如MIUI、ColorOS、EMUI 都是 Vendor ROM</p>
+</blockquote>
+<h3 id="4-camera-algorithm-provider"><strong>4) Camera Algorithm Provider</strong></h3>
+<ul>
+<li><strong>角色</strong>：提供 <strong>图像处理算法</strong>（如降噪、HDR、人像模式）</li>
+<li><strong>典型厂商</strong>：
+<ul>
+<li><strong>虹软（ArcSoft）</strong>：提供多帧降噪、夜景算法</li>
+<li><strong>Morpho</strong>：提供虚化、美颜算法</li>
+<li><strong>OEM 自研</strong>：如华为的 XD Fusion、谷歌的 HDR+</li>
+</ul>
+</li>
+<li><strong>开发层</strong>：
+<ul>
+<li><strong>集成到 HAL</strong>：算法通常以 <strong>闭源库（.so）</strong> 形式提供，由 OEM 通过 Camera HAL 调用</li>
+<li><strong>依赖硬件</strong>：部分算法需特定 ISP 支持（如高通的 Spectra ISP 支持 MFHDR）</li>
+</ul>
+</li>
+</ul>
+<h2 id="android应用开发语言">Android应用开发语言</h2>
+<p>讲完了android上下游，再来聊聊android应用开发，上述提到的上下游供应商的语言偏好如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>供应商层级</strong></th>
+<th style="text-align:left"><strong>典型厂商</strong></th>
+<th style="text-align:left"><strong>主要编程语言</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>芯片厂商</strong></td>
+<td style="text-align:left">高通（Qualcomm）、联发科（MediaTek）</td>
+<td style="text-align:left"><strong>C/C++</strong>（主导）、汇编（关键优化）</td>
+<td style="text-align:left">底层驱动、HAL、ISP/DSP 算法需高性能和硬件直接交互，C/C++ 是首选。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OEM（手机厂商）</strong></td>
+<td style="text-align:left">小米、华为、三星</td>
+<td style="text-align:left"><strong>Java/Kotlin</strong>（框架/应用层）、<strong>C++</strong>（HAL/驱动）</td>
+<td style="text-align:left">上层应用用 Java/Kotlin，底层 HAL 和性能敏感模块用 C++（如相机算法调用）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>算法供应商</strong></td>
+<td style="text-align:left">虹软（ArcSoft）、Morpho</td>
+<td style="text-align:left"><strong>C/C++</strong>（核心算法）、<strong>Python</strong>（原型验证）</td>
+<td style="text-align:left">图像/音频算法需高效计算，通常以 <strong>闭源库（.so/.a）</strong> 形式提供，C/C++ 是行业标准。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>谷歌（AOSP）</strong></td>
+<td style="text-align:left">Google</td>
+<td style="text-align:left"><strong>Java/Kotlin</strong>（框架）、<strong>C++</strong>（HAL/底层）</td>
+<td style="text-align:left">Android 框架层用 Java，Native 层（如 Binder、SurfaceFlinger）用 C++。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arcsoft示例">ArcSoft示例</h3>
+<p><strong>ArcSoft交付物</strong></p>
+<ul>
+<li><strong>开发语言</strong>：<strong>C/C++</strong>（占主导），原因包括：
+<ul>
+<li>高性能计算需求（如多帧降噪、HDR 合成）</li>
+<li>直接调用硬件加速接口（如 DSP/GPU 的 OpenCL/Vulkan）。</li>
+<li>跨平台兼容性（可移植到不同 SoC 和 OEM 设备）。</li>
+</ul>
+</li>
+<li>算法交付：通常以 动态库（.so）或 静态库 （.a）的形式向OEM提供算法，例如：
+<ul>
+<li><code>libarcsoft_hdr.so</code>（HDR 处理库）</li>
+<li><code>libarcsoft_night.so</code>（夜景模式库）</li>
+</ul>
+</li>
+</ul>
+<p><strong>OEM集成方式</strong></p>
+<ol>
+<li>
+<p>HAL层集成（主流方案）</p>
+<ul>
+<li>
+<p>集成方式：</p>
+<ul>
+<li>
+<p>OEM 在 <strong>Camera HAL 实现</strong>（如 <code>QCameraHAL.cpp</code>）中直接加载虹软的库（<code>dlopen</code>）并调用其接口。</p>
+</li>
+<li>
+<p><strong>封装为 HAL 扩展</strong>：部分 OEM 会将虹软算法封装为 <strong>自定义 HAL 接口</strong>（如 <code>vendor.xiaomi.hardware.camera.arcsoft@1.0</code>），供框架层调用。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数据流：Sensor → HAL（调用虹软库） → ISP → Framework → APK。</p>
+</li>
+<li>
+<p>优势：</p>
+<ul>
+<li>
+<p>直接访问传感器原始数据（RAW/YUV），处理画质更优。</p>
+</li>
+<li>
+<p>低延迟，可结合 SoC 的 ISP 硬件加速（如高通 Spectra ISP）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>APK层集成</p>
+<ul>
+<li>集成方式：
+<ul>
+<li>将算法库打包到 <strong>相机应用（APK）</strong> 中，通过 JNI 调用。</li>
+</ul>
+</li>
+<li><strong>适用场景</strong>：
+<ul>
+<li>轻量级算法（如美颜滤镜）</li>
+<li>需要快速迭代（无需升级 HAL 或固件）</li>
+</ul>
+</li>
+<li>数据流：Sensor → HAL → Framework → APK（调用虹软库）</li>
+<li>缺点
+<ul>
+<li>无法直接处理 RAW 数据，画质受限</li>
+<li>性能低于 HAL 层集成（需通过 Android 框架传输数据）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，集成到HAL层的功能大多数基于c/c++进行开发，来确保高性能处理。而上层APK应用基于AOSP开发，<a target="_blank" rel="noopener" href="http://xn--com-uc0ep96brtd2vff70dc5yb.camera.xxx">封装应用例如com.camera.xxx</a>，则是通过jni调用高性能C/C++ so库进行集成。如果是性能不敏感的场景，则使用java开发即可。</p>
+<h2 id="android-native-开发介绍">Android Native 开发介绍</h2>
+<p>Android Native开发需要基于Android NDK(Native Development Kit)，NDK为32 位 ARM、AArch64、x86 及 x86-64 提供 ABI (Android Binary Interface)支持，ABI和支持的指令集如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ABI</th>
+<th></th>
+<th style="text-align:left">支持的指令集</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#v7a"><code>armeabi-v7a</code></a></td>
+<td></td>
+<td style="text-align:left">armeabi<br />Thumb-2<br />Neon<br /></td>
+<td style="text-align:left">与 ARMv5/v6 设备不兼容。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#arm64-v8a"><code>arm64-v8a</code></a></td>
+<td></td>
+<td style="text-align:left">AArch64</td>
+<td style="text-align:left">仅限 Armv8.0。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#x86"><code>x86</code></a> (32bit)</td>
+<td></td>
+<td style="text-align:left">x86 (IA-32)<br />MMX<br />SSE/2/3<br />SSSE3</td>
+<td style="text-align:left">不支持 MOVBE 或 SSE4。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#86-64"><code>x86_64</code></a></td>
+<td></td>
+<td style="text-align:left">x86-64<br />MMX<br />SSE/2/3<br />SSSE3<br />SSE4.1、4.2<br />POPCNT<br />CMPXCHG16B<br />LAHF-SAHF</td>
+<td style="text-align:left">完整的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels">x86-64-v2</a>。</td>
+</tr>
+</tbody>
+</table>
+<p>NDK中提供了LLVM libc++配套的编译工具链，可以让我们使用不同版本版本的C++</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<ol>
+<li>Android AOSP：<a target="_blank" rel="noopener" href="https://source.android.com/docs/core/architecture?hl=zh-cn">https://source.android.com/docs/core/architecture?hl=zh-cn</a></li>
+<li>Android ABIs：<a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides/abis">https://developer.android.com/ndk/guides/abis</a></li>
+<li>Android NDK开发：<a target="_blank" rel="noopener" href="https://developer.android.com/ndk/guides">https://developer.android.com/ndk/guides</a></li>
+<li>高通camx架构：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51178981/article/details/126714490">https://blog.csdn.net/weixin_51178981/article/details/126714490</a></li>
+<li>Android init进程：<a target="_blank" rel="noopener" href="https://wizzie.top/android/android_android%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B_1_init%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">https://wizzie.top/android/android_android系统启动流程_1_init进程启动流程/</a></li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2025/06/22/73-android-architecture/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/06/22/74-qcom-dsp-train/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">qcom cdsp培训</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2025
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

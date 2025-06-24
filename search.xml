@@ -1,6 +1,639 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>android camera开发扫盲</title>
+    <url>/2025/06/22/73-android-architecture/</url>
+    <content><![CDATA[<p><img src="/images/android-basic.png" alt="cover"></p>
+<p>本文为android架构扫盲，主要是为了理清一些android开发中的基本概念</p>
+<a id="more"></a>
+<h2 id="aosp架构">AOSP架构</h2>
+<p>AOSP架构如下图所示</p>
+<p><img src="./assets/android-stack.svg" alt="AOSP 软件堆栈架构。"></p>
+<p>其中Linux Kernel为纯开源项目，但其他层则包含上下游商业合作</p>
+<p>各个部分的作用从命名看都一目了然，这里不再赘述，详细描述见https://source.android.com/docs/core/architecture?hl=zh-cn</p>
+<h2 id="android应用上下游">Android应用上下游</h2>
+<p>下面以camera应用为例，来介绍一下整个android开发上下游的合作商，整个上下游合作链条为<strong>ARM → 芯片厂（HAL/BSP） → OEM（ROM/硬件） → 算法厂（增强功能） → 用户</strong></p>
+<p>整体开发层级以及上下游厂商如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>层级</strong></th>
+<th style="text-align:left"><strong>负责方</strong></th>
+<th style="text-align:left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>硬件层</strong></td>
+<td style="text-align:left">ARM、台积电（制造）、索尼（传感器）</td>
+<td style="text-align:left">ARM Cortex-X1、IMX789 传感器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>内核/BSP</strong></td>
+<td style="text-align:left">高通、联发科</td>
+<td style="text-align:left">Linux 内核 + 定制驱动</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>HAL 层</strong></td>
+<td style="text-align:left">高通（基础 HAL）、OEM（定制）</td>
+<td style="text-align:left">Camera HAL、Audio HAL</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Android 框架层</strong></td>
+<td style="text-align:left">谷歌（AOSP）、OEM（定制）</td>
+<td style="text-align:left">Activity Manager、MIUI 桌面</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>应用层</strong></td>
+<td style="text-align:left">谷歌（GMS）、OEM（预装应用）</td>
+<td style="text-align:left">Play 商店、小米音乐</td>
+</tr>
+</tbody>
+</table>
+<p>下面以<strong>camera相机算法为例</strong>介绍一下深入了解一下各个公司在层级中扮演的角色</p>
+<h3 id="1-arm"><strong>1) ARM</strong></h3>
+<p>当前市面上几乎90%以上的手机芯片均采用arm架构，比如苹果、高通、联发科、紫光展锐的芯片，就连麒麟也是arm架构。当然inter x86架构在某些高性能移动设备中也有应用，但份额过少。</p>
+<ul>
+<li><strong>角色</strong>：提供 <strong>CPU/GPU 指令集架构（ISA）</strong> 和 <strong>核心设计</strong>（如 Cortex-A78、Mali-G78）</li>
+<li><strong>开发层</strong>：
+<ul>
+<li><strong>硬件层</strong>：定义芯片的底层架构（如 ARMv8-A 指令集）</li>
+<li><strong>BSP（Board Support Package）</strong>：提供核心的 CPU/GPU 驱动和固件（如 Mali GPU 驱动）</li>
+</ul>
+</li>
+<li><strong>影响</strong>：
+<ul>
+<li>芯片厂商（如高通、联发科）需获得 ARM 授权，基于其 IP 设计 SoC</li>
+<li>Android 系统需适配 ARM 指令集（如 AArch64 支持）</li>
+</ul>
+</li>
+<li><strong>产出</strong>：它自己不设计芯片，只是卖授权，IP等，然后从全球芯片厂商那里收授权费</li>
+</ul>
+<h3 id="2-qualcomm或-mtk"><strong>2) Qualcomm或 MTK</strong></h3>
+<ul>
+<li>
+<p><strong>角色</strong>：SoC（系统级芯片）供应商，高通提供 <strong>骁龙（Snapdragon）</strong> 系列芯片（如 SM8850/骁龙 888），MTK提供天玑系列芯片（如DX-4）。</p>
+</li>
+<li>
+<p><strong>开发层</strong>：</p>
+<ul>
+<li><strong>硬件层</strong>：集成 ARM CPU/GPU、自研 DSP（Hexagon）、ISP（Spectra）、基带等</li>
+<li><strong>BSP/HAL 层</strong>：
+<ul>
+<li><strong>内核驱动</strong>（如 Camera Sensor Driver、Display Driver）</li>
+<li><strong>硬件抽象层（HAL）</strong>：实现 Android 定义的 HAL 接口（如 <code>Camera HAL</code>、<code>Audio HAL</code>）</li>
+<li><strong>qcom专有库</strong>：如 GPU 驱动（Adreno）、AI 引擎（Hexagon NN）、ISP 算法（Spectra ISP 支持 HDR/Remosaic）、CamX架构</li>
+</ul>
+</li>
+<li><strong>Android 框架适配</strong>：提供芯片相关的优化（如 Power Management、AI 加速）</li>
+</ul>
+<p>注意这里高通采用的是自研的adreno gpu架构，而mtk采用的是arm mali gpu，但两者都支持OpenCL、Vulkan、OpenGL等API调用接口</p>
+</li>
+<li>
+<p><strong>关键输出</strong>：</p>
+<ul>
+<li><strong>SoC 芯片</strong>（如骁龙 888）</li>
+<li><strong>BSP 包</strong>（Board Support Package，含内核驱动、HAL 实现、固件）</li>
+<li><strong>专有闭源库</strong>（如 GPU 驱动、ISP 算法库）</li>
+</ul>
+</li>
+<li>
+<p><strong>产出</strong>：提供高性能soc</p>
+</li>
+</ul>
+<h3 id="3-oem-小米-华为-苹果等">3) OEM（小米/华为/苹果等）</h3>
+<ul>
+<li>
+<p><strong>角色</strong>：设备制造商，负责硬件整合和软件定制</p>
+</li>
+<li>
+<p><strong>开发层</strong>：</p>
+<ul>
+<li><strong>硬件层</strong>：选择传感器（如索尼 IMX766）、屏幕、电池等外围硬件</li>
+<li><strong>BSP 适配</strong>：修改高通/联发科的 BSP 以适配自家硬件（如 Camera Sensor 驱动调优）</li>
+<li><strong>HAL 层</strong>：
+<ul>
+<li>实现或定制 <strong>Vendor HAL</strong>（如 <code>Camera HAL</code> 调用高通 ISP 算法）</li>
+<li>修改 Camera HAL 以支持自家传感器（如三星 HM3）</li>
+<li>开发 <strong>设备专属功能</strong>（如小米的夜景模式、华为的 RYYB 色彩处理、小米的快充 HAL）</li>
+</ul>
+</li>
+<li><strong>Android 框架修改</strong>（依赖于Google Android 授权新版）：
+<ul>
+<li>定制 UI（如 MIUI、EMUI）</li>
+<li>添加 OEM 专属 API（如华为的 HMS Core）</li>
+</ul>
+</li>
+<li><strong>ROM（Firmware）</strong>：
+<ul>
+<li>包含 <strong>Android 系统镜像</strong>（基于 AOSP 修改）、<strong>内核</strong>、<strong>HAL 实现</strong>、<strong>预装应用</strong>。</li>
+<li>可能锁定 Bootloader（防止用户刷机）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>关键输出</strong>：</p>
+<ul>
+<li><strong>设备专属 ROM</strong>（如 MIUI for Xiaomi）</li>
+<li><strong>闭源 HAL 实现</strong>（如华为的相机算法库）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>注</strong>：苹果（Apple）是封闭生态，不使用 Android，但其供应链类似（ARM 指令集 + 自研芯片 + 闭源系统）。</p>
+</blockquote>
+<blockquote>
+<p>**注：<strong>ROM</strong>指 OEM 提供的 **设备专属系统镜像，包含：</p>
+<ul>
+<li>修改后的 Android 系统（基于 AOSP）</li>
+<li>内核（可能打上 OEM 补丁）</li>
+<li>预装应用（如小米商店、华为云服务）</li>
+<li>闭源 HAL 和驱动</li>
+</ul>
+<p>例如MIUI、ColorOS、EMUI 都是 Vendor ROM</p>
+</blockquote>
+<h3 id="4-camera-algorithm-provider"><strong>4) Camera Algorithm Provider</strong></h3>
+<ul>
+<li><strong>角色</strong>：提供 <strong>图像处理算法</strong>（如降噪、HDR、人像模式）</li>
+<li><strong>典型厂商</strong>：
+<ul>
+<li><strong>虹软（ArcSoft）</strong>：提供多帧降噪、夜景算法</li>
+<li><strong>Morpho</strong>：提供虚化、美颜算法</li>
+<li><strong>OEM 自研</strong>：如华为的 XD Fusion、谷歌的 HDR+</li>
+</ul>
+</li>
+<li><strong>开发层</strong>：
+<ul>
+<li><strong>集成到 HAL</strong>：算法通常以 <strong>闭源库（.so）</strong> 形式提供，由 OEM 通过 Camera HAL 调用</li>
+<li><strong>依赖硬件</strong>：部分算法需特定 ISP 支持（如高通的 Spectra ISP 支持 MFHDR）</li>
+</ul>
+</li>
+</ul>
+<h2 id="android应用开发语言">Android应用开发语言</h2>
+<p>讲完了android上下游，再来聊聊android应用开发，上述提到的上下游供应商的语言偏好如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>供应商层级</strong></th>
+<th style="text-align:left"><strong>典型厂商</strong></th>
+<th style="text-align:left"><strong>主要编程语言</strong></th>
+<th style="text-align:left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>芯片厂商</strong></td>
+<td style="text-align:left">高通（Qualcomm）、联发科（MediaTek）</td>
+<td style="text-align:left"><strong>C/C++</strong>（主导）、汇编（关键优化）</td>
+<td style="text-align:left">底层驱动、HAL、ISP/DSP 算法需高性能和硬件直接交互，C/C++ 是首选。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OEM（手机厂商）</strong></td>
+<td style="text-align:left">小米、华为、三星</td>
+<td style="text-align:left"><strong>Java/Kotlin</strong>（框架/应用层）、<strong>C++</strong>（HAL/驱动）</td>
+<td style="text-align:left">上层应用用 Java/Kotlin，底层 HAL 和性能敏感模块用 C++（如相机算法调用）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>算法供应商</strong></td>
+<td style="text-align:left">虹软（ArcSoft）、Morpho</td>
+<td style="text-align:left"><strong>C/C++</strong>（核心算法）、<strong>Python</strong>（原型验证）</td>
+<td style="text-align:left">图像/音频算法需高效计算，通常以 <strong>闭源库（.so/.a）</strong> 形式提供，C/C++ 是行业标准。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>谷歌（AOSP）</strong></td>
+<td style="text-align:left">Google</td>
+<td style="text-align:left"><strong>Java/Kotlin</strong>（框架）、<strong>C++</strong>（HAL/底层）</td>
+<td style="text-align:left">Android 框架层用 Java，Native 层（如 Binder、SurfaceFlinger）用 C++。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arcsoft示例">ArcSoft示例</h3>
+<p><strong>ArcSoft交付物</strong></p>
+<ul>
+<li><strong>开发语言</strong>：<strong>C/C++</strong>（占主导），原因包括：
+<ul>
+<li>高性能计算需求（如多帧降噪、HDR 合成）</li>
+<li>直接调用硬件加速接口（如 DSP/GPU 的 OpenCL/Vulkan）。</li>
+<li>跨平台兼容性（可移植到不同 SoC 和 OEM 设备）。</li>
+</ul>
+</li>
+<li>算法交付：通常以 动态库（.so）或 静态库 （.a）的形式向OEM提供算法，例如：
+<ul>
+<li><code>libarcsoft_hdr.so</code>（HDR 处理库）</li>
+<li><code>libarcsoft_night.so</code>（夜景模式库）</li>
+</ul>
+</li>
+</ul>
+<p><strong>OEM集成方式</strong></p>
+<ol>
+<li>
+<p>HAL层集成（主流方案）</p>
+<ul>
+<li>
+<p>集成方式：</p>
+<ul>
+<li>
+<p>OEM 在 <strong>Camera HAL 实现</strong>（如 <code>QCameraHAL.cpp</code>）中直接加载虹软的库（<code>dlopen</code>）并调用其接口。</p>
+</li>
+<li>
+<p><strong>封装为 HAL 扩展</strong>：部分 OEM 会将虹软算法封装为 <strong>自定义 HAL 接口</strong>（如 <code>vendor.xiaomi.hardware.camera.arcsoft@1.0</code>），供框架层调用。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数据流：Sensor → HAL（调用虹软库） → ISP → Framework → APK。</p>
+</li>
+<li>
+<p>优势：</p>
+<ul>
+<li>
+<p>直接访问传感器原始数据（RAW/YUV），处理画质更优。</p>
+</li>
+<li>
+<p>低延迟，可结合 SoC 的 ISP 硬件加速（如高通 Spectra ISP）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>APK层集成</p>
+<ul>
+<li>集成方式：
+<ul>
+<li>将算法库打包到 <strong>相机应用（APK）</strong> 中，通过 JNI 调用。</li>
+</ul>
+</li>
+<li><strong>适用场景</strong>：
+<ul>
+<li>轻量级算法（如美颜滤镜）</li>
+<li>需要快速迭代（无需升级 HAL 或固件）</li>
+</ul>
+</li>
+<li>数据流：Sensor → HAL → Framework → APK（调用虹软库）</li>
+<li>缺点
+<ul>
+<li>无法直接处理 RAW 数据，画质受限</li>
+<li>性能低于 HAL 层集成（需通过 Android 框架传输数据）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，集成到HAL层的功能大多数基于c/c++进行开发，来确保高性能处理。而上层APK应用基于AOSP开发，<a href="http://xn--com-uc0ep96brtd2vff70dc5yb.camera.xxx">封装应用例如com.camera.xxx</a>，则是通过jni调用高性能C/C++ so库进行集成。如果是性能不敏感的场景，则使用java开发即可。</p>
+<h2 id="android-native-开发介绍">Android Native 开发介绍</h2>
+<p>Android Native开发需要基于Android NDK(Native Development Kit)，NDK为32 位 ARM、AArch64、x86 及 x86-64 提供 ABI (Android Binary Interface)支持，ABI和支持的指令集如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ABI</th>
+<th></th>
+<th style="text-align:left">支持的指令集</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#v7a"><code>armeabi-v7a</code></a></td>
+<td></td>
+<td style="text-align:left">armeabi<br />Thumb-2<br />Neon<br /></td>
+<td style="text-align:left">与 ARMv5/v6 设备不兼容。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#arm64-v8a"><code>arm64-v8a</code></a></td>
+<td></td>
+<td style="text-align:left">AArch64</td>
+<td style="text-align:left">仅限 Armv8.0。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#x86"><code>x86</code></a> (32bit)</td>
+<td></td>
+<td style="text-align:left">x86 (IA-32)<br />MMX<br />SSE/2/3<br />SSSE3</td>
+<td style="text-align:left">不支持 MOVBE 或 SSE4。</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://developer.android.com/ndk/guides/abis?hl=zh-cn#86-64"><code>x86_64</code></a></td>
+<td></td>
+<td style="text-align:left">x86-64<br />MMX<br />SSE/2/3<br />SSSE3<br />SSE4.1、4.2<br />POPCNT<br />CMPXCHG16B<br />LAHF-SAHF</td>
+<td style="text-align:left">完整的 <a href="https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels">x86-64-v2</a>。</td>
+</tr>
+</tbody>
+</table>
+<p>NDK中提供了LLVM libc++配套的编译工具链，可以让我们使用不同版本版本的C++</p>
+<h2 id="扩展阅读">扩展阅读</h2>
+<ol>
+<li>Android AOSP：<a href="https://source.android.com/docs/core/architecture?hl=zh-cn">https://source.android.com/docs/core/architecture?hl=zh-cn</a></li>
+<li>Android ABIs：<a href="https://developer.android.com/ndk/guides/abis">https://developer.android.com/ndk/guides/abis</a></li>
+<li>Android NDK开发：<a href="https://developer.android.com/ndk/guides">https://developer.android.com/ndk/guides</a></li>
+<li>高通camx架构：<a href="https://blog.csdn.net/weixin_51178981/article/details/126714490">https://blog.csdn.net/weixin_51178981/article/details/126714490</a></li>
+<li>Android init进程：<a href="https://wizzie.top/android/android_android%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B_1_init%E8%BF%9B%E7%A8%8B%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/">https://wizzie.top/android/android_android系统启动流程_1_init进程启动流程/</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>qcom cdsp培训</title>
+    <url>/2025/06/22/74-qcom-dsp-train/</url>
+    <content><![CDATA[<p><img src="/images/web.jpg" alt="cover"></p>
+<p>本周16、17两天参加了高通cdsp的培训，第一天主要以llm/sd大模型和sm8850为主，第二天主要以dsp和一些工具为主。</p>
+<h2 id="sm8850">sm8850</h2>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Web技术梳理</title>
+    <url>/2024/03/14/72Web-summary/</url>
+    <content><![CDATA[<p><img src="/images/web.jpg" alt="cover"></p>
+<p>经常迷惑于各种前端技术，有了js/html/css三件套，但又有React/Angualar/Vue等各种技术，新技术框架层出不穷，搞得人晕头转向，今天咱们就来捋一捋。</p>
+<a id="more"></a>
+<h1>静态网页/网站</h1>
+<p><strong>静态网页</strong>是存放在服务器中的HTML文件，它们是提前生成、渲染好的，用户在请求时直接返回准备好的页面。</p>
+<p><strong>静态网站生成器</strong>是一种工具，用于从文本文件（如Markdown）创建静态HTML文件。它们不依赖于数据库或服务器端处理，生成的网站包含固定内容，每个页面都是在构建时生成好的。这些生成器通常支持主题、插件和模板，使得自定义网站变得简单。</p>
+<h2 id="特点"><strong>特点</strong></h2>
+<ul>
+<li><strong>服务器依赖</strong>：静态网站生成器不依赖于服务器端语言（如PHP、Python等）或数据库。而传统的Web前后端框架（如Express）通常需要服务器端处理和数据库支持。</li>
+<li><strong>性能</strong>：静态网站加载速度通常更快，因为它们只包含固定的HTML、CSS和JavaScript文件，没有数据库查询或服务器端渲染的延迟。</li>
+<li><strong>安全性</strong>：静态网站由于没有数据库或服务器端脚本，因此相对更安全。</li>
+<li><strong>易于部署</strong>：静态网站可以在任何标准的Web服务器上托管，甚至可以使用CDN进行分发，部署过程简单。Github Page为每个用户提供了免费的静态网站托管服务，便于搭建个人博客。</li>
+</ul>
+<h2 id="常见框架">常见框架</h2>
+<ol>
+<li><strong>Jekyll</strong>: 一款Ruby语言编写的静态网站生成器，尤其适合与GitHub Pages结合使用，广泛用于个人博客、项目文档。</li>
+<li><strong>Gatsby</strong>: 基于React的现代静态网站生成器，适用于构建复杂的动态网站和应用程序，如电子商务站点、内容聚合站点。</li>
+<li><strong>Next.js</strong>: 虽然主要是一个React框架，但它提供静态网站生成的能力，适合创建SEO友好的Web应用。</li>
+<li><strong>VuePress</strong>: 由Vue.js驱动的静态网站生成器，特别适用于编写技术文档和博客。</li>
+<li><strong>Pelican</strong>: 使用Python编写，适用于博客和个人网站的构建。</li>
+<li><strong>Hugo</strong>：用Go编写的静态网站生成器，快的页面渲染速度，优化了大型网站的构建过程。</li>
+<li><strong>Hexo</strong>：使用Node.js，支持多种模版引擎，例如EJS、Pug，有丰富的社区主题可供选择，易于安装。</li>
+</ol>
+<p>这些生成器一般用于<strong>创建个人或公司博客、文档站点、营销网站、简历、产品展示页</strong>等，特别是<strong>当内容不经常改变时非常有效</strong>。并且使用起来方便，一般不需要懂代码，仅专注于书写内容即可，操作简单。</p>
+<p>总结来说，静态网站生成器与传统的Web前后端框架最大的区别在于它们生成的是静态内容，这在部署、性能、安全性方面提供了优势，但同时也限制了动态内容处理的能力。</p>
+<h1>动态网站</h1>
+<p>在用户访问时进行渲染、数据库读写，动态生成HTML并将内容返回给客户端。这个过程中涉及到前后端的交互，前端负责页面的布局、样式等内容的呈现。而后端负责处理<strong>数据存储和管理</strong>、<strong>与客户端通信并处理请求</strong>、**用户认证与授权、集成第三方服务(网关、电子邮件等)**以及一些性能优化操作。因此下面分成两部分来进行梳理。</p>
+<h2 id="前端框架">前端框架</h2>
+<p>前端框架是一种工具，它为开发人员提供了一组预先编写好的代码和库，以帮助构建高效、互动且功能丰富的网站或网页应用程序的前端部分。前端通常指的是用户在网页浏览器中看到和与之交互的部分，包括<strong>布局、设计、图像、文本和表单</strong>等。</p>
+<h3 id="特点">特点</h3>
+<ol>
+<li><strong>结构化的代码组织</strong>：前端框架提供了组织HTML、CSS和JavaScript代码的标准方式，使得代码更加模块化和可重用。</li>
+<li><strong>快速开发</strong>：由于包含了大量预先编写的代码，开发人员可以快速构建复杂的界面和功能，减少重复编写代码的工作。</li>
+<li><strong>响应式设计</strong>：很多前端框架提供了响应式设计的功能，使网站能够适应不同大小的屏幕和设备。</li>
+<li><strong>丰富的界面组件</strong>：提供各种用户界面组件，如按钮、表单、导航栏等，方便开发人员实现复杂的用户界面。</li>
+<li><strong>互动和动态功能</strong>：支持创建交互式元素和动态内容，提高用户体验。</li>
+</ol>
+<h3 id="流行的前端框架">流行的前端框架</h3>
+<ol>
+<li><strong>React</strong>（由Facebook开发）：用于构建用户界面的JavaScript库，特别强调组件化和状态管理。</li>
+<li><strong>Angular</strong>（由Google支持）：一个完整的前端框架，提供了从模板到测试的一系列功能。</li>
+<li><strong>Vue.js</strong>：一个轻量级的框架，以其简单易学和灵活性著称。</li>
+<li><strong>Bootstrap</strong>：一个以CSS为中心的框架，重点是响应式设计和网页组件。</li>
+</ol>
+<p>这些框架大大简化了前端开发工作，使开发人员能够专注于创建具有吸引力、交互性和良好用户体验的Web应用程序。在选择框架时，通常会考虑项目的特定需求、团队的熟悉度以及框架的社区支持和生态系统。更具体的框架对比和讨论见<a href="https://juejin.cn/post/6844904200556511246">https://juejin.cn/post/6844904200556511246</a>，这里不再展开。</p>
+<h3 id="示例">示例</h3>
+<p>下面以一个例子来说明使用前端框架前后的开发差异，如果我想再页面上添加一个按钮。使用原生的js代码如下</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!-- 创建一个自定义按钮 --&gt;</span><br><span class="line">&lt;button id=&quot;nativeButton&quot;&gt;Native JS Button&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  #nativeButton &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">    color: white;</span><br><span class="line">    border: none;</span><br><span class="line">    padding: 10px 20px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin: 4px 2px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    border-radius: 8px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  #nativeButton:hover &#123;</span><br><span class="line">    background-color: darkblue;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  document.getElementById(&quot;nativeButton&quot;).addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">    alert(&quot;Button clicked!&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>而使用Bootstrap组件，只需要两行。并且不用担心跨浏览器出现的兼容性问题。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&lt;!-- 引入Bootstrap --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个Bootstrap按钮 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Bootstrap Button&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>因此使用构建好的前端框架能够帮助我们快速的设计页面，提高开发效率。对于样式更高的需求可以通过添加自定义的css来解决。</p>
+<h2 id="后端技术">后端技术</h2>
+<h3 id="rust">Rust</h3>
+<ol>
+<li><strong>Actix-Web</strong>: 性能强劲，为构建高效的Web服务提供了简单的异步编程模型。</li>
+<li><strong>Rocket</strong>: 提供易用性和可扩展性，适合快速开发。</li>
+<li><strong>Tide</strong>: 聚焦于快速和简洁的API，使用简单。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 与React, Vue.js或Angular等前端框架搭配使用效果良好。</p>
+<h3 id="python">Python</h3>
+<ol>
+<li><strong>Django</strong>: 功能全面，包括ORM、模板引擎、路由等，适合快速开发大型应用。</li>
+<li><strong>Flask</strong>: 轻量级，灵活性高，适合小型到中型应用。</li>
+<li><strong>FastAPI</strong>: 基于标准Python类型提示的现代、快速(高性能)Web框架。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 可以与Angular, React或Vue.js等现代JavaScript框架结合使用。</p>
+<h3 id="go">Go</h3>
+<ol>
+<li><strong>Gin</strong>: 轻量级、性能优越，适合构建RESTful API。</li>
+<li><strong>Beego</strong>: 遵循MVC模式，提供了一个全栈框架。</li>
+<li><strong>Echo</strong>: 高性能、可扩展，简化HTTP服务器的构建。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 适合与Vue.js, React或Angular等配合使用。</p>
+<h3 id="java">Java</h3>
+<ol>
+<li><strong>Spring Boot</strong>: 提供了快速开发大型应用的全栈解决方案。</li>
+<li><strong>Quarkus</strong>: 专为GraalVM和HotSpot优化，提供了低内存占用和快速启动的Java堆栈。</li>
+<li><strong>Micronaut</strong>: 为构建模块化、易于测试的JVM应用程序提供了现代、JVM原生全栈框架。</li>
+</ol>
+<p><strong>前端框架协作</strong>: 与React, Angular或Vue.js等前端框架结合，能提供良好的全栈体验。</p>
+<h2 id="总结">总结</h2>
+<p>将<strong>前端框架</strong>和常用的<strong>后端技术</strong>组合起来，便得到了各种各样的开发方案，也就是动态网页技术。总结见下表</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>后端语言/框架</strong></td>
+<td><strong>后端Web框架</strong></td>
+<td><strong>特点简述</strong></td>
+<td><strong>推荐搭配前端框架</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>Actix-Web</td>
+<td>高性能, 异步编程模型</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Rocket</td>
+<td>易用性好, 适合快速开发</td>
+<td>Angular, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Tide</td>
+<td>简洁API, 使用简单</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Django</td>
+<td>功能全面, 适合大型应用</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Flask</td>
+<td>轻量级, 灵活性高</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>FastAPI</td>
+<td>现代, 高性能</td>
+<td>Angular, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td>Go</td>
+<td>Gin</td>
+<td>轻量级, 性能优越</td>
+<td>Vue.js, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Beego</td>
+<td>MVC模式, 全栈框架</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Echo</td>
+<td>高性能, 可扩展</td>
+<td>Vue.js, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Spring Boot</td>
+<td>全栈解决方案, 快速开发</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Quarkus</td>
+<td>针对GraalVM优化, 低内存占用</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Micronaut</td>
+<td>模块化, 易于测试</td>
+<td>Vue.js, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Java servlet</td>
+<td>提供对请求处理的精细控制，有较好的性能</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>Express</td>
+<td>灵活, 大量中间件支持</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>NestJS</td>
+<td>支持TypeScript, 结合OOP、FP和FRP</td>
+<td>Angular, React</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Koa</td>
+<td>由Express原班人马打造, 使用更现代的JavaScript</td>
+<td>Vue.js, React</td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td>Tauri</td>
+<td>用于构建桌面应用, 性能强</td>
+<td>React, Vue.js</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Tomcat</td>
+<td>Java Servlet容器, 主要用于托管Java应用</td>
+<td>JSP, Angular</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这个表格涵盖了多种不同的后端技术栈和它们通常与之搭配的前端框架。选择特定技术栈应基于项目需求、团队熟悉度以及项目的特定目标。例如，如果项目侧重于前后端分离，那么选择如React或Vue.js这样的前端框架，并与任意提供RESTful或GraphQL API的后端框架搭配使用将是一个不错的选择。如果项目侧重于快速开发和部署，则可能选择像Django或Spring Boot这样的全栈框架。对于需要桌面应用的项目，Tauri则是一个有趣的选择。</p>
+<p>以上便是个人总结，如有不对的地方请大家及时提建议纠正，感谢。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Chatgpt使用及账号出售</title>
+    <url>/2023/04/28/71ChatgptAccount/</url>
+    <content><![CDATA[<p>​</p>
+<h2 id="chatgpt使用体验">Chatgpt使用体验</h2>
+<p>自打用chatgpt已经两三个月了，作为追热点的一员，能明显感觉到它的<strong>社区、生态、相关研究</strong>正在迅速铺开。</p>
+<p>在研究上，我有两个比较印象深刻的进展</p>
+<ol>
+<li><strong>浙大和微软</strong>联合推出<strong>HuggingGPT</strong>，能够自动分析AI任务所涉及到的模型，然后去HuggingFace上自动调用。</li>
+<li>Github上开源的实验室项目<a href="https://github.com/Significant-Gravitas/Auto-GPT"><strong>Auto-GPT</strong></a>、<a href="https://github.com/reworkd/AgentGPT"><strong>AgentGPT</strong></a>与HuggingGPT不同之处在于，它将AI任务交给Chatgpt来进行拆解，并转化成一个个子任务，类似于okr，然后再通过chrome搜索或者selenium流量等方式整合资源。属于在线搜索+推理的GPT，功能强大。</li>
+</ol>
+<a id="more"></a>
+<p>在相关产品上，应该不用多说，例如微软的New Bing、Google Bard、百度<a href="https://yiyan.baidu.com/"><strong>文心一言</strong></a>、阿里<strong>通义千问</strong>、华为<strong>盘古</strong>等等，其他的不知道但文心一言确实还有待提高，而且没有提供API接口，用起来不是很方便。总之今年就主打一个各大公司的waitlist。但用过一些之后发现，还是Chatgpt最能打，因此很多平台也愿意接入，来占得市场先机。</p>
+<p>而对于Chatgpt的使用，网上已经有很多教程，仅谈谈我作为一个开发者的一些体验。</p>
+<ul>
+<li>
+<p>首先是写论文用到了<strong>Chatgpt润色</strong>，github上提供的较为出名的开源项目为<a href="https://github.com/binary-husky/gpt_academic">gpt_academic</a>，以下是截取的一些它提供的功能</p>
+<p><img src="/assets/image-20230428135431790.png" alt="image-20230428135431790"></p>
+</li>
+<li>
+<p>chrome插件，它提供了<strong>总结、语法、解释代码、问答、侧边栏</strong>等一系列功能，不需要每次都打开chatgpt网站或者界面进行提问，简直是阅读神器，非常方便。希望这个插件以后拓展一个视频一键总结，那就无敌了。我使用下来只觉得它到广泛使用只是时间问题。</p>
+<p><img src="/assets/image-20230428135801409.png" alt="image-20230428135801409"></p>
+</li>
+<li>
+<p>Vscode插件，作为开发者，也不用再将代码复制来复制去，直接在应用里就能使用擅长代码处理的Chatgpt模型，单单是这个插件都有51w人在使用了，所有Chatgpt的插件加起来上百万轻轻松松。其他的IDE例如Visual Studio、Pycharm、IDLE、Android Studio等等的chatgpt插件也已经打开市场了。这不赶紧用起！</p>
+<p><img src="/assets/image-20230428140128202.png" alt="image-20230428140128202"></p>
+</li>
+</ul>
+<p>上面列举了个人使用到的一些场景，但是Chatgpt效率工具的结合远不止这些，势必将于更多行业产生结合，碰撞出更多的火花。</p>
+<p>但在Chatgpt火爆的背景下，随之而来的是<strong>频繁的注册问题</strong>，想白用人家的账号额度就得注册或者充值，成为人家网站或者插件的<strong>日活/月活用户</strong>之一，且不说注册后<strong>数据安全问题</strong>，就是这<strong>频繁的注册</strong>谁遭得住呀。但这些平台都提供api-key接入，那Chatgpt账号就有了用武之地。就不用再一个个平台注册了，有新的平台直接填入有额度的api-key就行了，无论是开源项目还是工具插件，openai账号通吃。另外提一句，Chatgpt3.5绝对够用了，4就算是plus会员也还是有几个小时回复限制。</p>
+<p>对于Chatgpt的账号类型这里有必要补充一下，懂行的可以跳过。Chatgpt分为普通版和plus会员版。不同的账号可以共享、也可以独享，因此大题来说市面上的账号类型分为以下几种</p>
+<ol>
+<li>chatgpt账号无api可用额度，没有额度不代表不能使用，只不过你需要登录账号之后在https://chat.openai.com/中进行对话。</li>
+<li>chatgpt账号共享api可用5美刀额度，如果想在我上面介绍的<strong>各种开源工具</strong>、<strong>插件</strong>、<strong>QQ/微信</strong>、<strong>个人网站</strong>等其他场景中使用chatgpt，就必须得通过api来调用了，这个时候干啥你都需要一个api-key。但是共享的api-key容易被封（人多了，ip多个地点容易被检测）。</li>
+<li>chatgpt账号独享5美刀，就是卖这个，这个才是刚需。普通境外号码注册就是这样的账号，账号不需要充钱。5美刀包含2500次prompts，消耗token大约2500000个，正常个人使用的话可以用一个月左右。</li>
+<li>chatgpt账号plus会员共享，封号风险同2。</li>
+<li>chatgpt账号plus会员独享，有需要也可以找，市场价160，这里有100的，邮箱联系。</li>
+</ol>
+<p>我搞了一批<strong>类型为3的openai账号</strong>，5rmb一个号，需要教使用的10rmb。由于前期大部分人刷注册的缘故，很多号被封了，成本上升的很快。可以去搜，市面上价格15、16.8左右。我这也卖不了几天，肯定会遭打压。实话说我这跟那帮卖课的不一样，不为赚大钱，就是一方面想让大家了解这个工具，也不算制造焦虑，因为这是迟早的事情。以后就算不用chatgpt，也会用其他的ai生产工具，早用早熟练早提效。研究都铺开了，就别指望自己一直都不用。它好用的话，进入寻常百姓家只是时间问题。第二方面，就是马上毕业啦想换台电脑，请大家想用的多多捧场转发，不用的请高抬贵手，求轻踩哈哈。</p>
+<p>如果有购买、建议、合作或者是批量购买的可以邮箱Eric_Yu1998@outlook.com联系。数量有限就不自动发号啦，有邮件提醒，一看到就会立马回复的！</p>
+<p>码字不易，转载请注明出处。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>2023秋招总结</title>
     <url>/2023/03/14/70CampusRecruitment/</url>
     <content><![CDATA[<h3 id="秋招">秋招</h3>
@@ -51,6 +684,24 @@
 <p><a href="https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo">Awesome-GitHub-Repo</a></p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>实习</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RPC</title>
+    <url>/2023/03/14/71RemoteProcedureCall/</url>
+    <content><![CDATA[<p>远程服务调用(Remote Procedure Call, RPC)出现的目的就是为了让计算机能够与调用本地方法一样去调用远程方法，这是早在1990年之前定义分布式运算环境(Distributed Computing Environment, DCE)中就提出的问题。尽管&quot;调用远程方法&quot;和&quot;调用本地方法&quot;仅两字之差，但若要兼顾简单、透明、性能、正确、鲁棒、一致等特点，两者就不可同日而语了。在RPC中会涉及到网络请求，带来了很多新的问题，例如远程服务在哪里（服务发现）、有多少个（负载均衡），网络出现分区、超时或者服务出错了怎么办（熔断、隔离、降级），方法或参数的返回结果如何表示（序列化协议），信息如何传输（传输协议），服务权限如何管理（认证、授权），如何保证通信安全（网络安全层）等。</p>
+<p>进程间通信(Inter-Process Communication, IPC)</p>
+<h2 id="rpc定义">RPC定义</h2>
+<p>所有RPC协议无论怎样设计，主要都是解决以下三个基本问题</p>
+<h3 id="如何表示数据">如何表示数据</h3>
+<p>这里的数据包括传递给方法的参数以及方法执行后的返回值。有效地做法就是将交互双方所涉及到的数据转化为某种事先约定好的<strong>中立数据流格式</strong>来进行传输，同时<strong>将数据流转换回不同语言中对应的数据类型</strong>来使用。在RPC中称之为<strong>序列化和反序列化</strong>，过程如下图所示：</p>
+<p><img src="/assets/DataStream.png" alt="DataStream"></p>
 ]]></content>
       <categories>
         <category>实习</category>
@@ -927,8 +1578,8 @@ M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </ol>
 ]]></content>
       <categories>
-        <category>网站建设</category>
         <category>技术改变生活</category>
+        <category>网站建设</category>
       </categories>
       <tags>
         <tag>相册</tag>

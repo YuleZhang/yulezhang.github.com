@@ -53,3 +53,17 @@
     transform: translateX(0);
   }
 }
+@media (max-width: 768px) {
+  .article-entry > table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .article-entry > table th,
+  .article-entry > table td {
+    white-space: nowrap;
+  }
+}

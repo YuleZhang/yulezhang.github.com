@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>AOT 与 JIT：预制菜与量体裁衣的编译对比 |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-75-AOT-JIT-Comparison"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  AOT 与 JIT：预制菜与量体裁衣的编译对比
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/11/08/75-AOT-JIT-Comparison/" class="article-date">
+  <time datetime="2026-11-08T13:50:00.000Z" itemprop="datePublished">2026-11-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">8.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">30 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-先用一句人话理解-jit">1. 先用一句人话理解 JIT</h2>
+<p>JIT（Just-In-Time，即时编译）就是：不急着在软件发布前把所有代码都编好，而是等程序运行、拿到一部分真实信息后，再编出适合这次任务的代码。</p>
+<figure class="article-cover" style="margin: 1.25rem 0; text-align: center;"><img src="/images/jit-gemm-cover.webp" alt="从一个 GEMM 看懂 JIT 在性能优化中的位置" loading="eager" decoding="async"></figure>
+<p>代码最终需要变成处理器能够执行的指令。AOT 和 JIT 的核心区别首先是编译发生在什么时候，而不是谁一定更快：</p>
+<p>AOT（提前编译）：软件发布前就编好，好比提前印好说明书，用户拿到就能照着执行。<br>
+JIT（即时编译）：运行到某段代码时才编译，好比遇到具体问题再现场翻译；既可能多花一次编译时间，也有机会利用已经知道的设备和输入条件做优化。<br>
+<img src="/assets/aot-jit-comparison.webp" alt="AOT 与 JIT 的编译时机和策略对比" loading="eager" decoding="async"><br>
+需要先纠正一个容易误会的地方：AOT 不等于通用低性能，JIT 也不等于自动最优。 AOT 完全可以事先编译许多精心调优的 kernel，运行时再挑一个；JIT 也可能只是在运行时编出一份普通代码。真正影响性能的，是编译器掌握了哪些信息、生成了什么代码，以及选择了什么执行策略。</p>
+<p>想边读边试，可以直接运行文中配套的两个小实验：JIT 第一次为什么慢 和 GEMM 为什么要按 shape 选配置。只需 Python 就能跑通demo，不要求 NVIDIA GPU；第3节还提供了可选的 Triton/CUDA 版本。</p>
+<span id="more"></span>
+<h2 id="2-为什么宁愿-现场翻-慢-也不总用-印好的册子-快-？">2. 为什么宁愿“现场翻（慢）”，也不总用“印好的册子（快）”？</h2>
+<p>拿 GEMM（矩阵乘法）举例：</p>
+<p>M、N、K 可以取很多不同的整数；再考虑 FP32 / FP16 / BF16 / INT8 等数据类型、矩阵是否转置、内存布局、设备架构、tile 大小和线程配置，实际要适配的场景就会非常多。</p>
+<p>但这里有个重要区别：场景很多，不等于“变体空间是连续的”，更不等于必须为每个 shape 编一个 kernel。</p>
+<h3 id="2-1-完全可以先写一个通用-kernel">2.1 完全可以先写一个通用 kernel</h3>
+<p>比如写一份通用 GEMM 逻辑：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;<span class="function"><span class="type">void</span> <span class="title">gemm</span><span class="params">(<span class="type">const</span> T* A, <span class="type">const</span> T* B, T* C, <span class="type">int</span> M, <span class="type">int</span> N, <span class="type">int</span> K)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>M/N/K 是运行时参数；T 可以在源码层复用同一份算法逻辑。发布时，针对 float / half / bfloat16 等类型分别实例化或分发实现，便能覆盖大量 shape 和 dtype。同一份通用源码不一定意味着同一份机器码：不同 dtype 往往对应不同指令、累加精度和硬件路径。</p>
+<p>一个通用 kernel 只要正确处理边界、stride 和数据类型，就能完成工作。对于不常见 shape、调用次数少的场景，它甚至可能是更划算的选择。</p>
+<p>问题在于：“什么都能算”和“每种情况都算得快”不是一回事。</p>
+<ul>
+<li>M/N/K 很小：kernel launch 和调度开销可能比计算本身还显著。</li>
+<li>M/N/K 很大：更在意 Tensor Core/矩阵指令利用率、tile 复用、流水线与寄存器压力。</li>
+<li>矩阵很“瘦长”：最适合方阵的分块方式可能留下大量空闲线程或无效计算。</li>
+<li>dtype、对齐、layout 不同：可能需要不同的向量化、load/store 或矩阵指令路径。</li>
+<li>如果让一套固定的 tile / warps / stages 应对所有情况，往往只能在一部分输入上接近最优。</li>
+</ul>
+<h3 id="2-2-jit-的优势-是在-已知条件-上做针对性优化">2.2 JIT 的优势，是在“已知条件”上做针对性优化</h3>
+<p>假设服务启动后知道这次计算是：M=128、N=4096、K=4096、FP16、NVIDIA GPU。此时可以：</p>
+<ul>
+<li>特化：固定某些 tile、对齐或静态配置，让编译器展开循环、消除满足条件时不必要的分支，并使用合适的指令。</li>
+<li>选择算法：在不同 tile、线程组织、流水线深度之间做选择；这一步可以靠启发式，也可以靠 benchmark/autotune。</li>
+<li>缓存结果：下次遇到满足同样编译前提的请求，直接复用已经编好的产物。<br>
+这里也不意味着必须把 M/N/K 的每个值都写死。实际系统经常采用少量特化变体 + 动态 shape + 运行时分发，覆盖一个 shape 家族，而不是每个输入生成独立机器码。</li>
+</ul>
+<p>可以把几种策略放在一起看：</p>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>怎么做</th>
+<th>优势</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单一通用实现</td>
+<td>一套 kernel 接受动态 shape，按 dtype 做必要分发</td>
+<td>覆盖广、简单、无逐 shape 编译</td>
+<td>某些 shape 下性能可能不理想</td>
+</tr>
+<tr>
+<td>AOT 多变体</td>
+<td>提前编好多个 tile / dtype / ISA 版本，运行时挑选</td>
+<td>无在线编译成本，也能很快</td>
+<td>二进制体积、预编译和维护成本更高</td>
+</tr>
+<tr>
+<td>JIT 特化</td>
+<td>运行时根据已知条件编译、缓存</td>
+<td>变体更灵活，可针对设备和工作负载</td>
+<td>首次编译、缓存管理和重编成本</td>
+</tr>
+<tr>
+<td>混合方案</td>
+<td>AOT 负责常用路径，JIT 或回退处理特殊路径</td>
+<td>兼顾启动速度与覆盖率</td>
+<td>整体工程复杂度更高</td>
+</tr>
+</tbody>
+</table>
+<p>所以 JIT 真正解决的是：什么时候值得拿运行时已知的信息，换一份更优的代码</p>
+<h3 id="2-3-有公开的-gemm-性能数据吗？">2.3 有公开的 GEMM 性能数据吗？</h3>
+<p>有！Trition官方的 Matrix Multiplication 教程 给了两个很直观的观察点。</p>
+<p>观察一：同样是 GEMM，换一种分块调度就能更快。 官方教程提到，在 A100 上把 block 的执行顺序调整为更利于 L2 复用的 grouped ordering，在某些配置下吞吐量可由约 220 提升到 245 TFLOPS（约 +11%）。这不是因为 GEMM 数学公式变了，而是数据访问和 tile 调度更贴合硬件。它说明执行策略的选择确实有价值，但不能单凭这组数据证明 JIT 比 AOT 快——AOT 同样可以提前编译这套调度。</p>
+<p>观察二：Triton 也不保证处处赢过 cuBLAS。 官方教程附带的一组 FP16 方阵 benchmark 示例数据如下（单位 TFLOPS）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">GEMM (M=N=K)</th>
+<th style="text-align:right">cuBLAS</th>
+<th style="text-align:right">Triton</th>
+<th>观察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">512</td>
+<td style="text-align:right">26.2</td>
+<td style="text-align:right">23.8</td>
+<td>此样例中 cuBLAS 更快</td>
+</tr>
+<tr>
+<td style="text-align:right">1792</td>
+<td style="text-align:right">172.9</td>
+<td style="text-align:right">204.0</td>
+<td>此样例中 Triton 更快</td>
+</tr>
+</tbody>
+</table>
+<p>这些是官方教程展示的样例输出，并不是真机复测；性能受 GPU、版本、时钟、精度与 benchmark 方法影响。更重要的是：cuBLAS 本身就是高度优化、拥有大量实现和启发式选择的库，不能把它简单等同于“单一通用 kernel”，也不能把此表当作“JIT 对 AOT”的受控对照。</p>
+<p>真正要验证“现场翻得更合身”，应该在同一 GPU、同一 dtype、同一组 shape、相同计时条件下，测 固定通用 tile、离线准备的多变体分发、JIT 特化/调优，再单独统计编译耗时和缓存命中率。</p>
+<h3 id="2-4-只看结论还不够-我们自己跑一次-gemm">2.4 只看结论还不够，我们自己跑一次 GEMM</h3>
+<p>上面的 Triton 和 cuBLAS 数据来自官方公开教程。为了让「不同 shape 可能需要不同执行策略」这句话可以自己动手验证，再做一个不需要 GPU 的小实验。</p>
+<p>对应源码：engineering-labs / gemm-specialization；查看本次保存的原始 JSON。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 只需要 Python 3.11+；第一次使用时安装依赖</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/YuleZhang/engineering-labs.git</span><br><span class="line"><span class="built_in">cd</span> engineering-labs</span><br><span class="line">python -m pip install -r requirements.txt</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 对比不同 M×N×K 下的 tile 配置</span></span><br><span class="line">python run.py gemm</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 单独检查数值正确性</span></span><br><span class="line">python run.py gemm --verify</span><br></pre></td></tr></table></figure>
+<p>实验用 Numba 编译同一份 CPU GEMM 算法的三种 tile 实现：8/16/32。输入由固定种子生成，结果先与 NumPy A @ B 比较，再统计每个配置的多次稳态运行时间。下面是一次实际记录，单位为毫秒；粗体是这一轮测得最快的配置。</p>
+<table>
+<thead>
+<tr>
+<th>GEMM (M×N×K)</th>
+<th style="text-align:right">Tile 8</th>
+<th style="text-align:right">Tile 16</th>
+<th style="text-align:right">Tile 32</th>
+<th>本次最快</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>32×32×32</td>
+<td style="text-align:right">0.02</td>
+<td style="text-align:right">0.02</td>
+<td style="text-align:right">0.02</td>
+<td>Tile 16</td>
+</tr>
+<tr>
+<td>64×48×64</td>
+<td style="text-align:right"><strong>0.17</strong></td>
+<td style="text-align:right">0.18</td>
+<td style="text-align:right">0.18</td>
+<td>Tile 8</td>
+</tr>
+<tr>
+<td>96×128×64</td>
+<td style="text-align:right">1.15</td>
+<td style="text-align:right"><strong>0.72</strong></td>
+<td style="text-align:right">0.76</td>
+<td>Tile 16</td>
+</tr>
+</tbody>
+</table>
+<p>测试环境：Linux 6.18.57 / x86_64 / glibc 2.41；Python 3.13.5、NumPy 2.3.5、Numba 0.65.1；每个 tile 的 warm 执行取 5 次中位数。<br>
+拿最后一行看：在这一轮测试里，Tile 16 比固定使用 Tile 8 的耗时约低 37%；但中间那行又是 Tile 8 更快。由此能验证的是：一份固定 tile 的通用实现可以处理多个 shape，却不保证在这些 shape 上都是最快的。</p>
+<p>注意这个实验的边界：三种 tile 全都由 Numba JIT 编译，比较的是调度/变体选择，而不是「AOT 对 JIT」。真正要比较 AOT 与 JIT，必须进一步增加等价的离线编译实现，并统一执行条件。</p>
+<p>这就把第 2 节的论点落到了可观察的证据上：JIT 可以成为生成、特化或管理不同变体的手段，但性能收益来自选对实现，不来自「编译发生得晚」本身。</p>
+<h2 id="3-来从一个-triton-kernel-角度看-jit">3. 来从一个 Triton kernel 角度看 JIT</h2>
+<p>Triton 很适合观察这条链路，因为一个短小的 Python kernel 就能触发编译、生成 GPU 机器码并执行。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> triton</span><br><span class="line"><span class="keyword">import</span> triton.language <span class="keyword">as</span> tl</span><br><span class="line"> </span><br><span class="line"><span class="meta">@triton.jit</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_kernel</span>(<span class="params">x_ptr, y_ptr, out_ptr, n, BLOCK: tl.constexpr</span>):</span><br><span class="line">    pid = tl.program_id(<span class="number">0</span>)</span><br><span class="line">    offs = pid * BLOCK + tl.arange(<span class="number">0</span>, BLOCK)</span><br><span class="line">    mask = offs &lt; n</span><br><span class="line">    x = tl.load(x_ptr + offs, mask=mask, other=<span class="number">0</span>)</span><br><span class="line">    y = tl.load(y_ptr + offs, mask=mask, other=<span class="number">0</span>)</span><br><span class="line">    tl.store(out_ptr + offs, x + y, mask=mask)</span><br><span class="line"> </span><br><span class="line">n = <span class="number">100_000</span></span><br><span class="line">x = torch.randn(n, device=<span class="string">&quot;cuda&quot;</span>)</span><br><span class="line">y = torch.randn(n, device=<span class="string">&quot;cuda&quot;</span>)</span><br><span class="line">out = torch.empty_like(x)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 第一次运行：相应变体没有命中缓存时，需要编译。</span></span><br><span class="line">add_kernel[(triton.cdiv(n, <span class="number">256</span>),)](x, y, out, n, BLOCK=<span class="number">256</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 再次运行相同变体：通常可以复用编译结果。</span></span><br><span class="line">add_kernel[(triton.cdiv(n, <span class="number">256</span>),)](x, y, out, n, BLOCK=<span class="number">256</span>)</span><br><span class="line">torch.cuda.synchronize()</span><br><span class="line"><span class="keyword">assert</span> torch.allclose(out, x + y)</span><br></pre></td></tr></table></figure>
+<p>这里最值得看的是 BLOCK: tl.constexpr：它是编译期常量。比如把 BLOCK=256 改成 BLOCK=128，对应的向量范围、程序布局等就可能变化，需要另一份编译变体。</p>
+<p>但并不是所有参数都会按具体数值特化。例子里的 n 可以继续作为运行时长度，负责边界 mask；Triton 还会根据参数类型、对齐和显式特化策略决定哪些信息进入编译前提。triton.jit API 甚至提供 do_not_specialize，用于限制不必要的值特化。</p>
+<h3 id="3-1-第一次慢是为什么？">3.1 第一次慢是为什么？</h3>
+<p>对 NVIDIA 后端，典型 Triton 编译路径可以简化为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@triton.jit 装饰的 Python 函数</span><br><span class="line">     ↓  解析函数、结合 constexpr / 类型等信息特化</span><br><span class="line">Triton IR (TTIR)</span><br><span class="line">     ↓  优化、layout / GPU 映射等 lowering</span><br><span class="line">Triton GPU IR (TTGIR)</span><br><span class="line">     ↓  lowering</span><br><span class="line">LLVM IR</span><br><span class="line">     ↓  生成目标相关代码</span><br><span class="line">PTX</span><br><span class="line">     ↓  ptxas 汇编</span><br><span class="line">cubin（GPU 机器码）</span><br><span class="line">     ↓  加载、launch</span><br><span class="line">GPU 执行</span><br></pre></td></tr></table></figure>
+<p>这条路径是典型 NVIDIA 路径，不是所有 GPU 后端都使用 PTX/cubin。AMD 等后端会走其他目标相关 IR 和机器码路径，且具体阶段会随 Triton 版本演进。</p>
+<p>第一次调用可能慢在多个环节：编译本身、模块加载、CUDA 上下文初始化、首次内存分配、autotune。所以“第一次慢”不可以全部归因于 JIT，做实验时要把这些成本分开。</p>
+<p>还要区分三个术语：</p>
+<ul>
+<li><strong>Codegen（代码生成）</strong>：可以从 IR 生成另一种 IR、目标汇编，甚至直接生成机器码；不只等于“拼源码字符串”。</li>
+<li><strong>Lowering / Pass</strong>：对 IR 做变换和优化，是编译器内部的处理环节，本身不等于 JIT。</li>
+<li><strong>JIT</strong>：描述编译在运行期发生。它可以调用上述 codegen 与 pass，也可以在 CPU 上直接发射机器指令。</li>
+</ul>
+<h3 id="3-2-编译产物靠什么标识并缓存？">3.2 编译产物靠什么标识并缓存？</h3>
+<p>一个编译产物需要能回答：“这次请求，是否还能安全复用上次的机器码？”</p>
+<p>以 Triton 为例，影响编译变体的因素一般包括：kernel 源码/定义、参数类型及参与特化的属性、constexpr、num_warps / num_stages 等编译配置、目标后端与设备能力，以及相关编译环境版本。</p>
+<p>不要简单理解成“M/N/K 和所有运行时变量都必须进 key”。只有生成代码确实依赖的条件，才需要成为特化依据或有效性检查的一部分；否则新 shape 也可能安全复用同一个动态 kernel。</p>
+<p>这里存在三种不同的“键”或判断：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>解决什么问题</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编译缓存 key</td>
+<td>这份编译产物能否复用？</td>
+<td><code>BLOCK</code>、dtype、目标架构、编译选项</td>
+</tr>
+<tr>
+<td>Guard / 有效性条件</td>
+<td>这次输入是否满足已编译代码的假设？</td>
+<td>shape 区间、stride、dtype、模型状态</td>
+</tr>
+<tr>
+<td>Autotune key</td>
+<td>哪些输入条件需要重新选择更快的候选？</td>
+<td>某个 M/N/K 家族、布局或精度</td>
+</tr>
+</tbody>
+</table>
+<p>key 过细，会反复编译、缓存膨胀；key 过粗或 Guard 不完整，可能执行不适用的代码，带来错误结果甚至内存安全问题。</p>
+<h3 id="3-3-特化和调优是一回事吗？">3.3 特化和调优是一回事吗？</h3>
+<p>不是。继续拿 GEMM 来看：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 示意：@autotune 从多个合法配置中选一个。</span></span><br><span class="line"><span class="meta">@triton.autotune(<span class="params">configs=[...], key=[<span class="string">&quot;M&quot;</span>, <span class="string">&quot;N&quot;</span>, <span class="string">&quot;K&quot;</span>]</span>)</span></span><br><span class="line"><span class="meta">@triton.jit</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matmul_kernel</span>(<span class="params">...</span>):</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>特化（specialization）：根据已知信息，决定这份代码长什么样，比如 tile 大小、常量折叠、循环展开。<br>
+调优（autotuning）：在多个正确候选里进行测量或选择，决定这一类输入用哪份代码。<br>
+JIT 不必依赖 autotune，autotune 也不要求在线 JIT：提前编好的几个 AOT kernel 一样可以在运行时测速、选择并缓存结果。</p>
+<h3 id="3-4-没有-nv-gpu-也能看到-第一次慢">3.4 没有 NV GPU，也能看到「第一次慢」</h3>
+<p>前面的 Triton 是 GPU JIT 的真实实现，但要有 NV GPU 才能运行。因此我们另外提供了一个普通 CPU 也能跑的例子：使用 Numba @njit 编译数值循环。</p>
+<p>如果已经按第 2.4 节克隆过仓库，直接执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python run.py</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 观察首次调用、重复调用、换 dtype</span></span><br><span class="line">python run.py --verify</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 与纯 Python 结果核对</span></span><br><span class="line">python run.py --size 100000 --repeats 21</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 自己调整输入规模</span></span><br></pre></td></tr></table></figure>
+<p>下面是实验仓库保存的一次真实运行，输入为 50,000 个 float64，warm 执行统计 11 次中位数：</p>
+<table>
+<thead>
+<tr>
+<th>观察项</th>
+<th style="text-align:right">本次耗时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>纯 Python 计算一次</td>
+<td style="text-align:right">4.98 ms</td>
+</tr>
+<tr>
+<td>Numba 在本进程第一次调用</td>
+<td style="text-align:right">474.24 ms</td>
+</tr>
+<tr>
+<td>Numba 重复调用（warm median）</td>
+<td style="text-align:right">0.06 ms</td>
+</tr>
+<tr>
+<td>同一 dtype，改数组长度</td>
+<td style="text-align:right">0.06 ms</td>
+</tr>
+<tr>
+<td>改用 float32，第一次调用</td>
+<td style="text-align:right">2.92 ms</td>
+</tr>
+</tbody>
+</table>
+<p>测试环境：Linux 6.18.57 / x86_64 / glibc 2.41；Python 3.13.5、NumPy 2.3.5、Numba 0.65.1。计时包含 Python 调用和 Numba dispatcher；启用了 <code>cache=True</code>。<br>
+再看编译签名的数量，会比只看耗时更直观：</p>
+<table>
+<thead>
+<tr>
+<th>调用情况</th>
+<th style="text-align:right">编译签名数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>调用前</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td>首次传入 float64</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td>float64 数组长度变化</td>
+<td style="text-align:right">仍为 1</td>
+</tr>
+<tr>
+<td>首次传入 float32</td>
+<td style="text-align:right">2</td>
+</tr>
+</tbody>
+</table>
+<p>这里也能验证第 2 节提到的一个关键点：shape 变化不等于一定重编译。 Numba 默认数组类型签名主要关心元素类型、维度和布局等信息，而不是将每个数组长度写成一个新变体。相反，输入从 float64 变成 float32，会产生另一份类型特化。</p>
+<p>我们能从这组数据得出三件事：首次调用有明显的额外成本；重复执行同一种已编译实现可能明显更快；不同输入类型可能需要新的特化。 但它比较的是「Numba 编译的循环」与「Python 解释执行循环」，不能证明 JIT 比优化过的 AOT C++ 更快。GPU 上的实际编译链路仍以第 3.1 节的 Triton 为准；对应 CUDA 代码是可选路径，目前尚没有经过 GPU 实机验证的结果。</p>
+<h2 id="4-jit-到底可以发生在哪些地方？">4. JIT 到底可以发生在哪些地方？</h2>
+<p>JIT 不只用于一个 kernel。按优化对象看，可以从计算图一路下沉到机器指令；但下面这些是不同的编译/优化层次，不是每一项都属于 JIT。</p>
+<img src="/assets/jit-op-level-fusion.png" alt="JIT 从图级到调优级的分层特化机制" loading="lazy" decoding="async">
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>主要解决什么</th>
+<th>典型项目/机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图 / 区域级</td>
+<td>跨算子融合、消除中间张量、选择算子边界</td>
+<td><code>torch.compile</code> / Inductor、XLA、TVM Relax</td>
+</tr>
+<tr>
+<td>算子 / kernel 级</td>
+<td>针对 shape、dtype、layout 和设备生成或选择实现</td>
+<td>Triton、oneDNN、VkFFT；CUTLASS 模板实例</td>
+</tr>
+<tr>
+<td>调度级</td>
+<td>分块、线程映射、内存层次、流水线如何组织</td>
+<td>Halide schedule、TVM TIR schedule</td>
+</tr>
+<tr>
+<td>指令 / ISA 级</td>
+<td>利用 AVX/AMX/NEON 或特定 GPU ISA</td>
+<td>oneDNN JIT、Xbyak/AsmJit、编译器后端</td>
+</tr>
+<tr>
+<td>调优 / 选择层（伴随）</td>
+<td>在合法候选中寻找更优配置</td>
+<td>Triton autotune、TVM autotuning、cuBLASLt heuristics</td>
+</tr>
+<tr>
+<td>IR / Pass 层（内部机制）</td>
+<td>规范化、融合、lowering、指令选择</td>
+<td>MLIR、LLVM 的 pass pipeline</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-再看一个不同的例子：vkfft">4.1 再看一个不同的例子：VkFFT</h3>
+<p>VkFFT 支持多种 GPU API，会在运行时根据 FFT 长度、维度、精度、设备约束等做计划并编译 kernel。不同长度可能走不同 radix 分解；某些质数长度会使用 Rader 或 Bluestein 等算法。</p>
+<p>这仍然不是“连续变体空间”：FFT 长度是离散整数，实际还受设备内存和实现上限约束。真正难的是有效组合数量很大，而且不同组合的最佳算法和内存调度可能明显不同，不适合把所有排列组合都提前编成二进制。</p>
+<p>VkFFT 能清晰展示另一种 JIT 形态：运行时做算法规划 → 生成针对该计划的代码 → 交给后端编译器 → 执行。它和 Triton 的区别主要在表达形式与规划逻辑，而不是“一个是离散、一个是连续”。</p>
+<h3 id="4-2-有三个概念-最好别混用">4.2 有三个概念，最好别混用</h3>
+<ul>
+<li><strong>JIT ≠ Fusion（融合）</strong>：JIT 说的是编译时机；融合说的是如何减少算子边界和中间数据搬运。AOT 也能融合。</li>
+<li><strong>JIT ≠ Autotune（自动调优）</strong>：JIT 决定何时编译；autotune 决定如何选择。两者可以配合，也可以独立存在。</li>
+<li><strong>JIT ≠ GPU 专属能力</strong>：CPU 上也有 JVM、oneDNN、Xbyak/AsmJit 等 JIT。移动设备可能受代码签名、W^X 和动态执行权限限制；在手机或封闭设备上，JIT 未必是实际可部署的最优方案。</li>
+</ul>
+<h2 id="5-图级-jit-是怎么工作的？看看-pytorch">5. 图级 JIT 是怎么工作的？看看 PyTorch</h2>
+<p>如果一个网络要跑 matmul → add bias → activation，只加速其中一个 GEMM 还不够：中间张量的读写和多次 kernel launch 也会耗时。</p>
+<p>torch.compile 就是在更大的计算图上寻找这些机会。典型路径可以概括为：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Python / PyTorch 模型</span><br><span class="line">     ↓ TorchDynamo：捕获可编译的 FX 图，建立 Guard</span><br><span class="line">FX Graph</span><br><span class="line">     ↓ AOTAutograd / Dispatcher（训练时还可处理反向图）</span><br><span class="line">可优化的前向/反向图</span><br><span class="line">     ↓ TorchInductor：融合、调度、代码生成</span><br><span class="line">Triton kernel / C++ 等后端代码</span><br><span class="line">     ↓ 运行时编译、加载、执行与缓存</span><br><span class="line">计算结果</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>图级优化</strong>：决定哪些操作融合、哪些中间结果不必写回显存。</li>
+<li><strong>kernel 级优化</strong>：将融合后的工作交给 Triton、C++ 或其他合适的后端实现。</li>
+<li><strong>Guard</strong>：判断新输入是否仍满足已捕获图的假设，不满足时可能重新编译或走回退路径。<br>
+例如 batch size 从 8 变到 16，并不天然意味着必须重新生成所有 kernel。PyTorch 支持 dynamic shapes，允许某些维度在一个编译产物里保持动态；代价是放弃对应维度的一部分静态优化机会。</li>
+</ul>
+<p>它与第 3 节的 Triton cache key 是相关但不同层级的问题：前者保障图级假设，后者保障具体 kernel 编译变体的复用。</p>
+<h2 id="6-图级和-kernel-级一定都要上吗？">6. 图级和 kernel 级一定都要上吗？</h2>
+<p>不一定。要看瓶颈。</p>
+<ul>
+<li>如果瓶颈是大量碎 elementwise op、频繁 launch 和中间 tensor 访存，图级融合往往很有价值。</li>
+<li>如果瓶颈是一颗 GEMM 或 attention kernel 的 tile 组织、矩阵指令利用率，kernel 级调优更直接。</li>
+<li>如果算子已经由高度优化的 cuBLAS/cuDNN/专用 attention kernel 实现，强行全部改成 JIT 可能增加复杂度却没有收益。</li>
+<li>如果是一次性离线任务、短生命周期进程或受限端侧部署，编译成本可能根本摊不回来。<br>
+两级可以协同，也可以只做一层。先找到瓶颈，再选择编译粒度；不要为了上 JIT 而上 JIT。</li>
+</ul>
+<h2 id="7-常见框架擅长什么-该怎么选？">7. 常见框架擅长什么，该怎么选？</h2>
+<img src="/assets/jit-framework-landscape.png" alt="常见编译与优化框架的位置与适用边界" loading="lazy" decoding="async">
+<table>
+<thead>
+<tr>
+<th>框架 / 库</th>
+<th>主要强项</th>
+<th>适用场景</th>
+<th>要注意的边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch <code>torch.compile</code></td>
+<td>捕获模型图、融合、接入 Inductor/Triton</td>
+<td>已在 PyTorch 中开发训练或推理模型</td>
+<td>Graph break、Guard、重编译和冷启动</td>
+</tr>
+<tr>
+<td>XLA / JAX</td>
+<td>以编译式图优化组织计算，支持 TPU 等后端</td>
+<td>JAX/TPU 或端到端计算图优化</td>
+<td>整图编译成本与动态形状约束</td>
+</tr>
+<tr>
+<td>TVM（Relax/TIR）</td>
+<td>图/算子联合优化、可编程调度、跨设备编译</td>
+<td>多硬件部署、自定义调度</td>
+<td>端到端工程集成与搜索成本</td>
+</tr>
+<tr>
+<td>Triton</td>
+<td>用 Python 风格 DSL 编写并 JIT 编译 GPU kernel</td>
+<td>自定义 GEMM、融合算子、attention</td>
+<td>不是完整模型图编译器</td>
+</tr>
+<tr>
+<td>Halide</td>
+<td>算法与 schedule 分离</td>
+<td>图像处理、规则流水线</td>
+<td>不应简单等同于 GPU 在线 JIT</td>
+</tr>
+<tr>
+<td>oneDNN</td>
+<td>高性能 primitive、ISA 专用优化及缓存</td>
+<td>CPU 密集型推理、基础算子</td>
+<td>部分路径 JIT，其他路径为预编译实现</td>
+</tr>
+<tr>
+<td>CUTLASS</td>
+<td>GEMM/Conv 模板与 epilogue 定制</td>
+<td>高性能 NVIDIA GPU 算子开发</td>
+<td>传统模板实例化主要是 AOT，不等同 JIT</td>
+</tr>
+<tr>
+<td>IREE</td>
+<td>MLIR 端到端编译与轻量 runtime</td>
+<td>多种嵌入式/异构部署目标</td>
+<td>常见部署工作流以离线编译为主</td>
+</tr>
+</tbody>
+</table>
+<p>IREE	<br>
+MLIR 端到端编译与轻量 runtime<br>
+多种嵌入式/异构部署目标<br>
+常见部署工作流以离线编译为主<br>
+oneDNN 展示了 CPU 侧运行时代码生成的价值；CUTLASS 则展示了即使不用在线 JIT，也可以利用模板、多变体与调优获得高性能。把两者放在一起，反而更容易理解“JIT 只是手段，不是性能保证”。</p>
+<h2 id="8-ai-编译器为什么会用到-jit？">8. AI 编译器为什么会用到 JIT？</h2>
+<p>AI 编译器要做的事情，往往不只是把一段代码翻成机器指令，而是把模型运算映射到特定硬件、特定输入和特定执行计划。</p>
+<p>以一个 LayerNorm → Linear → GELU 子图为例：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">模型定义（PyTorch / JAX / 其他前端）</span><br><span class="line">           ↓</span><br><span class="line">      捕获/导出计算图</span><br><span class="line">           ↓</span><br><span class="line">   图优化（融合、常量传播、布局转换）</span><br><span class="line">           ↓</span><br><span class="line">     算子选择 / 调度 / 特化</span><br><span class="line">           ↓</span><br><span class="line">       生成设备代码</span><br><span class="line">           ↓</span><br><span class="line">         运行</span><br></pre></td></tr></table></figure>
+<p>这里既可以完全离线 AOT，也可以在运行期引入 JIT。后者通常适合下面几类情况：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>运行时多知道了什么</th>
+<th>JIT 可能带来什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>动态 shape</td>
+<td>当前 batch、sequence length、图像尺寸</td>
+<td>特化一部分维度，减少无效工作</td>
+</tr>
+<tr>
+<td>动态 dtype / 量化配置</td>
+<td>FP16/BF16/INT8、量化 group size、scale layout</td>
+<td>使用更匹配的数据路径或融合反量化</td>
+</tr>
+<tr>
+<td>已知目标硬件</td>
+<td>实际 ISA、SM 架构、共享内存和寄存器约束</td>
+<td>选择更合适的 tile、流水线和指令</td>
+</tr>
+<tr>
+<td>算子融合</td>
+<td>当前计算图中的相邻操作</td>
+<td>将 bias、激活、转换等融合进 kernel</td>
+</tr>
+<tr>
+<td>多种执行形态</td>
+<td>输入分布、并发模式、算子参数</td>
+<td>按性能模型或 autotune 选择候选</td>
+</tr>
+</tbody>
+</table>
+<p>不过，图优化发生在运行时，不代表最终机器码一定由 JIT 生成：编译器也可能只在运行时选择一颗已经 AOT 编好的 kernel。判断一个系统是不是 JIT，要看它是否真的在运行期间生成/编译了新的可执行代码，而不能仅凭“运行时做了优化”就下结论。</p>
+<h2 id="9-大模型开发中-jit-到底扮演什么角色？">9. 大模型开发中，JIT 到底扮演什么角色？</h2>
+<p>大模型训练和推理非常依赖 GEMM、attention、归一化、激活与量化。JIT 在这里的价值，主要不是改变 Transformer 公式，而是减少执行这些公式的开销。</p>
+<h3 id="9-1-训练：把反复执行的子图编得更高效">9.1 训练：把反复执行的子图编得更高效</h3>
+<p>典型场景是 PyTorch 训练用 torch.compile 优化前向/反向图，融合一些短小的 elementwise 操作、改进内存访问和 kernel 调度。长 Transformer 中相似的 block 反复出现，也可以考虑区域编译、复用编译结果，降低冷启动成本。</p>
+<p>PyTorch 的 regional compilation 教程 就是针对“模型大、首次编译慢”这个真实问题。</p>
+<h3 id="9-2-推理：prefill-和-decode-需要的优化经常不同">9.2 推理：Prefill 和 Decode，需要的优化经常不同</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>计算形态</th>
+<th>主要优化关注点</th>
+<th>JIT 能做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefill</td>
+<td>一次处理较长 prompt，GEMM/attention 计算密集</td>
+<td>大矩阵吞吐、融合、attention</td>
+<td>为常见 shape 或 token 范围选择更合适的算子配置</td>
+</tr>
+<tr>
+<td>Decode</td>
+<td>每步生成少量 token，KV cache 参与注意力计算</td>
+<td>launch 开销、访存、batch 变化、低延迟</td>
+<td>特化适用的 kernel、融合小算子、减少低效访存</td>
+</tr>
+<tr>
+<td>量化推理</td>
+<td>INT8/INT4 等权重与 scale/zero-point 解码</td>
+<td>反量化开销、矩阵指令、layout</td>
+<td>将解码和 GEMM 等操作融合或选择专用路径</td>
+</tr>
+</tbody>
+</table>
+<p>要注意：PagedAttention、continuous batching、KV cache、CUDA Graph 都不等于 JIT。 它们分别解决存储/调度/执行复用的问题，可以和 JIT 一起使用，也可以与 AOT kernel 配合。</p>
+<h3 id="9-3-一个真实例子：vllm-为什么会接入-torch-compile？">9.3 一个真实例子：vLLM 为什么会接入 torch.compile？</h3>
+<p>vLLM 的编译配置文档 描述了从直接 eager 执行、标准 torch.compile，到 vLLM 自定义编译后端的不同模式。自定义后端涉及图分段、缓存、shape specialization 和 Inductor pass；其 CUDA Graph 设计 则负责捕获与重放执行。</p>
+<p>把它们拆开看，会更容易理解整套推理系统：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">用户请求（prompt 长度、batch、模型配置）</span><br><span class="line">               ↓</span><br><span class="line">      调度器组织本轮 token 工作</span><br><span class="line">               ↓</span><br><span class="line">     选择已编译图 / kernel 变体</span><br><span class="line">               ↓</span><br><span class="line">   必要时编译，或直接复用缓存产物</span><br><span class="line">               ↓</span><br><span class="line">  CUDA Graph replay 或常规 kernel launch</span><br><span class="line">               ↓</span><br><span class="line">       Attention / GEMM 等 GPU 执行</span><br></pre></td></tr></table></figure>
+<p>关键不是“每生成一个 token 都重新 JIT”，而是尽量让绝大多数请求落在已经编好、预热好、能复用的路径上。真实 serving 系统会努力避免 token 长度或 batch 每变化一次，就引发昂贵的整图重编译。</p>
+<h3 id="9-4-什么时候反而应该优先选-aot？">9.4 什么时候反而应该优先选 AOT？</h3>
+<p>部署到移动设备、NPU 或严格控制启动延迟的在线服务时，经常更适合提前编译 + 少量变体 + 运行时分发。例如，固定模型/设备、已知 batch 范围的场景，把编译成本挪到构建和发布阶段，可能比把完整编译器打包进终端更合适。</p>
+<p>PyTorch 也提供 torch.compile 的 AOT 编译与产物序列化路径。这进一步说明：图级优化、Triton 代码生成和 autotune，并不天生要求发生在用户第一次请求时。</p>
+<h2 id="10-jit-什么时候真的划算？算一笔账">10. JIT 什么时候真的划算？算一笔账</h2>
+<p>假设某个 AOT 通用实现每次执行需要 T_generic，特化实现每次需要 T_specialized，首次编译需要 T_compile，之后复用 H 次。</p>
+<p>简化估算：</p>
+<p>只有当 <code>T_generic &gt; T_specialized</code> 且 <code>H &gt; T_compile / (T_generic - T_specialized)</code> 时，JIT 的累计时间才可能更划算。</p>
+<p>例如：编译花 2 秒、每次快 0.2 毫秒，要复用超过 10,000 次才能回本（尚未计入 autotune、额外内存、缓存 I/O 和服务冷启动）。对高频模型服务可能值得；对偶尔触发一次的算子，就未必。</p>
+<p>这个公式是理解成本的简化模型。在真实部署中，还要考虑 AOT 多变体的性能、缓存跨进程持久化、设备升级、代码体积、编译器版本、并发编译，以及 P50/P99 延迟。</p>
+<h3 id="10-1-用刚才的-cpu-jit-数据算一次-回本">10.1 用刚才的 CPU JIT 数据算一次「回本」</h3>
+<p>第 3.4 节实际测到：纯 Python 一次约 4.982 ms，Numba 首次调用约 474.240 ms，之后每次 warm 调用约 0.063 ms。如果仅作为粗略估算，假定调用次数为 H、数据和机器状态不变，那么：</p>
+<p>两者相等时约为 96 次调用，所以按这次测量和模型，累计到第 97 次左右才可能开始弥补首次调用成本。即便单次 warm 执行快很多，调用次数太少时仍未必划算。</p>
+<p>这里有两个边界不能省略：第一，474.240 ms 是本进程首调用的总耗时，并非纯 JIT 编译耗时，且受到磁盘缓存状态影响；第二，这个「回本」比较的是 Numba JIT 与纯 Python 循环，不是 JIT 与 AOT。若换成已优化的 C++、AOT 多变体或不同的输入规模，分母、结论和回本次数都可能完全不同。</p>
+<p>你可以自己运行 python <a target="_blank" rel="noopener" href="http://run.py">run.py</a> --json my-jit.json 取得本机数据，再代入上面的式子；这比直接套用本文的 97 次更有意义。</p>
+<h2 id="11-真要在工程里使用-jit-先检查什么？">11. 真要在工程里使用 JIT，先检查什么？</h2>
+<ul>
+<li><strong>基准要分开测</strong>：分别记录冷启动/首次编译、缓存命中后的 steady-state、autotune 耗时和端到端延迟，避免把初始化混入 JIT 结论。</li>
+<li><strong>先识别特化维度</strong>：shape、stride、dtype、layout、设备架构、静态配置；哪些必须固定，哪些应保留动态？</li>
+<li><strong>Guard 要守住正确性</strong>：每个产物都要有清晰的适用条件，失效时能够重新编译或安全回退。</li>
+<li><strong>缓存要可解释</strong>：知道 key 的组成、编译器/驱动升级后的失效条件、存储位置、容量上限和淘汰策略。分层缓存可以存在，但边界要清楚。</li>
+<li><strong>预热要针对真实流量</strong>：从热点 shape 开始，不要漫无目的地穷举所有变体。</li>
+<li><strong>要有非 JIT 回退路径</strong>：图抓取失败、编译失败、硬件不支持或冷启动预算不足时，仍能保证功能正确。</li>
+<li><strong>先保证数值和内存安全</strong>：验证不同 dtype 的累加精度、shape 边界、别名、stride、并发与设备行为，再看 GFLOPS。</li>
+<li><strong>最后才判断收益</strong>：对比真实瓶颈、编译摊销和全链路吞吐，别只比较单颗 kernel 的峰值。</li>
+</ul>
+<h2 id="12-常见疑问-快速对照">12. 常见疑问，快速对照</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>简短回答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只要 shape 多，就一定要用 JIT？</td>
+<td>不一定。动态 shape 的通用 kernel、AOT 多变体和 runtime dispatch 都能覆盖大量输入。</td>
+</tr>
+<tr>
+<td>一份通用 kernel 能处理不同 dtype 吗？</td>
+<td>算法逻辑可以共用；最终通常仍需类型实例化、分发或其他类型处理机制。</td>
+</tr>
+<tr>
+<td>JIT 就一定比手写 CUDA / cuBLAS 快吗？</td>
+<td>不一定。看是否有更好的特化、融合、调度和实测表现。</td>
+</tr>
+<tr>
+<td>Codegen 就是 JIT 吗？</td>
+<td>不是。Codegen 是生成代码的步骤；JIT 指运行时编译的策略。</td>
+</tr>
+<tr>
+<td>Pass、Fusion 和 JIT 是一回事吗？</td>
+<td>不是。Pass 是编译器变换，Fusion 是优化方法，JIT 是编译发生的时机。</td>
+</tr>
+<tr>
+<td>同一个 shape 就肯定命中缓存？</td>
+<td>不一定。dtype、stride、静态参数、目标设备或编译版本变化也可能影响复用。</td>
+</tr>
+<tr>
+<td>大模型每生成一个 token 都要 JIT 吗？</td>
+<td>不应该如此。线上系统的目标是让常见请求命中预编译或缓存变体。</td>
+</tr>
+<tr>
+<td>CUDA Graph 和 JIT 有什么区别？</td>
+<td>前者捕获并重放 GPU 执行序列；后者生成/编译代码。能协作，但不是一回事。</td>
+</tr>
+<tr>
+<td>部署端不能 JIT，是否就做不了融合？</td>
+<td>仍能在离线编译阶段融合、特化并发布 AOT 产物。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="把文章和代码连起来">把文章和代码连起来</h2>
+<p>文章里的三个问题，现在都能在源码中找到对应观察点：</p>
+<table>
+<thead>
+<tr>
+<th>想验证什么？</th>
+<th>从哪里开始？</th>
+<th>观察结果时注意什么？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次调用为什么慢、缓存是否复用？</td>
+<td>JIT first-call Demo · <code>python run.py</code></td>
+<td>首调用总时间不等于纯编译时间；再次运行进程还可能命中磁盘缓存</td>
+</tr>
+<tr>
+<td>数组长度变化一定要重新编译吗？</td>
+<td>同一个 Demo 的编译签名统计</td>
+<td>这份 Numba 示例中，长度变化不新增签名，dtype 变化会新增签名</td>
+</tr>
+<tr>
+<td>一个固定 GEMM tile 能否跑遍所有 shape？</td>
+<td>GEMM specialization Demo · <code>python run.py gemm</code></td>
+<td>都能得到正确结果，但本轮不同 shape 的最快 tile 不同</td>
+</tr>
+</tbody>
+</table>
+<p>两个 CPU Demo 均可用 --verify 运行数值检查；仓库的 GitHub Actions 还在 Linux 与 Windows 的 Python 环境中运行自动化 smoke test。CI 通过说明示例可执行与正确性检查通过，不表示不同机器的性能数值一致。</p>
+<p>只想理解原理，可以直接运行 CPU Demo；想进一步追踪 GPU JIT，则阅读第 3 节 Triton 代码和可选 CUDA 示例。后者需要相应 GPU 环境，不能拿 CPU 结果代替 GPU 实测。</p>
+<h2 id="继续阅读">继续阅读</h2>
+<p>Engineering Labs：JIT 首次调用与 GEMM 特化源码、数据和运行命令<br>
+Triton：Matrix Multiplication 教程与公开 benchmark<br>
+Triton：@triton.jit API<br>
+PyTorch：Dynamic Shapes<br>
+PyTorch：Dealing with Recompilations<br>
+PyTorch：编译缓存机制<br>
+vLLM：Compilation 配置<br>
+vLLM：CUDA Graph 设计<br>
+VkFFT：运行时 FFT kernel 编译</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img loading="lazy" decoding="async" src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2026/11/08/75-AOT-JIT-Comparison/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOT/" rel="tag">AOT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JIT/" rel="tag">JIT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96/" rel="tag">编译优化</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/06/22/73-android-architecture/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">android camera开发扫盲</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2026
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img loading="lazy" decoding="async" src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img loading="lazy" decoding="async" class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img loading="lazy" decoding="async" class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>

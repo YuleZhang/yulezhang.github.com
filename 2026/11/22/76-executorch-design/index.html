@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-Hans">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>ExecuTorch 的设计理念：把模型变成端侧程序 |  YuleZhang&#39;s Blog</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+        $(document).on('click', '.fold_hider', function(){
+            $('>.fold', this.parentNode).slideToggle();
+            $('>:first', this).toggleClass('open');
+        });
+        //默认情况下折叠
+        $("div.fold").css("display","none");
+        });
+      </script>
+      <script src="/js/search.js"></script>
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?ea0ce0f0a3f1a91d26e137d333ca4beb";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="YuleZhang's Blog" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-executorch-design"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  ExecuTorch 的设计理念：把模型变成端侧程序
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2026/11/22/76-executorch-design/" class="article-date">
+  <time datetime="2026-11-22T10:00:00.000Z" itemprop="datePublished">2026-11-22</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">11.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">42 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+<blockquote>
+<p><strong>公开版</strong>：只使用 ExecuTorch / PyTorch / QNN 等公共项目作为锚点，可独立阅读、可对外分享。 带完整分层细节的个人消化版见 通过QNN了解execuTorch的设计理念。</p>
+</blockquote>
+<h2 id="1-一句话版本">1. 一句话版本</h2>
+<p><strong>ExecuTorch 不是"把 PyTorch 模型转成硬件 Binary"的 Converter，而是一套端侧模型准备、编译、打包和执行体系。</strong></p>
+<p>一个 PyTorch 模型要跑到手机上，中间要回答一串彼此独立的问题：怎么把模型完整抓下来、算子怎么规范化、量化策略放哪、哪些图交给 NPU、后端产物长什么样、内存什么时候规划、Runtime 里到底要编哪些 Kernel。</p>
+<p>ExecuTorch 的做法是给每个问题一个<strong>独立的层</strong>，并且尽量把它们全部推到设备执行之前。QNN 只是这套体系里的一个 Backend。</p>
+<h2 id="2-三个阶段-别混成一件事">2. 三个阶段，别混成一件事</h2>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Host / Build machine · Program Preparation</span><br><span class="line">    nn.Module</span><br><span class="line">      │ torch.export</span><br><span class="line">      ▼</span><br><span class="line">    ExportedProgram（ATen FX Graph）</span><br><span class="line">      │</span><br><span class="line">      ├─ 要量化？ ── 是 ─▶ Quantizer → prepare_pt2e → Calibration / QAT → convert_pt2e</span><br><span class="line">      │                     （量化语义成为图的一部分：Q / DQ 节点）</span><br><span class="line">      │</span><br><span class="line">      └─ 否 ───────────┐</span><br><span class="line">                       ▼</span><br><span class="line">            Core ATen ──▶ Edge Dialect</span><br><span class="line">                       │</span><br><span class="line">                       ▼</span><br><span class="line">                  Partitioner</span><br><span class="line">                  ├── 可下沉 ─▶ QNN Backend preprocess ─▶ QNN compiled blob</span><br><span class="line">                  └── 不可下沉 ─▶ 剩余 ExecuTorch 算子</span><br><span class="line">                       │</span><br><span class="line">                       ▼</span><br><span class="line">            AOT Memory Planning ─▶ to_executorch</span><br><span class="line">                       │</span><br><span class="line">                       ▼</span><br><span class="line">              model.pte（ExecuTorch Program）</span><br><span class="line"> </span><br><span class="line">Target build · Runtime Preparation</span><br><span class="line">    .pte / operator list / YAML</span><br><span class="line">      │ Selective Build：解析需要的 operator 与 dtype variant</span><br><span class="line">      ▼</span><br><span class="line">    C++ Runtime + 选中的 Portable / Optimized Kernel</span><br><span class="line">      │ 独立构建、独立链接</span><br><span class="line">      ▼</span><br><span class="line">    QNN Delegate + QNN Runtime</span><br><span class="line"> </span><br><span class="line">Device · Program Execution</span><br><span class="line">    model.pte ─▶ ExecuTorch Executor</span><br><span class="line">                   │</span><br><span class="line">                   ├─ 普通算子 ─▶ Portable / optimized CPU Kernel</span><br><span class="line">                   └─ delegate 指令 ─▶ QNN Delegate ─▶ QNN Runtime ─▶ HTP / GPU</span></pre></td></tr></table></figure>
+<p>三个阶段各自只回答自己的问题：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th><th>回答什么</th><th>产物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Program Preparation</strong></td><td>模型怎么变成一份完整程序</td><td><code>.pte</code>（内含 Delegate Blob）</td>
+</tr>
+<tr>
+<td><strong>Runtime Preparation</strong></td><td>目标平台上到底要哪些代码</td><td>裁剪后的 Runtime + Kernel Library</td>
+</tr>
+<tr>
+<td><strong>Program Execution</strong></td><td>设备上怎么把它跑起来</td><td>普通 Kernel 与 Delegate 的混合执行</td>
+</tr>
+</tbody>
+</table>
+<p>这里最重要的设计原则是：<strong>尽可能把工作前移到 AOT，保留一个轻量、可移植的 C++ Runtime。</strong></p>
+<p>设备端不需要重新运行 Python 模型定义，也不需要每次推理都重新分析整张图、重新做后端编译、重新规划 Tensor 生命周期。</p>
+<p>但别把 AOT 理解成"运行时完全没有动态行为"——ExecuTorch 仍然支持控制流和动态 Shape。区别在于它会尽量提前明确执行结构、内存需求的边界以及后端分工。</p>
+<h2 id="3-前端：先把-算子-和-图-分开">3. 前端：先把"算子"和"图"分开</h2>
+<p>这三个概念最容易被混为一谈，因为它们处在不同层次：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th><th>本质</th><th>典型内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ATen</strong></td><td>PyTorch 的 Tensor 与 Operator Library</td><td><code>torch.ops.aten.convolution.default</code></td>
+</tr>
+<tr>
+<td><strong>FX</strong></td><td>Python 图表示</td><td><code>Graph</code>、<code>Node</code>、<code>GraphModule</code></td>
+</tr>
+<tr>
+<td><strong>ExportedProgram</strong></td><td>完整的导出程序描述</td><td>Graph、Graph Signature、State、Constants、Shape Constraints</td>
+</tr>
+</tbody>
+</table>
+<p>一个 <code>F.conv2d</code> 导出之后，图里的节点引用的是具体的 ATen Operator Overload：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Input</span><br><span class="line">  │</span><br><span class="line">  ▼</span><br><span class="line">torch.ops.aten.convolution.default      ← aten：命名空间</span><br><span class="line">  │                                       convolution：算子名</span><br><span class="line">  ▼                                       default：overload</span><br><span class="line">torch.ops.aten.relu.default</span><br><span class="line">  │</span><br><span class="line">  ▼</span><br><span class="line">Output</span></pre></td></tr></table></figure>
+<p>两个容易错的点：</p>
+<ul>
+<li><strong>ATen Operator 不等于 CPU Kernel。</strong> 它表达算子语义；最终可以由 CPU Kernel 执行，也可以被编译成 QNN、CUDA 等后端算子。ATen 是统一的算子语义入口，不是已经定好实现地址的 Dispatch 表。</li>
+<li><strong>"ATen FX Graph" 指的是一张用 ATen Operator 作为 Node Target 的 FX Graph</strong>，不是两种东西的合体。</li>
+</ul>
+<p>而 <code>torch.export.export()</code> 返回的 <code>ExportedProgram</code> 远不只是 <code>GraphModule</code>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ExportedProgram</span><br><span class="line">├── GraphModule</span><br><span class="line">│   └── FX Graph</span><br><span class="line">├── Graph Signature          （哪些是用户输入 / 输出、参数与 Buffer 怎么映射）</span><br><span class="line">├── State Dict               （Parameters / Buffers）</span><br><span class="line">├── Constants</span><br><span class="line">└── Range Constraints        （动态 Shape 的合法范围）</span></pre></td></tr></table></figure>
+<p>只知道 <code>x → convolution → output</code> 不够。编译器还必须知道 weight 在哪、哪些输入是用户输入、常量如何保存、Shape 是固定还是动态。<strong>所以后端编译器通常不应该只拿到一张孤立的 Graph 就开始编译。</strong></p>
+<h2 id="4-规范化：core-aten-与-edge-dialect-是两件事">4. 规范化：Core ATen 与 Edge Dialect 是两件事</h2>
+<p>拿到 ATen Graph 之后为什么不直接转成 QNN Graph？因为 ATen Operator 数量庞大、含很多高层复合算子，Operator Set 越大，后端要支持、优化和实现 Kernel 的复杂度越高。</p>
+<p>于是有两次各自目的不同的规范化：</p>
+<p><strong>第一次，Core ATen：缩小并规范化算子集合。</strong> 把高层算子按 decomposition 拆成更基础的算子：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Operator A</span><br><span class="line">   │ decomposition</span><br><span class="line">   ▼</span><br><span class="line">Operator B → Operator C → Operator D</span></pre></td></tr></table></figure>
+<p>它减少需要处理的算子种类、让通用图优化可以针对基础算子开展、让不同 Backend 复用同一套规范化语义。但<strong>decomposition 不是越彻底越好</strong>——QNN 原生支持 Conv2D 时，把 Conv2D 拆成低层算子反而可能破坏原生算子映射和融合机会。所以要根据目标 Backend 的能力决定保留还是分解。</p>
+<p><strong>第二次，Edge Dialect：明确端侧部署契约。</strong> 它规定 Operator 必须带 dtype 与内存布局信息（<code>dim_order</code>）或是已注册的 Custom Operator、Scalar 要转换成 Tensor，并且这些信息还能给 Selective Build 当依据。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ExportedProgram / ATen FX</span><br><span class="line">   │ decomposition / lowering</span><br><span class="line">   ▼</span><br><span class="line">Core ATen（更小、更规范的算子集合）</span><br><span class="line">   │ edge conversion</span><br><span class="line">   ▼</span><br><span class="line">Edge Dialect（dtype · dim_order · scalar 规则 · custom op）</span><br><span class="line">   │ 按 Backend 能力分别 lowering</span><br><span class="line">   ├── QNN</span><br><span class="line">   ├── Core ML</span><br><span class="line">   ├── XNNPACK</span><br><span class="line">   └── 其他 Backend</span></pre></td></tr></table></figure>
+<p><strong>Edge Dialect 不是 QNN IR，也不是给 ATen Operator 改个名。</strong> 它是 ExecuTorch 为端侧编译定义的标准化表示。</p>
+<p>这样分层的关键收益是：通用前端负责标准化图，具体硬件后端不必各自重新实现模型捕获和所有通用图语义。</p>
+<h2 id="5-量化：让量化语义成为-graph-的一部分">5. 量化：让量化语义成为 Graph 的一部分</h2>
+<p>ExecuTorch 的量化生态使用 torchao，多数 Backend 走 PT2E 流程。但每个 Backend 可以定义自己的 Quantizer——硬件支持的量化配置本来就不一样。</p>
+<p>PTQ 和 QAT 的共同点在于都由 Backend-specific Quantizer 提供策略，分歧在准备阶段和数据流：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ExportedProgram / ATen FX</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">Backend-specific Quantizer（定义量化 annotation）</span><br><span class="line">   │</span><br><span class="line">   ├─ PTQ ─▶ prepare_pt2e 插入 Observer ─▶ Calibration 收集激活分布 ─┐</span><br><span class="line">   │                                                              │</span><br><span class="line">   └─ QAT ─▶ QAT prepare 插入 FakeQuant ─▶ 带 FakeQuant 训练 ─────┤</span><br><span class="line">                                                                  ▼</span><br><span class="line">                                                            convert_pt2e</span><br><span class="line">                                                                  │</span><br><span class="line">                                                                  ▼</span><br><span class="line">                                              量化图（Q / DQ 或量化算子）</span><br><span class="line">                                                                  │</span><br><span class="line">                                                                  ▼</span><br><span class="line">                                          Core ATen / Edge Dialect ─▶ QNN lowering</span><br><span class="line">                                                                  │</span><br><span class="line">                                                                  ▼</span><br><span class="line">                              QNN Tensor encoding：dtype · scale · zero_point · axis</span></pre></td></tr></table></figure>
+<p>三步各自的职责：</p>
+<ul>
+<li><strong>Quantizer</strong>：定义哪些 Operator / Tensor 要量化、激活与权重的 dtype、Per-tensor 还是 Per-channel、Static / Dynamic / Weight-only、PTQ 还是 QAT。它是把硬件量化能力和模型图连起来的<strong>策略层</strong>，不是一个"把所有 Tensor 转成 INT8"的函数。</li>
+<li><strong>Prepare</strong>：按 annotation 规则找到量化边界，插入 Observer（PTQ）或 FakeQuant（QAT）。Observer 在 Calibration 阶段收集分布以确定量化参数；FakeQuant 在训练中模拟量化误差。</li>
+<li><strong>Convert</strong>：把 Observer / FakeQuant 变成图里明确的 Quantize / Dequantize 节点，于是量化语义可以被检查、评估，也能被后端识别和进一步优化。</li>
+</ul>
+<p><strong>不要把 Q/DQ 图理解成设备上一定逐节点执行 Quantize 和 Dequantize。</strong> 后端可以把量化参数映射到 Tensor Encoding、融合进 Operator，或在必要位置插入 Requantize、保留 Float Island。</p>
+<p>对 QNN 来说，Backend 最终必须正确维护 Tensor 的 dtype、scale、zero point、axis 和 encoding。相邻算子输入输出 encoding 不一致时必须保证转换语义正确，<strong>不能为了删掉 Q/DQ 而破坏数值含义</strong>。</p>
+<h2 id="6-后端链路：partitioner-backend-delegate-必须分开">6. 后端链路：Partitioner、Backend、Delegate 必须分开</h2>
+<p>这是 ExecuTorch 后端体系最重要的抽象，三个角色在一条 AOT → Runtime 链路上各管一段：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">AOT · Program Preparation</span><br><span class="line">    Edge Program</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">    QNN Partitioner</span><br><span class="line">      │  Support checks：operator · dtype · shape · constraints</span><br><span class="line">      ▼</span><br><span class="line">    ├── QNN Partition #0（Conv → ReLU）</span><br><span class="line">    ├── CPU Operator（CustomOp，留在 Runtime）</span><br><span class="line">    └── QNN Partition #1（MatMul）</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">    QNN Backend.preprocess（partition + CompileSpec）</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">    QNN compiled blob</span><br><span class="line">      │</span><br><span class="line">      ▼</span><br><span class="line">    Delegate 节点 + blob，一起序列化进 .pte</span><br><span class="line"> </span><br><span class="line">Runtime · Program Execution</span><br><span class="line">    ExecuTorch Executor</span><br><span class="line">      │</span><br><span class="line">      ├─ 普通算子 ─▶ Portable / optimized Kernel</span><br><span class="line">      │</span><br><span class="line">      └─ delegate 指令 ─▶ call_delegate ─▶ QNN Delegate</span><br><span class="line">                                              ├── init：加载 / 创建 QNN Context</span><br><span class="line">                                              ├── execute：调用 QNN Graph</span><br><span class="line">                                              └── destroy：释放资源</span><br><span class="line">                                              │</span><br><span class="line">                                              ▼</span><br><span class="line">                                          QNN Runtime ─▶ HTP / GPU</span></pre></td></tr></table></figure>
+<ul>
+<li><strong>Partitioner 只负责选图。</strong> 它回答：这个 Operator 受支持吗？dtype / Shape / 参数满足要求吗？能和前后节点组成连续子图吗？哪些必须留在 Runtime 或其他 Backend？它<strong>不生成 QNN Binary</strong>。</li>
+<li><strong>Backend 负责编译。</strong> <code>partition</code> 标记并形成分区，<code>preprocess</code> 接收 Edge Program 子图和 CompileSpec，返回编译后的 Binary Blob。QNN Backend 内部会做算子映射、Tensor / Op 配置、图构建、Finalize / Context 编译。CompileSpec 是独立的编译控制面，用来传 SoC、后端类型、精度、图配置——同一份图在不同 CompileSpec 下可以产出面向不同目标的产物。</li>
+<li><strong>Delegate 负责运行时接入。</strong> 它提供 <code>is_available()</code> / <code>init()</code> / <code>execute()</code> / <code>destroy()</code> 四个接口。<strong>Delegate 不是 QNN Runtime 的替代品</strong>，而是 ExecuTorch Runtime 对具体 Backend 的统一接入层。</li>
+</ul>
+<p>一个模型可以产生多个 Delegate partition，也可以保留未下沉的普通算子——这就是 Partial Delegation，它让异构执行成为可能：真实模型不可能保证每个 Operator 都被同一颗 NPU 支持。</p>
+<h2 id="7-两种产物-别当成一个东西">7. 两种产物，别当成一个东西</h2>
+<table>
+<thead>
+<tr>
+<th>产物</th><th>作用范围</th><th>主要内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>QNN Context Binary</strong></td><td>QNN Backend 分区</td><td>QNN 可加载的图编译产物</td>
+</tr>
+<tr>
+<td><strong>ExecuTorch Program（<code>.pte</code>）</strong></td><td>完整模型程序</td><td>Runtime 指令、常量、内存规划、Delegate Blob 等</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">model.pte</span><br><span class="line">┌──────────────────────────────────────────────┐</span><br><span class="line">│ ExecuTorch Program                           │</span><br><span class="line">│  ├── Program / Execution Instructions        │</span><br><span class="line">│  ├── Input / Output Metadata                 │</span><br><span class="line">│  ├── Constant Data                           │</span><br><span class="line">│  ├── Memory Planning Information             │</span><br><span class="line">│  ├── Remaining Operator Calls                │</span><br><span class="line">│  ├── Delegate #0 ── QNN Backend Blob         │</span><br><span class="line">│  └── Delegate #1 ── Other Backend Blob       │</span><br><span class="line">└──────────────────────────────────────────────┘</span></pre></td></tr></table></figure>
+<p>Backend <code>preprocess</code> 返回的编译产物会作为 Delegate Blob 被序列化进 <code>.pte</code>。所以：<strong>QNN Context Binary 描述 QNN 分区，<code>.pte</code> 描述完整的 ExecuTorch 程序。</strong> 一个 <code>.pte</code> 可以有多个 Delegate，也可以保留普通 Operator；设备端由 ExecuTorch Runtime 解析程序，遇到 Delegate 指令时调用相应 Backend。</p>
+<p><code>.pte</code> 是异构执行计划的封装，不是另一个 QNN Context Binary。</p>
+<h2 id="8-aot-memory-planning：在编译期决定-tensor-住哪">8. AOT Memory Planning：在编译期决定 Tensor 住哪</h2>
+<p>端侧频繁动态分配会带来性能、功耗和碎片问题。ExecuTorch 因此在 AOT 阶段尽可能确定 Tensor 的内存需求和生命周期，把它们安排进固定大小的 Memory Arena。</p>
+<p>核心思想只有一句：</p>
+<blockquote>
+<p>如果两个 Tensor 的生命周期不重叠，它们就可以复用同一段物理存储。</p>
+</blockquote>
+<p>官方 Memory Planning 由三个 Pass 完成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">ExportedProgram / Edge Program</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">SpecPropPass        传播 TensorSpec 与符号 Shape</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">SymShapeEvalPass    把符号 Shape 求成具体上界（动态维度给 ValueRange）</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">MemoryPlanningPass  分析 Tensor 生命周期</span><br><span class="line">   │</span><br><span class="line">   ├─ 生命周期重叠 ─▶ 需要独立的 live buffer</span><br><span class="line">   └─ 生命周期不重叠 ─▶ 复用已有 buffer</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">分配 arena 与 buffer offset ─▶ 规划好的内存布局</span></pre></td></tr></table></figure>
+<p>一个必须守住的边界：<strong>ExecuTorch Memory Planner 不等于 QNN 内部的内存分配器。</strong> Planner 规划的是 ExecuTorch 程序里 Tensor Buffer 的生命周期与复用；Delegate 自己持有的资源仍由后端自己管理。把这两件事混在一起，是端侧内存问题最常见的误判来源。</p>
+<h2 id="9-selective-build：runtime-不需要包含所有-kernel">9. Selective Build：Runtime 不需要包含所有 Kernel</h2>
+<p>它解决的是一个完全不同的问题——<strong>最终要编进 Runtime 的 Kernel 实现有哪些</strong>：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.pte / YAML / operator list</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">提取模型所需 operator 与 dtype</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">聚合多个模型的 op metadata</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">Kernel Resolver</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">生成注册信息，裁剪 Kernel Library</span></pre></td></tr></table></figure>
+<p>四个要点：</p>
+<ol>
+<li>它发生在 <strong>build-time</strong>，不是运行时动态裁剪；</li>
+<li>裁剪的主要是 ExecuTorch 的 Portable / Optimized Kernel Library；</li>
+<li>Delegate Backend 通常独立构建和链接，<strong>不由 Kernel Selective Build 自动裁剪</strong>；</li>
+<li>Dtype Selective Build 能进一步减少无用的 dtype variant，但支持范围受当前版本和 Kernel Library 限制。</li>
+</ol>
+<p><strong>Selective Build 和 Partitioner 优化的不是同一种资源</strong>：前者裁的是"代码里有哪些 Kernel 实现"，后者决定"哪些图节点交给哪个 Backend"。</p>
+<h2 id="10-为什么-executorch-要这样设计">10. 为什么 ExecuTorch 要这样设计</h2>
+<p>不是单纯为了多加几层抽象。把前面合起来看，有四条真实的收益：</p>
+<ul>
+<li><strong>前端与后端解耦</strong>：没有统一导出与 IR 层时，每个 Backend 都要重复处理模型捕获、算子语义、参数、Shape、量化。ExecuTorch 把通用能力放在前端和公共 IR 层，让 Backend 只聚焦硬件相关的图变换和编译。</li>
+<li><strong>Partial Delegation 让异构执行成为可能</strong>：Partitioner 把适合硬件的连续子图下沉，其余节点留给 Runtime 或其他 Backend，比"整个模型必须由单一硬件执行"灵活得多。</li>
+<li><strong>AOT 把成本从每次推理前移到离线</strong>：图变换、后端编译、内存规划、Kernel 选择都尽量在 AOT 完成，设备端只保留程序解释、Kernel Dispatch、Delegate 调用和后端执行。</li>
+<li><strong>Runtime 保持轻量，Backend 独立演进</strong>：Runtime 不需要理解 QNN Graph 的每个内部节点，只需知道这条指令是普通 Operator 还是 Delegate。QNN Backend 可以独立演进自己的 Builder、图编译和 Runtime 适配，硬件细节不会泄漏进通用 Runtime。</li>
+</ul>
+<h2 id="11-一张表收束">11. 一张表收束</h2>
+<table>
+<thead>
+<tr>
+<th>层次</th><th>关键对象</th><th>核心问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model Frontend</td><td><code>nn.Module</code></td><td>模型如何定义？</td>
+</tr>
+<tr>
+<td>Export</td><td><code>ExportedProgram</code> / ATen FX</td><td>如何完整捕获计算和状态？</td>
+</tr>
+<tr>
+<td>Quantization</td><td>PT2E / Quantizer / QDQ</td><td>如何表达量化策略与数值语义？</td>
+</tr>
+<tr>
+<td>Generic IR</td><td>Core ATen / Edge Dialect</td><td>如何规范化算子并明确端侧契约？</td>
+</tr>
+<tr>
+<td>Partition</td><td>Partitioner / DelegationSpec</td><td>哪些图节点交给哪个 Backend？</td>
+</tr>
+<tr>
+<td>Backend Compiler</td><td><code>preprocess</code> / CompileSpec</td><td>如何把子图编译成硬件产物？</td>
+</tr>
+<tr>
+<td>Program Emission</td><td>Memory Planning / <code>.pte</code></td><td>如何形成完整可执行的程序？</td>
+</tr>
+<tr>
+<td>Runtime Build</td><td>Selective Build / Kernel Registry</td><td>最终需要哪些 Kernel 实现？</td>
+</tr>
+<tr>
+<td>Runtime Execution</td><td>Executor / Delegate</td><td>如何调度普通 Kernel 与后端程序？</td>
+</tr>
+</tbody>
+</table>
+<p><strong>最值得记住的五个结论：</strong></p>
+<ol>
+<li>ATen 是算子体系，FX 是图结构，ExportedProgram 是完整导出程序。</li>
+<li>Core ATen 和 Edge Dialect 是不同阶段的规范化表示；Edge Dialect 不是具体硬件 IR。</li>
+<li>Partitioner 负责选图，Backend 负责编译，Delegate 负责运行时接入。</li>
+<li>QNN Context Binary 是后端产物，<code>.pte</code> 是完整 ExecuTorch Program。</li>
+<li>AOT Memory Planning 解决 Tensor Buffer 的生命周期与复用，Selective Build 解决 Kernel Library 的裁剪，两者优化的不是同一种资源。</li>
+</ol>
+<h2 id="延伸">延伸</h2>
+<ul>
+<li>个人消化版（含 Mermaid 全图与逐节展开）：通过QNN了解execuTorch的设计理念</li>
+<li>Backend 域入口见 <code>GUIDE.md</code></li>
+</ul>
+<h3 id="官方参考">官方参考</h3>
+<ul>
+<li><a href="https://docs.pytorch.org/executorch/stable/getting-started-architecture">ExecuTorch Architecture and Components</a></li>
+<li><a href="https://docs.pytorch.org/executorch/stable/compiler-delegate-and-partitioner.html">Understanding Backends and Delegates</a></li>
+<li><a href="https://docs.pytorch.org/executorch/stable/backends-qualcomm.html">Qualcomm AI Engine Backend</a></li>
+<li><a href="https://docs.pytorch.org/executorch/stable/quantization-overview.html">ExecuTorch Quantization Overview</a></li>
+<li><a href="https://docs.pytorch.org/executorch/stable/compiler-memory-planning.html">Memory Planning</a></li>
+<li><a href="https://docs.pytorch.org/executorch/stable/kernel-library-selective-build.html">Kernel Library Selective Build</a></li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img loading="lazy" decoding="async" src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.yulezhang.com/2026/11/08/75-AOT-JIT-Comparison/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOT/" rel="tag">AOT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JIT/" rel="tag">JIT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96/" rel="tag">编译优化</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/06/22/74-qcom-dsp-train/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">qcom cdsp培训</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "33a5xw5g4336hXdos1vxxhlX-gzGzoHsz",
+    app_key: "vDHxjCHSf8Y8F2yKyQwfWocf",
+    path: window.location.pathname,
+    avatar: "wavatar",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2026
+        <i class="ri-heart-fill heart_icon"></i> YuleZhang&#39;s Blog
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <script async src="https://cdn.jsdelivr.net/gh/YinAoXiong/busuanzi@2.3.0/busuanzi.pure.mini.js"></script>
+        <span>
+  <span id="busuanzi_container_site_uv"><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span id="busuanzi_container_page_pv"><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img loading="lazy" decoding="async" src="/images/my-avatar.svg" alt="YuleZhang&#39;s Blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/collect">收藏</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img loading="lazy" decoding="async" class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img loading="lazy" decoding="async" class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+ 
+<!-- busuanzi  -->
+ 
+  
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=28907016&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
